@@ -1,255 +1,351 @@
 import { Link } from "react-router-dom";
-import { Phone, ArrowRight, Award, Building2, Compass, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-import heroImg from "@/assets/hero-building.jpg";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
-
-const stats = [
-  { value: "CP", label: "Certified Professional" },
-  { value: "IPD", label: "Integrated Project Delivery" },
-  { value: "BIM", label: "Building Info Modelling" },
-  { value: "CHBA", label: "Awards Finalist" },
-];
+import DiagonalMarquee from "@/components/DiagonalMarquee";
+import hero1 from "@/assets/hero-1.jpg";
+import hero2 from "@/assets/hero-2.jpg";
+import aboutStudio from "@/assets/about-studio.jpg";
+import featured1 from "@/assets/featured-1.jpg";
+import featured2 from "@/assets/featured-2.jpg";
+import featured3 from "@/assets/featured-3.jpg";
+import featured4 from "@/assets/featured-4.jpg";
 
 const services = [
-  { icon: Building2, title: "Integrated Building Design", desc: "Full-spectrum architectural design for commercial, residential, industrial, and institutional projects." },
-  { icon: Compass, title: "Code Consultation (CP)", desc: "Complex building code consultation with CP Certified Professional expertise." },
-  { icon: ShieldCheck, title: "Project Management", desc: "End-to-end project management including planning, coordination, and delivery oversight." },
-  { icon: Award, title: "Sustainable Architecture", desc: "Environmentally responsible design guided by green building principles and LEED standards." },
+  {
+    num: "01",
+    title: "Integrated Building Design",
+    desc: "Full-spectrum architectural design for commercial, residential, industrial, and institutional projects.",
+  },
+  {
+    num: "02",
+    title: "Code Consultation",
+    desc: "Complex building code consultation with CP Certified Professional expertise.",
+  },
+  {
+    num: "03",
+    title: "Project Management",
+    desc: "End-to-end project management including planning, coordination, and delivery oversight.",
+  },
+  {
+    num: "04",
+    title: "Sustainable Architecture",
+    desc: "Environmentally responsible design guided by green building principles and LEED standards.",
+  },
 ];
 
-const projects = [
-  { img: project1, title: "Mixed-Use Development", category: "Commercial" },
-  { img: project2, title: "High-Rise Residential", category: "Residential" },
-  { img: project3, title: "Specialized Industrial", category: "Industrial" },
-];
-
-const trustPoints = [
-  "Canadian Home Builder's Association Sam Awards Finalist",
-  "CHBA National Awards for Housing Excellence Finalist",
-  "U.S. Green Building Council — Las Vegas Regional Chapter",
-  "CP Certified Professional",
+const featuredProjects = [
+  { img: featured1, title: "Mixed-Use Development", category: "Commercial" },
+  { img: featured2, title: "High-Rise Residential", category: "Residential" },
+  { img: featured3, title: "Institutional Complex", category: "Institutional" },
+  { img: featured4, title: "Industrial Research Facility", category: "Industrial" },
 ];
 
 const Index = () => {
   return (
     <main className="pb-16 md:pb-0">
-      {/* HERO */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* HERO — Fullscreen Slideshow */}
+      <section className="relative h-screen min-h-[600px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Modern architectural building by Architect 57" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-[hsl(var(--hero-overlay))]/80" />
+          <img src={hero1} alt="Modern architecture at twilight" className="absolute inset-0 w-full h-full object-cover hero-slide-1" />
+          <img src={hero2} alt="Residential tower at night" className="absolute inset-0 w-full h-full object-cover hero-slide-2" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[hsl(240,6%,10%)]/90 via-[hsl(240,6%,10%)]/40 to-transparent" />
         </div>
-        <div className="container-wide relative z-10 py-32 md:py-40">
+        <div className="container-wide relative z-10 pb-20 md:pb-28">
           <ScrollReveal>
-            <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-6">
-              Richmond, BC — Design Build Firm
+            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-5">
+              Richmond, BC — Design Build
             </p>
           </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <h1 className="font-heading text-[38px] md:text-[52px] lg:text-[64px] font-extrabold leading-[1.05] text-white max-w-3xl mb-6">
-              Integrated Architecture &amp; Building Code Experts
+          <ScrollReveal delay={120}>
+            <h1 className="font-heading text-[40px] md:text-[60px] lg:text-[76px] font-light leading-[0.95] text-white max-w-4xl mb-6 tracking-tight">
+              Architecture that
+              <br />
+              <span className="font-medium">transforms space</span>
             </h1>
           </ScrollReveal>
-          <ScrollReveal delay={200}>
-            <p className="text-lg md:text-xl text-white/80 max-w-xl mb-10 leading-relaxed">
-              Architect 57 Inc. specializes in integrated building design, complex building code consultation, specialized industrial, research and technology, mix-use, commercial, residential, and sustainable architecture.
+          <ScrollReveal delay={240}>
+            <p className="text-base md:text-lg text-white/60 max-w-lg mb-10 leading-relaxed font-light">
+              Integrated building design, code consultation, and sustainable architecture — from concept to completion.
             </p>
           </ScrollReveal>
-          <ScrollReveal delay={300}>
+          <ScrollReveal delay={360}>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contact" className="btn-secondary inline-flex items-center justify-center gap-2 text-base">
-                Get a Free Consultation
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
+              >
+                Start a Project
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <a href="tel:604-818-2088" className="btn-outline border-white text-white hover:bg-white hover:text-foreground inline-flex items-center justify-center gap-2 text-base">
-                <Phone className="w-4 h-4" />
-                604-818-2088
-              </a>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* STATS BAR */}
-      <section className="bg-primary">
-        <div className="container-wide py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {stats.map((s, i) => (
-              <ScrollReveal key={s.value} delay={i * 80}>
-                <div className="text-center">
-                  <div className="font-heading text-3xl md:text-4xl font-extrabold text-secondary mb-1">{s.value}</div>
-                  <div className="text-sm text-primary-foreground/80 font-medium">{s.label}</div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="section-padding-lg bg-[hsl(var(--section-alt))]">
-        <div className="container-wide">
-          <ScrollReveal>
-            <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">What We Do</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-4 max-w-2xl">
-              Comprehensive Architectural Services
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mb-12">
-              From design through delivery, we bring technical precision and creative vision to every project.
-            </p>
-          </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.map((s, i) => (
-              <ScrollReveal key={s.title} delay={i * 80}>
-                <div className="bg-background rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow duration-300 h-full">
-                  <s.icon className="w-10 h-10 text-primary mb-5" strokeWidth={1.5} />
-                  <h3 className="font-heading text-xl font-bold text-foreground mb-3">{s.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-          <ScrollReveal delay={350}>
-            <div className="mt-10 text-center">
-              <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
-                Discuss Your Project <ArrowRight className="w-4 h-4" />
+              <Link
+                to="/projects"
+                className="inline-flex items-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-white border border-white/25 px-8 py-4 rounded-sm transition-all duration-300 hover:border-white/50 active:scale-[0.97]"
+              >
+                View Work
               </Link>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* TRUST SIGNALS */}
-      <section className="section-padding bg-background">
+      {/* DIAGONAL MARQUEE PORTFOLIO */}
+      <DiagonalMarquee />
+
+      {/* SERVICES — Split asymmetrical layout */}
+      <section className="section-padding-lg bg-background">
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal direction="left">
-              <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Why Choose Us</p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-6">
-                Award-Winning Expertise You Can Trust
-              </h2>
-              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Architect 57 Inc. is a proud finalist of the Canadian Home Builder's Association Sam Awards. Principal Ching-yeh (Cary) Tsai devotes his energy towards sustainable design and community building.
-              </p>
-              <ul className="space-y-4 mb-8">
-                {trustPoints.map((t) => (
-                  <li key={t} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <span className="text-foreground font-medium">{t}</span>
-                  </li>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+            <div className="lg:col-span-4">
+              <ScrollReveal>
+                <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
+                  What We Do
+                </p>
+                <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground leading-tight mb-6 tracking-tight">
+                  Comprehensive
+                  <br />
+                  <span className="font-medium">Services</span>
+                </h2>
+                <p className="text-muted-foreground font-light leading-relaxed mb-8">
+                  From design through delivery, we bring technical precision and creative vision to every project.
+                </p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground active:scale-[0.97]"
+                >
+                  Discuss Your Project
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </ScrollReveal>
+            </div>
+            <div className="lg:col-span-8">
+              <div className="space-y-0 divide-y divide-border">
+                {services.map((s, i) => (
+                  <ScrollReveal key={s.num} delay={i * 80}>
+                    <div className="py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+                      <span className="md:col-span-2 font-heading text-[13px] font-light text-[hsl(var(--purple-muted))] tracking-wider">
+                        {s.num}
+                      </span>
+                      <h3 className="md:col-span-4 font-heading text-lg font-medium text-foreground">
+                        {s.title}
+                      </h3>
+                      <p className="md:col-span-6 text-muted-foreground font-light leading-relaxed text-[15px]">
+                        {s.desc}
+                      </p>
+                    </div>
+                  </ScrollReveal>
                 ))}
-              </ul>
-              <Link to="/about" className="btn-outline inline-flex items-center gap-2">
-                Learn More About Us <ArrowRight className="w-4 h-4" />
-              </Link>
-            </ScrollReveal>
-            <ScrollReveal direction="right">
-              <div className="relative rounded-lg overflow-hidden shadow-xl">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT — Image + text overlap */}
+      <section className="relative bg-[hsl(var(--surface-warm))] overflow-hidden">
+        <div className="container-wide py-28 md:py-40">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <ScrollReveal direction="left" className="lg:col-span-6">
+              <div className="relative">
                 <img
-                  src="https://static.wixstatic.com/media/c77437_4601df6848d54b219a808518d7bc496d~mv2.jpg/v1/fit/w_960/h_541/q_90/quality_auto/c77437_4601df6848d54b219a808518d7bc496d~mv2.jpg"
-                  alt="Architect 57 project"
-                  className="w-full aspect-[4/3] object-cover"
+                  src={aboutStudio}
+                  alt="Architect working on building designs"
+                  className="w-full aspect-[3/4] object-cover rounded-sm"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 ring-1 ring-inset ring-foreground/10 rounded-lg" />
               </div>
+            </ScrollReveal>
+            <ScrollReveal direction="right" className="lg:col-span-5 lg:col-start-8">
+              <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
+                About
+              </p>
+              <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground leading-tight mb-6 tracking-tight">
+                Building a better,
+                <br />
+                <span className="font-medium">healthier world</span>
+              </h2>
+              <p className="text-muted-foreground font-light leading-relaxed mb-6">
+                Architect 57 Inc. specializes in integrated building design, complex building code consultation, specialized industrial, research and technology, mix-use, commercial, residential, and sustainable architecture.
+              </p>
+              <p className="text-muted-foreground font-light leading-relaxed mb-6 text-[15px] italic">
+                "We believe that it is our responsibility making this world a better and healthier place for living."
+              </p>
+              <div className="flex flex-wrap gap-x-8 gap-y-3 mb-8">
+                <div>
+                  <span className="font-heading text-2xl font-light text-foreground">CP</span>
+                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">Certified Professional</span>
+                </div>
+                <div>
+                  <span className="font-heading text-2xl font-light text-foreground">CHBA</span>
+                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">Awards Finalist</span>
+                </div>
+                <div>
+                  <span className="font-heading text-2xl font-light text-foreground">BIM</span>
+                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">Integrated Design</span>
+                </div>
+              </div>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground"
+              >
+                Learn More
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* PROJECTS PREVIEW */}
-      <section className="section-padding-lg bg-[hsl(var(--section-alt))]">
+      {/* FEATURED PROJECTS — Creative grid */}
+      <section className="section-padding-lg bg-background">
         <div className="container-wide">
           <ScrollReveal>
-            <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Our Work</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-12">Featured Projects</h2>
+            <div className="flex items-end justify-between mb-14">
+              <div>
+                <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
+                  Our Work
+                </p>
+                <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground tracking-tight">
+                  Featured <span className="font-medium">Projects</span>
+                </h2>
+              </div>
+              <Link
+                to="/projects"
+                className="hidden md:inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground"
+              >
+                View All
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {projects.map((p, i) => (
-              <ScrollReveal key={p.title} delay={i * 100}>
-                <Link to="/projects" className="group block rounded-lg overflow-hidden bg-background shadow-sm hover:shadow-lg transition-shadow duration-300">
-                  <div className="overflow-hidden">
-                    <img
-                      src={p.img}
-                      alt={p.title}
-                      className="w-full aspect-[3/2] object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <span className="text-xs font-bold uppercase tracking-wider text-primary">{p.category}</span>
-                    <h3 className="font-heading text-lg font-bold text-foreground mt-1">{p.title}</h3>
+
+          {/* Creative asymmetric grid */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
+            {/* Large left */}
+            <ScrollReveal className="md:col-span-7">
+              <Link to="/projects" className="group block relative overflow-hidden rounded-sm">
+                <img
+                  src={featuredProjects[0].img}
+                  alt={featuredProjects[0].title}
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6 md:p-8">
+                  <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
+                    {featuredProjects[0].category}
+                  </span>
+                  <h3 className="font-heading text-xl md:text-2xl font-light text-white mt-1">
+                    {featuredProjects[0].title}
+                  </h3>
+                </div>
+              </Link>
+            </ScrollReveal>
+
+            {/* Right stack */}
+            <div className="md:col-span-5 flex flex-col gap-4 md:gap-5">
+              <ScrollReveal delay={100}>
+                <Link to="/projects" className="group block relative overflow-hidden rounded-sm">
+                  <img
+                    src={featuredProjects[1].img}
+                    alt={featuredProjects[1].title}
+                    className="w-full aspect-[3/2] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-5 md:p-6">
+                    <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
+                      {featuredProjects[1].category}
+                    </span>
+                    <h3 className="font-heading text-lg font-light text-white mt-1">
+                      {featuredProjects[1].title}
+                    </h3>
                   </div>
                 </Link>
               </ScrollReveal>
-            ))}
-          </div>
-          <ScrollReveal delay={350}>
-            <div className="mt-10 text-center">
-              <Link to="/projects" className="btn-outline inline-flex items-center gap-2">
-                View All Projects <ArrowRight className="w-4 h-4" />
-              </Link>
+              <ScrollReveal delay={200}>
+                <Link to="/projects" className="group block relative overflow-hidden rounded-sm">
+                  <img
+                    src={featuredProjects[2].img}
+                    alt={featuredProjects[2].title}
+                    className="w-full aspect-[3/2] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-5 md:p-6">
+                    <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
+                      {featuredProjects[2].category}
+                    </span>
+                    <h3 className="font-heading text-lg font-light text-white mt-1">
+                      {featuredProjects[2].title}
+                    </h3>
+                  </div>
+                </Link>
+              </ScrollReveal>
             </div>
-          </ScrollReveal>
-        </div>
-      </section>
+          </div>
 
-      {/* ABOUT PREVIEW */}
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal direction="left">
-              <div className="relative rounded-lg overflow-hidden shadow-xl">
-                <img
-                  src="https://static.wixstatic.com/media/c77437_103a5583bbfd4523ad16683a9cd14d0c~mv2.jpg/v1/fit/w_960/h_540/quality_auto/c77437_103a5583bbfd4523ad16683a9cd14d0c~mv2.jpg"
-                  alt="Architect 57 building design"
-                  className="w-full aspect-[4/3] object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 ring-1 ring-inset ring-foreground/10 rounded-lg" />
+          {/* Fourth project — full width */}
+          <ScrollReveal delay={300} className="mt-4 md:mt-5">
+            <Link to="/projects" className="group block relative overflow-hidden rounded-sm">
+              <img
+                src={featuredProjects[3].img}
+                alt={featuredProjects[3].title}
+                className="w-full aspect-[21/9] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 p-6 md:p-8">
+                <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
+                  {featuredProjects[3].category}
+                </span>
+                <h3 className="font-heading text-xl md:text-2xl font-light text-white mt-1">
+                  {featuredProjects[3].title}
+                </h3>
               </div>
-            </ScrollReveal>
-            <ScrollReveal direction="right">
-              <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">About Architect 57</p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-6">
-                Building a Better, Healthier World
-              </h2>
-              <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                We believe that it is our responsibility making this world a better and healthier place for living. Our principal, Ching-yeh (Cary) Tsai, devotes his energy towards the formation of the U.S. Green Building Council — Las Vegas Regional Chapter.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                From integrated project delivery and BIM to complex code consultation and sustainable architecture, we bring decades of experience to every engagement.
-              </p>
-              <Link to="/about" className="btn-primary inline-flex items-center gap-2">
-                More About Us <ArrowRight className="w-4 h-4" />
-              </Link>
-            </ScrollReveal>
+            </Link>
+          </ScrollReveal>
+
+          {/* Mobile "View All" */}
+          <div className="mt-10 text-center md:hidden">
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1"
+            >
+              View All Projects
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="relative section-padding-lg overflow-hidden">
-        <div className="absolute inset-0 bg-primary" />
-        <div className="container-wide relative z-10 text-center">
+      {/* CTA */}
+      <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))]">
+        <div className="container-wide py-28 md:py-40 text-center relative z-10">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary-foreground mb-6 mx-auto max-w-2xl">
-              Ready to Start Your Next Project?
+            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-5">
+              Let's Collaborate
+            </p>
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl font-light text-white tracking-tight leading-[0.95] mb-8 mx-auto max-w-3xl">
+              Ready to start your
+              <br />
+              <span className="font-medium">next project?</span>
             </h2>
-            <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto mb-10">
+            <p className="text-white/50 font-light max-w-md mx-auto mb-10 leading-relaxed">
               Contact Architect 57 Inc. for integrated building design, code consultation, and project management in Richmond, BC.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="btn-secondary inline-flex items-center justify-center gap-2 text-base">
-                Get a Free Consultation <ArrowRight className="w-4 h-4" />
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
+              >
+                Get a Free Consultation
+                <ArrowRight className="w-4 h-4" />
               </Link>
-              <a href="tel:604-818-2088" className="inline-flex items-center justify-center gap-2 text-base font-heading font-bold text-primary-foreground border-2 border-primary-foreground/30 px-7 py-3.5 rounded transition-all hover:bg-primary-foreground/10 active:scale-[0.97]">
-                <Phone className="w-4 h-4" />
-                Call 604-818-2088
+              <a
+                href="tel:604-818-2088"
+                className="inline-flex items-center justify-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-white border border-white/20 px-8 py-4 rounded-sm transition-all duration-300 hover:border-white/40 active:scale-[0.97]"
+              >
+                Call 604.818.2088
               </a>
             </div>
           </ScrollReveal>
