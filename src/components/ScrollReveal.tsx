@@ -1,0 +1,53 @@
+import { useEffect, useRef, useState, ReactNode } from "react";
+
+interface ScrollRevealProps {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  direction?: "up" | "left" | "right" | "none";
+}
+
+const ScrollReveal = ({ children, className = "", delay = 0, direction = "up" }: ScrollRevealProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const transforms: Record<string, string> = {
+    up: "translateY(20px)",
+    left: "translateX(-20px)",
+    right: "translateX(20px)",
+    none: "translateY(0)",
+  };
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0) translateX(0)" : transforms[direction],
+        filter: visible ? "blur(0px)" : "blur(4px)",
+        transition: `opacity 0.6s cubic-bezier(0.16,1,0.3,1) ${delay}ms, transform 0.6s cubic-bezier(0.16,1,0.3,1) ${delay}ms, filter 0.6s cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+export default ScrollReveal;
