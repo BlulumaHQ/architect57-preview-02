@@ -294,7 +294,7 @@ const Index = () => {
 
           {/* Fourth project — full width */}
           <ScrollReveal delay={300} className="mt-4 md:mt-5">
-            <Link to={`/projects/${featuredProjects[3].slug}`} className="group block relative overflow-hidden rounded-sm">
+            <Link to={featuredProjects[3].link} className="group block relative overflow-hidden rounded-sm">
               <img
                 src={featuredProjects[3].img}
                 alt={featuredProjects[3].title}
