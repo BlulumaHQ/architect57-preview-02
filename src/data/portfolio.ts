@@ -58,6 +58,17 @@ import chenResidence01 from "@/assets/chen-residence-01_result.webp";
 import hanResidence01 from "@/assets/han-residence-01_result.webp";
 import laurelResidence01 from "@/assets/laurel-residence-01_result.webp";
 
+// Real project images (batch 5)
+import luResidence01 from "@/assets/lu-residence-01_result.webp";
+import poLamTemple01 from "@/assets/po_lam_temple-01_result.webp";
+import goldBuddhaMonastery01 from "@/assets/gold_buddha_monastery-01_result.webp";
+import iglesiaNiCristo01 from "@/assets/iglesia_ni_cristo_locale-01_result.webp";
+import lutheranChurch01 from "@/assets/lutheran_community_church-01_result.webp";
+import ontarioStorage01 from "@/assets/ontario_storage_warehouse-01_result.webp";
+import rayacomPrint01 from "@/assets/rayacom_premium_print-01_result.webp";
+import rayacomFactory01 from "@/assets/rayacom_super_print_factory01_result.webp";
+import sunwinsMask01 from "@/assets/sunwins_surgical_mask-01_result.webp";
+import trouwFrankie01 from "@/assets/trouw_frankie_feed_mill-01_result.webp";
 
 export interface FeaturedProject {
   slug: string;
