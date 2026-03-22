@@ -173,9 +173,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A 10,500 square-foot multi-unit residential development in Vancouver's Collingwood neighbourhood.",
     longDesc: "The Collingwood project is a multi-unit residential development that navigates Vancouver's evolving density requirements while maintaining architectural quality. At 10,500 square feet with a $5 million budget, the design achieves a balance between construction economy and design ambition. Each unit is individually planned to maximize livability, with careful attention to privacy, natural light, and outdoor connections despite the compact urban site.",
     services: ["Integrated Building Design", "Code Consultation", "Project Management"],
-    heroImg: src6,
+    heroImg: collingwood01,
     galleryImgs: [src8, src9],
-    coverImg: src6,
+    coverImg: collingwood01,
   },
   {
     slug: "sqn-education",
