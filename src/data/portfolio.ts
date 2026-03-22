@@ -213,7 +213,7 @@ export const allProjects: Project[] = [
   { slug: "sushi-kiwami", name: "Sushi Kiwami", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", area: "2,415 sq. ft.", budget: "$1 million", img: sushiKiwami01, galleryImgs: [sushiKiwami01] },
   { slug: "torake-japanese-cuisine", name: "Torake Japanese Cuisine", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", img: torakeCuisine01, galleryImgs: [torakeCuisine01] },
   { slug: "ramen-one-broadway", name: "Ramen One on Broadway", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Vancouver, BC", img: ramenOneBroadway01, galleryImgs: [ramenOneBroadway01] },
-  { slug: "bridgeport-hotel", name: "Bridgeport Hotel", category: "Commercial", categorySlug: "commercial", tags: ["Hotel"], location: "Richmond, BC", detail: "Design architect: GBL Architects", img: bridgeportHotel01, galleryImgs: [bridgeportHotel01] },
+  { slug: "bridgeport-hotel", name: "Bridgeport Hotel", category: "Commercial", categorySlug: "commercial", tags: ["Hotel"], location: "Richmond, BC", detail: "Design architect: GBL Architects", img: bridgeportHotel01, galleryImgs: [bridgeportHotel01, bridgeportHotel03] },
 
   // ─── RESIDENTIAL ───
   { slug: "chen-residence", name: "Chen Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,729 sq. ft.", detail: "CHBA National SAM Awards Finalist", img: chenResidence01, galleryImgs: [chenResidence01] },
