@@ -9,6 +9,7 @@ import aboutImg from "@/assets/about-us-01.webp";
 import chbaAward from "@/assets/chba-award.jpg";
 import { allProjects } from "@/data/portfolio";
 import { useLang } from "@/contexts/LangContext";
+import usePageMeta from "@/hooks/usePageMeta";
 
 // Randomly select 4 projects from Residential + Commercial only (2+2 ideal)
 const getRandomFeatured = () => {
@@ -46,6 +47,10 @@ const getRandomFeatured = () => {
 const Index = () => {
   const featuredProjects = useMemo(getRandomFeatured, []);
   const { t } = useLang();
+  usePageMeta({
+    title: "Architect 57 無極建築 | Design Build | Richmond, BC",
+    description: "Architect 57 無極建築 delivers integrated design-build services across residential, commercial, industrial, and institutional sectors in Metro Vancouver and beyond.",
+  });
 
   const services = [
     { num: "01", title: t("services.s1.title"), desc: t("services.s1.desc") },

@@ -3,11 +3,22 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { allProjects, getProjectIndex } from "@/data/portfolio";
 import { useLang } from "@/contexts/LangContext";
+import usePageMeta from "@/hooks/usePageMeta";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
   const project = allProjects.find((p) => p.slug === slug);
   const { t } = useLang();
+
+  const metaTitle = project
+    ? `${project.name} | Architect 57 無極建築`
+    : "Project Not Found | Architect 57 無極建築";
+
+  const metaDesc = project
+    ? `${project.name}${project.location ? ` in ${project.location}` : ""} by Architect 57 無極建築 — ${project.category}${project.area ? `, ${project.area}` : ""}${project.detail ? `. ${project.detail}` : ""}.`
+    : "Project not found.";
+
+  usePageMeta({ title: metaTitle, description: metaDesc });
 
   if (!project) return <Navigate to="/projects" replace />;
 
