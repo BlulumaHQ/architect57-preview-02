@@ -78,6 +78,18 @@ import ramenOneBroadway01 from "@/assets/ramen-one-broadway-01_result.webp";
 import sushiKiwami01 from "@/assets/sushi-kiwami-01_result.webp";
 import applianceCanada01 from "@/assets/Appliance_Canada_01.webp";
 
+// Real project images (batch 10)
+import fiftyFourthAveCondo01v2 from "@/assets/54th_ave_condo-01_result-2.webp";
+import fiftyFourthAveCondo02Result from "@/assets/54th_ave_condo-02_result.webp";
+import fiftyFourthAveCondo03Result from "@/assets/54th_ave_condo-03_result.webp";
+import aceEsports01v2 from "@/assets/ace_e-sports-01_result-2.webp";
+import aceEsports02 from "@/assets/ace_e-sports-02_result.webp";
+import aceEsports03 from "@/assets/ace_e-sports-03_result.webp";
+import adore01v2 from "@/assets/adore-01_result-2.webp";
+import applianceCanada01v2 from "@/assets/Appliance_Canada_01-2.webp";
+import architect5701v2 from "@/assets/architect-57-01_result-2.webp";
+import architect5702 from "@/assets/architect-57-02_result.webp";
+
 
 // ── Unified Project Interface ──────────────────────────
 
