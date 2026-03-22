@@ -66,7 +66,8 @@ const Footer = () => {
       </div>
 
       {/* Copyright bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/10 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#a11d2d]/30" />
         <div className="container-wide py-6 flex flex-col md:flex-row items-center justify-center gap-1 text-[11px] text-white/30 font-light">
           <span>© {year} Architect 57 Inc. All rights reserved.</span>
           <span className="hidden md:inline mx-1">|</span>
@@ -74,10 +75,6 @@ const Footer = () => {
             Web Design by{" "}
             <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">
               Bluluma
-            </a>
-            {" "}| Powered by{" "}
-            <a href="https://swiftlift.app" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">
-              SwiftLift
             </a>
           </span>
         </div>

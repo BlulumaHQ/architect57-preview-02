@@ -47,15 +47,9 @@ const DiagonalMarquee = () => {
         </div>
       </div>
 
-      {/* Overlay text */}
-      <div className="relative z-10 container-wide text-center">
-        <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-white/50 mb-4">
-          Selected Work
-        </p>
-        <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[0.95]">
-          Portfolio
-        </h2>
-      </div>
+      {/* Subtle corner accents */}
+      <div className="absolute top-6 left-6 w-5 h-5 border-t border-l border-[#a11d2d]/20 z-10" />
+      <div className="absolute bottom-6 right-6 w-5 h-5 border-b border-r border-[#a11d2d]/20 z-10" />
     </section>
   );
 };
