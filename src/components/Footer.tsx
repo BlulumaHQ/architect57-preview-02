@@ -75,10 +75,6 @@ const Footer = () => {
             <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">
               Bluluma
             </a>
-            {" "}| Powered by{" "}
-            <a href="https://swiftlift.app" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">
-              SwiftLift
-            </a>
           </span>
         </div>
       </div>

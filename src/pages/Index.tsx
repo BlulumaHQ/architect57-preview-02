@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useMemo } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import DiagonalMarquee from "@/components/DiagonalMarquee";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
-import aboutStudio from "@/assets/about-studio.jpg";
-import { allProjects, featuredSlugs } from "@/data/portfolio";
+import aboutImg from "@/assets/about-us-01.webp";
+import { allProjects, categories } from "@/data/portfolio";
 
 const services = [
   {
@@ -30,24 +31,44 @@ const services = [
   },
 ];
 
-// Fixed curated homepage selection: 4 projects across 4 categories
-const homepageCurated = (() => {
-  const chen = allProjects.find((p) => p.slug === "chen-residence");
-  const collingwood = allProjects.find((p) => p.slug === "collingwood");
-  const bridgeport = allProjects.find((p) => p.slug === "bridgeport-office");
-  const zone5 = allProjects.find((p) => p.slug === "zone-5-union-bay-estate");
+// Randomly select 4 projects from different categories on each mount
+const getRandomFeatured = () => {
+  const categorySlugs = categories
+    .filter((c) => c.slug !== "all")
+    .map((c) => c.slug);
 
-  return [
-    chen ? { img: chen.img, title: chen.name, category: chen.category, link: `/projects/${chen.slug}` } : null,
-    collingwood ? { img: collingwood.img, title: collingwood.name, category: collingwood.category, link: `/projects/${collingwood.slug}` } : null,
-    bridgeport ? { img: bridgeport.img, title: bridgeport.name, category: bridgeport.category, link: `/projects/${bridgeport.slug}` } : null,
-    zone5 ? { img: zone5.img, title: zone5.name, category: zone5.category, link: `/projects/${zone5.slug}` } : null,
-  ].filter(Boolean) as { img: string; title: string; category: string; link: string }[];
-})();
+  // Group projects by category
+  const byCategory: Record<string, typeof allProjects> = {};
+  for (const p of allProjects) {
+    if (!byCategory[p.categorySlug]) byCategory[p.categorySlug] = [];
+    byCategory[p.categorySlug].push(p);
+  }
 
-const featuredProjects = homepageCurated;
+  // Shuffle category order
+  const shuffledCats = [...categorySlugs].sort(() => Math.random() - 0.5);
+
+  // Pick one random project from each category until we have 4
+  const picks: typeof allProjects = [];
+  for (const cat of shuffledCats) {
+    if (picks.length >= 4) break;
+    const pool = byCategory[cat];
+    if (pool && pool.length > 0) {
+      const idx = Math.floor(Math.random() * pool.length);
+      picks.push(pool[idx]);
+    }
+  }
+
+  return picks.map((p) => ({
+    img: p.img,
+    title: p.name,
+    category: p.category,
+    link: `/projects/${p.slug}`,
+  }));
+};
 
 const Index = () => {
+  const featuredProjects = useMemo(getRandomFeatured, []);
+
   return (
     <main className="pb-16 md:pb-0">
       {/* HERO — Fullscreen Slideshow */}
@@ -57,6 +78,8 @@ const Index = () => {
           <img src={hero2} alt="Residential tower at night" className="absolute inset-0 w-full h-full object-cover hero-slide-2" />
           <div className="absolute inset-0 bg-gradient-to-t from-[hsl(240,6%,10%)]/90 via-[hsl(240,6%,10%)]/40 to-transparent" />
         </div>
+        {/* Micro red corner tick */}
+        <div className="absolute top-28 right-10 w-4 h-4 border-t border-r border-[#a11d2d]/25 z-10 hidden md:block" />
         <div className="container-wide relative z-10 pb-20 md:pb-28">
           <ScrollReveal>
             <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-5">
@@ -99,7 +122,9 @@ const Index = () => {
       <DiagonalMarquee />
 
       {/* SERVICES — Split asymmetrical layout */}
-      <section className="section-padding-lg bg-background">
+      <section className="section-padding-lg bg-background relative">
+        {/* Micro red detail */}
+        <div className="absolute top-12 left-6 md:left-10 w-px h-8 bg-[#a11d2d]/20" />
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
             <div className="lg:col-span-4">
@@ -154,11 +179,13 @@ const Index = () => {
             <ScrollReveal direction="left" className="lg:col-span-6">
               <div className="relative">
                 <img
-                  src={aboutStudio}
-                  alt="Architect working on building designs"
+                  src={aboutImg}
+                  alt="Architect 57 Inc. office reception"
                   className="w-full aspect-[3/4] object-cover rounded-sm"
                   loading="lazy"
                 />
+                {/* Tiny red corner accent */}
+                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b border-r border-[#a11d2d]/25" />
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right" className="lg:col-span-5 lg:col-start-8">
@@ -202,11 +229,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FEATURED PROJECTS — Creative grid */}
-      <section className="section-padding-lg bg-background">
+      {/* FEATURED PROJECTS — Compact grid */}
+      <section className="section-padding-lg bg-background relative">
+        {/* Micro red tick */}
+        <div className="absolute top-12 right-6 md:right-10 w-3 h-3 border-t border-r border-[#a11d2d]/20 hidden md:block" />
         <div className="container-wide">
           <ScrollReveal>
-            <div className="flex items-end justify-between mb-14">
+            <div className="flex items-end justify-between mb-10">
               <div>
                 <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
                   Our Work
@@ -225,95 +254,33 @@ const Index = () => {
             </div>
           </ScrollReveal>
 
-          {/* Creative asymmetric grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
-            {/* Large left */}
-            <ScrollReveal className="md:col-span-7">
-              <Link to={featuredProjects[0].link} className="group block relative overflow-hidden rounded-sm">
-                <img
-                  src={featuredProjects[0].img}
-                  alt={featuredProjects[0].title}
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6 md:p-8">
-                  <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
-                    {featuredProjects[0].category}
-                  </span>
-                  <h3 className="font-heading text-xl md:text-2xl font-light text-white mt-1">
-                    {featuredProjects[0].title}
-                  </h3>
-                </div>
-              </Link>
-            </ScrollReveal>
-
-            {/* Right stack */}
-            <div className="md:col-span-5 flex flex-col gap-4 md:gap-5">
-              <ScrollReveal delay={100}>
-                <Link to={featuredProjects[1].link} className="group block relative overflow-hidden rounded-sm">
+          {/* Tight 2x2 grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {featuredProjects.map((p, i) => (
+              <ScrollReveal key={p.link} delay={i * 80}>
+                <Link to={p.link} className="group block relative overflow-hidden rounded-sm">
                   <img
-                    src={featuredProjects[1].img}
-                    alt={featuredProjects[1].title}
-                    className="w-full aspect-[3/2] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    src={p.img}
+                    alt={p.title}
+                    className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 p-5 md:p-6">
                     <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
-                      {featuredProjects[1].category}
+                      {p.category}
                     </span>
-                    <h3 className="font-heading text-lg font-light text-white mt-1">
-                      {featuredProjects[1].title}
+                    <h3 className="font-heading text-lg md:text-xl font-light text-white mt-1">
+                      {p.title}
                     </h3>
                   </div>
                 </Link>
               </ScrollReveal>
-              <ScrollReveal delay={200}>
-                <Link to={featuredProjects[2].link} className="group block relative overflow-hidden rounded-sm">
-                  <img
-                    src={featuredProjects[2].img}
-                    alt={featuredProjects[2].title}
-                    className="w-full aspect-[3/2] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-5 md:p-6">
-                    <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
-                      {featuredProjects[2].category}
-                    </span>
-                    <h3 className="font-heading text-lg font-light text-white mt-1">
-                      {featuredProjects[2].title}
-                    </h3>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            </div>
+            ))}
           </div>
 
-          {/* Fourth project — full width */}
-          <ScrollReveal delay={300} className="mt-4 md:mt-5">
-            <Link to={featuredProjects[3].link} className="group block relative overflow-hidden rounded-sm">
-              <img
-                src={featuredProjects[3].img}
-                alt={featuredProjects[3].title}
-                className="w-full aspect-[21/9] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 p-6 md:p-8">
-                <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
-                  {featuredProjects[3].category}
-                </span>
-                <h3 className="font-heading text-xl md:text-2xl font-light text-white mt-1">
-                  {featuredProjects[3].title}
-                </h3>
-              </div>
-            </Link>
-          </ScrollReveal>
-
           {/* Mobile "View All" */}
-          <div className="mt-10 text-center md:hidden">
+          <div className="mt-8 text-center md:hidden">
             <Link
               to="/projects"
               className="inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1"

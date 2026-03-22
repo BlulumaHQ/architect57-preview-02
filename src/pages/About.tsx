@@ -1,8 +1,7 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import aboutStudio from "@/assets/about-studio.jpg";
-import marquee1 from "@/assets/marquee-1.jpg";
+import aboutImg1 from "@/assets/about-us-01.webp";
 
 const services = [
   "Integrated Building Design",
@@ -28,6 +27,8 @@ const About = () => {
     <main className="pb-16 md:pb-0">
       {/* Hero */}
       <section className="relative bg-[hsl(var(--surface-dark))] pt-32 md:pt-44 pb-20 md:pb-28">
+        {/* Micro red corner */}
+        <div className="absolute bottom-8 right-10 w-4 h-4 border-b border-r border-[#a11d2d]/20 hidden md:block" />
         <div className="container-wide">
           <ScrollReveal>
             <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-4">About Us</p>
@@ -42,17 +43,21 @@ const About = () => {
       </section>
 
       {/* Story */}
-      <section className="section-padding-lg bg-background">
+      <section className="section-padding-lg bg-background relative">
+        {/* Micro red line */}
+        <div className="absolute top-12 left-6 md:left-10 w-px h-8 bg-[#a11d2d]/20" />
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <ScrollReveal direction="left" className="lg:col-span-6">
-              <div className="overflow-hidden rounded-sm">
+              <div className="relative overflow-hidden rounded-sm">
                 <img
-                  src={aboutStudio}
-                  alt="Architect 57 Inc. studio"
-                  className="w-full aspect-[3/4] object-cover"
+                  src={aboutImg1}
+                  alt="Architect 57 Inc. office reception with orange accent wall"
+                  className="w-full aspect-[4/3] object-cover"
                   loading="lazy"
                 />
+                {/* Tiny red corner accent */}
+                <div className="absolute -bottom-1 -right-1 w-5 h-5 border-b border-r border-[#a11d2d]/25" />
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right" className="lg:col-span-5 lg:col-start-8">
@@ -103,17 +108,6 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Full-width image break */}
-      <section className="h-[50vh] min-h-[300px] relative overflow-hidden">
-        <img
-          src={marquee1}
-          alt="Architectural interior"
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-[hsl(var(--surface-dark))]/30" />
       </section>
 
       {/* CTA */}
