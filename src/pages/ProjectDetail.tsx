@@ -1,28 +1,27 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { featuredProjects } from "@/data/portfolio";
+import { allProjects, getProjectIndex } from "@/data/portfolio";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
-  const project = featuredProjects.find((p) => p.slug === slug);
+  const project = allProjects.find((p) => p.slug === slug);
 
   if (!project) return <Navigate to="/projects" replace />;
 
-  const currentIndex = featuredProjects.findIndex((p) => p.slug === slug);
-  const prevProject = featuredProjects[(currentIndex - 1 + featuredProjects.length) % featuredProjects.length];
-  const nextProject = featuredProjects[(currentIndex + 1) % featuredProjects.length];
+  const currentIndex = allProjects.findIndex((p) => p.slug === slug);
+  const prevProject = allProjects[(currentIndex - 1 + allProjects.length) % allProjects.length];
+  const nextProject = allProjects[(currentIndex + 1) % allProjects.length];
+  const projectIndex = getProjectIndex(slug!);
 
   // Build facts list dynamically
   const facts: { label: string; value: string }[] = [
-    { label: "Location", value: project.location },
     { label: "Category", value: project.category },
   ];
+  if (project.tags.length > 0) facts.push({ label: "Tags", value: project.tags.join(", ") });
+  if (project.location) facts.push({ label: "Location", value: project.location });
   if (project.area) facts.push({ label: "Area", value: project.area });
   if (project.budget) facts.push({ label: "Budget", value: project.budget });
-  if (project.coDesigner) facts.push({ label: "Co-Designer", value: project.coDesigner });
-  if (project.designer) facts.push({ label: "Designer", value: project.designer });
-  if (project.codes) facts.push({ label: "Codes", value: project.codes });
   if (project.detail) facts.push({ label: "Details", value: project.detail });
 
   return (
@@ -30,8 +29,8 @@ const ProjectDetail = () => {
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
         <img
-          src={project.heroImg}
-          alt={project.title}
+          src={project.img}
+          alt={project.name}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
@@ -44,10 +43,11 @@ const ProjectDetail = () => {
               <ArrowLeft className="w-4 h-4" /> Back to Projects
             </Link>
             <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-3">
-              {project.category} — {project.location}
+              <span className="mr-3">{String(projectIndex).padStart(2, "0")}</span>
+              {project.category} — {project.location || "—"}
             </p>
             <h1 className="font-heading text-[36px] md:text-[56px] lg:text-[68px] font-light leading-[0.95] text-white tracking-tight max-w-3xl">
-              {project.title}
+              {project.name}
             </h1>
           </ScrollReveal>
         </div>
@@ -62,8 +62,12 @@ const ProjectDetail = () => {
                 <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-6 tracking-tight">
                   Project Overview
                 </h2>
-                <p className="text-muted-foreground font-light leading-[1.8] mb-4">{project.desc}</p>
-                <p className="text-muted-foreground font-light leading-[1.8]">{project.longDesc}</p>
+                <div className="space-y-4 text-muted-foreground font-light leading-[1.8]">
+                  <p>{project.name} — {project.category} project{project.location ? ` located in ${project.location}` : ""}.</p>
+                  {project.area && <p>Total area: {project.area}.</p>}
+                  {project.budget && <p>Budget: {project.budget}.</p>}
+                  {project.detail && <p>{project.detail}</p>}
+                </div>
               </ScrollReveal>
             </div>
             <div className="lg:col-span-4 lg:col-start-9">
@@ -77,18 +81,6 @@ const ProjectDetail = () => {
                       <p className="text-foreground font-light">{f.value}</p>
                     </div>
                   ))}
-                  {project.services.length > 0 && (
-                    <div>
-                      <p className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))] mb-1.5">
-                        Services
-                      </p>
-                      <ul className="space-y-1">
-                        {project.services.map((s) => (
-                          <li key={s} className="text-foreground font-light text-sm">{s}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                 </div>
               </ScrollReveal>
             </div>
@@ -110,7 +102,7 @@ const ProjectDetail = () => {
                 <div className={`overflow-hidden rounded-sm ${i === 0 && project.galleryImgs.length > 1 ? "md:col-span-2" : ""}`}>
                   <img
                     src={img}
-                    alt={`${project.title} — view ${i + 1}`}
+                    alt={`${project.name} — view ${i + 1}`}
                     className={`w-full object-cover hover:scale-[1.02] transition-transform duration-700 ${i === 0 && project.galleryImgs.length > 1 ? "aspect-[21/9]" : "aspect-[3/2]"}`}
                     loading="lazy"
                   />
@@ -130,7 +122,7 @@ const ProjectDetail = () => {
               <div>
                 <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-white/40 mb-2">Previous</p>
                 <h3 className="font-heading text-lg md:text-2xl font-light text-white tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
-                  {prevProject.title}
+                  {prevProject.name}
                 </h3>
               </div>
             </div>
@@ -140,7 +132,7 @@ const ProjectDetail = () => {
               <div>
                 <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-white/40 mb-2">Next</p>
                 <h3 className="font-heading text-lg md:text-2xl font-light text-white tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
-                  {nextProject.title}
+                  {nextProject.name}
                 </h3>
               </div>
               <ArrowRight className="w-5 h-5 text-white/30 group-hover:text-[hsl(var(--gold-accent))] group-hover:translate-x-1 transition-all duration-300 shrink-0" />

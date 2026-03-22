@@ -2,23 +2,19 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { featuredProjects, categories, allGridProjects } from "@/data/portfolio";
+import { allProjects, categories, featuredSlugs } from "@/data/portfolio";
 
-// Top 3 featured for the Projects page header
-const topFeatured = [
-  featuredProjects.find((p) => p.slug === "chen-residence")!,
-  featuredProjects.find((p) => p.slug === "collingwood")!,
-  featuredProjects.find((p) => p.slug === "bridgeport-office")!,
-];
+const topFeatured = featuredSlugs
+  .map((slug) => allProjects.find((p) => p.slug === slug)!)
+  .filter(Boolean);
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeTag, setActiveTag] = useState<string | null>(null);
 
-  // Derive available tags from filtered projects
   const categoryFiltered = useMemo(() => {
-    if (activeCategory === "all") return allGridProjects;
-    return allGridProjects.filter((p) => p.categorySlug === activeCategory);
+    if (activeCategory === "all") return allProjects;
+    return allProjects.filter((p) => p.categorySlug === activeCategory);
   }, [activeCategory]);
 
   const availableTags = useMemo(() => {
@@ -74,8 +70,8 @@ const Projects = () => {
                 <Link to={`/projects/${p.slug}`} className="group block">
                   <div className="overflow-hidden rounded-sm">
                     <img
-                      src={p.coverImg}
-                      alt={p.title}
+                      src={p.img}
+                      alt={p.name}
                       className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] transition-transform duration-700"
                       loading="lazy"
                     />
@@ -85,7 +81,7 @@ const Projects = () => {
                       {p.category}
                     </span>
                     <h3 className="font-heading text-xl font-light text-foreground mt-1 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
-                      {p.title}
+                      {p.name}
                     </h3>
                     <p className="text-muted-foreground/70 text-sm font-light mt-1 flex items-center gap-1.5">
                       <MapPin className="w-3 h-3" />
@@ -179,16 +175,10 @@ const Projects = () => {
           {filteredProjects.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {filteredProjects.map((p, i) => (
-                <ScrollReveal key={`${p.name}-${p.categorySlug}-${i}`} delay={i * 40}>
-                  {p.detailLink ? (
-                    <Link to={p.detailLink} className="group block">
-                      <ProjectCard project={p} />
-                    </Link>
-                  ) : (
-                    <div className="group">
-                      <ProjectCard project={p} />
-                    </div>
-                  )}
+                <ScrollReveal key={`${p.slug}-${i}`} delay={i * 40}>
+                  <Link to={`/projects/${p.slug}`} className="group block">
+                    <ProjectCard project={p} />
+                  </Link>
                 </ScrollReveal>
               ))}
             </div>
@@ -243,13 +233,19 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => (
   <>
-    <div className="overflow-hidden rounded-sm">
+    <div className="overflow-hidden rounded-sm relative">
       <img
         src={project.img}
         alt={project.name}
         className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] transition-transform duration-700"
         loading="lazy"
       />
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">
+        <span className="font-heading text-[13px] font-light tracking-[0.15em] uppercase text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+          See Details
+        </span>
+      </div>
     </div>
     <div className="mt-3">
       <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
