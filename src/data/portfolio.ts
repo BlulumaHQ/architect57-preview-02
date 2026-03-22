@@ -89,6 +89,18 @@ import phiEducation01 from "@/assets/phi-education-01_result.webp";
 import sqnEducation01 from "@/assets/sqn-education-01_result.webp";
 import torakeCuisine01 from "@/assets/tarake-japanese-cuisine-01_result.webp";
 
+// Real project images (batch 8)
+import dubaiHouse01v2 from "@/assets/dubai_house_of_the_future-01_result-2.webp";
+import newUniversityHospital01v2 from "@/assets/new_university_hospital-01_result-2.webp";
+import west3901v2 from "@/assets/west-39-01_result-2.webp";
+import unionBayEstate01v2 from "@/assets/zone_5_union_bay_estate-01_result-2.webp";
+import collingwood01v2 from "@/assets/collingwood-01_result-2.webp";
+import fletcherTownhouses01v2 from "@/assets/fletcher_townhouses-01_result-2.webp";
+import royalOak01v2 from "@/assets/royal-oak01_result-2.webp";
+import bridgeportHotel01 from "@/assets/bridgeport-hotel-01_result.webp";
+import ramenOneBroadway01 from "@/assets/ramen-one-broadway-01_result.webp";
+import sushiKiwami01 from "@/assets/sushi-kiwami-01_result.webp";
+
 
 export interface FeaturedProject {
   slug: string;
