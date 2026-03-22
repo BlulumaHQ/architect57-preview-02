@@ -1,58 +1,7 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-
-import src10 from "@/assets/source-project-10.jpg";
-import src11 from "@/assets/source-project-11.jpg";
-import src2 from "@/assets/source-project-2.jpg";
-import src3 from "@/assets/source-project-3.jpg";
-import src5 from "@/assets/source-project-5.jpg";
-import src8 from "@/assets/source-project-8.jpg";
-import src9 from "@/assets/source-project-9.jpg";
-
-interface CollectionProject {
-  name: string;
-  location?: string;
-  img: string;
-}
-
-interface Collection {
-  slug: string;
-  title: string;
-  desc: string;
-  projects: CollectionProject[];
-}
-
-const collections: Collection[] = [
-  {
-    slug: "single-family",
-    title: "Single Family",
-    desc: "Custom residential homes designed with precision and care for families across the Lower Mainland.",
-    projects: [
-      { name: "Burnaby Residence", location: "Burnaby, BC", img: src10 },
-      { name: "Richmond Custom Home", location: "Richmond, BC", img: src11 },
-      { name: "Surrey Estate", location: "Surrey, BC", img: src2 },
-    ],
-  },
-  {
-    slug: "daycare-education",
-    title: "Daycare & Education",
-    desc: "Purpose-built educational and childcare facilities designed for safety, creativity, and growth.",
-    projects: [
-      { name: "Rainbow Kids Daycare", location: "Richmond, BC", img: src3 },
-      { name: "Little Scholars Academy", location: "Vancouver, BC", img: src5 },
-    ],
-  },
-  {
-    slug: "multiplex",
-    title: "Multiplex",
-    desc: "Multi-unit residential developments that balance density with livability and architectural character.",
-    projects: [
-      { name: "Garden City Fourplex", location: "Richmond, BC", img: src8 },
-      { name: "Westminster Sixplex", location: "New Westminster, BC", img: src9 },
-    ],
-  },
-];
+import { collections } from "@/data/portfolio";
 
 const CollectionGallery = () => {
   const { slug } = useParams();
@@ -88,7 +37,7 @@ const CollectionGallery = () => {
       {/* Gallery Grid */}
       <section className="section-padding-lg bg-background">
         <div className="container-wide">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {collection.projects.map((project, i) => (
               <ScrollReveal key={project.name} delay={i * 80}>
                 <div className="group">
@@ -103,8 +52,14 @@ const CollectionGallery = () => {
                   <h3 className="font-heading text-lg font-light text-foreground tracking-tight">
                     {project.name}
                   </h3>
-                  {project.location && (
-                    <p className="text-muted-foreground font-light text-sm mt-1">{project.location}</p>
+                  <p className="text-muted-foreground font-light text-sm mt-1">{project.location}</p>
+                  {/* Metadata line */}
+                  {(project.area || project.budget || project.designer || project.notes) && (
+                    <p className="text-muted-foreground/60 font-light text-xs mt-1.5">
+                      {[project.area, project.budget, project.designer, project.notes]
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </p>
                   )}
                 </div>
               </ScrollReveal>

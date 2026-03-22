@@ -5,10 +5,7 @@ import DiagonalMarquee from "@/components/DiagonalMarquee";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutStudio from "@/assets/about-studio.jpg";
-import featured1 from "@/assets/source-project-1.jpg";
-import featured2 from "@/assets/source-project-4.jpg";
-import featured3 from "@/assets/source-project-7.jpg";
-import featured4 from "@/assets/source-project-10.jpg";
+import { featuredProjects as allFeatured } from "@/data/portfolio";
 
 const services = [
   {
