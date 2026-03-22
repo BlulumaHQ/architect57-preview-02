@@ -177,6 +177,16 @@ import sqnEducation02 from "@/assets/sqn-education-02_result.webp";
 import sqnEducation03 from "@/assets/sqn-education-03_result.webp";
 import sunwinsMask01v2 from "@/assets/sunwins_surgical_mask-01_result-2.webp";
 import sushiKiwami01v2 from "@/assets/sushi-kiwami-01_result-2.webp";
+import sushiKiwami02 from "@/assets/sushi-kiwami-02_result.webp";
+import sushiKiwami03 from "@/assets/sushi-kiwami-03_result.webp";
+import sushiKiwami04 from "@/assets/sushi-kiwami-04_result.webp";
+import sushiKiwami05 from "@/assets/sushi-kiwami-05_result.webp";
+import torakeCuisine01v2 from "@/assets/tarake-japanese-cuisine-01_result-2.webp";
+import torakeCuisine02 from "@/assets/tarake-japanese-cuisine-02_result.webp";
+import tecoOffice01v2 from "@/assets/teco_office-01_result-2.webp";
+import titanicExhibition01v2 from "@/assets/titanic_exhibition-01_result-2.webp";
+import titanicExhibition02 from "@/assets/titanic_exhibition-02_result.webp";
+import treasureCoveCasino01v2 from "@/assets/treasure_cove_casino-01_result-2.webp";
 
 // ── Unified Project Interface ──────────────────────────
 
@@ -233,7 +243,7 @@ export const allProjects: Project[] = [
   { slug: "lutheran-community-church", name: "Lutheran Community Church Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Las Vegas, NV", detail: "Architect: TSK Architects; Designer: Cary Tsai", img: lutheranChurch01v2, galleryImgs: [lutheranChurch01v2] },
   { slug: "iglesia-ni-cristo-surrey", name: "Iglesia Ni Cristo Locale of Surrey", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Surrey, BC", area: "10,964 sf", detail: "Exterior envelope replacement and interior renovation", img: iglesiaNiCristo01v2, galleryImgs: [iglesiaNiCristo01v2, iglesiaNiCristo02] },
   // Community & Cultural — existing extra projects
-  { slug: "treasure-cove-casino", name: "Treasure Cove Casino Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Casino"], location: "Prince George, BC", area: "15,326 sq. ft.", budget: "$15 millions", img: treasureCoveCasino01, galleryImgs: [treasureCoveCasino01] },
+  { slug: "treasure-cove-casino", name: "Treasure Cove Casino Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Casino"], location: "Prince George, BC", area: "15,326 sq. ft.", budget: "$15 millions", img: treasureCoveCasino01v2, galleryImgs: [treasureCoveCasino01v2] },
   { slug: "atomic-fitness", name: "Atomic Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: atomicFitness01, galleryImgs: [atomicFitness01] },
   { slug: "vanguard-fitness", name: "Vanguard Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: vanguardFitness01, galleryImgs: [vanguardFitness01] },
   { slug: "morgan-play", name: "Morgan Play", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Surrey, BC", detail: "Designer: Yan Design Studio", img: morganPlay01v2, galleryImgs: [morganPlay01v2, morganPlay02, morganPlay03] },
@@ -266,9 +276,9 @@ export const allProjects: Project[] = [
   { slug: "hazco-environmental", name: "Hazco Environmental Transfer Station", category: "Industrial", categorySlug: "industrial", tags: ["Industrial"], location: "Richmond, BC", area: "29,925 sq. ft.", img: hazcoEnvironmental01v2, galleryImgs: [hazcoEnvironmental01v2] },
 
   // ─── INTERIOR PROJECTS ───
-  { slug: "teco-office", name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", area: "12,339 sq. ft.", img: tecoOffice01, galleryImgs: [tecoOffice01] },
+  { slug: "teco-office", name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", area: "12,339 sq. ft.", img: tecoOffice01v2, galleryImgs: [tecoOffice01v2] },
   { slug: "appliance-canada", name: "Appliance Canada", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Richmond, BC", area: "11,639 sq. ft.", img: applianceCanada01v2, galleryImgs: [applianceCanada01v2] },
-  { slug: "titanic-exhibition", name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Cultural"], location: "Richmond, BC", area: "15,801 sq. ft.", img: titanicExhibition01, galleryImgs: [titanicExhibition01] },
+  { slug: "titanic-exhibition", name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Cultural"], location: "Richmond, BC", area: "15,801 sq. ft.", img: titanicExhibition01v2, galleryImgs: [titanicExhibition01v2, titanicExhibition02] },
   { slug: "beresford-doctor-clinic", name: "Beresford Doctor Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: beresfordClinic01, galleryImgs: [beresfordClinic01] },
   { slug: "willingdon-green-clinic", name: "Willingdon Green Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: willingdonClinic01, galleryImgs: [willingdonClinic01] },
   { slug: "cleardent", name: "Cleardent", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: cleardent01v2, galleryImgs: [cleardent01v2, cleardent02] },
@@ -285,8 +295,8 @@ export const allProjects: Project[] = [
   { slug: "wellington-mixed-use", name: "Wellington Mixed-Use", category: "Commercial", categorySlug: "commercial", tags: ["Mixed-use"], location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 millions", img: wellingtonMixUse01Result, galleryImgs: [wellingtonMixUse01Result] },
   { slug: "54th-ave-condo-4", name: "54th Ave Condo (4-storey)", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Langley, BC", img: fiftyFourthAveCondo03Result, galleryImgs: [fiftyFourthAveCondo02Result, fiftyFourthAveCondo03Result] },
   { slug: "fletcher-townhouses", name: "Fletcher Townhouses", category: "Commercial", categorySlug: "commercial", tags: ["Townhouse"], location: "Maple Ridge, BC", detail: "15 units", img: fletcherTownhouses01v3, galleryImgs: [fletcherTownhouses01v3] },
-  { slug: "sushi-kiwami", name: "Sushi Kiwami", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", area: "2,415 sq. ft.", budget: "$1 million", img: sushiKiwami01v2, galleryImgs: [sushiKiwami01v2] },
-  { slug: "torake-japanese-cuisine", name: "Torake Japanese Cuisine", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", img: torakeCuisine01, galleryImgs: [torakeCuisine01] },
+  { slug: "sushi-kiwami", name: "Sushi Kiwami", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", area: "2,415 sq. ft.", budget: "$1 million", img: sushiKiwami01v2, galleryImgs: [sushiKiwami01v2, sushiKiwami02, sushiKiwami03, sushiKiwami04, sushiKiwami05] },
+  { slug: "torake-japanese-cuisine", name: "Torake Japanese Cuisine", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", img: torakeCuisine01v2, galleryImgs: [torakeCuisine01v2, torakeCuisine02] },
   { slug: "ramen-one-broadway", name: "Ramen One on Broadway", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Vancouver, BC", img: ramenOneBroadway01v2, galleryImgs: [ramenOneBroadway01v2] },
   { slug: "bridgeport-hotel", name: "Bridgeport Hotel", category: "Commercial", categorySlug: "commercial", tags: ["Hotel"], location: "Richmond, BC", detail: "Design architect: GBL Architects", img: bridgeportHotel01, galleryImgs: [bridgeportHotel01, bridgeportHotel03] },
 
