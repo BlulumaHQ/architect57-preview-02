@@ -197,6 +197,11 @@ import wellingtonMixUse01v2 from "@/assets/wellington_mix-use-01_result-2.webp";
 import west3901v3 from "@/assets/west-39-01_result-3.webp";
 import willingdonClinic01v2 from "@/assets/willingdon_green_clinic-01_result-2.webp";
 import wuResidence01v2 from "@/assets/wu-residence-01_result-2.webp";
+import wuResidence02 from "@/assets/wu-residence-02_result.webp";
+import xuResidence01v2 from "@/assets/xu-residence-01_result-2.webp";
+import xuResidence02 from "@/assets/xu-residence-02_result.webp";
+import xuResidence03 from "@/assets/xu-residence-03_result.webp";
+import unionBayEstate01v3 from "@/assets/zone_5_union_bay_estate-01_result-3.webp";
 
 // ── Unified Project Interface ──────────────────────────
 
@@ -243,7 +248,7 @@ export const allTags = [
 export const allProjects: Project[] = [
 
   // ─── MASTER PLANNING ───
-  { slug: "zone-5-union-bay-estate", name: "Zone 5, Union Bay Estate", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning"], location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01v2, galleryImgs: [unionBayEstate01v2] },
+  { slug: "zone-5-union-bay-estate", name: "Zone 5, Union Bay Estate", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning"], location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01v3, galleryImgs: [unionBayEstate01v3] },
   { slug: "new-university-hospital", name: "New University Hospital of Northern BC Building Construction Phase Planning", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Healthcare"], location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 millions", img: newUniversityHospital01v2, galleryImgs: [newUniversityHospital01v2, newUniversityHospital01v3] },
   { slug: "dubai-house-of-the-future", name: "Dubai House of the Future Competition", category: "Master Planning", categorySlug: "master-planning", tags: ["Concept"], location: "—", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01v2, galleryImgs: [dubaiHouse01v2, dubaiHouse01v3] },
 
@@ -316,8 +321,8 @@ export const allProjects: Project[] = [
   { slug: "severn-residence", name: "Severn Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: severnResidence01v2, galleryImgs: [severnResidence01v2, severnResidence02, severnResidence03] },
   { slug: "no6-residence", name: "No6 Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: no6Residence01v2, galleryImgs: [no6Residence01v2, no6Residence02] },
   { slug: "vinson-creek-residence", name: "Vinson Creek Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "9,343 sq. ft.", img: vinsonCreek01v2, galleryImgs: [vinsonCreek01v2, vinsonCreek02] },
-  { slug: "xu-residence", name: "Xu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", area: "3,680 sq. ft.", img: xuResidence01, galleryImgs: [xuResidence01] },
-  { slug: "wu-residence", name: "Wu Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,733 sq. ft.", img: wuResidence01v2, galleryImgs: [wuResidence01v2] },
+  { slug: "xu-residence", name: "Xu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", area: "3,680 sq. ft.", img: xuResidence01v2, galleryImgs: [xuResidence01v2, xuResidence02, xuResidence03] },
+  { slug: "wu-residence", name: "Wu Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,733 sq. ft.", img: wuResidence01v2, galleryImgs: [wuResidence01v2, wuResidence02] },
   { slug: "lu-residence", name: "Lu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Delta, BC", area: "5,177 sq. ft.", img: luResidence01v2, galleryImgs: [luResidence01v2, luResidence02] },
   { slug: "cartier-residence", name: "Cartier Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: cartierResidence01v2, galleryImgs: [cartierResidence01v2] },
   { slug: "laurel-residence", name: "Laurel Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: laurelResidence01v2, galleryImgs: [laurelResidence01v2, laurelResidence02] },
