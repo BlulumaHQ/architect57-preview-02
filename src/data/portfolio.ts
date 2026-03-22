@@ -101,6 +101,16 @@ import chenResidence02 from "@/assets/chen-residence-02_result.webp";
 import chenResidence03 from "@/assets/chen-residence-03_result.webp";
 import chenResidence04 from "@/assets/chen-residence-04_result.webp";
 import cleardent01v2 from "@/assets/cleardent-01_result-2.webp";
+import cleardent02 from "@/assets/cleardent-02_result.webp";
+import collingwood01v3 from "@/assets/collingwood-01_result-3.webp";
+import collingwood02 from "@/assets/collingwood-02_result.webp";
+import collingwood03 from "@/assets/collingwood-03_result.webp";
+import collingwood04 from "@/assets/collingwood-04_result.webp";
+import collingwood05 from "@/assets/collingwood-05_result.webp";
+import collingwood06 from "@/assets/collingwood-06_result.webp";
+import corvusEnergy01v2 from "@/assets/corvus_energy_expansion-01_result-2.webp";
+import corvusEnergy02 from "@/assets/corvus_energy_expansion-02_result.webp";
+import dubaiHouse01v3 from "@/assets/dubai_house_of_the_future-01_result-3.webp";
 
 
 // ── Unified Project Interface ──────────────────────────
