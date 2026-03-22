@@ -32,6 +32,11 @@ const getTopFeatured = () => {
 const Projects = () => {
   const topFeatured = useMemo(getTopFeatured, []);
   const [activeCategory, setActiveCategory] = useState("all");
+  const { t } = useLang();
+  usePageMeta({
+    title: "Projects | Architect 57 無極建築",
+    description: "Explore 80+ architectural projects by Architect 57 無極建築 spanning residential homes, commercial high-rises, industrial facilities, and institutional buildings across Metro Vancouver.",
+  });
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const { t } = useLang();
 

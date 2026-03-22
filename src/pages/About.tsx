@@ -7,6 +7,10 @@ import usePageMeta from "@/hooks/usePageMeta";
 
 const About = () => {
   const { t } = useLang();
+  usePageMeta({
+    title: "About | Architect 57 無極建築",
+    description: "Learn about Architect 57 無極建築 — a Richmond-based architecture studio specializing in design-build, building code consulting, BIM coordination, and sustainable design across BC and beyond.",
+  });
 
   const services = Array.from({ length: 16 }, (_, i) => t(`svc.${i + 1}`));
 

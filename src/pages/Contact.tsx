@@ -7,6 +7,10 @@ import usePageMeta from "@/hooks/usePageMeta";
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const { t } = useLang();
+  usePageMeta({
+    title: "Contact | Architect 57 無極建築",
+    description: "Get in touch with Architect 57 無極建築 for architectural design, building permits, code consulting, and project management inquiries in Richmond, BC and beyond.",
+  });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

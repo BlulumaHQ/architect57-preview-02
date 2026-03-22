@@ -10,6 +10,16 @@ const ProjectDetail = () => {
   const project = allProjects.find((p) => p.slug === slug);
   const { t } = useLang();
 
+  const metaTitle = project
+    ? `${project.name} | Architect 57 無極建築`
+    : "Project Not Found | Architect 57 無極建築";
+
+  const metaDesc = project
+    ? `${project.name}${project.location ? ` in ${project.location}` : ""} by Architect 57 無極建築 — ${project.category}${project.area ? `, ${project.area}` : ""}${project.detail ? `. ${project.detail}` : ""}.`
+    : "Project not found.";
+
+  usePageMeta({ title: metaTitle, description: metaDesc });
+
   if (!project) return <Navigate to="/projects" replace />;
 
   const currentIndex = allProjects.findIndex((p) => p.slug === slug);
