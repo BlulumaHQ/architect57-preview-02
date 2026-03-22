@@ -170,9 +170,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A substantial office development in Richmond delivering 28,703 square feet of contemporary commercial workspace.",
     longDesc: "The Bridgeport Office Building is a significant commercial project in Richmond, encompassing 28,703 square feet of Class A office space. The design responds to the scale and context of the Bridgeport corridor while establishing a distinctive architectural identity. Floor plates are organized for maximum flexibility, and the building envelope integrates high-performance glazing systems that reduce energy consumption without compromising natural light. The $10 million project represents Architect 57's capability in delivering large-scale commercial work with precision and fiscal responsibility.",
     services: ["Integrated Building Design", "Code Consultation (CP)", "Project Management", "BIM"],
-    heroImg: bridgeportOffice01,
+    heroImg: bridgeportOffice01Result,
     galleryImgs: [bridgeportOffice02, bridgeportOffice03],
-    coverImg: bridgeportOffice01,
+    coverImg: bridgeportOffice01Result,
   },
   {
     slug: "collingwood",
