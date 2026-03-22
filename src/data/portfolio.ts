@@ -36,6 +36,7 @@ export interface CollectionProject {
   name: string;
   location: string;
   area?: string;
+  coDesigner?: string;
   budget?: string;
   designer?: string;
   codes?: string;

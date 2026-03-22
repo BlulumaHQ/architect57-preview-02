@@ -30,12 +30,12 @@ const services = [
   },
 ];
 
-const featuredProjects = [
-  { img: featured1, title: "Mixed-Use Development", category: "Commercial" },
-  { img: featured2, title: "High-Rise Residential", category: "Residential" },
-  { img: featured3, title: "Institutional Complex", category: "Institutional" },
-  { img: featured4, title: "Industrial Research Facility", category: "Industrial" },
-];
+const featuredProjects = allFeatured.slice(0, 4).map((p) => ({
+  img: p.coverImg,
+  title: p.title,
+  category: p.category,
+  slug: p.slug,
+}));
 
 const Index = () => {
   return (
