@@ -260,7 +260,7 @@ const Index = () => {
                 </Link>
               </ScrollReveal>
               <ScrollReveal delay={200}>
-                <Link to="/projects" className="group block relative overflow-hidden rounded-sm">
+                <Link to={`/projects/${featuredProjects[2].slug}`} className="group block relative overflow-hidden rounded-sm">
                   <img
                     src={featuredProjects[2].img}
                     alt={featuredProjects[2].title}
