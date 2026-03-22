@@ -247,11 +247,11 @@ export const collections: Collection[] = [
     title: "Master Planning",
     categorySlug: "master-planning",
     desc: "Large-scale planning projects from community estates to institutional campus developments.",
-    coverImg: src11,
+    coverImg: unionBayEstate01,
     projects: [
-      { name: "Zone 5, Union Bay Estate", location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: src2 },
-      { name: "New University Hospital of Northern BC", location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 million", img: src6 },
-      { name: "Dubai House of the Future Competition", location: "Dubai, UAE", area: "570,000 sq. ft. (13.09 acres)", img: src3 },
+      { name: "Zone 5, Union Bay Estate", location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01 },
+      { name: "New University Hospital of Northern BC", location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 million", img: newUniversityHospital01 },
+      { name: "Dubai House of the Future Competition", location: "Dubai, UAE", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01 },
     ],
   },
 ];
