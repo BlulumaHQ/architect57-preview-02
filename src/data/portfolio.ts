@@ -82,6 +82,7 @@ import applianceCanada01 from "@/assets/Appliance_Canada_01.webp";
 import fiftyFourthAveCondo01v2 from "@/assets/54th_ave_condo-01_result-2.webp";
 import fiftyFourthAveCondo02Result from "@/assets/54th_ave_condo-02_result.webp";
 import fiftyFourthAveCondo03Result from "@/assets/54th_ave_condo-03_result.webp";
+import fiftyFourthAveCondo03v2 from "@/assets/54th_ave_condo-03_result-2.webp";
 import aceEsports01v2 from "@/assets/ace_e-sports-01_result-2.webp";
 import aceEsports02 from "@/assets/ace_e-sports-02_result.webp";
 import aceEsports03 from "@/assets/ace_e-sports-03_result.webp";
