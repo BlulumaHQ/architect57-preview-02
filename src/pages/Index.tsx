@@ -5,10 +5,7 @@ import DiagonalMarquee from "@/components/DiagonalMarquee";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutStudio from "@/assets/about-studio.jpg";
-import featured1 from "@/assets/source-project-1.jpg";
-import featured2 from "@/assets/source-project-4.jpg";
-import featured3 from "@/assets/source-project-7.jpg";
-import featured4 from "@/assets/source-project-10.jpg";
+import { featuredProjects as allFeatured } from "@/data/portfolio";
 
 const services = [
   {
@@ -33,12 +30,12 @@ const services = [
   },
 ];
 
-const featuredProjects = [
-  { img: featured1, title: "Mixed-Use Development", category: "Commercial" },
-  { img: featured2, title: "High-Rise Residential", category: "Residential" },
-  { img: featured3, title: "Institutional Complex", category: "Institutional" },
-  { img: featured4, title: "Industrial Research Facility", category: "Industrial" },
-];
+const featuredProjects = allFeatured.slice(0, 4).map((p) => ({
+  img: p.coverImg,
+  title: p.title,
+  category: p.category,
+  slug: p.slug,
+}));
 
 const Index = () => {
   return (
@@ -222,7 +219,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
             {/* Large left */}
             <ScrollReveal className="md:col-span-7">
-              <Link to="/projects" className="group block relative overflow-hidden rounded-sm">
+              <Link to={`/projects/${featuredProjects[0].slug}`} className="group block relative overflow-hidden rounded-sm">
                 <img
                   src={featuredProjects[0].img}
                   alt={featuredProjects[0].title}
@@ -244,7 +241,7 @@ const Index = () => {
             {/* Right stack */}
             <div className="md:col-span-5 flex flex-col gap-4 md:gap-5">
               <ScrollReveal delay={100}>
-                <Link to="/projects" className="group block relative overflow-hidden rounded-sm">
+                <Link to={`/projects/${featuredProjects[1].slug}`} className="group block relative overflow-hidden rounded-sm">
                   <img
                     src={featuredProjects[1].img}
                     alt={featuredProjects[1].title}
@@ -263,7 +260,7 @@ const Index = () => {
                 </Link>
               </ScrollReveal>
               <ScrollReveal delay={200}>
-                <Link to="/projects" className="group block relative overflow-hidden rounded-sm">
+                <Link to={`/projects/${featuredProjects[2].slug}`} className="group block relative overflow-hidden rounded-sm">
                   <img
                     src={featuredProjects[2].img}
                     alt={featuredProjects[2].title}
@@ -286,7 +283,7 @@ const Index = () => {
 
           {/* Fourth project — full width */}
           <ScrollReveal delay={300} className="mt-4 md:mt-5">
-            <Link to="/projects" className="group block relative overflow-hidden rounded-sm">
+            <Link to={`/projects/${featuredProjects[3].slug}`} className="group block relative overflow-hidden rounded-sm">
               <img
                 src={featuredProjects[3].img}
                 alt={featuredProjects[3].title}

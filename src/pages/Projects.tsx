@@ -1,63 +1,22 @@
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-
-import srcImg1 from "@/assets/source-project-1.jpg";
-import srcImg4 from "@/assets/source-project-4.jpg";
-import srcImg7 from "@/assets/source-project-7.jpg";
-import srcImg10 from "@/assets/source-project-10.jpg";
-import srcImg3 from "@/assets/source-project-3.jpg";
-import srcImg6 from "@/assets/source-project-6.jpg";
-
-const featuredProjects = [
-  {
-    slug: "mixed-use-development",
-    img: srcImg1,
-    title: "Mixed-Use Development",
-    category: "Commercial",
-    year: "2023",
-    desc: "Multi-story mixed-use complex with retail and residential integration.",
-  },
-  {
-    slug: "high-rise-residential",
-    img: srcImg4,
-    title: "High-Rise Residential Tower",
-    category: "Residential",
-    year: "2022",
-    desc: "Modern high-rise residential development with sustainable design features.",
-  },
-  {
-    slug: "institutional-complex",
-    img: srcImg7,
-    title: "Institutional Complex",
-    category: "Institutional",
-    year: "2021",
-    desc: "Purpose-built institutional facility with advanced structural engineering.",
-  },
-];
-
-const collections = [
-  {
-    slug: "single-family",
-    title: "Single Family",
-    count: 3,
-    img: srcImg10,
-  },
-  {
-    slug: "daycare-education",
-    title: "Daycare & Education",
-    count: 2,
-    img: srcImg3,
-  },
-  {
-    slug: "multiplex",
-    title: "Multiplex",
-    count: 2,
-    img: srcImg6,
-  },
-];
+import { featuredProjects, collections, categories } from "@/data/portfolio";
 
 const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const filteredFeatured = useMemo(() => {
+    if (activeFilter === "all") return featuredProjects;
+    return featuredProjects.filter((p) => p.categorySlug === activeFilter);
+  }, [activeFilter]);
+
+  const filteredCollections = useMemo(() => {
+    if (activeFilter === "all") return collections;
+    return collections.filter((c) => c.categorySlug === activeFilter);
+  }, [activeFilter]);
+
   return (
     <main className="pb-16 md:pb-0">
       {/* Hero */}
@@ -77,97 +36,142 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Section 1: Featured Projects */}
-      <section className="section-padding-lg bg-background">
-        <div className="container-wide">
-          <ScrollReveal>
-            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-3">
-              Featured Work
-            </p>
-            <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground mb-16 tracking-tight">
-              Signature Projects
-            </h2>
-          </ScrollReveal>
+      {/* Filters */}
+      <section className="bg-background border-b border-border sticky top-[72px] z-30">
+        <div className="container-wide py-4 overflow-x-auto scrollbar-hide">
+          <div className="flex gap-2 min-w-max">
+            {categories.map((cat) => (
+              <button
+                key={cat.slug}
+                onClick={() => setActiveFilter(cat.slug)}
+                className={`font-heading text-[11px] font-light tracking-[0.15em] uppercase px-5 py-2.5 rounded-sm transition-all duration-300 active:scale-[0.97] whitespace-nowrap ${
+                  activeFilter === cat.slug
+                    ? "bg-foreground text-background"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="space-y-20">
-            {featuredProjects.map((p, i) => (
-              <ScrollReveal key={p.slug} delay={i * 80}>
-                <Link to={`/projects/${p.slug}`} className="group block">
-                  <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${i % 2 === 1 ? "lg:[direction:rtl]" : ""}`}>
-                    <div className="lg:col-span-7 overflow-hidden rounded-sm" style={{ direction: "ltr" }}>
+      {/* Section 1: Featured Projects */}
+      {filteredFeatured.length > 0 && (
+        <section className="section-padding-lg bg-background">
+          <div className="container-wide">
+            <ScrollReveal>
+              <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-3">
+                Featured Work
+              </p>
+              <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground mb-16 tracking-tight">
+                Signature Projects
+              </h2>
+            </ScrollReveal>
+
+            <div className="space-y-20">
+              {filteredFeatured.map((p, i) => (
+                <ScrollReveal key={p.slug} delay={i * 80}>
+                  <Link to={`/projects/${p.slug}`} className="group block">
+                    <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${i % 2 === 1 ? "lg:[direction:rtl]" : ""}`}>
+                      <div className="lg:col-span-7 overflow-hidden rounded-sm" style={{ direction: "ltr" }}>
+                        <img
+                          src={p.coverImg}
+                          alt={p.title}
+                          className="w-full aspect-[3/2] object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="lg:col-span-4 lg:col-start-9" style={{ direction: "ltr" }}>
+                        <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
+                          {p.category}
+                        </span>
+                        <h3 className="font-heading text-2xl md:text-3xl font-light text-foreground mt-2 mb-2 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
+                          {p.title}
+                        </h3>
+                        <p className="text-muted-foreground/70 text-sm font-light mb-3">
+                          {p.location}{p.area ? ` — ${p.area}` : ""}
+                        </p>
+                        <p className="text-muted-foreground font-light leading-relaxed mb-6 line-clamp-3">{p.desc}</p>
+                        <span className="inline-flex items-center gap-2 font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
+                          View Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Divider */}
+      {filteredFeatured.length > 0 && filteredCollections.length > 0 && (
+        <div className="container-wide">
+          <div className="h-px bg-border" />
+        </div>
+      )}
+
+      {/* Section 2: Collections */}
+      {filteredCollections.length > 0 && (
+        <section className="section-padding-lg bg-background">
+          <div className="container-wide">
+            <ScrollReveal>
+              <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-3">
+                By Typology
+              </p>
+              <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground mb-16 tracking-tight">
+                Project Collections
+              </h2>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredCollections.map((c, i) => (
+                <ScrollReveal key={c.slug} delay={i * 80}>
+                  <Link to={`/projects/collection/${c.slug}`} className="group block">
+                    <div className="overflow-hidden rounded-sm mb-5">
                       <img
-                        src={p.img}
-                        alt={p.title}
-                        className="w-full aspect-[3/2] object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                        src={c.coverImg}
+                        alt={c.title}
+                        className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] transition-transform duration-700"
                         loading="lazy"
                       />
                     </div>
-                    <div className="lg:col-span-4 lg:col-start-9" style={{ direction: "ltr" }}>
-                      <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
-                        {p.category} — {p.year}
-                      </span>
-                      <h3 className="font-heading text-2xl md:text-3xl font-light text-foreground mt-2 mb-4 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
-                        {p.title}
-                      </h3>
-                      <p className="text-muted-foreground font-light leading-relaxed mb-6">{p.desc}</p>
-                      <span className="inline-flex items-center gap-2 font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
-                        View Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                      </span>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-heading text-lg font-light text-foreground tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
+                          {c.title}
+                        </h3>
+                        <p className="text-muted-foreground font-light text-sm mt-1">
+                          {c.projects.length} project{c.projects.length !== 1 ? "s" : ""}
+                        </p>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-[hsl(var(--gold-accent))] group-hover:translate-x-1 transition-all duration-300" />
                     </div>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
+                  </Link>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Divider */}
-      <div className="container-wide">
-        <div className="h-px bg-border" />
-      </div>
-
-      {/* Section 2: Collections */}
-      <section className="section-padding-lg bg-background">
-        <div className="container-wide">
-          <ScrollReveal>
-            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-3">
-              By Typology
-            </p>
-            <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground mb-16 tracking-tight">
-              Project Collections
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {collections.map((c, i) => (
-              <ScrollReveal key={c.slug} delay={i * 80}>
-                <Link to={`/projects/collection/${c.slug}`} className="group block">
-                  <div className="overflow-hidden rounded-sm mb-5">
-                    <img
-                      src={c.img}
-                      alt={c.title}
-                      className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] transition-transform duration-700"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-heading text-lg font-light text-foreground tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
-                        {c.title}
-                      </h3>
-                      <p className="text-muted-foreground font-light text-sm mt-1">
-                        {c.count} project{c.count !== 1 ? "s" : ""}
-                      </p>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-[hsl(var(--gold-accent))] group-hover:translate-x-1 transition-all duration-300" />
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
+      {/* Empty state */}
+      {filteredFeatured.length === 0 && filteredCollections.length === 0 && (
+        <section className="section-padding-lg bg-background text-center">
+          <div className="container-tight">
+            <p className="text-muted-foreground font-light">No projects found in this category.</p>
+            <button
+              onClick={() => setActiveFilter("all")}
+              className="mt-4 font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
+            >
+              View All Projects
+            </button>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="bg-[hsl(var(--surface-dark))] py-24 md:py-32 text-center">
