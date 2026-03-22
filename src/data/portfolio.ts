@@ -223,7 +223,7 @@ export const featuredProjects: FeaturedProject[] = [
     longDesc: "The Han Residence is a 6,078 square-foot custom home developed through a close design collaboration. The architectural envelope establishes a contemporary silhouette while the interior introduces a layered material language that brings warmth and personality to the living spaces. Every room has been considered as part of a continuous spatial narrative.",
     services: ["Integrated Building Design", "Code Consultation"],
     heroImg: hanResidence01,
-    galleryImgs: [src5, src6],
+    galleryImgs: [hanResidence01],
     coverImg: hanResidence01,
   },
   {
