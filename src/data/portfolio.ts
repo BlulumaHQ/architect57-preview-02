@@ -197,6 +197,11 @@ import wellingtonMixUse01v2 from "@/assets/wellington_mix-use-01_result-2.webp";
 import west3901v3 from "@/assets/west-39-01_result-3.webp";
 import willingdonClinic01v2 from "@/assets/willingdon_green_clinic-01_result-2.webp";
 import wuResidence01v2 from "@/assets/wu-residence-01_result-2.webp";
+import wuResidence02 from "@/assets/wu-residence-02_result.webp";
+import xuResidence01v2 from "@/assets/xu-residence-01_result-2.webp";
+import xuResidence02 from "@/assets/xu-residence-02_result.webp";
+import xuResidence03 from "@/assets/xu-residence-03_result.webp";
+import unionBayEstate01v3 from "@/assets/zone_5_union_bay_estate-01_result-3.webp";
 
 // ── Unified Project Interface ──────────────────────────
 
