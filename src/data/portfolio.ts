@@ -180,7 +180,7 @@ export const allProjects: Project[] = [
 
   // ─── INTERIOR PROJECTS ───
   { slug: "teco-office", name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", area: "12,339 sq. ft.", img: tecoOffice01, galleryImgs: [tecoOffice01] },
-  { slug: "appliance-canada", name: "Appliance Canada", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Richmond, BC", area: "11,639 sq. ft.", img: applianceCanada01, galleryImgs: [applianceCanada01] },
+  { slug: "appliance-canada", name: "Appliance Canada", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Richmond, BC", area: "11,639 sq. ft.", img: applianceCanada01v2, galleryImgs: [applianceCanada01v2] },
   { slug: "titanic-exhibition", name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Cultural"], location: "Richmond, BC", area: "15,801 sq. ft.", img: titanicExhibition01, galleryImgs: [titanicExhibition01] },
   { slug: "beresford-doctor-clinic", name: "Beresford Doctor Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: beresfordClinic01, galleryImgs: [beresfordClinic01] },
   { slug: "willingdon-green-clinic", name: "Willingdon Green Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: willingdonClinic01, galleryImgs: [willingdonClinic01] },
