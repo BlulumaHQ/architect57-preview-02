@@ -229,9 +229,9 @@ export const collections: Collection[] = [
     title: "Multi-Unit Housing",
     categorySlug: "multi-unit-housing",
     desc: "High-rise towers, mixed-use developments, townhouse communities, and multiplex projects across British Columbia.",
-    coverImg: austinHighRise01,
+    coverImg: austinHighRise01Result,
     projects: [
-      { name: "Austin High-Rise", location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 million", img: austinHighRise01 },
+      { name: "Austin High-Rise", location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 million", img: austinHighRise01Result },
       { name: "54th Ave Condo (12-Storey)", location: "Langley, BC", notes: "12-storey with underground parking", img: fiftyFourthAveCondo01Result },
       { name: "Wellington Mixed-Use", location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 million", img: wellingtonMixUse01Result },
       { name: "54th Ave Condo (4-Storey)", location: "Langley, BC", notes: "4-storey with underground parking", img: fiftyFourthAveCondo02 },
