@@ -2,7 +2,9 @@ import src11 from "@/assets/source-project-11.jpg";
 
 // Real project images
 import austinHighRise01Result from "@/assets/austin_high-rise-01_result.webp";
+import austinHighRise01v2 from "@/assets/austin_high-rise-01_result-2.webp";
 import bridgeportOffice01Result from "@/assets/bridgeport_office_building-01_result.webp";
+import bridgeportOffice01v2 from "@/assets/bridgeport_office_building-01_result-2.webp";
 import bridgeportOffice02 from "@/assets/bridgeport_office_building-02.jpg";
 import bridgeportOffice03 from "@/assets/bridgeport_office_building-03.jpg";
 import wellingtonMixUse01Result from "@/assets/wellington_mix-use-01_result.webp";
