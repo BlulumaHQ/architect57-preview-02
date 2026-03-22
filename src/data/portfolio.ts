@@ -252,7 +252,7 @@ export const featuredProjects: FeaturedProject[] = [
     longDesc: "The Xu Residence is proof that careful design can make a modest footprint feel expansive. At 3,680 square feet, every element has been optimized — from ceiling heights and window placements to circulation paths and storage integration. The result is a home that feels open, bright, and effortlessly livable without relying on excessive square footage.",
     services: ["Integrated Building Design", "Code Consultation"],
     heroImg: xuResidence01,
-    galleryImgs: [src11, src1],
+    galleryImgs: [xuResidence01],
     coverImg: xuResidence01,
   },
   {
