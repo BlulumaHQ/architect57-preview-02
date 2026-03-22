@@ -203,6 +203,7 @@ import vanguardFitness02 from "@/assets/vanguard_fitness-02_result.webp";
 import vinsonCreek01v2 from "@/assets/vinson-creek-residence-01_result-2.webp";
 import vinsonCreek02 from "@/assets/vinson-creek-residence-02_result.webp";
 import wellingtonMixUse01v2 from "@/assets/wellington_mix-use-01_result-2.webp";
+import wellingtonMixUse01v3 from "@/assets/wellington_mix-use-01_result-3.webp";
 import west3901v3 from "@/assets/west-39-01_result-3.webp";
 import willingdonClinic01v2 from "@/assets/willingdon_green_clinic-01_result-2.webp";
 import wuResidence01v2 from "@/assets/wu-residence-01_result-2.webp";
