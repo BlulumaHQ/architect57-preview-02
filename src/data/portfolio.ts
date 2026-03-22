@@ -176,7 +176,7 @@ export const featuredProjects: FeaturedProject[] = [
     longDesc: "The Chen Residence is a thoughtfully composed home that balances dramatic West Coast siting with refined interior proportions. At 6,729 square feet, the design prioritizes clear spatial sequences, natural light modulation, and a restrained material palette that defers to the surrounding landscape. The project earned recognition as a CHBA National SAM Awards Finalist — a testament to the level of craft and design integrity achieved throughout.",
     services: ["Integrated Building Design", "Code Consultation", "Project Management"],
     heroImg: chenResidence01,
-    galleryImgs: [src2, src3],
+    galleryImgs: [chenResidence01],
     coverImg: chenResidence01,
   },
   {
