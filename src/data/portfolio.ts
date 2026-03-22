@@ -124,9 +124,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A refined single-family residence in West Vancouver, recognized as a finalist for the CHBA National SAM Awards.",
     longDesc: "The Chen Residence is a thoughtfully composed home that balances dramatic West Coast siting with refined interior proportions. At 6,729 square feet, the design prioritizes clear spatial sequences, natural light modulation, and a restrained material palette that defers to the surrounding landscape. The project earned recognition as a CHBA National SAM Awards Finalist — a testament to the level of craft and design integrity achieved throughout.",
     services: ["Integrated Building Design", "Code Consultation", "Project Management"],
-    heroImg: src1,
+    heroImg: chenResidence01,
     galleryImgs: [src2, src3],
-    coverImg: src1,
+    coverImg: chenResidence01,
   },
   {
     slug: "han-residence",
