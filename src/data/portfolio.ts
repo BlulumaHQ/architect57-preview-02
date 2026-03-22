@@ -271,6 +271,7 @@ export const collections: Collection[] = [
       { name: "Mariposa Gardens Retirement", location: "Kelowna, BC", img: mariposaGardens01 },
       { name: "Okanagan Chateau Retirement", location: "Kelowna, BC", img: okanaganChateau01 },
       { name: "Sienna Rideau Retirement", location: "Ottawa, ON", img: siennaRideau01 },
+      { name: "Treasure Cove Casino", location: "Prince George, BC", img: treasureCoveCasino01 },
     ],
   },
   {
