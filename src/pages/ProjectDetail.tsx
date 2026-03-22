@@ -2,19 +2,16 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
-// Images
-import mixedHero from "@/assets/project-mixed-use-hero.jpg";
-import mixed2 from "@/assets/project-mixed-use-2.jpg";
-import mixed3 from "@/assets/project-mixed-use-3.jpg";
-import highriseHero from "@/assets/project-highrise-hero.jpg";
-import highrise2 from "@/assets/project-highrise-2.jpg";
-import highrise3 from "@/assets/project-highrise-3.jpg";
-import institutionalHero from "@/assets/project-institutional-hero.jpg";
-import institutional2 from "@/assets/project-institutional-2.jpg";
-import institutional3 from "@/assets/project-institutional-3.jpg";
-import featured1 from "@/assets/featured-1.jpg";
-import featured2 from "@/assets/featured-2.jpg";
-import featured3 from "@/assets/featured-3.jpg";
+// Source project images
+import src1 from "@/assets/source-project-1.jpg";
+import src2 from "@/assets/source-project-2.jpg";
+import src3 from "@/assets/source-project-3.jpg";
+import src4 from "@/assets/source-project-4.jpg";
+import src5 from "@/assets/source-project-5.jpg";
+import src6 from "@/assets/source-project-6.jpg";
+import src7 from "@/assets/source-project-7.jpg";
+import src8 from "@/assets/source-project-8.jpg";
+import src9 from "@/assets/source-project-9.jpg";
 
 const projects = [
   {
@@ -26,9 +23,9 @@ const projects = [
     desc: "Multi-story mixed-use complex integrating retail, office, and residential spaces within a single cohesive architectural vision.",
     longDesc: "This mixed-use development required careful integration of commercial retail at ground level with office space and residential units above. The design prioritizes natural light, pedestrian flow, and a unified facade that respects the surrounding urban context while establishing a distinct identity.",
     services: ["Integrated Building Design", "Code Consultation", "Project Management", "BIM"],
-    heroImg: mixedHero,
-    galleryImgs: [mixed2, mixed3, featured1],
-    coverImg: featured1,
+    heroImg: src1,
+    galleryImgs: [src2, src3],
+    coverImg: src1,
   },
   {
     slug: "high-rise-residential",
@@ -39,9 +36,9 @@ const projects = [
     desc: "Modern high-rise residential tower featuring sustainable design, premium amenities, and panoramic city views.",
     longDesc: "A landmark residential tower designed for urban living at its finest. The building envelope maximizes energy efficiency while floor-to-ceiling glazing offers unobstructed views. Amenity spaces including a rooftop terrace create a vertical community experience.",
     services: ["Integrated Building Design", "Sustainable Architecture", "Code Consultation", "Project Planning"],
-    heroImg: highriseHero,
-    galleryImgs: [highrise2, highrise3, featured2],
-    coverImg: featured2,
+    heroImg: src4,
+    galleryImgs: [src5, src6],
+    coverImg: src4,
   },
   {
     slug: "institutional-complex",
@@ -52,9 +49,9 @@ const projects = [
     desc: "Purpose-built institutional facility with advanced structural engineering and expansive public atriums.",
     longDesc: "This institutional project required balancing public accessibility with specialized functional requirements. The design features a dramatic central atrium that floods the interior with natural light, while carefully zoned wings accommodate distinct program areas. Materials were selected for durability and civic presence.",
     services: ["Integrated Building Design", "Code Consultation (CP)", "Project Management", "IPD"],
-    heroImg: institutionalHero,
-    galleryImgs: [institutional2, institutional3, featured3],
-    coverImg: featured3,
+    heroImg: src7,
+    galleryImgs: [src8, src9],
+    coverImg: src7,
   },
 ];
 
