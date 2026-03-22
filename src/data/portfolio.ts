@@ -146,6 +146,18 @@ import luResidence01v2 from "@/assets/lu-residence-01_result-2.webp";
 import luResidence02 from "@/assets/lu-residence-02_result.webp";
 import lutheranChurch01v2 from "@/assets/lutheran_community_church-01_result-2.webp";
 
+// Real project images (batch 15)
+import mariposaGardens01v2 from "@/assets/mariposa_gardens_retirement-01_result-2.webp";
+import morganPlay01v2 from "@/assets/morgan_play-01_result-2.webp";
+import morganPlay02 from "@/assets/morgan_play-02_result.webp";
+import morganPlay03 from "@/assets/morgan_play-03_result.webp";
+import newUniversityHospital01v3 from "@/assets/new_university_hospital-01_result-3.webp";
+import no6Residence01v2 from "@/assets/no6-residence-01_result-2.webp";
+import no6Residence02 from "@/assets/no6-residence-02_result.webp";
+import okanaganChateau01v2 from "@/assets/okanagan_chateau_retirement-01_result-2.webp";
+import ontarioStorage01v2 from "@/assets/ontario_storage_warehouse-01_result-2.webp";
+import phiEducation01v2 from "@/assets/phi-education-01_result-2.webp";
+
 // ── Unified Project Interface ──────────────────────────
 
 export interface Project {
