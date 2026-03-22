@@ -166,9 +166,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A compact yet spatially generous custom home in Richmond, thoughtfully planned at 3,680 square feet.",
     longDesc: "The Xu Residence is proof that careful design can make a modest footprint feel expansive. At 3,680 square feet, every element has been optimized — from ceiling heights and window placements to circulation paths and storage integration. The result is a home that feels open, bright, and effortlessly livable without relying on excessive square footage.",
     services: ["Integrated Building Design", "Code Consultation"],
-    heroImg: src10,
+    heroImg: xuResidence01,
     galleryImgs: [src11, src1],
-    coverImg: src10,
+    coverImg: xuResidence01,
   },
   {
     slug: "bridgeport-office",
