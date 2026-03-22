@@ -105,7 +105,6 @@ import chenResidence02 from "@/assets/chen-residence-02_result.webp";
 import chenResidence03 from "@/assets/chen-residence-03_result.webp";
 import chenResidence03v2 from "@/assets/chen-residence-03_result-2.webp";
 import chenResidence04 from "@/assets/chen-residence-04_result.webp";
-import chenResidence04 from "@/assets/chen-residence-04_result.webp";
 import cleardent01v2 from "@/assets/cleardent-01_result-2.webp";
 import cleardent02 from "@/assets/cleardent-02_result.webp";
 import collingwood01v3 from "@/assets/collingwood-01_result-3.webp";
