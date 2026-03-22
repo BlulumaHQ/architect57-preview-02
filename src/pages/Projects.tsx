@@ -2,13 +2,34 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { allProjects, categories, featuredSlugs } from "@/data/portfolio";
+import { allProjects, categories } from "@/data/portfolio";
 
-const topFeatured = featuredSlugs
-  .map((slug) => allProjects.find((p) => p.slug === slug)!)
-  .filter(Boolean);
+// Randomly select 3 featured from Residential + Commercial only
+const getTopFeatured = () => {
+  const residential = allProjects.filter((p) => p.categorySlug === "residential");
+  const commercial = allProjects.filter((p) => p.categorySlug === "commercial");
+
+  const shuffleAndPick = (arr: typeof allProjects, n: number) =>
+    [...arr].sort(() => Math.random() - 0.5).slice(0, n);
+
+  // Randomly decide 2+1 split direction
+  const resFirst = Math.random() > 0.5;
+  const resPicks = shuffleAndPick(residential, resFirst ? 2 : 1);
+  const comPicks = shuffleAndPick(commercial, resFirst ? 1 : 2);
+  let picks = [...resPicks, ...comPicks];
+
+  if (picks.length < 3) {
+    const all = [...residential, ...commercial].filter(
+      (p) => !picks.some((x) => x.slug === p.slug)
+    );
+    picks = [...picks, ...shuffleAndPick(all, 3 - picks.length)];
+  }
+
+  return picks.sort(() => Math.random() - 0.5);
+};
 
 const Projects = () => {
+  const topFeatured = useMemo(getTopFeatured, []);
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeTag, setActiveTag] = useState<string | null>(null);
 
