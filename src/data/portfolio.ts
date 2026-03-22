@@ -157,6 +157,16 @@ import no6Residence02 from "@/assets/no6-residence-02_result.webp";
 import okanaganChateau01v2 from "@/assets/okanagan_chateau_retirement-01_result-2.webp";
 import ontarioStorage01v2 from "@/assets/ontario_storage_warehouse-01_result-2.webp";
 import phiEducation01v2 from "@/assets/phi-education-01_result-2.webp";
+import phiEducation02 from "@/assets/phi-education-02_result.webp";
+import poLamTemple01v2 from "@/assets/po_lam_temple-01_result-2.webp";
+import poLamTemple02 from "@/assets/po_lam_temple-02_result.webp";
+import ramenOneBroadway01v2 from "@/assets/ramen-one-broadway-01_result-2.webp";
+import rayacomPrint01v2 from "@/assets/rayacom_premium_print-01_result-2.webp";
+import rayacomFactory01v2 from "@/assets/rayacom_super_print_factory01_result-2.webp";
+import rayacomFactory02 from "@/assets/rayacom_super_print_factory02_result.webp";
+import royalOak01v3 from "@/assets/royal-oak01_result-3.webp";
+import royalOak02 from "@/assets/royal-oak02_result.webp";
+import seavale01v2 from "@/assets/seavale-01_result-2.webp";
 
 // ── Unified Project Interface ──────────────────────────
 
@@ -209,7 +219,7 @@ export const allProjects: Project[] = [
 
   // ─── COMMUNITY & CULTURAL — RELIGIOUS ───
   { slug: "gold-buddha-monastery", name: "Gold Buddha Monastery Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Vancouver, BC", area: "33,034 sq. ft.", detail: "Design architect: DYS Architecture; Building permit architect: Architect 57", img: goldBuddhaMonastery01v2, galleryImgs: [goldBuddhaMonastery01v2, goldBuddhaMonastery02, goldBuddhaMonastery03] },
-  { slug: "po-lam-temple", name: "Po Lam Temple", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Chilliwack, BC", area: "27,340 sf", budget: "$19 millions", img: poLamTemple01, galleryImgs: [poLamTemple01] },
+  { slug: "po-lam-temple", name: "Po Lam Temple", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Chilliwack, BC", area: "27,340 sf", budget: "$19 millions", img: poLamTemple01v2, galleryImgs: [poLamTemple01v2, poLamTemple02] },
   { slug: "lutheran-community-church", name: "Lutheran Community Church Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Las Vegas, NV", detail: "Architect: TSK Architects; Designer: Cary Tsai", img: lutheranChurch01v2, galleryImgs: [lutheranChurch01v2] },
   { slug: "iglesia-ni-cristo-surrey", name: "Iglesia Ni Cristo Locale of Surrey", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Surrey, BC", area: "10,964 sf", detail: "Exterior envelope replacement and interior renovation", img: iglesiaNiCristo01v2, galleryImgs: [iglesiaNiCristo01v2, iglesiaNiCristo02] },
   // Community & Cultural — existing extra projects
@@ -222,7 +232,7 @@ export const allProjects: Project[] = [
   // ─── INSTITUTIONAL — DAYCARE / EDUCATION ───
   { slug: "east-2nd-avenue", name: "East 2nd Avenue", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Vancouver, BC", img: east2ndAve01v2, galleryImgs: [east2ndAve01v2, east2ndAve02, east2ndAve03, east2ndAve04] },
   { slug: "sqn-education", name: "SQN Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Richmond, BC", detail: "Designer: ID Design Consulting Ltd.", img: sqnEducation01, galleryImgs: [sqnEducation01] },
-  { slug: "phi-education", name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: phiEducation01v2, galleryImgs: [phiEducation01v2] },
+  { slug: "phi-education", name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: phiEducation01v2, galleryImgs: [phiEducation01v2, phiEducation02] },
   { slug: "little-marines-preschool", name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: littleMarines01v2, galleryImgs: [littleMarines01v2, littleMarines02] },
   { slug: "happy-may-iv", name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: happyMay01v2, galleryImgs: [happyMay01v2] },
 
@@ -233,14 +243,14 @@ export const allProjects: Project[] = [
   { slug: "sienna-rideau", name: "Sienna Rideau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Burnaby, BC", detail: "Interior renovation + fire sprinkler upgrade; Building height: 19 storeys", img: siennaRideau01, galleryImgs: [siennaRideau01] },
 
   // ─── INDUSTRIAL ───
-  { slug: "rayacom-super-print-factory", name: "Rayacom Super Print Factory", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "128,285 sq. ft.", img: rayacomFactory01, galleryImgs: [rayacomFactory01] },
+  { slug: "rayacom-super-print-factory", name: "Rayacom Super Print Factory", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "128,285 sq. ft.", img: rayacomFactory01v2, galleryImgs: [rayacomFactory01v2, rayacomFactory02] },
   { slug: "trouw-frankie-feed-mill", name: "Trouw Frankie Feed Mill", category: "Industrial", categorySlug: "industrial", tags: ["Industrial"], location: "Chilliwack, BC", detail: "Heavy industrial; Design engineer: CMC Engineering", img: trouwFrankie01, galleryImgs: [trouwFrankie01] },
   { slug: "ontario-storage-warehouse", name: "Ontario Storage Warehouse", category: "Industrial", categorySlug: "industrial", tags: ["Warehouse"], location: "Vancouver, BC", img: ontarioStorage01v2, galleryImgs: [ontarioStorage01v2] },
   { slug: "brightway-cfia-seafood", name: "Brightway CFIA Seafood Processing", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Delta, BC", area: "41,839 sq. ft.", budget: "$6M+", detail: "CBD oil processing ready", img: brightwaySeafood01v2, galleryImgs: [brightwaySeafood01v2, brightwaySeafood02, brightwaySeafood03] },
   { slug: "atlas-power-technologies", name: "Atlas Power Technologies", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Abbotsford, BC", area: "19,579 sq. ft.", img: atlasPower01, galleryImgs: [atlasPower01] },
   { slug: "greenlight-innovation", name: "Greenlight Innovation", category: "Industrial", categorySlug: "industrial", tags: ["Energy"], location: "Burnaby, BC", area: "48,756 sq. ft.", detail: "Designer: SSDG Interiors", img: greenlightInnovation01v2, galleryImgs: [greenlightInnovation01v2, greenlightInnovation02] },
   { slug: "corvus-energy-expansion", name: "Corvus Energy Expansion", category: "Industrial", categorySlug: "industrial", tags: ["Energy"], location: "Richmond, BC", area: "33,828 sq. ft.", img: corvusEnergy01v2, galleryImgs: [corvusEnergy01v2, corvusEnergy02] },
-  { slug: "rayacom-premium-print", name: "Rayacom Premium Print Upgrade", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "32,675 sq. ft.", img: rayacomPrint01, galleryImgs: [rayacomPrint01] },
+  { slug: "rayacom-premium-print", name: "Rayacom Premium Print Upgrade", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "32,675 sq. ft.", img: rayacomPrint01v2, galleryImgs: [rayacomPrint01v2] },
   { slug: "sunwins-surgical-mask", name: "Sunwins Surgical Mask Factory", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", detail: "Cleanroom level 5 ready", img: sunwinsMask01, galleryImgs: [sunwinsMask01] },
   { slug: "herbaland-production", name: "Herbaland Production Plant", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Richmond, BC", area: "43,601 sq. ft.", img: herbalandProduction01v2, galleryImgs: [herbalandProduction01v2, herbalandProduction02] },
   { slug: "hazco-environmental", name: "Hazco Environmental Transfer Station", category: "Industrial", categorySlug: "industrial", tags: ["Industrial"], location: "Richmond, BC", area: "29,925 sq. ft.", img: hazcoEnvironmental01v2, galleryImgs: [hazcoEnvironmental01v2] },
@@ -267,7 +277,7 @@ export const allProjects: Project[] = [
   { slug: "fletcher-townhouses", name: "Fletcher Townhouses", category: "Commercial", categorySlug: "commercial", tags: ["Townhouse"], location: "Maple Ridge, BC", detail: "15 units", img: fletcherTownhouses01v3, galleryImgs: [fletcherTownhouses01v3] },
   { slug: "sushi-kiwami", name: "Sushi Kiwami", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", area: "2,415 sq. ft.", budget: "$1 million", img: sushiKiwami01, galleryImgs: [sushiKiwami01] },
   { slug: "torake-japanese-cuisine", name: "Torake Japanese Cuisine", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", img: torakeCuisine01, galleryImgs: [torakeCuisine01] },
-  { slug: "ramen-one-broadway", name: "Ramen One on Broadway", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Vancouver, BC", img: ramenOneBroadway01, galleryImgs: [ramenOneBroadway01] },
+  { slug: "ramen-one-broadway", name: "Ramen One on Broadway", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Vancouver, BC", img: ramenOneBroadway01v2, galleryImgs: [ramenOneBroadway01v2] },
   { slug: "bridgeport-hotel", name: "Bridgeport Hotel", category: "Commercial", categorySlug: "commercial", tags: ["Hotel"], location: "Richmond, BC", detail: "Design architect: GBL Architects", img: bridgeportHotel01, galleryImgs: [bridgeportHotel01, bridgeportHotel03] },
 
   // ─── RESIDENTIAL ───
@@ -282,9 +292,9 @@ export const allProjects: Project[] = [
   { slug: "cartier-residence", name: "Cartier Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: cartierResidence01v2, galleryImgs: [cartierResidence01v2] },
   { slug: "laurel-residence", name: "Laurel Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: laurelResidence01v2, galleryImgs: [laurelResidence01v2, laurelResidence02] },
   { slug: "collingwood", name: "Collingwood", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "10,500 sq. ft.", budget: "$5 millions", img: collingwood01v3, galleryImgs: [collingwood01v3, collingwood02, collingwood03, collingwood04, collingwood05, collingwood06] },
-  { slug: "royal-oak", name: "Royal Oak", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 millions", img: royalOak01v2, galleryImgs: [royalOak01v2] },
+  { slug: "royal-oak", name: "Royal Oak", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 millions", img: royalOak01v3, galleryImgs: [royalOak01v3, royalOak02] },
   { slug: "west-39-avenue", name: "West 39 Avenue", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "4,438 sq. ft.", budget: "$1.78 millions", img: west3901v2, galleryImgs: [west3901v2] },
-  { slug: "seavale", name: "Seavale", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Richmond, BC", area: "4,658 sq. ft.", budget: "$1.39 millions", img: seavale01, galleryImgs: [seavale01] },
+  { slug: "seavale", name: "Seavale", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Richmond, BC", area: "4,658 sq. ft.", budget: "$1.39 millions", img: seavale01v2, galleryImgs: [seavale01v2] },
 ];
 
 // ── Featured project slugs (for top section on Projects page) ──
