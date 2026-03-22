@@ -5,7 +5,7 @@ import DiagonalMarquee from "@/components/DiagonalMarquee";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutStudio from "@/assets/about-studio.jpg";
-import { featuredProjects as allFeatured, collections } from "@/data/portfolio";
+import { featuredProjects as allFeatured, allGridProjects } from "@/data/portfolio";
 
 const services = [
   {
@@ -35,14 +35,13 @@ const homepageCurated = (() => {
   const chen = allFeatured.find((p) => p.slug === "chen-residence");
   const collingwood = allFeatured.find((p) => p.slug === "collingwood");
   const bridgeport = allFeatured.find((p) => p.slug === "bridgeport-office");
-  const masterPlanningCollection = collections.find((c) => c.slug === "master-planning");
-  const zone5 = masterPlanningCollection?.projects.find((p) => p.name === "Zone 5, Union Bay Estate");
+  const zone5 = allGridProjects.find((p) => p.name === "Zone 5, Union Bay Estate");
 
   return [
     chen ? { img: chen.coverImg, title: chen.title, category: chen.category, link: `/projects/${chen.slug}` } : null,
     collingwood ? { img: collingwood.coverImg, title: collingwood.title, category: collingwood.category, link: `/projects/${collingwood.slug}` } : null,
     bridgeport ? { img: bridgeport.coverImg, title: bridgeport.title, category: bridgeport.category, link: `/projects/${bridgeport.slug}` } : null,
-    zone5 ? { img: zone5.img, title: zone5.name, category: "Master Planning", link: `/projects/collection/master-planning` } : null,
+    zone5 ? { img: zone5.img, title: zone5.name, category: "Master Planning", link: `/projects` } : null,
   ].filter(Boolean) as { img: string; title: string; category: string; link: string }[];
 })();
 

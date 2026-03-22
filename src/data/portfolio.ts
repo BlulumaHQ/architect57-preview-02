@@ -10,7 +10,7 @@ import src9 from "@/assets/source-project-9.jpg";
 import src10 from "@/assets/source-project-10.jpg";
 import src11 from "@/assets/source-project-11.jpg";
 
-// New real project images
+// Real project images
 import austinHighRise01 from "@/assets/austin_high-rise-01.jpg";
 import austinHighRise02 from "@/assets/austin_high-rise-02.jpg";
 import bridgeportOffice01 from "@/assets/bridgeport_office_building-01.jpg";
@@ -22,7 +22,6 @@ import fiftyFourthAveCondo01 from "@/assets/54th_ave_condo-01.jpg";
 import fiftyFourthAveCondo02 from "@/assets/54th_ave_condo-02.jpg";
 import fiftyFourthAveCondo03 from "@/assets/54th_ave_condo-03.jpg";
 
-// Real project images (batch 2)
 import collingwood01 from "@/assets/collingwood-01_result.webp";
 import fletcherTownhouses01Result from "@/assets/fletcher_townhouses-01_result.webp";
 import royalOak01 from "@/assets/royal-oak01_result.webp";
@@ -34,7 +33,6 @@ import dubaiHouse01 from "@/assets/dubai_house_of_the_future-01_result.webp";
 import newUniversityHospital01 from "@/assets/new_university_hospital-01_result.webp";
 import unionBayEstate01 from "@/assets/zone_5_union_bay_estate-01_result.webp";
 
-// Real project images (batch 3)
 import austinHighRise01Result from "@/assets/austin_high-rise-01_result.webp";
 import bridgeportOffice01Result from "@/assets/bridgeport_office_building-01_result.webp";
 import vanguardFitness01 from "@/assets/vanguard_fitness-01_result.webp";
@@ -46,7 +44,6 @@ import morganPlay01 from "@/assets/morgan_play-01_result.webp";
 import okanaganChateau01 from "@/assets/okanagan_chateau_retirement-01_result.webp";
 import siennaRideau01 from "@/assets/sienna_rideau_retirement-01_result.webp";
 
-// Real project images (batch 4)
 import treasureCoveCasino01 from "@/assets/treasure_cove_casino-01_result.webp";
 import xuResidence01 from "@/assets/xu-residence-01_result.webp";
 import no6Residence01 from "@/assets/no6-residence-01_result.webp";
@@ -58,7 +55,6 @@ import chenResidence01 from "@/assets/chen-residence-01_result.webp";
 import hanResidence01 from "@/assets/han-residence-01_result.webp";
 import laurelResidence01 from "@/assets/laurel-residence-01_result.webp";
 
-// Real project images (batch 5)
 import luResidence01 from "@/assets/lu-residence-01_result.webp";
 import poLamTemple01 from "@/assets/po_lam_temple-01_result.webp";
 import goldBuddhaMonastery01 from "@/assets/gold_buddha_monastery-01_result.webp";
@@ -70,7 +66,6 @@ import rayacomFactory01 from "@/assets/rayacom_super_print_factory01_result.webp
 import sunwinsMask01 from "@/assets/sunwins_surgical_mask-01_result.webp";
 import trouwFrankie01 from "@/assets/trouw_frankie_feed_mill-01_result.webp";
 
-// Real project images (batch 6)
 import atlasPower01 from "@/assets/atlas_power_technologies-01_result.webp";
 import brightwaySeafood01 from "@/assets/brightway_cfia-certified_seafood_-01_result.webp";
 import corvusEnergy01 from "@/assets/corvus_energy_expansion-01_result.webp";
@@ -82,18 +77,21 @@ import adore01 from "@/assets/adore-01_result.webp";
 import architect5701 from "@/assets/architect-57-01_result.webp";
 import beresfordClinic01 from "@/assets/beresford_doctor_clinic-01_result.webp";
 
+// ── Types ──────────────────────────────────────────────
+
 export interface FeaturedProject {
   slug: string;
   title: string;
   category: string;
   categorySlug: string;
+  tags: string[];
   location: string;
   area?: string;
   budget?: string;
   designer?: string;
   coDesigner?: string;
   codes?: string;
-  notes?: string;
+  detail?: string;
   desc: string;
   longDesc: string;
   services: string[];
@@ -102,35 +100,41 @@ export interface FeaturedProject {
   coverImg: string;
 }
 
-export interface CollectionProject {
+export interface GridProject {
   name: string;
+  category: string;
+  categorySlug: string;
+  tags: string[];
   location: string;
   area?: string;
-  coDesigner?: string;
   budget?: string;
-  designer?: string;
-  codes?: string;
-  notes?: string;
+  detail?: string;
   img: string;
+  detailLink?: string;
 }
 
-export interface Collection {
-  slug: string;
-  title: string;
-  categorySlug: string;
-  desc: string;
-  coverImg: string;
-  projects: CollectionProject[];
-}
-
-// ── Filter Categories ──────────────────────────────────
+// ── Main Categories (Primary Filter) ──────────────────
 
 export const categories = [
   { slug: "all", label: "All" },
   { slug: "residential", label: "Residential" },
-  { slug: "multi-unit-housing", label: "Multi-Unit Housing" },
-  { slug: "commercial-industrial", label: "Commercial & Industrial" },
+  { slug: "commercial", label: "Commercial" },
+  { slug: "industrial", label: "Industrial" },
+  { slug: "institutional", label: "Institutional" },
+  { slug: "community-cultural", label: "Community & Cultural" },
+  { slug: "interior-projects", label: "Interior Projects" },
   { slug: "master-planning", label: "Master Planning" },
+];
+
+// ── Tags (Secondary Filter) ───────────────────────────
+
+export const allTags = [
+  "Luxury Home", "Custom Home", "Multiplex", "Townhouse", "High-rise",
+  "Office", "Retail", "Restaurant", "Hotel", "Mixed-use",
+  "Healthcare", "Senior Care", "Daycare", "Education",
+  "Industrial", "Manufacturing", "Energy", "Warehouse",
+  "Religious", "Cultural", "Casino", "Entertainment",
+  "Planning", "Concept",
 ];
 
 // ── Featured Projects ──────────────────────────────────
@@ -141,9 +145,10 @@ export const featuredProjects: FeaturedProject[] = [
     title: "Chen Residence",
     category: "Residential",
     categorySlug: "residential",
+    tags: ["Luxury Home"],
     location: "West Vancouver, BC",
     area: "6,729 sq. ft.",
-    notes: "CHBA National SAM Awards Finalist",
+    detail: "CHBA National SAM Awards Finalist",
     desc: "A refined single-family residence in West Vancouver, recognized as a finalist for the CHBA National SAM Awards.",
     longDesc: "The Chen Residence is a thoughtfully composed home that balances dramatic West Coast siting with refined interior proportions. At 6,729 square feet, the design prioritizes clear spatial sequences, natural light modulation, and a restrained material palette that defers to the surrounding landscape. The project earned recognition as a CHBA National SAM Awards Finalist — a testament to the level of craft and design integrity achieved throughout.",
     services: ["Integrated Building Design", "Code Consultation", "Project Management"],
@@ -152,15 +157,47 @@ export const featuredProjects: FeaturedProject[] = [
     coverImg: chenResidence01,
   },
   {
+    slug: "collingwood",
+    title: "Collingwood",
+    category: "Residential",
+    categorySlug: "residential",
+    tags: ["Multiplex"],
+    location: "Vancouver, BC",
+    area: "10,500 sq. ft.",
+    budget: "$5 millions",
+    desc: "A 10,500 square-foot multi-unit residential development in Vancouver's Collingwood neighbourhood.",
+    longDesc: "The Collingwood project is a multi-unit residential development that navigates Vancouver's evolving density requirements while maintaining architectural quality. At 10,500 square feet with a $5 million budget, the design achieves a balance between construction economy and design ambition. Each unit is individually planned to maximize livability, with careful attention to privacy, natural light, and outdoor connections despite the compact urban site.",
+    services: ["Integrated Building Design", "Code Consultation", "Project Management"],
+    heroImg: collingwood01,
+    galleryImgs: [src8, src9],
+    coverImg: collingwood01,
+  },
+  {
+    slug: "bridgeport-office",
+    title: "Bridgeport Office Building",
+    category: "Commercial",
+    categorySlug: "commercial",
+    tags: ["Office"],
+    location: "Richmond, BC",
+    area: "28,703 sq. ft.",
+    budget: "$10 millions",
+    desc: "A substantial office development in Richmond delivering 28,703 square feet of contemporary commercial workspace.",
+    longDesc: "The Bridgeport Office Building is a significant commercial project in Richmond, encompassing 28,703 square feet of Class A office space. The design responds to the scale and context of the Bridgeport corridor while establishing a distinctive architectural identity. Floor plates are organized for maximum flexibility, and the building envelope integrates high-performance glazing systems that reduce energy consumption without compromising natural light. The $10 million project represents Architect 57's capability in delivering large-scale commercial work with precision and fiscal responsibility.",
+    services: ["Integrated Building Design", "Code Consultation (CP)", "Project Management", "BIM"],
+    heroImg: bridgeportOffice01Result,
+    galleryImgs: [bridgeportOffice02, bridgeportOffice03],
+    coverImg: bridgeportOffice01Result,
+  },
+  {
     slug: "han-residence",
     title: "Han Residence",
     category: "Residential",
     categorySlug: "residential",
+    tags: ["Custom Home"],
     location: "Delta, BC",
     area: "6,078 sq. ft.",
-    coDesigner: "John Han (Interior)",
     desc: "A spacious family home in Delta designed in collaboration, blending architectural form with curated interior detail.",
-    longDesc: "The Han Residence is a 6,078 square-foot custom home developed through a close design collaboration. The architectural envelope establishes a contemporary silhouette while the interior — guided by co-designer John Han — introduces a layered material language that brings warmth and personality to the living spaces. Every room has been considered as part of a continuous spatial narrative.",
+    longDesc: "The Han Residence is a 6,078 square-foot custom home developed through a close design collaboration. The architectural envelope establishes a contemporary silhouette while the interior introduces a layered material language that brings warmth and personality to the living spaces. Every room has been considered as part of a continuous spatial narrative.",
     services: ["Integrated Building Design", "Code Consultation"],
     heroImg: hanResidence01,
     galleryImgs: [src5, src6],
@@ -171,6 +208,7 @@ export const featuredProjects: FeaturedProject[] = [
     title: "Severn Residence",
     category: "Residential",
     categorySlug: "residential",
+    tags: ["Custom Home"],
     location: "Richmond, BC",
     desc: "A contemporary single-family residence in Richmond with clean proportions and considered detailing.",
     longDesc: "The Severn Residence demonstrates that strong architecture doesn't require excess. Designed with a disciplined approach to massing, fenestration, and material selection, this Richmond home delivers a quiet confidence. The floor plan is organized to maximize natural daylight and visual connection between interior living spaces and the surrounding landscape.",
@@ -184,6 +222,7 @@ export const featuredProjects: FeaturedProject[] = [
     title: "Xu Residence",
     category: "Residential",
     categorySlug: "residential",
+    tags: ["Custom Home"],
     location: "Richmond, BC",
     area: "3,680 sq. ft.",
     desc: "A compact yet spatially generous custom home in Richmond, thoughtfully planned at 3,680 square feet.",
@@ -194,43 +233,13 @@ export const featuredProjects: FeaturedProject[] = [
     coverImg: xuResidence01,
   },
   {
-    slug: "bridgeport-office",
-    title: "Bridgeport Office Building",
-    category: "Commercial & Industrial",
-    categorySlug: "commercial-industrial",
-    location: "Richmond, BC",
-    area: "28,703 sq. ft.",
-    budget: "$10 million",
-    desc: "A substantial office development in Richmond delivering 28,703 square feet of contemporary commercial workspace.",
-    longDesc: "The Bridgeport Office Building is a significant commercial project in Richmond, encompassing 28,703 square feet of Class A office space. The design responds to the scale and context of the Bridgeport corridor while establishing a distinctive architectural identity. Floor plates are organized for maximum flexibility, and the building envelope integrates high-performance glazing systems that reduce energy consumption without compromising natural light. The $10 million project represents Architect 57's capability in delivering large-scale commercial work with precision and fiscal responsibility.",
-    services: ["Integrated Building Design", "Code Consultation (CP)", "Project Management", "BIM"],
-    heroImg: bridgeportOffice01Result,
-    galleryImgs: [bridgeportOffice02, bridgeportOffice03],
-    coverImg: bridgeportOffice01Result,
-  },
-  {
-    slug: "collingwood",
-    title: "Collingwood",
-    category: "Multi-Unit Housing",
-    categorySlug: "multi-unit-housing",
-    location: "Vancouver, BC",
-    area: "10,500 sq. ft.",
-    budget: "$5 million",
-    desc: "A 10,500 square-foot multi-unit residential development in Vancouver's Collingwood neighbourhood.",
-    longDesc: "The Collingwood project is a multi-unit residential development that navigates Vancouver's evolving density requirements while maintaining architectural quality. At 10,500 square feet with a $5 million budget, the design achieves a balance between construction economy and design ambition. Each unit is individually planned to maximize livability, with careful attention to privacy, natural light, and outdoor connections despite the compact urban site.",
-    services: ["Integrated Building Design", "Code Consultation", "Project Management"],
-    heroImg: collingwood01,
-    galleryImgs: [src8, src9],
-    coverImg: collingwood01,
-  },
-  {
     slug: "sqn-education",
     title: "SQN Education",
-    category: "Commercial & Industrial",
-    categorySlug: "commercial-industrial",
+    category: "Institutional",
+    categorySlug: "institutional",
+    tags: ["Education"],
     location: "Richmond, BC",
     designer: "ID Design Consulting Ltd.",
-    codes: "Architect 57 Inc.",
     desc: "An education facility in Richmond designed for creative learning environments, with code compliance by Architect 57.",
     longDesc: "SQN Education is a purpose-built educational facility in Richmond, designed by ID Design Consulting Ltd. with building code and compliance services provided by Architect 57 Inc. The project demanded careful adherence to BC Building Code requirements for assembly and institutional occupancies, including life safety, accessibility, and structural standards. The result is a facility that supports contemporary pedagogy within a safe, code-compliant architectural framework.",
     services: ["Code Consultation (CP)", "Building Code Compliance"],
@@ -240,134 +249,90 @@ export const featuredProjects: FeaturedProject[] = [
   },
 ];
 
-// ── Collections ────────────────────────────────────────
+// ── All Projects (flat list for grid) ──────────────────
 
-export const collections: Collection[] = [
-  {
-    slug: "residential",
-    title: "Residential",
-    categorySlug: "residential",
-    desc: "Custom residential homes across the Lower Mainland — from West Vancouver estates to Richmond family homes.",
-    coverImg: no6Residence01,
-    projects: [
-      { name: "No6 Residence", location: "Richmond, BC", img: no6Residence01 },
-      { name: "Vinson Creek Residence", location: "West Vancouver, BC", area: "9,343 sq. ft.", coDesigner: "Angel Wang", img: vinsonCreek01 },
-      { name: "Wu Residence", location: "West Vancouver, BC", area: "6,733 sq. ft.", img: wuResidence01 },
-      { name: "Lu Residence", location: "Delta, BC", area: "5,177 sq. ft.", img: luResidence01 },
-      { name: "Cartier Residence", location: "Vancouver, BC", img: cartierResidence01 },
-      { name: "Laurel Residence", location: "Vancouver, BC", img: laurelResidence01 },
-    ],
-  },
-  {
-    slug: "multi-unit-housing",
-    title: "Multi-Unit Housing",
-    categorySlug: "multi-unit-housing",
-    desc: "High-rise towers, mixed-use developments, townhouse communities, and multiplex projects across British Columbia.",
-    coverImg: austinHighRise01Result,
-    projects: [
-      { name: "Austin High-Rise", location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 million", img: austinHighRise01Result },
-      { name: "54th Ave Condo (12-Storey)", location: "Langley, BC", notes: "12-storey with underground parking", img: fiftyFourthAveCondo01Result },
-      { name: "Wellington Mixed-Use", location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 million", img: wellingtonMixUse01Result },
-      { name: "54th Ave Condo (4-Storey)", location: "Langley, BC", notes: "4-storey with underground parking", img: fiftyFourthAveCondo02 },
-      { name: "Fletcher Townhouses", location: "Maple Ridge, BC", notes: "15 units across 5 types", img: fletcherTownhouses01Result },
-      { name: "Royal Oak", location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 million", img: royalOak01 },
-      { name: "West 39 Avenue", location: "Vancouver, BC", area: "4,438 sq. ft.", budget: "$1.78 million", img: west3901 },
-      { name: "Seavale", location: "Richmond, BC", area: "4,658 sq. ft.", budget: "$1.39 million", img: seavale01 },
-    ],
-  },
-  {
-    slug: "commercial-industrial",
-    title: "Commercial & Industrial",
-    categorySlug: "commercial-industrial",
-    desc: "Purpose-built commercial, educational, and childcare facilities designed for safety, creativity, and functionality.",
-    coverImg: aceEsports01,
-    projects: [
-      { name: "East 2nd Avenue", location: "Vancouver, BC", img: src5 },
-      { name: "Phi Education", location: "Vancouver, BC", img: src8 },
-      { name: "Little Marines Preschool", location: "Coquitlam, BC", designer: "Yan Design Studio", codes: "Architect 57 Inc.", img: src9 },
-      { name: "Happy May IV", location: "Richmond, BC", img: src1 },
-      { name: "Ace E-Sports", location: "Richmond, BC", img: aceEsports01 },
-      { name: "Vanguard Fitness", location: "Vancouver, BC", img: vanguardFitness01 },
-      { name: "Atomic Fitness", location: "Vancouver, BC", img: atomicFitness01 },
-      { name: "Morgan Play", location: "Richmond, BC", img: morganPlay01 },
-      { name: "Katalin Care Homes", location: "Vancouver, BC", img: katalinCareHomes01 },
-      { name: "Mariposa Gardens Retirement", location: "Kelowna, BC", img: mariposaGardens01 },
-      { name: "Okanagan Chateau Retirement", location: "Kelowna, BC", img: okanaganChateau01 },
-      { name: "Sienna Rideau Retirement", location: "Ottawa, ON", img: siennaRideau01 },
-      { name: "Treasure Cove Casino", location: "Prince George, BC", img: treasureCoveCasino01 },
-      { name: "Po Lam Temple", location: "Richmond, BC", img: poLamTemple01 },
-      { name: "Gold Buddha Monastery", location: "Vancouver, BC", img: goldBuddhaMonastery01 },
-      { name: "Iglesia Ni Cristo Locale", location: "Vancouver, BC", img: iglesiaNiCristo01 },
-      { name: "Lutheran Community Church", location: "Vancouver, BC", img: lutheranChurch01 },
-      { name: "Ontario Storage Warehouse", location: "Ontario, BC", img: ontarioStorage01 },
-      { name: "Rayacom Premium Print", location: "Richmond, BC", img: rayacomPrint01 },
-      { name: "Rayacom Super Print Factory", location: "Richmond, BC", img: rayacomFactory01 },
-      { name: "Sunwins Surgical Mask", location: "Richmond, BC", img: sunwinsMask01 },
-      { name: "Trouw Frankie Feed Mill", location: "BC", img: trouwFrankie01 },
-      { name: "Atlas Power Technologies", location: "Richmond, BC", img: atlasPower01 },
-      { name: "Brightway CFIA-Certified Seafood", location: "Richmond, BC", img: brightwaySeafood01 },
-      { name: "Corvus Energy Expansion", location: "Richmond, BC", img: corvusEnergy01 },
-      { name: "Greenlight Innovation", location: "Burnaby, BC", img: greenlightInnovation01 },
-      { name: "Hazco Environmental Waste", location: "Burnaby, BC", img: hazcoEnvironmental01 },
-      { name: "Herbaland New Production", location: "Richmond, BC", img: herbalandProduction01 },
-      { name: "Willingdon Green Clinic", location: "Burnaby, BC", img: willingdonClinic01 },
-      { name: "Adore", location: "Vancouver, BC", img: adore01 },
-      { name: "Architect 57 Office", location: "Richmond, BC", img: architect5701 },
-      { name: "Beresford Doctor Clinic", location: "Burnaby, BC", img: beresfordClinic01 },
-    ],
-  },
-  {
-    slug: "master-planning",
-    title: "Master Planning",
-    categorySlug: "master-planning",
-    desc: "Large-scale planning projects from community estates to institutional campus developments.",
-    coverImg: unionBayEstate01,
-    projects: [
-      { name: "Zone 5, Union Bay Estate", location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01 },
-      { name: "New University Hospital of Northern BC", location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 million", img: newUniversityHospital01 },
-      { name: "Dubai House of the Future Competition", location: "Dubai, UAE", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01 },
-    ],
-  },
+const allProjectsRaw: GridProject[] = [
+  // ─── RESIDENTIAL: Single Family ───
+  { name: "Chen Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,729 sq. ft.", detail: "CHBA National SAM Awards Finalist", img: chenResidence01, detailLink: "/projects/chen-residence" },
+  { name: "Han Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Delta, BC", area: "6,078 sq. ft.", img: hanResidence01, detailLink: "/projects/han-residence" },
+  { name: "Severn Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: severnResidence01, detailLink: "/projects/severn-residence" },
+  { name: "No6 Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: no6Residence01 },
+  { name: "Vinson Creek Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "9,343 sq. ft.", img: vinsonCreek01 },
+  { name: "Xu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", area: "3,680 sq. ft.", img: xuResidence01, detailLink: "/projects/xu-residence" },
+  { name: "Wu Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,733 sq. ft.", img: wuResidence01 },
+  { name: "Lu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Delta, BC", area: "5,177 sq. ft.", img: luResidence01 },
+  { name: "Cartier Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: cartierResidence01 },
+  { name: "Laurel Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: laurelResidence01 },
+
+  // ─── RESIDENTIAL: Multiplex ───
+  { name: "Collingwood", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "10,500 sq. ft.", budget: "$5 millions", img: collingwood01, detailLink: "/projects/collingwood" },
+  { name: "Royal Oak", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 millions", img: royalOak01 },
+  { name: "West 39 Avenue", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "4,438 sq. ft.", budget: "$1.78 millions", img: west3901 },
+  { name: "Seavale", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Richmond, BC", area: "4,658 sq. ft.", budget: "$1.39 millions", img: seavale01 },
+
+  // ─── COMMERCIAL ───
+  { name: "Austin High-Rise", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 millions", img: austinHighRise01Result },
+  { name: "54th Ave Condo (12-storey)", category: "Commercial", categorySlug: "commercial", tags: ["Condo"], location: "Langley, BC", detail: "12-storey with underground parking", img: fiftyFourthAveCondo01Result },
+  { name: "Bridgeport Office Building", category: "Commercial", categorySlug: "commercial", tags: ["Office"], location: "Richmond, BC", area: "28,703 sq. ft.", budget: "$10 millions", img: bridgeportOffice01Result, detailLink: "/projects/bridgeport-office" },
+  { name: "Wellington Mixed-Use", category: "Commercial", categorySlug: "commercial", tags: ["Mixed-use"], location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 millions", img: wellingtonMixUse01Result },
+  { name: "54th Ave Condo (4-storey)", category: "Commercial", categorySlug: "commercial", tags: ["Condo"], location: "Langley, BC", detail: "4-storey with underground parking", img: fiftyFourthAveCondo02 },
+  { name: "Fletcher Townhouses", category: "Commercial", categorySlug: "commercial", tags: ["Townhouse"], location: "Maple Ridge, BC", detail: "15 units (5 types)", img: fletcherTownhouses01Result },
+  { name: "Sushi Kiwami", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", area: "2,415 sq. ft.", budget: "$1 million", img: src4 },
+  { name: "Torake Japanese Cuisine", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", img: src6 },
+  { name: "Ramen One on Broadway", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Vancouver, BC", img: src7 },
+  { name: "Bridgeport Hotel", category: "Commercial", categorySlug: "commercial", tags: ["Hotel"], location: "Richmond, BC", detail: "Design architect: GBL Architects", img: src10 },
+
+  // ─── INDUSTRIAL ───
+  { name: "Rayacom Super Print Factory", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "128,285 sq. ft.", img: rayacomFactory01 },
+  { name: "Trouw Frankie Feed Mill", category: "Industrial", categorySlug: "industrial", tags: ["Heavy Industrial"], location: "Chilliwack, BC", detail: "Heavy industrial; Design engineer: CMC Engineering", img: trouwFrankie01 },
+  { name: "Ontario Storage Warehouse", category: "Industrial", categorySlug: "industrial", tags: ["Warehouse"], location: "Vancouver, BC", img: ontarioStorage01 },
+  { name: "Brightway CFIA-Certified Seafood Processing Upgrade", category: "Industrial", categorySlug: "industrial", tags: ["Food Processing"], location: "Delta, BC", area: "41,839 sq. ft.", budget: "$6M+", detail: "CBD oil processing ready", img: brightwaySeafood01 },
+  { name: "Atlas Power Technologies Inc.", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Abbotsford, BC", area: "19,579 sq. ft.", img: atlasPower01 },
+  { name: "Greenlight Innovation", category: "Industrial", categorySlug: "industrial", tags: ["Energy"], location: "Burnaby, BC", area: "48,756 sq. ft.", detail: "Designer: SSDG Interiors Inc.", img: greenlightInnovation01 },
+  { name: "Corvus Energy Expansion", category: "Industrial", categorySlug: "industrial", tags: ["Energy"], location: "Richmond, BC", area: "33,828 sq. ft.", img: corvusEnergy01 },
+  { name: "Rayacom Premium Print Upgrade", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "32,675 sq. ft.", img: rayacomPrint01 },
+  { name: "Sunwins Surgical Mask Factory", category: "Industrial", categorySlug: "industrial", tags: ["Cleanroom"], location: "Vancouver, BC", detail: "Cleanroom level 5 ready", img: sunwinsMask01 },
+  { name: "Herbaland New Production Plant", category: "Industrial", categorySlug: "industrial", tags: ["Production"], location: "Richmond, BC", area: "43,601 sq. ft.", img: herbalandProduction01 },
+  { name: "Hazco Environmental Waste Transfer Station", category: "Industrial", categorySlug: "industrial", tags: ["Waste Processing"], location: "Richmond, BC", area: "29,925 sq. ft.", img: hazcoEnvironmental01 },
+
+  // ─── INSTITUTIONAL ───
+  { name: "East 2nd Avenue", category: "Institutional", categorySlug: "institutional", tags: ["Daycare", "Education"], location: "Vancouver, BC", img: src5 },
+  { name: "SQN Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Richmond, BC", detail: "Designer: ID Design Consulting Ltd.", img: src3, detailLink: "/projects/sqn-education" },
+  { name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: src8 },
+  { name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Preschool"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: src9 },
+  { name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: src1 },
+  { name: "Katalin Care Homes", category: "Institutional", categorySlug: "institutional", tags: ["Healthcare", "Senior Care"], location: "Mission, BC", area: "6,225 sq. ft.", img: katalinCareHomes01 },
+  { name: "Okanagan Chateau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care", "Renovation"], location: "Kelowna, BC", detail: "Interior renovation", img: okanaganChateau01 },
+  { name: "Mariposa Gardens Retirement Residence and Care", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Osoyoos, BC", area: "109,487 sq. ft.", detail: "Plumbing upgrade", img: mariposaGardens01 },
+  { name: "Sienna Rideau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Burnaby, BC", detail: "Interior renovation + fire sprinkler upgrade; Building height: 19 storeys", img: siennaRideau01 },
+
+  // ─── COMMUNITY & CULTURAL ───
+  { name: "Gold Buddha Monastery Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious", "Temple"], location: "Vancouver, BC", area: "33,034 sq. ft.", detail: "Design architect: DYS Architecture; Building permit architect: Architect 57", img: goldBuddhaMonastery01 },
+  { name: "Po Lam Temple", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious", "Temple"], location: "Chilliwack, BC", area: "27,340 sf", budget: "$19 millions", img: poLamTemple01 },
+  { name: "Lutheran Community Church Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious", "Church"], location: "Las Vegas, NV", img: lutheranChurch01 },
+  { name: "Iglesia Ni Cristo Locale of Surrey", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Surrey, BC", area: "10,964 sf", detail: "Exterior envelope replacement and interior renovation", img: iglesiaNiCristo01 },
+  { name: "Treasure Cove Casino Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Casino"], location: "Prince George, BC", area: "15,326 sq. ft.", budget: "$15 millions", img: treasureCoveCasino01 },
+  { name: "Atomic Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Fitness"], location: "Richmond, BC", img: atomicFitness01 },
+  { name: "Vanguard Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Fitness"], location: "Richmond, BC", img: vanguardFitness01 },
+  { name: "Morgan Play", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Recreation"], location: "Surrey, BC", detail: "Designer: Yan Design Studio", img: morganPlay01 },
+  { name: "ACE E-Sports", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Gaming"], location: "Richmond, BC", area: "4,886 sq. ft.", img: aceEsports01 },
+
+  // ─── INTERIOR PROJECTS ───
+  { name: "Architect 57", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office Interior"], location: "Richmond, BC", img: architect5701 },
+  { name: "Appliance Canada", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Richmond, BC", area: "11,639 sq. ft.", img: src2 },
+  { name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Exhibition"], location: "Richmond, BC", area: "15,801 sq. ft.", img: src4 },
+  { name: "Beresford Doctor Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Medical"], location: "Burnaby, BC", img: beresfordClinic01 },
+  { name: "Willingdon Green Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Medical"], location: "Burnaby, BC", img: willingdonClinic01 },
+  { name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", img: src10 },
+  { name: "Triple-A (AAA) Commercial", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Commercial Interior"], area: "12,339 sq. ft.", location: "", img: src11 },
+  { name: "Cleardent", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Dental"], location: "Burnaby, BC", img: src1 },
+  { name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: src7 },
+  { name: "Adore", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Tsawwassen Mills Mall, Delta, BC", img: adore01 },
+
+  // ─── MASTER PLANNING ───
+  { name: "Zone 5, Union Bay Estate", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Residential Development", "Large Scale"], location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01 },
+  { name: "New University Hospital of Northern BC Building Construction Phase Planning", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Healthcare", "Institutional"], location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 millions", img: newUniversityHospital01 },
+  { name: "Dubai House of the Future Competition", category: "Master Planning", categorySlug: "master-planning", tags: ["Concept", "Competition", "International"], location: "—", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01 },
 ];
 
-// ── Flat list of ALL projects for grid display ─────────
-
-export interface GridProject {
-  name: string;
-  category: string;
-  categorySlug: string;
-  location: string;
-  area?: string;
-  budget?: string;
-  notes?: string;
-  img: string;
-  detailLink?: string; // only for featured projects
-}
-
-export const allGridProjects: GridProject[] = [
-  // Featured projects included in the grid
-  ...featuredProjects.map((p) => ({
-    name: p.title,
-    category: p.category,
-    categorySlug: p.categorySlug,
-    location: p.location,
-    area: p.area,
-    budget: p.budget,
-    notes: p.notes,
-    img: p.coverImg,
-    detailLink: `/projects/${p.slug}`,
-  })),
-  // Collection projects flattened into the grid
-  ...collections.flatMap((c) =>
-    c.projects.map((p) => ({
-      name: p.name,
-      category: c.title,
-      categorySlug: c.categorySlug,
-      location: p.location,
-      area: p.area,
-      budget: p.budget,
-      notes: p.notes,
-      img: p.img,
-    }))
-  ),
-];
+export const allGridProjects: GridProject[] = allProjectsRaw;
