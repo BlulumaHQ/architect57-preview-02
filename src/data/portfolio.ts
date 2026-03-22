@@ -237,7 +237,7 @@ export const featuredProjects: FeaturedProject[] = [
     longDesc: "The Severn Residence demonstrates that strong architecture doesn't require excess. Designed with a disciplined approach to massing, fenestration, and material selection, this Richmond home delivers a quiet confidence. The floor plan is organized to maximize natural daylight and visual connection between interior living spaces and the surrounding landscape.",
     services: ["Integrated Building Design", "Code Consultation"],
     heroImg: severnResidence01,
-    galleryImgs: [src8, src9],
+    galleryImgs: [severnResidence01],
     coverImg: severnResidence01,
   },
   {
