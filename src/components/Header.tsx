@@ -34,7 +34,7 @@ const Header = () => {
     >
       <div className="container-wide flex items-center justify-between h-20 md:h-24">
         <Link to="/" className="flex items-center">
-          <img src={logoWhite} alt="Architect 57" className="h-10 md:h-12 w-auto" />
+          <img src={logoWhite} alt="Architect 57" className="h-[45px] md:h-[55px] w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
