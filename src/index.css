@@ -116,11 +116,11 @@
 }
 
 .animate-marquee {
-  animation: marquee-diagonal 30s linear infinite;
+  animation: marquee-diagonal 60s linear infinite;
 }
 
 .animate-marquee-reverse {
-  animation: marquee-diagonal-reverse 35s linear infinite;
+  animation: marquee-diagonal-reverse 65s linear infinite;
 }
 
 /* Hero slideshow */
