@@ -46,7 +46,18 @@ import morganPlay01 from "@/assets/morgan_play-01_result.webp";
 import okanaganChateau01 from "@/assets/okanagan_chateau_retirement-01_result.webp";
 import siennaRideau01 from "@/assets/sienna_rideau_retirement-01_result.webp";
 
-// ── Types ──────────────────────────────────────────────
+// Real project images (batch 4)
+import treasureCoveCasino01 from "@/assets/treasure_cove_casino-01_result.webp";
+import xuResidence01 from "@/assets/xu-residence-01_result.webp";
+import no6Residence01 from "@/assets/no6-residence-01_result.webp";
+import severnResidence01 from "@/assets/severn-residence-01_result.webp";
+import vinsonCreek01 from "@/assets/vinson-creek-residence-01_result.webp";
+import wuResidence01 from "@/assets/wu-residence-01_result.webp";
+import cartierResidence01 from "@/assets/cartier-residence-01_result.webp";
+import chenResidence01 from "@/assets/chen-residence-01_result.webp";
+import hanResidence01 from "@/assets/han-residence-01_result.webp";
+import laurelResidence01 from "@/assets/laurel-residence-01_result.webp";
+
 
 export interface FeaturedProject {
   slug: string;
@@ -113,9 +124,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A refined single-family residence in West Vancouver, recognized as a finalist for the CHBA National SAM Awards.",
     longDesc: "The Chen Residence is a thoughtfully composed home that balances dramatic West Coast siting with refined interior proportions. At 6,729 square feet, the design prioritizes clear spatial sequences, natural light modulation, and a restrained material palette that defers to the surrounding landscape. The project earned recognition as a CHBA National SAM Awards Finalist — a testament to the level of craft and design integrity achieved throughout.",
     services: ["Integrated Building Design", "Code Consultation", "Project Management"],
-    heroImg: src1,
+    heroImg: chenResidence01,
     galleryImgs: [src2, src3],
-    coverImg: src1,
+    coverImg: chenResidence01,
   },
   {
     slug: "han-residence",
@@ -128,9 +139,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A spacious family home in Delta designed in collaboration, blending architectural form with curated interior detail.",
     longDesc: "The Han Residence is a 6,078 square-foot custom home developed through a close design collaboration. The architectural envelope establishes a contemporary silhouette while the interior — guided by co-designer John Han — introduces a layered material language that brings warmth and personality to the living spaces. Every room has been considered as part of a continuous spatial narrative.",
     services: ["Integrated Building Design", "Code Consultation"],
-    heroImg: src4,
+    heroImg: hanResidence01,
     galleryImgs: [src5, src6],
-    coverImg: src4,
+    coverImg: hanResidence01,
   },
   {
     slug: "severn-residence",
@@ -141,9 +152,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A contemporary single-family residence in Richmond with clean proportions and considered detailing.",
     longDesc: "The Severn Residence demonstrates that strong architecture doesn't require excess. Designed with a disciplined approach to massing, fenestration, and material selection, this Richmond home delivers a quiet confidence. The floor plan is organized to maximize natural daylight and visual connection between interior living spaces and the surrounding landscape.",
     services: ["Integrated Building Design", "Code Consultation"],
-    heroImg: src7,
+    heroImg: severnResidence01,
     galleryImgs: [src8, src9],
-    coverImg: src7,
+    coverImg: severnResidence01,
   },
   {
     slug: "xu-residence",
@@ -155,9 +166,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A compact yet spatially generous custom home in Richmond, thoughtfully planned at 3,680 square feet.",
     longDesc: "The Xu Residence is proof that careful design can make a modest footprint feel expansive. At 3,680 square feet, every element has been optimized — from ceiling heights and window placements to circulation paths and storage integration. The result is a home that feels open, bright, and effortlessly livable without relying on excessive square footage.",
     services: ["Integrated Building Design", "Code Consultation"],
-    heroImg: src10,
+    heroImg: xuResidence01,
     galleryImgs: [src11, src1],
-    coverImg: src10,
+    coverImg: xuResidence01,
   },
   {
     slug: "bridgeport-office",
@@ -214,14 +225,14 @@ export const collections: Collection[] = [
     title: "Residential",
     categorySlug: "residential",
     desc: "Custom residential homes across the Lower Mainland — from West Vancouver estates to Richmond family homes.",
-    coverImg: src10,
+    coverImg: no6Residence01,
     projects: [
-      { name: "No6 Residence", location: "Richmond, BC", img: src11 },
-      { name: "Vinson Creek Residence", location: "West Vancouver, BC", area: "9,343 sq. ft.", coDesigner: "Angel Wang", img: src1 },
-      { name: "Wu Residence", location: "West Vancouver, BC", area: "6,733 sq. ft.", img: src4 },
+      { name: "No6 Residence", location: "Richmond, BC", img: no6Residence01 },
+      { name: "Vinson Creek Residence", location: "West Vancouver, BC", area: "9,343 sq. ft.", coDesigner: "Angel Wang", img: vinsonCreek01 },
+      { name: "Wu Residence", location: "West Vancouver, BC", area: "6,733 sq. ft.", img: wuResidence01 },
       { name: "Lu Residence", location: "Delta, BC", area: "5,177 sq. ft.", img: src7 },
-      { name: "Cartier Residence", location: "Vancouver, BC", img: src2 },
-      { name: "Laurel Residence", location: "Vancouver, BC", img: src5 },
+      { name: "Cartier Residence", location: "Vancouver, BC", img: cartierResidence01 },
+      { name: "Laurel Residence", location: "Vancouver, BC", img: laurelResidence01 },
     ],
   },
   {
@@ -260,6 +271,7 @@ export const collections: Collection[] = [
       { name: "Mariposa Gardens Retirement", location: "Kelowna, BC", img: mariposaGardens01 },
       { name: "Okanagan Chateau Retirement", location: "Kelowna, BC", img: okanaganChateau01 },
       { name: "Sienna Rideau Retirement", location: "Ottawa, ON", img: siennaRideau01 },
+      { name: "Treasure Cove Casino", location: "Prince George, BC", img: treasureCoveCasino01 },
     ],
   },
   {
