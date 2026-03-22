@@ -135,7 +135,16 @@ import hazcoEnvironmental01v2 from "@/assets/hazco_environmental_waste-01_result
 import herbalandProduction01v2 from "@/assets/herbaland_new_production-01_result-2.webp";
 import herbalandProduction02 from "@/assets/herbaland_new_production-02_result.webp";
 import iglesiaNiCristo01v2 from "@/assets/iglesia_ni_cristo_locale-01_result-2.webp";
-
+import iglesiaNiCristo02 from "@/assets/iglesia_ni_cristo_locale-02_result.webp";
+import katalinCareHomes01v2 from "@/assets/katalin_care_homes-01_result-2.webp";
+import laurelResidence01v2 from "@/assets/laurel-residence-01_result-2.webp";
+import laurelResidence02 from "@/assets/laurel-residence-02_result.webp";
+import lionsTravel01v2 from "@/assets/lions_travel-01_result-2.webp";
+import littleMarines01v2 from "@/assets/little-marines-01_result-2.webp";
+import littleMarines02 from "@/assets/little-marines-02_result.webp";
+import luResidence01v2 from "@/assets/lu-residence-01_result-2.webp";
+import luResidence02 from "@/assets/lu-residence-02_result.webp";
+import lutheranChurch01v2 from "@/assets/lutheran_community_church-01_result-2.webp";
 
 // ── Unified Project Interface ──────────────────────────
 
@@ -189,8 +198,8 @@ export const allProjects: Project[] = [
   // ─── COMMUNITY & CULTURAL — RELIGIOUS ───
   { slug: "gold-buddha-monastery", name: "Gold Buddha Monastery Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Vancouver, BC", area: "33,034 sq. ft.", detail: "Design architect: DYS Architecture; Building permit architect: Architect 57", img: goldBuddhaMonastery01v2, galleryImgs: [goldBuddhaMonastery01v2, goldBuddhaMonastery02, goldBuddhaMonastery03] },
   { slug: "po-lam-temple", name: "Po Lam Temple", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Chilliwack, BC", area: "27,340 sf", budget: "$19 millions", img: poLamTemple01, galleryImgs: [poLamTemple01] },
-  { slug: "lutheran-community-church", name: "Lutheran Community Church Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Las Vegas, NV", detail: "Architect: TSK Architects; Designer: Cary Tsai", img: lutheranChurch01, galleryImgs: [lutheranChurch01] },
-  { slug: "iglesia-ni-cristo-surrey", name: "Iglesia Ni Cristo Locale of Surrey", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Surrey, BC", area: "10,964 sf", detail: "Exterior envelope replacement and interior renovation", img: iglesiaNiCristo01v2, galleryImgs: [iglesiaNiCristo01v2] },
+  { slug: "lutheran-community-church", name: "Lutheran Community Church Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Las Vegas, NV", detail: "Architect: TSK Architects; Designer: Cary Tsai", img: lutheranChurch01v2, galleryImgs: [lutheranChurch01v2] },
+  { slug: "iglesia-ni-cristo-surrey", name: "Iglesia Ni Cristo Locale of Surrey", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Surrey, BC", area: "10,964 sf", detail: "Exterior envelope replacement and interior renovation", img: iglesiaNiCristo01v2, galleryImgs: [iglesiaNiCristo01v2, iglesiaNiCristo02] },
   // Community & Cultural — existing extra projects
   { slug: "treasure-cove-casino", name: "Treasure Cove Casino Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Casino"], location: "Prince George, BC", area: "15,326 sq. ft.", budget: "$15 millions", img: treasureCoveCasino01, galleryImgs: [treasureCoveCasino01] },
   { slug: "atomic-fitness", name: "Atomic Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: atomicFitness01, galleryImgs: [atomicFitness01] },
@@ -202,11 +211,11 @@ export const allProjects: Project[] = [
   { slug: "east-2nd-avenue", name: "East 2nd Avenue", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Vancouver, BC", img: east2ndAve01v2, galleryImgs: [east2ndAve01v2, east2ndAve02, east2ndAve03, east2ndAve04] },
   { slug: "sqn-education", name: "SQN Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Richmond, BC", detail: "Designer: ID Design Consulting Ltd.", img: sqnEducation01, galleryImgs: [sqnEducation01] },
   { slug: "phi-education", name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: phiEducation01, galleryImgs: [phiEducation01] },
-  { slug: "little-marines-preschool", name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: littleMarines01, galleryImgs: [littleMarines01] },
+  { slug: "little-marines-preschool", name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: littleMarines01v2, galleryImgs: [littleMarines01v2, littleMarines02] },
   { slug: "happy-may-iv", name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: happyMay01v2, galleryImgs: [happyMay01v2] },
 
   // ─── INSTITUTIONAL — HEALTH CARE ───
-  { slug: "katalin-care-homes", name: "Katalin Care Homes", category: "Institutional", categorySlug: "institutional", tags: ["Healthcare", "Senior Care"], location: "Mission, BC", area: "6,225 sq. ft.", img: katalinCareHomes01, galleryImgs: [katalinCareHomes01] },
+  { slug: "katalin-care-homes", name: "Katalin Care Homes", category: "Institutional", categorySlug: "institutional", tags: ["Healthcare", "Senior Care"], location: "Mission, BC", area: "6,225 sq. ft.", img: katalinCareHomes01v2, galleryImgs: [katalinCareHomes01v2] },
   { slug: "okanagan-chateau", name: "Okanagan Chateau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Kelowna, BC", detail: "Interior renovation", img: okanaganChateau01, galleryImgs: [okanaganChateau01] },
   { slug: "mariposa-gardens", name: "Mariposa Gardens Retirement Residence and Care", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Osoyoos, BC", area: "109,487 sq. ft.", detail: "Plumbing upgrade", img: mariposaGardens01, galleryImgs: [mariposaGardens01] },
   { slug: "sienna-rideau", name: "Sienna Rideau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Burnaby, BC", detail: "Interior renovation + fire sprinkler upgrade; Building height: 19 storeys", img: siennaRideau01, galleryImgs: [siennaRideau01] },
@@ -231,7 +240,7 @@ export const allProjects: Project[] = [
   { slug: "beresford-doctor-clinic", name: "Beresford Doctor Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: beresfordClinic01, galleryImgs: [beresfordClinic01] },
   { slug: "willingdon-green-clinic", name: "Willingdon Green Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: willingdonClinic01, galleryImgs: [willingdonClinic01] },
   { slug: "cleardent", name: "Cleardent", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: cleardent01v2, galleryImgs: [cleardent01v2, cleardent02] },
-  { slug: "lions-travel", name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: lionsTravel01, galleryImgs: [lionsTravel01] },
+  { slug: "lions-travel", name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: lionsTravel01v2, galleryImgs: [lionsTravel01v2] },
   { slug: "adore", name: "Adore", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Tsawwassen Mills Mall, Delta, BC", img: adore01v2, galleryImgs: [adore01v2] },
   // Existing extra interior projects
   { slug: "architect-57-office", name: "Architect 57", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Richmond, BC", img: architect5701v2, galleryImgs: [architect5701v2, architect5702] },
@@ -257,9 +266,9 @@ export const allProjects: Project[] = [
   { slug: "vinson-creek-residence", name: "Vinson Creek Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "9,343 sq. ft.", img: vinsonCreek01, galleryImgs: [vinsonCreek01] },
   { slug: "xu-residence", name: "Xu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", area: "3,680 sq. ft.", img: xuResidence01, galleryImgs: [xuResidence01] },
   { slug: "wu-residence", name: "Wu Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,733 sq. ft.", img: wuResidence01, galleryImgs: [wuResidence01] },
-  { slug: "lu-residence", name: "Lu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Delta, BC", area: "5,177 sq. ft.", img: luResidence01, galleryImgs: [luResidence01] },
+  { slug: "lu-residence", name: "Lu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Delta, BC", area: "5,177 sq. ft.", img: luResidence01v2, galleryImgs: [luResidence01v2, luResidence02] },
   { slug: "cartier-residence", name: "Cartier Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: cartierResidence01v2, galleryImgs: [cartierResidence01v2] },
-  { slug: "laurel-residence", name: "Laurel Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: laurelResidence01, galleryImgs: [laurelResidence01] },
+  { slug: "laurel-residence", name: "Laurel Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: laurelResidence01v2, galleryImgs: [laurelResidence01v2, laurelResidence02] },
   { slug: "collingwood", name: "Collingwood", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "10,500 sq. ft.", budget: "$5 millions", img: collingwood01v3, galleryImgs: [collingwood01v3, collingwood02, collingwood03, collingwood04, collingwood05, collingwood06] },
   { slug: "royal-oak", name: "Royal Oak", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 millions", img: royalOak01v2, galleryImgs: [royalOak01v2] },
   { slug: "west-39-avenue", name: "West 39 Avenue", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "4,438 sq. ft.", budget: "$1.78 millions", img: west3901v2, galleryImgs: [west3901v2] },
