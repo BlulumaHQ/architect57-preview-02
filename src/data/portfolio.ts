@@ -34,6 +34,18 @@ import dubaiHouse01 from "@/assets/dubai_house_of_the_future-01_result.webp";
 import newUniversityHospital01 from "@/assets/new_university_hospital-01_result.webp";
 import unionBayEstate01 from "@/assets/zone_5_union_bay_estate-01_result.webp";
 
+// Real project images (batch 3)
+import austinHighRise01Result from "@/assets/austin_high-rise-01_result.webp";
+import bridgeportOffice01Result from "@/assets/bridgeport_office_building-01_result.webp";
+import vanguardFitness01 from "@/assets/vanguard_fitness-01_result.webp";
+import aceEsports01 from "@/assets/ace_e-sports-01_result.webp";
+import atomicFitness01 from "@/assets/atomic_fitness-01_result.webp";
+import katalinCareHomes01 from "@/assets/katalin_care_homes-01_result.webp";
+import mariposaGardens01 from "@/assets/mariposa_gardens_retirement-01_result.webp";
+import morganPlay01 from "@/assets/morgan_play-01_result.webp";
+import okanaganChateau01 from "@/assets/okanagan_chateau_retirement-01_result.webp";
+import siennaRideau01 from "@/assets/sienna_rideau_retirement-01_result.webp";
+
 // ── Types ──────────────────────────────────────────────
 
 export interface FeaturedProject {
@@ -158,9 +170,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A substantial office development in Richmond delivering 28,703 square feet of contemporary commercial workspace.",
     longDesc: "The Bridgeport Office Building is a significant commercial project in Richmond, encompassing 28,703 square feet of Class A office space. The design responds to the scale and context of the Bridgeport corridor while establishing a distinctive architectural identity. Floor plates are organized for maximum flexibility, and the building envelope integrates high-performance glazing systems that reduce energy consumption without compromising natural light. The $10 million project represents Architect 57's capability in delivering large-scale commercial work with precision and fiscal responsibility.",
     services: ["Integrated Building Design", "Code Consultation (CP)", "Project Management", "BIM"],
-    heroImg: bridgeportOffice01,
+    heroImg: bridgeportOffice01Result,
     galleryImgs: [bridgeportOffice02, bridgeportOffice03],
-    coverImg: bridgeportOffice01,
+    coverImg: bridgeportOffice01Result,
   },
   {
     slug: "collingwood",
@@ -217,9 +229,9 @@ export const collections: Collection[] = [
     title: "Multi-Unit Housing",
     categorySlug: "multi-unit-housing",
     desc: "High-rise towers, mixed-use developments, townhouse communities, and multiplex projects across British Columbia.",
-    coverImg: austinHighRise01,
+    coverImg: austinHighRise01Result,
     projects: [
-      { name: "Austin High-Rise", location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 million", img: austinHighRise01 },
+      { name: "Austin High-Rise", location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 million", img: austinHighRise01Result },
       { name: "54th Ave Condo (12-Storey)", location: "Langley, BC", notes: "12-storey with underground parking", img: fiftyFourthAveCondo01Result },
       { name: "Wellington Mixed-Use", location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 million", img: wellingtonMixUse01Result },
       { name: "54th Ave Condo (4-Storey)", location: "Langley, BC", notes: "4-storey with underground parking", img: fiftyFourthAveCondo02 },
@@ -234,12 +246,20 @@ export const collections: Collection[] = [
     title: "Commercial & Industrial",
     categorySlug: "commercial-industrial",
     desc: "Purpose-built commercial, educational, and childcare facilities designed for safety, creativity, and functionality.",
-    coverImg: src5,
+    coverImg: aceEsports01,
     projects: [
       { name: "East 2nd Avenue", location: "Vancouver, BC", img: src5 },
       { name: "Phi Education", location: "Vancouver, BC", img: src8 },
       { name: "Little Marines Preschool", location: "Coquitlam, BC", designer: "Yan Design Studio", codes: "Architect 57 Inc.", img: src9 },
       { name: "Happy May IV", location: "Richmond, BC", img: src1 },
+      { name: "Ace E-Sports", location: "Richmond, BC", img: aceEsports01 },
+      { name: "Vanguard Fitness", location: "Vancouver, BC", img: vanguardFitness01 },
+      { name: "Atomic Fitness", location: "Vancouver, BC", img: atomicFitness01 },
+      { name: "Morgan Play", location: "Richmond, BC", img: morganPlay01 },
+      { name: "Katalin Care Homes", location: "Vancouver, BC", img: katalinCareHomes01 },
+      { name: "Mariposa Gardens Retirement", location: "Kelowna, BC", img: mariposaGardens01 },
+      { name: "Okanagan Chateau Retirement", location: "Kelowna, BC", img: okanaganChateau01 },
+      { name: "Sienna Rideau Retirement", location: "Ottawa, ON", img: siennaRideau01 },
     ],
   },
   {
