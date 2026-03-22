@@ -2,13 +2,13 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
-import sf1 from "@/assets/collection-single-family-1.jpg";
-import sf2 from "@/assets/collection-single-family-2.jpg";
-import sf3 from "@/assets/collection-single-family-3.jpg";
-import dc1 from "@/assets/collection-daycare-1.jpg";
-import dc2 from "@/assets/collection-daycare-2.jpg";
-import mx1 from "@/assets/collection-multiplex-1.jpg";
-import mx2 from "@/assets/collection-multiplex-2.jpg";
+import src10 from "@/assets/source-project-10.jpg";
+import src11 from "@/assets/source-project-11.jpg";
+import src2 from "@/assets/source-project-2.jpg";
+import src3 from "@/assets/source-project-3.jpg";
+import src5 from "@/assets/source-project-5.jpg";
+import src8 from "@/assets/source-project-8.jpg";
+import src9 from "@/assets/source-project-9.jpg";
 
 interface CollectionProject {
   name: string;
@@ -29,9 +29,9 @@ const collections: Collection[] = [
     title: "Single Family",
     desc: "Custom residential homes designed with precision and care for families across the Lower Mainland.",
     projects: [
-      { name: "Burnaby Residence", location: "Burnaby, BC", img: sf1 },
-      { name: "Richmond Custom Home", location: "Richmond, BC", img: sf2 },
-      { name: "Surrey Estate", location: "Surrey, BC", img: sf3 },
+      { name: "Burnaby Residence", location: "Burnaby, BC", img: src10 },
+      { name: "Richmond Custom Home", location: "Richmond, BC", img: src11 },
+      { name: "Surrey Estate", location: "Surrey, BC", img: src2 },
     ],
   },
   {
@@ -39,8 +39,8 @@ const collections: Collection[] = [
     title: "Daycare & Education",
     desc: "Purpose-built educational and childcare facilities designed for safety, creativity, and growth.",
     projects: [
-      { name: "Rainbow Kids Daycare", location: "Richmond, BC", img: dc1 },
-      { name: "Little Scholars Academy", location: "Vancouver, BC", img: dc2 },
+      { name: "Rainbow Kids Daycare", location: "Richmond, BC", img: src3 },
+      { name: "Little Scholars Academy", location: "Vancouver, BC", img: src5 },
     ],
   },
   {
@@ -48,8 +48,8 @@ const collections: Collection[] = [
     title: "Multiplex",
     desc: "Multi-unit residential developments that balance density with livability and architectural character.",
     projects: [
-      { name: "Garden City Fourplex", location: "Richmond, BC", img: mx1 },
-      { name: "Westminster Sixplex", location: "New Westminster, BC", img: mx2 },
+      { name: "Garden City Fourplex", location: "Richmond, BC", img: src8 },
+      { name: "Westminster Sixplex", location: "New Westminster, BC", img: src9 },
     ],
   },
 ];

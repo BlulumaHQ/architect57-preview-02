@@ -2,17 +2,17 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
-import featured1 from "@/assets/featured-1.jpg";
-import featured2 from "@/assets/featured-2.jpg";
-import featured3 from "@/assets/featured-3.jpg";
-import sf1 from "@/assets/collection-single-family-1.jpg";
-import dc1 from "@/assets/collection-daycare-1.jpg";
-import mx1 from "@/assets/collection-multiplex-1.jpg";
+import srcImg1 from "@/assets/source-project-1.jpg";
+import srcImg4 from "@/assets/source-project-4.jpg";
+import srcImg7 from "@/assets/source-project-7.jpg";
+import srcImg10 from "@/assets/source-project-10.jpg";
+import srcImg3 from "@/assets/source-project-3.jpg";
+import srcImg6 from "@/assets/source-project-6.jpg";
 
 const featuredProjects = [
   {
     slug: "mixed-use-development",
-    img: featured1,
+    img: srcImg1,
     title: "Mixed-Use Development",
     category: "Commercial",
     year: "2023",
@@ -20,7 +20,7 @@ const featuredProjects = [
   },
   {
     slug: "high-rise-residential",
-    img: featured2,
+    img: srcImg4,
     title: "High-Rise Residential Tower",
     category: "Residential",
     year: "2022",
@@ -28,7 +28,7 @@ const featuredProjects = [
   },
   {
     slug: "institutional-complex",
-    img: featured3,
+    img: srcImg7,
     title: "Institutional Complex",
     category: "Institutional",
     year: "2021",
@@ -41,19 +41,19 @@ const collections = [
     slug: "single-family",
     title: "Single Family",
     count: 3,
-    img: sf1,
+    img: srcImg10,
   },
   {
     slug: "daycare-education",
     title: "Daycare & Education",
     count: 2,
-    img: dc1,
+    img: srcImg3,
   },
   {
     slug: "multiplex",
     title: "Multiplex",
     count: 2,
-    img: mx1,
+    img: srcImg6,
   },
 ];
 
