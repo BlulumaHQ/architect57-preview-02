@@ -46,7 +46,18 @@ import morganPlay01 from "@/assets/morgan_play-01_result.webp";
 import okanaganChateau01 from "@/assets/okanagan_chateau_retirement-01_result.webp";
 import siennaRideau01 from "@/assets/sienna_rideau_retirement-01_result.webp";
 
-// ── Types ──────────────────────────────────────────────
+// Real project images (batch 4)
+import treasureCoveCasino01 from "@/assets/treasure_cove_casino-01_result.webp";
+import xuResidence01 from "@/assets/xu-residence-01_result.webp";
+import no6Residence01 from "@/assets/no6-residence-01_result.webp";
+import severnResidence01 from "@/assets/severn-residence-01_result.webp";
+import vinsonCreek01 from "@/assets/vinson-creek-residence-01_result.webp";
+import wuResidence01 from "@/assets/wu-residence-01_result.webp";
+import cartierResidence01 from "@/assets/cartier-residence-01_result.webp";
+import chenResidence01 from "@/assets/chen-residence-01_result.webp";
+import hanResidence01 from "@/assets/han-residence-01_result.webp";
+import laurelResidence01 from "@/assets/laurel-residence-01_result.webp";
+
 
 export interface FeaturedProject {
   slug: string;
