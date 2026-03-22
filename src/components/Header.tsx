@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import logoWhite from "@/assets/architect57-logo-white.svg";
 
 const navLinks = [
   { label: "Projects", to: "/projects" },
