@@ -5,7 +5,7 @@ import DiagonalMarquee from "@/components/DiagonalMarquee";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutStudio from "@/assets/about-studio.jpg";
-import { featuredProjects as allFeatured, allGridProjects } from "@/data/portfolio";
+import { allProjects, featuredSlugs } from "@/data/portfolio";
 
 const services = [
   {
@@ -32,16 +32,16 @@ const services = [
 
 // Fixed curated homepage selection: 4 projects across 4 categories
 const homepageCurated = (() => {
-  const chen = allFeatured.find((p) => p.slug === "chen-residence");
-  const collingwood = allFeatured.find((p) => p.slug === "collingwood");
-  const bridgeport = allFeatured.find((p) => p.slug === "bridgeport-office");
-  const zone5 = allGridProjects.find((p) => p.name === "Zone 5, Union Bay Estate");
+  const chen = allProjects.find((p) => p.slug === "chen-residence");
+  const collingwood = allProjects.find((p) => p.slug === "collingwood");
+  const bridgeport = allProjects.find((p) => p.slug === "bridgeport-office");
+  const zone5 = allProjects.find((p) => p.slug === "zone-5-union-bay-estate");
 
   return [
-    chen ? { img: chen.coverImg, title: chen.title, category: chen.category, link: `/projects/${chen.slug}` } : null,
-    collingwood ? { img: collingwood.coverImg, title: collingwood.title, category: collingwood.category, link: `/projects/${collingwood.slug}` } : null,
-    bridgeport ? { img: bridgeport.coverImg, title: bridgeport.title, category: bridgeport.category, link: `/projects/${bridgeport.slug}` } : null,
-    zone5 ? { img: zone5.img, title: zone5.name, category: "Master Planning", link: `/projects` } : null,
+    chen ? { img: chen.img, title: chen.name, category: chen.category, link: `/projects/${chen.slug}` } : null,
+    collingwood ? { img: collingwood.img, title: collingwood.name, category: collingwood.category, link: `/projects/${collingwood.slug}` } : null,
+    bridgeport ? { img: bridgeport.img, title: bridgeport.name, category: bridgeport.category, link: `/projects/${bridgeport.slug}` } : null,
+    zone5 ? { img: zone5.img, title: zone5.name, category: zone5.category, link: `/projects/${zone5.slug}` } : null,
   ].filter(Boolean) as { img: string; title: string; category: string; link: string }[];
 })();
 
