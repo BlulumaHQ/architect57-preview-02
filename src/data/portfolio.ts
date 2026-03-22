@@ -77,7 +77,18 @@ import adore01 from "@/assets/adore-01_result.webp";
 import architect5701 from "@/assets/architect-57-01_result.webp";
 import beresfordClinic01 from "@/assets/beresford_doctor_clinic-01_result.webp";
 
-// ── Types ──────────────────────────────────────────────
+// Real project images (batch 7)
+import cleardent01 from "@/assets/cleardent-01_result.webp";
+import lionsTravel01 from "@/assets/lions_travel-01_result.webp";
+import tecoOffice01 from "@/assets/teco_office-01_result.webp";
+import titanicExhibition01 from "@/assets/titanic_exhibition-01_result.webp";
+import east2ndAve01 from "@/assets/east-2nd-ave-01_result.webp";
+import happyMay01 from "@/assets/happy-may-01_result.webp";
+import littleMarines01 from "@/assets/little-marines-01_result.webp";
+import phiEducation01 from "@/assets/phi-education-01_result.webp";
+import sqnEducation01 from "@/assets/sqn-education-01_result.webp";
+import torakeCuisine01 from "@/assets/tarake-japanese-cuisine-01_result.webp";
+
 
 export interface FeaturedProject {
   slug: string;
