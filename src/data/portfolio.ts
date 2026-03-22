@@ -276,7 +276,7 @@ export const allProjects: Project[] = [
   { slug: "hazco-environmental", name: "Hazco Environmental Transfer Station", category: "Industrial", categorySlug: "industrial", tags: ["Industrial"], location: "Richmond, BC", area: "29,925 sq. ft.", img: hazcoEnvironmental01v2, galleryImgs: [hazcoEnvironmental01v2] },
 
   // ─── INTERIOR PROJECTS ───
-  { slug: "teco-office", name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", area: "12,339 sq. ft.", img: tecoOffice01, galleryImgs: [tecoOffice01] },
+  { slug: "teco-office", name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", area: "12,339 sq. ft.", img: tecoOffice01v2, galleryImgs: [tecoOffice01v2] },
   { slug: "appliance-canada", name: "Appliance Canada", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Richmond, BC", area: "11,639 sq. ft.", img: applianceCanada01v2, galleryImgs: [applianceCanada01v2] },
   { slug: "titanic-exhibition", name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Cultural"], location: "Richmond, BC", area: "15,801 sq. ft.", img: titanicExhibition01, galleryImgs: [titanicExhibition01] },
   { slug: "beresford-doctor-clinic", name: "Beresford Doctor Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: beresfordClinic01, galleryImgs: [beresfordClinic01] },
