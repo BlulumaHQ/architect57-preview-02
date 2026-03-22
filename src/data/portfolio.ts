@@ -254,9 +254,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "An education facility in Richmond designed for creative learning environments, with code compliance by Architect 57.",
     longDesc: "SQN Education is a purpose-built educational facility in Richmond, designed by ID Design Consulting Ltd. with building code and compliance services provided by Architect 57 Inc. The project demanded careful adherence to BC Building Code requirements for assembly and institutional occupancies, including life safety, accessibility, and structural standards. The result is a facility that supports contemporary pedagogy within a safe, code-compliant architectural framework.",
     services: ["Code Consultation (CP)", "Building Code Compliance"],
-    heroImg: src3,
-    galleryImgs: [src5, src7],
-    coverImg: src3,
+    heroImg: sqnEducation01,
+    galleryImgs: [sqnEducation01],
+    coverImg: sqnEducation01,
   },
 ];
 
