@@ -22,6 +22,18 @@ import fiftyFourthAveCondo01 from "@/assets/54th_ave_condo-01.jpg";
 import fiftyFourthAveCondo02 from "@/assets/54th_ave_condo-02.jpg";
 import fiftyFourthAveCondo03 from "@/assets/54th_ave_condo-03.jpg";
 
+// Real project images (batch 2)
+import collingwood01 from "@/assets/collingwood-01_result.webp";
+import fletcherTownhouses01Result from "@/assets/fletcher_townhouses-01_result.webp";
+import royalOak01 from "@/assets/royal-oak01_result.webp";
+import seavale01 from "@/assets/seavale-01_result.webp";
+import wellingtonMixUse01Result from "@/assets/wellington_mix-use-01_result.webp";
+import west3901 from "@/assets/west-39-01_result.webp";
+import fiftyFourthAveCondo01Result from "@/assets/54th_ave_condo-01_result.webp";
+import dubaiHouse01 from "@/assets/dubai_house_of_the_future-01_result.webp";
+import newUniversityHospital01 from "@/assets/new_university_hospital-01_result.webp";
+import unionBayEstate01 from "@/assets/zone_5_union_bay_estate-01_result.webp";
+
 // ── Types ──────────────────────────────────────────────
 
 export interface FeaturedProject {
@@ -161,9 +173,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A 10,500 square-foot multi-unit residential development in Vancouver's Collingwood neighbourhood.",
     longDesc: "The Collingwood project is a multi-unit residential development that navigates Vancouver's evolving density requirements while maintaining architectural quality. At 10,500 square feet with a $5 million budget, the design achieves a balance between construction economy and design ambition. Each unit is individually planned to maximize livability, with careful attention to privacy, natural light, and outdoor connections despite the compact urban site.",
     services: ["Integrated Building Design", "Code Consultation", "Project Management"],
-    heroImg: src6,
+    heroImg: collingwood01,
     galleryImgs: [src8, src9],
-    coverImg: src6,
+    coverImg: collingwood01,
   },
   {
     slug: "sqn-education",
@@ -208,13 +220,13 @@ export const collections: Collection[] = [
     coverImg: austinHighRise01,
     projects: [
       { name: "Austin High-Rise", location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 million", img: austinHighRise01 },
-      { name: "54th Ave Condo (12-Storey)", location: "Langley, BC", notes: "12-storey with underground parking", img: fiftyFourthAveCondo01 },
-      { name: "Wellington Mixed-Use", location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 million", img: wellingtonMixUse01 },
+      { name: "54th Ave Condo (12-Storey)", location: "Langley, BC", notes: "12-storey with underground parking", img: fiftyFourthAveCondo01Result },
+      { name: "Wellington Mixed-Use", location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 million", img: wellingtonMixUse01Result },
       { name: "54th Ave Condo (4-Storey)", location: "Langley, BC", notes: "4-storey with underground parking", img: fiftyFourthAveCondo02 },
-      { name: "Fletcher Townhouses", location: "Maple Ridge, BC", notes: "15 units across 5 types", img: fletcherTownhouses01 },
-      { name: "Royal Oak", location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 million", img: fiftyFourthAveCondo03 },
-      { name: "West 39 Avenue", location: "Vancouver, BC", area: "4,438 sq. ft.", budget: "$1.78 million", img: austinHighRise02 },
-      { name: "Seavale", location: "Richmond, BC", area: "4,658 sq. ft.", budget: "$1.39 million", img: src7 },
+      { name: "Fletcher Townhouses", location: "Maple Ridge, BC", notes: "15 units across 5 types", img: fletcherTownhouses01Result },
+      { name: "Royal Oak", location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 million", img: royalOak01 },
+      { name: "West 39 Avenue", location: "Vancouver, BC", area: "4,438 sq. ft.", budget: "$1.78 million", img: west3901 },
+      { name: "Seavale", location: "Richmond, BC", area: "4,658 sq. ft.", budget: "$1.39 million", img: seavale01 },
     ],
   },
   {
@@ -235,11 +247,11 @@ export const collections: Collection[] = [
     title: "Master Planning",
     categorySlug: "master-planning",
     desc: "Large-scale planning projects from community estates to institutional campus developments.",
-    coverImg: src11,
+    coverImg: unionBayEstate01,
     projects: [
-      { name: "Zone 5, Union Bay Estate", location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: src2 },
-      { name: "New University Hospital of Northern BC", location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 million", img: src6 },
-      { name: "Dubai House of the Future Competition", location: "Dubai, UAE", area: "570,000 sq. ft. (13.09 acres)", img: src3 },
+      { name: "Zone 5, Union Bay Estate", location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01 },
+      { name: "New University Hospital of Northern BC", location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 million", img: newUniversityHospital01 },
+      { name: "Dubai House of the Future Competition", location: "Dubai, UAE", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01 },
     ],
   },
 ];
