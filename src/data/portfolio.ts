@@ -228,8 +228,8 @@ export const allProjects: Project[] = [
 
   // ─── INSTITUTIONAL — HEALTH CARE ───
   { slug: "katalin-care-homes", name: "Katalin Care Homes", category: "Institutional", categorySlug: "institutional", tags: ["Healthcare", "Senior Care"], location: "Mission, BC", area: "6,225 sq. ft.", img: katalinCareHomes01v2, galleryImgs: [katalinCareHomes01v2] },
-  { slug: "okanagan-chateau", name: "Okanagan Chateau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Kelowna, BC", detail: "Interior renovation", img: okanaganChateau01, galleryImgs: [okanaganChateau01] },
-  { slug: "mariposa-gardens", name: "Mariposa Gardens Retirement Residence and Care", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Osoyoos, BC", area: "109,487 sq. ft.", detail: "Plumbing upgrade", img: mariposaGardens01, galleryImgs: [mariposaGardens01] },
+  { slug: "okanagan-chateau", name: "Okanagan Chateau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Kelowna, BC", detail: "Interior renovation", img: okanaganChateau01v2, galleryImgs: [okanaganChateau01v2] },
+  { slug: "mariposa-gardens", name: "Mariposa Gardens Retirement Residence and Care", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Osoyoos, BC", area: "109,487 sq. ft.", detail: "Plumbing upgrade", img: mariposaGardens01v2, galleryImgs: [mariposaGardens01v2] },
   { slug: "sienna-rideau", name: "Sienna Rideau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Burnaby, BC", detail: "Interior renovation + fire sprinkler upgrade; Building height: 19 storeys", img: siennaRideau01, galleryImgs: [siennaRideau01] },
 
   // ─── INDUSTRIAL ───
