@@ -5,7 +5,7 @@ import DiagonalMarquee from "@/components/DiagonalMarquee";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutStudio from "@/assets/about-studio.jpg";
-import { featuredProjects as allFeatured } from "@/data/portfolio";
+import { featuredProjects as allFeatured, collections } from "@/data/portfolio";
 
 const services = [
   {
@@ -30,31 +30,23 @@ const services = [
   },
 ];
 
-// Select diverse projects across categories for homepage variety
-const diverseSelection = (() => {
-  const picked: typeof allFeatured = [];
-  const usedCategories = new Set<string>();
-  // First pass: one project per category
-  for (const p of allFeatured) {
-    if (!usedCategories.has(p.categorySlug) && picked.length < 4) {
-      picked.push(p);
-      usedCategories.add(p.categorySlug);
-    }
-  }
-  // Second pass: fill remaining slots if needed
-  for (const p of allFeatured) {
-    if (picked.length >= 4) break;
-    if (!picked.includes(p)) picked.push(p);
-  }
-  return picked;
+// Fixed curated homepage selection: 4 projects across 4 categories
+const homepageCurated = (() => {
+  const chen = allFeatured.find((p) => p.slug === "chen-residence");
+  const collingwood = allFeatured.find((p) => p.slug === "collingwood");
+  const bridgeport = allFeatured.find((p) => p.slug === "bridgeport-office");
+  const masterPlanningCollection = collections.find((c) => c.slug === "master-planning");
+  const zone5 = masterPlanningCollection?.projects.find((p) => p.name === "Zone 5, Union Bay Estate");
+
+  return [
+    chen ? { img: chen.coverImg, title: chen.title, category: chen.category, link: `/projects/${chen.slug}` } : null,
+    collingwood ? { img: collingwood.coverImg, title: collingwood.title, category: collingwood.category, link: `/projects/${collingwood.slug}` } : null,
+    bridgeport ? { img: bridgeport.coverImg, title: bridgeport.title, category: bridgeport.category, link: `/projects/${bridgeport.slug}` } : null,
+    zone5 ? { img: zone5.img, title: zone5.name, category: "Master Planning", link: `/projects/collection/master-planning` } : null,
+  ].filter(Boolean) as { img: string; title: string; category: string; link: string }[];
 })();
 
-const featuredProjects = diverseSelection.map((p) => ({
-  img: p.coverImg,
-  title: p.title,
-  category: p.category,
-  slug: p.slug,
-}));
+const featuredProjects = homepageCurated;
 
 const Index = () => {
   return (
@@ -238,7 +230,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
             {/* Large left */}
             <ScrollReveal className="md:col-span-7">
-              <Link to={`/projects/${featuredProjects[0].slug}`} className="group block relative overflow-hidden rounded-sm">
+              <Link to={featuredProjects[0].link} className="group block relative overflow-hidden rounded-sm">
                 <img
                   src={featuredProjects[0].img}
                   alt={featuredProjects[0].title}
@@ -260,7 +252,7 @@ const Index = () => {
             {/* Right stack */}
             <div className="md:col-span-5 flex flex-col gap-4 md:gap-5">
               <ScrollReveal delay={100}>
-                <Link to={`/projects/${featuredProjects[1].slug}`} className="group block relative overflow-hidden rounded-sm">
+                <Link to={featuredProjects[1].link} className="group block relative overflow-hidden rounded-sm">
                   <img
                     src={featuredProjects[1].img}
                     alt={featuredProjects[1].title}
@@ -279,7 +271,7 @@ const Index = () => {
                 </Link>
               </ScrollReveal>
               <ScrollReveal delay={200}>
-                <Link to={`/projects/${featuredProjects[2].slug}`} className="group block relative overflow-hidden rounded-sm">
+                <Link to={featuredProjects[2].link} className="group block relative overflow-hidden rounded-sm">
                   <img
                     src={featuredProjects[2].img}
                     alt={featuredProjects[2].title}
@@ -302,7 +294,7 @@ const Index = () => {
 
           {/* Fourth project — full width */}
           <ScrollReveal delay={300} className="mt-4 md:mt-5">
-            <Link to={`/projects/${featuredProjects[3].slug}`} className="group block relative overflow-hidden rounded-sm">
+            <Link to={featuredProjects[3].link} className="group block relative overflow-hidden rounded-sm">
               <img
                 src={featuredProjects[3].img}
                 alt={featuredProjects[3].title}
