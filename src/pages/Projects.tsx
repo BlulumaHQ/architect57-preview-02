@@ -4,6 +4,7 @@ import { ArrowRight, MapPin } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { allProjects, categories } from "@/data/portfolio";
 import { useLang } from "@/contexts/LangContext";
+import usePageMeta from "@/hooks/usePageMeta";
 
 // Randomly select 3 featured from Residential + Commercial only
 const getTopFeatured = () => {

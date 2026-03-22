@@ -9,6 +9,7 @@ import aboutImg from "@/assets/about-us-01.webp";
 import chbaAward from "@/assets/chba-award.jpg";
 import { allProjects } from "@/data/portfolio";
 import { useLang } from "@/contexts/LangContext";
+import usePageMeta from "@/hooks/usePageMeta";
 
 // Randomly select 4 projects from Residential + Commercial only (2+2 ideal)
 const getRandomFeatured = () => {

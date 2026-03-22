@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { allProjects, getProjectIndex } from "@/data/portfolio";
 import { useLang } from "@/contexts/LangContext";
+import usePageMeta from "@/hooks/usePageMeta";
 
 const ProjectDetail = () => {
   const { slug } = useParams();

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import aboutImg1 from "@/assets/about-us-01.webp";
 import { useLang } from "@/contexts/LangContext";
+import usePageMeta from "@/hooks/usePageMeta";
 
 const About = () => {
   const { t } = useLang();

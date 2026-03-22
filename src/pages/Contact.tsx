@@ -2,6 +2,7 @@ import { useState, FormEvent } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Send } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
+import usePageMeta from "@/hooks/usePageMeta";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
