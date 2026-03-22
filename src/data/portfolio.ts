@@ -203,7 +203,7 @@ export const allProjects: Project[] = [
   { slug: "sqn-education", name: "SQN Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Richmond, BC", detail: "Designer: ID Design Consulting Ltd.", img: sqnEducation01, galleryImgs: [sqnEducation01] },
   { slug: "phi-education", name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: phiEducation01, galleryImgs: [phiEducation01] },
   { slug: "little-marines-preschool", name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: littleMarines01, galleryImgs: [littleMarines01] },
-  { slug: "happy-may-iv", name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: happyMay01, galleryImgs: [happyMay01] },
+  { slug: "happy-may-iv", name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: happyMay01v2, galleryImgs: [happyMay01v2] },
 
   // ─── INSTITUTIONAL — HEALTH CARE ───
   { slug: "katalin-care-homes", name: "Katalin Care Homes", category: "Institutional", categorySlug: "institutional", tags: ["Healthcare", "Senior Care"], location: "Mission, BC", area: "6,225 sq. ft.", img: katalinCareHomes01, galleryImgs: [katalinCareHomes01] },
