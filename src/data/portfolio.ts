@@ -10,6 +10,18 @@ import src9 from "@/assets/source-project-9.jpg";
 import src10 from "@/assets/source-project-10.jpg";
 import src11 from "@/assets/source-project-11.jpg";
 
+// New real project images
+import austinHighRise01 from "@/assets/austin_high-rise-01.jpg";
+import austinHighRise02 from "@/assets/austin_high-rise-02.jpg";
+import bridgeportOffice01 from "@/assets/bridgeport_office_building-01.jpg";
+import bridgeportOffice02 from "@/assets/bridgeport_office_building-02.jpg";
+import bridgeportOffice03 from "@/assets/bridgeport_office_building-03.jpg";
+import fletcherTownhouses01 from "@/assets/fletcher_townhouses-01.jpg";
+import wellingtonMixUse01 from "@/assets/wellington_mix-use-01.jpg";
+import fiftyFourthAveCondo01 from "@/assets/54th_ave_condo-01.jpg";
+import fiftyFourthAveCondo02 from "@/assets/54th_ave_condo-02.jpg";
+import fiftyFourthAveCondo03 from "@/assets/54th_ave_condo-03.jpg";
+
 // ── Types ──────────────────────────────────────────────
 
 export interface FeaturedProject {
@@ -134,9 +146,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A substantial office development in Richmond delivering 28,703 square feet of contemporary commercial workspace.",
     longDesc: "The Bridgeport Office Building is a significant commercial project in Richmond, encompassing 28,703 square feet of Class A office space. The design responds to the scale and context of the Bridgeport corridor while establishing a distinctive architectural identity. Floor plates are organized for maximum flexibility, and the building envelope integrates high-performance glazing systems that reduce energy consumption without compromising natural light. The $10 million project represents Architect 57's capability in delivering large-scale commercial work with precision and fiscal responsibility.",
     services: ["Integrated Building Design", "Code Consultation (CP)", "Project Management", "BIM"],
-    heroImg: src2,
-    galleryImgs: [src3, src5],
-    coverImg: src2,
+    heroImg: bridgeportOffice01,
+    galleryImgs: [bridgeportOffice02, bridgeportOffice03],
+    coverImg: bridgeportOffice01,
   },
   {
     slug: "collingwood",
@@ -193,15 +205,15 @@ export const collections: Collection[] = [
     title: "Multi-Unit Housing",
     categorySlug: "multi-unit-housing",
     desc: "High-rise towers, mixed-use developments, townhouse communities, and multiplex projects across British Columbia.",
-    coverImg: src3,
+    coverImg: austinHighRise01,
     projects: [
-      { name: "Austin High-Rise", location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 million", img: src3 },
-      { name: "54th Ave Condo (12-Storey)", location: "Langley, BC", notes: "12-storey with underground parking", img: src6 },
-      { name: "Wellington Mixed-Use", location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 million", img: src8 },
-      { name: "54th Ave Condo (4-Storey)", location: "Langley, BC", notes: "4-storey with underground parking", img: src9 },
-      { name: "Fletcher Townhouses", location: "Maple Ridge, BC", notes: "15 units across 5 types", img: src11 },
-      { name: "Royal Oak", location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 million", img: src10 },
-      { name: "West 39 Avenue", location: "Vancouver, BC", area: "4,438 sq. ft.", budget: "$1.78 million", img: src4 },
+      { name: "Austin High-Rise", location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 million", img: austinHighRise01 },
+      { name: "54th Ave Condo (12-Storey)", location: "Langley, BC", notes: "12-storey with underground parking", img: fiftyFourthAveCondo01 },
+      { name: "Wellington Mixed-Use", location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 million", img: wellingtonMixUse01 },
+      { name: "54th Ave Condo (4-Storey)", location: "Langley, BC", notes: "4-storey with underground parking", img: fiftyFourthAveCondo02 },
+      { name: "Fletcher Townhouses", location: "Maple Ridge, BC", notes: "15 units across 5 types", img: fletcherTownhouses01 },
+      { name: "Royal Oak", location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 million", img: fiftyFourthAveCondo03 },
+      { name: "West 39 Avenue", location: "Vancouver, BC", area: "4,438 sq. ft.", budget: "$1.78 million", img: austinHighRise02 },
       { name: "Seavale", location: "Richmond, BC", area: "4,658 sq. ft.", budget: "$1.39 million", img: src7 },
     ],
   },
