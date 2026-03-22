@@ -2,7 +2,9 @@ import src11 from "@/assets/source-project-11.jpg";
 
 // Real project images
 import austinHighRise01Result from "@/assets/austin_high-rise-01_result.webp";
+import austinHighRise01v2 from "@/assets/austin_high-rise-01_result-2.webp";
 import bridgeportOffice01Result from "@/assets/bridgeport_office_building-01_result.webp";
+import bridgeportOffice01v2 from "@/assets/bridgeport_office_building-01_result-2.webp";
 import bridgeportOffice02 from "@/assets/bridgeport_office_building-02.jpg";
 import bridgeportOffice03 from "@/assets/bridgeport_office_building-03.jpg";
 import wellingtonMixUse01Result from "@/assets/wellington_mix-use-01_result.webp";
@@ -82,6 +84,7 @@ import applianceCanada01 from "@/assets/Appliance_Canada_01.webp";
 import fiftyFourthAveCondo01v2 from "@/assets/54th_ave_condo-01_result-2.webp";
 import fiftyFourthAveCondo02Result from "@/assets/54th_ave_condo-02_result.webp";
 import fiftyFourthAveCondo03Result from "@/assets/54th_ave_condo-03_result.webp";
+import fiftyFourthAveCondo03v2 from "@/assets/54th_ave_condo-03_result-2.webp";
 import aceEsports01v2 from "@/assets/ace_e-sports-01_result-2.webp";
 import aceEsports02 from "@/assets/ace_e-sports-02_result.webp";
 import aceEsports03 from "@/assets/ace_e-sports-03_result.webp";
@@ -96,9 +99,11 @@ import brightwaySeafood01v2 from "@/assets/brightway_cfia-certified_seafood_-01_
 import brightwaySeafood02 from "@/assets/brightway_cfia-certified_seafood_-02_result.webp";
 import brightwaySeafood03 from "@/assets/brightway_cfia-certified_seafood_-03_result.webp";
 import cartierResidence01v2 from "@/assets/cartier-residence-01_result-2.webp";
+import cartierResidence01v3 from "@/assets/cartier-residence-01_result-3.webp";
 import chenResidence01v2 from "@/assets/chen-residence-01_result-2.webp";
 import chenResidence02 from "@/assets/chen-residence-02_result.webp";
 import chenResidence03 from "@/assets/chen-residence-03_result.webp";
+import chenResidence03v2 from "@/assets/chen-residence-03_result-2.webp";
 import chenResidence04 from "@/assets/chen-residence-04_result.webp";
 import cleardent01v2 from "@/assets/cleardent-01_result-2.webp";
 import cleardent02 from "@/assets/cleardent-02_result.webp";
@@ -118,6 +123,7 @@ import east2ndAve02 from "@/assets/east-2nd-ave-02_result.webp";
 import east2ndAve03 from "@/assets/east-2nd-ave-03_result.webp";
 import east2ndAve04 from "@/assets/east-2nd-ave-04_result.webp";
 import fletcherTownhouses01v3 from "@/assets/fletcher_townhouses-01_result-3.webp";
+import fletcherTownhouses01v4 from "@/assets/fletcher_townhouses-01_result-4.webp";
 import goldBuddhaMonastery01v2 from "@/assets/gold_buddha_monastery-01_result-2.webp";
 import goldBuddhaMonastery02 from "@/assets/gold_buddha_monastery-02_result.webp";
 import goldBuddhaMonastery03 from "@/assets/gold_buddha_monastery-03_result.webp";
@@ -153,6 +159,7 @@ import morganPlay02 from "@/assets/morgan_play-02_result.webp";
 import morganPlay03 from "@/assets/morgan_play-03_result.webp";
 import newUniversityHospital01v3 from "@/assets/new_university_hospital-01_result-3.webp";
 import no6Residence01v2 from "@/assets/no6-residence-01_result-2.webp";
+import no6Residence01v3 from "@/assets/no6-residence-01_result-3.webp";
 import no6Residence02 from "@/assets/no6-residence-02_result.webp";
 import okanaganChateau01v2 from "@/assets/okanagan_chateau_retirement-01_result-2.webp";
 import ontarioStorage01v2 from "@/assets/ontario_storage_warehouse-01_result-2.webp";
@@ -164,6 +171,7 @@ import ramenOneBroadway01v2 from "@/assets/ramen-one-broadway-01_result-2.webp";
 import rayacomPrint01v2 from "@/assets/rayacom_premium_print-01_result-2.webp";
 import rayacomFactory01v2 from "@/assets/rayacom_super_print_factory01_result-2.webp";
 import rayacomFactory02 from "@/assets/rayacom_super_print_factory02_result.webp";
+import rayacomFactory02v2 from "@/assets/rayacom_super_print_factory02_result-2.webp";
 import royalOak01v3 from "@/assets/royal-oak01_result-3.webp";
 import royalOak02 from "@/assets/royal-oak02_result.webp";
 import seavale01v2 from "@/assets/seavale-01_result-2.webp";
@@ -190,10 +198,12 @@ import treasureCoveCasino01v2 from "@/assets/treasure_cove_casino-01_result-2.we
 import treasureCoveCasino02 from "@/assets/treasure_cove_casino-02_result.webp";
 import trouwFrankie01v2 from "@/assets/trouw_frankie_feed_mill-01_result-2.webp";
 import vanguardFitness01v2 from "@/assets/vanguard_fitness-01_result-2.webp";
+import vanguardFitness01v3 from "@/assets/vanguard_fitness-01_result-3.webp";
 import vanguardFitness02 from "@/assets/vanguard_fitness-02_result.webp";
 import vinsonCreek01v2 from "@/assets/vinson-creek-residence-01_result-2.webp";
 import vinsonCreek02 from "@/assets/vinson-creek-residence-02_result.webp";
 import wellingtonMixUse01v2 from "@/assets/wellington_mix-use-01_result-2.webp";
+import wellingtonMixUse01v3 from "@/assets/wellington_mix-use-01_result-3.webp";
 import west3901v3 from "@/assets/west-39-01_result-3.webp";
 import willingdonClinic01v2 from "@/assets/willingdon_green_clinic-01_result-2.webp";
 import wuResidence01v2 from "@/assets/wu-residence-01_result-2.webp";
@@ -260,7 +270,7 @@ export const allProjects: Project[] = [
   // Community & Cultural — existing extra projects
   { slug: "treasure-cove-casino", name: "Treasure Cove Casino Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Casino"], location: "Prince George, BC", area: "15,326 sq. ft.", budget: "$15 millions", img: treasureCoveCasino01v2, galleryImgs: [treasureCoveCasino01v2, treasureCoveCasino02] },
   { slug: "atomic-fitness", name: "Atomic Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: atomicFitness01, galleryImgs: [atomicFitness01] },
-  { slug: "vanguard-fitness", name: "Vanguard Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: vanguardFitness01v2, galleryImgs: [vanguardFitness01v2, vanguardFitness02] },
+  { slug: "vanguard-fitness", name: "Vanguard Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: vanguardFitness01v3, galleryImgs: [vanguardFitness01v3, vanguardFitness01v2, vanguardFitness02] },
   { slug: "morgan-play", name: "Morgan Play", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Surrey, BC", detail: "Designer: Yan Design Studio", img: morganPlay01v2, galleryImgs: [morganPlay01v2, morganPlay02, morganPlay03] },
   { slug: "ace-esports", name: "ACE E-Sports", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", area: "4,886 sq. ft.", img: aceEsports01v2, galleryImgs: [aceEsports01v2, aceEsports02, aceEsports03] },
 
@@ -278,7 +288,7 @@ export const allProjects: Project[] = [
   { slug: "sienna-rideau", name: "Sienna Rideau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Burnaby, BC", detail: "Interior renovation + fire sprinkler upgrade; Building height: 19 storeys", img: siennaRideau01v2, galleryImgs: [siennaRideau01v2] },
 
   // ─── INDUSTRIAL ───
-  { slug: "rayacom-super-print-factory", name: "Rayacom Super Print Factory", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "128,285 sq. ft.", img: rayacomFactory01v2, galleryImgs: [rayacomFactory01v2, rayacomFactory02] },
+  { slug: "rayacom-super-print-factory", name: "Rayacom Super Print Factory", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "128,285 sq. ft.", img: rayacomFactory01v2, galleryImgs: [rayacomFactory01v2, rayacomFactory02v2, rayacomFactory02] },
   { slug: "trouw-frankie-feed-mill", name: "Trouw Frankie Feed Mill", category: "Industrial", categorySlug: "industrial", tags: ["Industrial"], location: "Chilliwack, BC", detail: "Heavy industrial; Design engineer: CMC Engineering", img: trouwFrankie01v2, galleryImgs: [trouwFrankie01v2] },
   { slug: "ontario-storage-warehouse", name: "Ontario Storage Warehouse", category: "Industrial", categorySlug: "industrial", tags: ["Warehouse"], location: "Vancouver, BC", img: ontarioStorage01v2, galleryImgs: [ontarioStorage01v2] },
   { slug: "brightway-cfia-seafood", name: "Brightway CFIA Seafood Processing", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Delta, BC", area: "41,839 sq. ft.", budget: "$6M+", detail: "CBD oil processing ready", img: brightwaySeafood01v2, galleryImgs: [brightwaySeafood01v2, brightwaySeafood02, brightwaySeafood03] },
@@ -304,27 +314,27 @@ export const allProjects: Project[] = [
   { slug: "triple-a-commercial", name: "Triple-A (AAA) Commercial", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], area: "12,339 sq. ft.", location: "", img: src11, galleryImgs: [src11] },
 
   // ─── COMMERCIAL ───
-  { slug: "austin-high-rise", name: "Austin High-Rise", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 millions", img: austinHighRise01Result, galleryImgs: [austinHighRise01Result] },
+  { slug: "austin-high-rise", name: "Austin High-Rise", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 millions", img: austinHighRise01v2, galleryImgs: [austinHighRise01v2, austinHighRise01Result] },
   { slug: "54th-ave-condo-12", name: "54th Ave Condo (12-storey)", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Langley, BC", detail: "Underground parking", img: fiftyFourthAveCondo01v2, galleryImgs: [fiftyFourthAveCondo01v2] },
-  { slug: "bridgeport-office", name: "Bridgeport Office Building", category: "Commercial", categorySlug: "commercial", tags: ["Office"], location: "Richmond, BC", area: "28,703 sq. ft.", budget: "$10 millions", img: bridgeportOffice01Result, galleryImgs: [bridgeportOffice01Result, bridgeportOffice02, bridgeportOffice03] },
-  { slug: "wellington-mixed-use", name: "Wellington Mixed-Use", category: "Commercial", categorySlug: "commercial", tags: ["Mixed-use"], location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 millions", img: wellingtonMixUse01v2, galleryImgs: [wellingtonMixUse01v2] },
-  { slug: "54th-ave-condo-4", name: "54th Ave Condo (4-storey)", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Langley, BC", img: fiftyFourthAveCondo03Result, galleryImgs: [fiftyFourthAveCondo02Result, fiftyFourthAveCondo03Result] },
-  { slug: "fletcher-townhouses", name: "Fletcher Townhouses", category: "Commercial", categorySlug: "commercial", tags: ["Townhouse"], location: "Maple Ridge, BC", detail: "15 units", img: fletcherTownhouses01v3, galleryImgs: [fletcherTownhouses01v3] },
+  { slug: "bridgeport-office", name: "Bridgeport Office Building", category: "Commercial", categorySlug: "commercial", tags: ["Office"], location: "Richmond, BC", area: "28,703 sq. ft.", budget: "$10 millions", img: bridgeportOffice01v2, galleryImgs: [bridgeportOffice01v2, bridgeportOffice01Result, bridgeportOffice02, bridgeportOffice03] },
+  { slug: "wellington-mixed-use", name: "Wellington Mixed-Use", category: "Commercial", categorySlug: "commercial", tags: ["Mixed-use"], location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 millions", img: wellingtonMixUse01v3, galleryImgs: [wellingtonMixUse01v3, wellingtonMixUse01v2] },
+  { slug: "54th-ave-condo-4", name: "54th Ave Condo (4-storey)", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Langley, BC", img: fiftyFourthAveCondo03v2, galleryImgs: [fiftyFourthAveCondo03v2, fiftyFourthAveCondo02Result, fiftyFourthAveCondo03Result] },
+  { slug: "fletcher-townhouses", name: "Fletcher Townhouses", category: "Commercial", categorySlug: "commercial", tags: ["Townhouse"], location: "Maple Ridge, BC", detail: "15 units", img: fletcherTownhouses01v4, galleryImgs: [fletcherTownhouses01v4, fletcherTownhouses01v3] },
   { slug: "sushi-kiwami", name: "Sushi Kiwami", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", area: "2,415 sq. ft.", budget: "$1 million", img: sushiKiwami01v2, galleryImgs: [sushiKiwami01v2, sushiKiwami02, sushiKiwami03, sushiKiwami04, sushiKiwami05] },
   { slug: "torake-japanese-cuisine", name: "Torake Japanese Cuisine", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", img: torakeCuisine01v2, galleryImgs: [torakeCuisine01v2, torakeCuisine02] },
   { slug: "ramen-one-broadway", name: "Ramen One on Broadway", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Vancouver, BC", img: ramenOneBroadway01v2, galleryImgs: [ramenOneBroadway01v2] },
   { slug: "bridgeport-hotel", name: "Bridgeport Hotel", category: "Commercial", categorySlug: "commercial", tags: ["Hotel"], location: "Richmond, BC", detail: "Design architect: GBL Architects", img: bridgeportHotel01, galleryImgs: [bridgeportHotel01, bridgeportHotel03] },
 
   // ─── RESIDENTIAL ───
-  { slug: "chen-residence", name: "Chen Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,729 sq. ft.", detail: "CHBA National SAM Awards Finalist", img: chenResidence01v2, galleryImgs: [chenResidence01v2, chenResidence02, chenResidence03, chenResidence04] },
+  { slug: "chen-residence", name: "Chen Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,729 sq. ft.", detail: "CHBA National SAM Awards Finalist", img: chenResidence01v2, galleryImgs: [chenResidence01v2, chenResidence02, chenResidence03v2, chenResidence03, chenResidence04] },
   { slug: "han-residence", name: "Han Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Delta, BC", area: "6,078 sq. ft.", img: hanResidence01v2, galleryImgs: [hanResidence01v2, hanResidence02, hanResidence03, hanResidence04, hanResidence05] },
   { slug: "severn-residence", name: "Severn Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: severnResidence01v2, galleryImgs: [severnResidence01v2, severnResidence02, severnResidence03] },
-  { slug: "no6-residence", name: "No6 Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: no6Residence01v2, galleryImgs: [no6Residence01v2, no6Residence02] },
+  { slug: "no6-residence", name: "No6 Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: no6Residence01v3, galleryImgs: [no6Residence01v3, no6Residence01v2, no6Residence02] },
   { slug: "vinson-creek-residence", name: "Vinson Creek Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "9,343 sq. ft.", img: vinsonCreek01v2, galleryImgs: [vinsonCreek01v2, vinsonCreek02] },
   { slug: "xu-residence", name: "Xu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", area: "3,680 sq. ft.", img: xuResidence01v2, galleryImgs: [xuResidence01v2, xuResidence02, xuResidence03] },
   { slug: "wu-residence", name: "Wu Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,733 sq. ft.", img: wuResidence01v2, galleryImgs: [wuResidence01v2, wuResidence02] },
   { slug: "lu-residence", name: "Lu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Delta, BC", area: "5,177 sq. ft.", img: luResidence01v2, galleryImgs: [luResidence01v2, luResidence02] },
-  { slug: "cartier-residence", name: "Cartier Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: cartierResidence01v2, galleryImgs: [cartierResidence01v2] },
+  { slug: "cartier-residence", name: "Cartier Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: cartierResidence01v3, galleryImgs: [cartierResidence01v3, cartierResidence01v2] },
   { slug: "laurel-residence", name: "Laurel Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: laurelResidence01v2, galleryImgs: [laurelResidence01v2, laurelResidence02] },
   { slug: "collingwood", name: "Collingwood", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "10,500 sq. ft.", budget: "$5 millions", img: collingwood01v3, galleryImgs: [collingwood01v3, collingwood02, collingwood03, collingwood04, collingwood05, collingwood06] },
   { slug: "royal-oak", name: "Royal Oak", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 millions", img: royalOak01v3, galleryImgs: [royalOak01v3, royalOak02] },

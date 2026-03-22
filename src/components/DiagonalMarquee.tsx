@@ -1,14 +1,22 @@
-import marquee1 from "@/assets/marquee-1.jpg";
-import marquee2 from "@/assets/marquee-2.jpg";
-import marquee3 from "@/assets/marquee-3.jpg";
-import marquee4 from "@/assets/marquee-4.jpg";
-import marquee5 from "@/assets/marquee-5.jpg";
-import marquee6 from "@/assets/marquee-6.jpg";
+import { allProjects } from "@/data/portfolio";
+import { useMemo } from "react";
 
-const row1 = [marquee1, marquee2, marquee3, marquee4, marquee5, marquee6];
-const row2 = [marquee4, marquee6, marquee1, marquee5, marquee3, marquee2];
+// Select a diverse set of real project images for the marquee
+const getMarqueeImages = () => {
+  // Prioritize "-01" feature images, use all unique project thumbnails
+  const images = allProjects.map((p) => p.img);
+  // Shuffle deterministically per session
+  const shuffled = [...images].sort(() => Math.random() - 0.5);
+  return shuffled;
+};
 
 const DiagonalMarquee = () => {
+  const allImages = useMemo(getMarqueeImages, []);
+
+  // Split into two rows
+  const row1 = allImages.slice(0, Math.ceil(allImages.length / 2));
+  const row2 = allImages.slice(Math.ceil(allImages.length / 2));
+
   return (
     <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))] py-28 md:py-40">
       <div className="absolute inset-0 flex flex-col justify-center gap-6" style={{ transform: "rotate(-5deg) scale(1.3)" }}>
