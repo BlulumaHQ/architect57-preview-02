@@ -70,6 +70,18 @@ import rayacomFactory01 from "@/assets/rayacom_super_print_factory01_result.webp
 import sunwinsMask01 from "@/assets/sunwins_surgical_mask-01_result.webp";
 import trouwFrankie01 from "@/assets/trouw_frankie_feed_mill-01_result.webp";
 
+// Real project images (batch 6)
+import atlasPower01 from "@/assets/atlas_power_technologies-01_result.webp";
+import brightwaySeafood01 from "@/assets/brightway_cfia-certified_seafood_-01_result.webp";
+import corvusEnergy01 from "@/assets/corvus_energy_expansion-01_result.webp";
+import greenlightInnovation01 from "@/assets/greenlight_innovation-01_result.webp";
+import hazcoEnvironmental01 from "@/assets/hazco_environmental_waste-01_result.webp";
+import herbalandProduction01 from "@/assets/herbaland_new_production-01_result.webp";
+import willingdonClinic01 from "@/assets/willingdon_green_clinic-01_result.webp";
+import adore01 from "@/assets/adore-01_result.webp";
+import architect5701 from "@/assets/architect-57-01_result.webp";
+import beresfordClinic01 from "@/assets/beresford_doctor_clinic-01_result.webp";
+
 export interface FeaturedProject {
   slug: string;
   title: string;
