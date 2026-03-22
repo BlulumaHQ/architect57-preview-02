@@ -23,7 +23,7 @@ const ProjectDetail = () => {
   if (project.coDesigner) facts.push({ label: "Co-Designer", value: project.coDesigner });
   if (project.designer) facts.push({ label: "Designer", value: project.designer });
   if (project.codes) facts.push({ label: "Codes", value: project.codes });
-  if (project.notes) facts.push({ label: "Recognition", value: project.notes });
+  if (project.detail) facts.push({ label: "Details", value: project.detail });
 
   return (
     <main className="pb-16 md:pb-0">

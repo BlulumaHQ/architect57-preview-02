@@ -41,7 +41,7 @@ const homepageCurated = (() => {
     chen ? { img: chen.coverImg, title: chen.title, category: chen.category, link: `/projects/${chen.slug}` } : null,
     collingwood ? { img: collingwood.coverImg, title: collingwood.title, category: collingwood.category, link: `/projects/${collingwood.slug}` } : null,
     bridgeport ? { img: bridgeport.coverImg, title: bridgeport.title, category: bridgeport.category, link: `/projects/${bridgeport.slug}` } : null,
-    zone5 ? { img: zone5.img, title: zone5.name, category: "Master Planning", link: `/projects/collection/master-planning` } : null,
+    zone5 ? { img: zone5.img, title: zone5.name, category: "Master Planning", link: `/projects` } : null,
   ].filter(Boolean) as { img: string; title: string; category: string; link: string }[];
 })();
 
