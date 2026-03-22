@@ -10,14 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-6">
           {/* Col 1: Logo + description */}
           <div className="md:col-span-1">
-            <div className="flex items-baseline gap-1.5 mb-5">
-              <span className="font-heading font-light text-xl tracking-[0.02em] uppercase">
-                Architect
-              </span>
-              <span className="font-heading font-light text-xl tracking-[0.02em] text-[hsl(var(--gold-accent))]">
-                57
-              </span>
-            </div>
+            <img src={logoWhite} alt="Architect 57" className="h-10 w-auto mb-5" />
             <p className="text-[13px] text-white/50 leading-relaxed max-w-xs font-light">
               Integrated building design, code consultation, and sustainable architecture in Richmond, BC.
             </p>

@@ -33,13 +33,8 @@ const Header = () => {
       }`}
     >
       <div className="container-wide flex items-center justify-between h-20 md:h-24">
-        <Link to="/" className="flex items-baseline gap-1.5">
-          <span className="font-heading font-light text-[22px] tracking-[0.02em] text-white uppercase">
-            Architect
-          </span>
-          <span className="font-heading font-light text-[22px] tracking-[0.02em] text-[hsl(var(--gold-accent))]">
-            57
-          </span>
+        <Link to="/" className="flex items-center">
+          <img src={logoWhite} alt="Architect 57" className="h-10 md:h-12 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
