@@ -31,32 +31,32 @@ const services = [
   },
 ];
 
-// Randomly select 4 projects from different categories on each mount
+// Randomly select 4 projects from Residential + Commercial only (2+2 ideal)
 const getRandomFeatured = () => {
-  const categorySlugs = categories
-    .filter((c) => c.slug !== "all")
-    .map((c) => c.slug);
+  const residential = allProjects.filter((p) => p.categorySlug === "residential");
+  const commercial = allProjects.filter((p) => p.categorySlug === "commercial");
 
-  // Group projects by category
-  const byCategory: Record<string, typeof allProjects> = {};
-  for (const p of allProjects) {
-    if (!byCategory[p.categorySlug]) byCategory[p.categorySlug] = [];
-    byCategory[p.categorySlug].push(p);
+  const shuffleAndPick = (arr: typeof allProjects, n: number) => {
+    const shuffled = [...arr].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, n);
+  };
+
+  // 2 from each category
+  const resPicks = shuffleAndPick(residential, 2);
+  const comPicks = shuffleAndPick(commercial, 2);
+  let picks = [...resPicks, ...comPicks];
+
+  // Fallback if either category is short
+  if (picks.length < 4) {
+    const all = [...residential, ...commercial].filter(
+      (p) => !picks.some((x) => x.slug === p.slug)
+    );
+    const extra = shuffleAndPick(all, 4 - picks.length);
+    picks = [...picks, ...extra];
   }
 
-  // Shuffle category order
-  const shuffledCats = [...categorySlugs].sort(() => Math.random() - 0.5);
-
-  // Pick one random project from each category until we have 4
-  const picks: typeof allProjects = [];
-  for (const cat of shuffledCats) {
-    if (picks.length >= 4) break;
-    const pool = byCategory[cat];
-    if (pool && pool.length > 0) {
-      const idx = Math.floor(Math.random() * pool.length);
-      picks.push(pool[idx]);
-    }
-  }
+  // Shuffle final order
+  picks.sort(() => Math.random() - 0.5);
 
   return picks.map((p) => ({
     img: p.img,
