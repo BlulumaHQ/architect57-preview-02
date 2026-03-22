@@ -30,31 +30,23 @@ const services = [
   },
 ];
 
-// Select diverse projects across categories for homepage variety
-const diverseSelection = (() => {
-  const picked: typeof allFeatured = [];
-  const usedCategories = new Set<string>();
-  // First pass: one project per category
-  for (const p of allFeatured) {
-    if (!usedCategories.has(p.categorySlug) && picked.length < 4) {
-      picked.push(p);
-      usedCategories.add(p.categorySlug);
-    }
-  }
-  // Second pass: fill remaining slots if needed
-  for (const p of allFeatured) {
-    if (picked.length >= 4) break;
-    if (!picked.includes(p)) picked.push(p);
-  }
-  return picked;
+// Fixed curated homepage selection: 4 projects across 4 categories
+const homepageCurated = (() => {
+  const chen = allFeatured.find((p) => p.slug === "chen-residence");
+  const collingwood = allFeatured.find((p) => p.slug === "collingwood");
+  const bridgeport = allFeatured.find((p) => p.slug === "bridgeport-office");
+  const masterPlanningCollection = collections.find((c) => c.slug === "master-planning");
+  const zone5 = masterPlanningCollection?.projects.find((p) => p.name === "Zone 5, Union Bay Estate");
+
+  return [
+    chen ? { img: chen.coverImg, title: chen.title, category: chen.category, link: `/projects/${chen.slug}` } : null,
+    collingwood ? { img: collingwood.coverImg, title: collingwood.title, category: collingwood.category, link: `/projects/${collingwood.slug}` } : null,
+    bridgeport ? { img: bridgeport.coverImg, title: bridgeport.title, category: bridgeport.category, link: `/projects/${bridgeport.slug}` } : null,
+    zone5 ? { img: zone5.img, title: zone5.name, category: "Master Planning", link: `/projects/collection/master-planning` } : null,
+  ].filter(Boolean) as { img: string; title: string; category: string; link: string }[];
 })();
 
-const featuredProjects = diverseSelection.map((p) => ({
-  img: p.coverImg,
-  title: p.title,
-  category: p.category,
-  slug: p.slug,
-}));
+const featuredProjects = homepageCurated;
 
 const Index = () => {
   return (
