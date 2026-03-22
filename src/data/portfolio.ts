@@ -89,6 +89,18 @@ import phiEducation01 from "@/assets/phi-education-01_result.webp";
 import sqnEducation01 from "@/assets/sqn-education-01_result.webp";
 import torakeCuisine01 from "@/assets/tarake-japanese-cuisine-01_result.webp";
 
+// Real project images (batch 8)
+import dubaiHouse01v2 from "@/assets/dubai_house_of_the_future-01_result-2.webp";
+import newUniversityHospital01v2 from "@/assets/new_university_hospital-01_result-2.webp";
+import west3901v2 from "@/assets/west-39-01_result-2.webp";
+import unionBayEstate01v2 from "@/assets/zone_5_union_bay_estate-01_result-2.webp";
+import collingwood01v2 from "@/assets/collingwood-01_result-2.webp";
+import fletcherTownhouses01v2 from "@/assets/fletcher_townhouses-01_result-2.webp";
+import royalOak01v2 from "@/assets/royal-oak01_result-2.webp";
+import bridgeportHotel01 from "@/assets/bridgeport-hotel-01_result.webp";
+import ramenOneBroadway01 from "@/assets/ramen-one-broadway-01_result.webp";
+import sushiKiwami01 from "@/assets/sushi-kiwami-01_result.webp";
+
 
 export interface FeaturedProject {
   slug: string;
@@ -164,7 +176,7 @@ export const featuredProjects: FeaturedProject[] = [
     longDesc: "The Chen Residence is a thoughtfully composed home that balances dramatic West Coast siting with refined interior proportions. At 6,729 square feet, the design prioritizes clear spatial sequences, natural light modulation, and a restrained material palette that defers to the surrounding landscape. The project earned recognition as a CHBA National SAM Awards Finalist — a testament to the level of craft and design integrity achieved throughout.",
     services: ["Integrated Building Design", "Code Consultation", "Project Management"],
     heroImg: chenResidence01,
-    galleryImgs: [src2, src3],
+    galleryImgs: [chenResidence01],
     coverImg: chenResidence01,
   },
   {
@@ -180,7 +192,7 @@ export const featuredProjects: FeaturedProject[] = [
     longDesc: "The Collingwood project is a multi-unit residential development that navigates Vancouver's evolving density requirements while maintaining architectural quality. At 10,500 square feet with a $5 million budget, the design achieves a balance between construction economy and design ambition. Each unit is individually planned to maximize livability, with careful attention to privacy, natural light, and outdoor connections despite the compact urban site.",
     services: ["Integrated Building Design", "Code Consultation", "Project Management"],
     heroImg: collingwood01,
-    galleryImgs: [src8, src9],
+    galleryImgs: [collingwood01v2],
     coverImg: collingwood01,
   },
   {
@@ -211,7 +223,7 @@ export const featuredProjects: FeaturedProject[] = [
     longDesc: "The Han Residence is a 6,078 square-foot custom home developed through a close design collaboration. The architectural envelope establishes a contemporary silhouette while the interior introduces a layered material language that brings warmth and personality to the living spaces. Every room has been considered as part of a continuous spatial narrative.",
     services: ["Integrated Building Design", "Code Consultation"],
     heroImg: hanResidence01,
-    galleryImgs: [src5, src6],
+    galleryImgs: [hanResidence01],
     coverImg: hanResidence01,
   },
   {
@@ -225,7 +237,7 @@ export const featuredProjects: FeaturedProject[] = [
     longDesc: "The Severn Residence demonstrates that strong architecture doesn't require excess. Designed with a disciplined approach to massing, fenestration, and material selection, this Richmond home delivers a quiet confidence. The floor plan is organized to maximize natural daylight and visual connection between interior living spaces and the surrounding landscape.",
     services: ["Integrated Building Design", "Code Consultation"],
     heroImg: severnResidence01,
-    galleryImgs: [src8, src9],
+    galleryImgs: [severnResidence01],
     coverImg: severnResidence01,
   },
   {
@@ -240,7 +252,7 @@ export const featuredProjects: FeaturedProject[] = [
     longDesc: "The Xu Residence is proof that careful design can make a modest footprint feel expansive. At 3,680 square feet, every element has been optimized — from ceiling heights and window placements to circulation paths and storage integration. The result is a home that feels open, bright, and effortlessly livable without relying on excessive square footage.",
     services: ["Integrated Building Design", "Code Consultation"],
     heroImg: xuResidence01,
-    galleryImgs: [src11, src1],
+    galleryImgs: [xuResidence01],
     coverImg: xuResidence01,
   },
   {
@@ -277,8 +289,8 @@ const allProjectsRaw: GridProject[] = [
 
   // ─── RESIDENTIAL: Multiplex ───
   { name: "Collingwood", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "10,500 sq. ft.", budget: "$5 millions", img: collingwood01, detailLink: "/projects/collingwood" },
-  { name: "Royal Oak", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 millions", img: royalOak01 },
-  { name: "West 39 Avenue", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "4,438 sq. ft.", budget: "$1.78 millions", img: west3901 },
+  { name: "Royal Oak", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 millions", img: royalOak01v2 },
+  { name: "West 39 Avenue", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "4,438 sq. ft.", budget: "$1.78 millions", img: west3901v2 },
   { name: "Seavale", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Richmond, BC", area: "4,658 sq. ft.", budget: "$1.39 millions", img: seavale01 },
 
   // ─── COMMERCIAL ───
@@ -287,11 +299,11 @@ const allProjectsRaw: GridProject[] = [
   { name: "Bridgeport Office Building", category: "Commercial", categorySlug: "commercial", tags: ["Office"], location: "Richmond, BC", area: "28,703 sq. ft.", budget: "$10 millions", img: bridgeportOffice01Result, detailLink: "/projects/bridgeport-office" },
   { name: "Wellington Mixed-Use", category: "Commercial", categorySlug: "commercial", tags: ["Mixed-use"], location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 millions", img: wellingtonMixUse01Result },
   { name: "54th Ave Condo (4-storey)", category: "Commercial", categorySlug: "commercial", tags: ["Condo"], location: "Langley, BC", detail: "4-storey with underground parking", img: fiftyFourthAveCondo02 },
-  { name: "Fletcher Townhouses", category: "Commercial", categorySlug: "commercial", tags: ["Townhouse"], location: "Maple Ridge, BC", detail: "15 units (5 types)", img: fletcherTownhouses01Result },
-  { name: "Sushi Kiwami", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", area: "2,415 sq. ft.", budget: "$1 million", img: src4 },
+  { name: "Fletcher Townhouses", category: "Commercial", categorySlug: "commercial", tags: ["Townhouse"], location: "Maple Ridge, BC", detail: "15 units (5 types)", img: fletcherTownhouses01v2 },
+  { name: "Sushi Kiwami", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", area: "2,415 sq. ft.", budget: "$1 million", img: sushiKiwami01 },
   { name: "Torake Japanese Cuisine", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", img: torakeCuisine01 },
-  { name: "Ramen One on Broadway", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Vancouver, BC", img: src7 },
-  { name: "Bridgeport Hotel", category: "Commercial", categorySlug: "commercial", tags: ["Hotel"], location: "Richmond, BC", detail: "Design architect: GBL Architects", img: src10 },
+  { name: "Ramen One on Broadway", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Vancouver, BC", img: ramenOneBroadway01 },
+  { name: "Bridgeport Hotel", category: "Commercial", categorySlug: "commercial", tags: ["Hotel"], location: "Richmond, BC", detail: "Design architect: GBL Architects", img: bridgeportHotel01 },
 
   // ─── INDUSTRIAL ───
   { name: "Rayacom Super Print Factory", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "128,285 sq. ft.", img: rayacomFactory01 },
@@ -341,9 +353,9 @@ const allProjectsRaw: GridProject[] = [
   { name: "Adore", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Tsawwassen Mills Mall, Delta, BC", img: adore01 },
 
   // ─── MASTER PLANNING ───
-  { name: "Zone 5, Union Bay Estate", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Residential Development", "Large Scale"], location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01 },
-  { name: "New University Hospital of Northern BC Building Construction Phase Planning", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Healthcare", "Institutional"], location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 millions", img: newUniversityHospital01 },
-  { name: "Dubai House of the Future Competition", category: "Master Planning", categorySlug: "master-planning", tags: ["Concept", "Competition", "International"], location: "—", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01 },
+  { name: "Zone 5, Union Bay Estate", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Residential Development", "Large Scale"], location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01v2 },
+  { name: "New University Hospital of Northern BC Building Construction Phase Planning", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Healthcare", "Institutional"], location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 millions", img: newUniversityHospital01v2 },
+  { name: "Dubai House of the Future Competition", category: "Master Planning", categorySlug: "master-planning", tags: ["Concept", "Competition", "International"], location: "—", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01v2 },
 ];
 
 export const allGridProjects: GridProject[] = allProjectsRaw;
