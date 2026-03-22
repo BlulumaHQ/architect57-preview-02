@@ -22,6 +22,18 @@ import fiftyFourthAveCondo01 from "@/assets/54th_ave_condo-01.jpg";
 import fiftyFourthAveCondo02 from "@/assets/54th_ave_condo-02.jpg";
 import fiftyFourthAveCondo03 from "@/assets/54th_ave_condo-03.jpg";
 
+// Real project images (batch 2)
+import collingwood01 from "@/assets/collingwood-01_result.webp";
+import fletcherTownhouses01Result from "@/assets/fletcher_townhouses-01_result.webp";
+import royalOak01 from "@/assets/royal-oak01_result.webp";
+import seavale01 from "@/assets/seavale-01_result.webp";
+import wellingtonMixUse01Result from "@/assets/wellington_mix-use-01_result.webp";
+import west3901 from "@/assets/west-39-01_result.webp";
+import fiftyFourthAveCondo01Result from "@/assets/54th_ave_condo-01_result.webp";
+import dubaiHouse01 from "@/assets/dubai_house_of_the_future-01_result.webp";
+import newUniversityHospital01 from "@/assets/new_university_hospital-01_result.webp";
+import unionBayEstate01 from "@/assets/zone_5_union_bay_estate-01_result.webp";
+
 // ── Types ──────────────────────────────────────────────
 
 export interface FeaturedProject {
