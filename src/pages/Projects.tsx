@@ -38,7 +38,6 @@ const Projects = () => {
     description: "Explore 80+ architectural projects by Architect 57 無極建築 spanning residential homes, commercial high-rises, industrial facilities, and institutional buildings across Metro Vancouver.",
   });
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  const { t } = useLang();
 
   const categoryFiltered = useMemo(() => {
     if (activeCategory === "all") return allProjects;
