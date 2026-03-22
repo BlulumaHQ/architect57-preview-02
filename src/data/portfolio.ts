@@ -355,7 +355,7 @@ const allProjectsRaw: GridProject[] = [
   // ─── MASTER PLANNING ───
   { name: "Zone 5, Union Bay Estate", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Residential Development", "Large Scale"], location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01v2 },
   { name: "New University Hospital of Northern BC Building Construction Phase Planning", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Healthcare", "Institutional"], location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 millions", img: newUniversityHospital01v2 },
-  { name: "Dubai House of the Future Competition", category: "Master Planning", categorySlug: "master-planning", tags: ["Concept", "Competition", "International"], location: "—", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01 },
+  { name: "Dubai House of the Future Competition", category: "Master Planning", categorySlug: "master-planning", tags: ["Concept", "Competition", "International"], location: "—", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01v2 },
 ];
 
 export const allGridProjects: GridProject[] = allProjectsRaw;
