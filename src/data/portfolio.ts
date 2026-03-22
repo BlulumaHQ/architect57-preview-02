@@ -241,7 +241,7 @@ export const collections: Collection[] = [
       { name: "No6 Residence", location: "Richmond, BC", img: no6Residence01 },
       { name: "Vinson Creek Residence", location: "West Vancouver, BC", area: "9,343 sq. ft.", coDesigner: "Angel Wang", img: vinsonCreek01 },
       { name: "Wu Residence", location: "West Vancouver, BC", area: "6,733 sq. ft.", img: wuResidence01 },
-      { name: "Lu Residence", location: "Delta, BC", area: "5,177 sq. ft.", img: src7 },
+      { name: "Lu Residence", location: "Delta, BC", area: "5,177 sq. ft.", img: luResidence01 },
       { name: "Cartier Residence", location: "Vancouver, BC", img: cartierResidence01 },
       { name: "Laurel Residence", location: "Vancouver, BC", img: laurelResidence01 },
     ],
