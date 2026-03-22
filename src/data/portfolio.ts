@@ -99,9 +99,12 @@ import brightwaySeafood01v2 from "@/assets/brightway_cfia-certified_seafood_-01_
 import brightwaySeafood02 from "@/assets/brightway_cfia-certified_seafood_-02_result.webp";
 import brightwaySeafood03 from "@/assets/brightway_cfia-certified_seafood_-03_result.webp";
 import cartierResidence01v2 from "@/assets/cartier-residence-01_result-2.webp";
+import cartierResidence01v3 from "@/assets/cartier-residence-01_result-3.webp";
 import chenResidence01v2 from "@/assets/chen-residence-01_result-2.webp";
 import chenResidence02 from "@/assets/chen-residence-02_result.webp";
 import chenResidence03 from "@/assets/chen-residence-03_result.webp";
+import chenResidence03v2 from "@/assets/chen-residence-03_result-2.webp";
+import chenResidence04 from "@/assets/chen-residence-04_result.webp";
 import chenResidence04 from "@/assets/chen-residence-04_result.webp";
 import cleardent01v2 from "@/assets/cleardent-01_result-2.webp";
 import cleardent02 from "@/assets/cleardent-02_result.webp";
