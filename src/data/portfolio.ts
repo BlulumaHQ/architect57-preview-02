@@ -215,7 +215,7 @@ export const allProjects: Project[] = [
   { slug: "happy-may-iv", name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: happyMay01v2, galleryImgs: [happyMay01v2] },
 
   // ─── INSTITUTIONAL — HEALTH CARE ───
-  { slug: "katalin-care-homes", name: "Katalin Care Homes", category: "Institutional", categorySlug: "institutional", tags: ["Healthcare", "Senior Care"], location: "Mission, BC", area: "6,225 sq. ft.", img: katalinCareHomes01, galleryImgs: [katalinCareHomes01] },
+  { slug: "katalin-care-homes", name: "Katalin Care Homes", category: "Institutional", categorySlug: "institutional", tags: ["Healthcare", "Senior Care"], location: "Mission, BC", area: "6,225 sq. ft.", img: katalinCareHomes01v2, galleryImgs: [katalinCareHomes01v2] },
   { slug: "okanagan-chateau", name: "Okanagan Chateau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Kelowna, BC", detail: "Interior renovation", img: okanaganChateau01, galleryImgs: [okanaganChateau01] },
   { slug: "mariposa-gardens", name: "Mariposa Gardens Retirement Residence and Care", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Osoyoos, BC", area: "109,487 sq. ft.", detail: "Plumbing upgrade", img: mariposaGardens01, galleryImgs: [mariposaGardens01] },
   { slug: "sienna-rideau", name: "Sienna Rideau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Burnaby, BC", detail: "Interior renovation + fire sprinkler upgrade; Building height: 19 storeys", img: siennaRideau01, galleryImgs: [siennaRideau01] },
