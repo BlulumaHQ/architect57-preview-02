@@ -167,6 +167,16 @@ import rayacomFactory02 from "@/assets/rayacom_super_print_factory02_result.webp
 import royalOak01v3 from "@/assets/royal-oak01_result-3.webp";
 import royalOak02 from "@/assets/royal-oak02_result.webp";
 import seavale01v2 from "@/assets/seavale-01_result-2.webp";
+import seavale02 from "@/assets/seavale-02_result.webp";
+import severnResidence01v2 from "@/assets/severn-residence-01_result-2.webp";
+import severnResidence02 from "@/assets/severn-residence-02_result.webp";
+import severnResidence03 from "@/assets/severn-residence-03_result.webp";
+import siennaRideau01v2 from "@/assets/sienna_rideau_retirement-01_result-2.webp";
+import sqnEducation01v2 from "@/assets/sqn-education-01_result-2.webp";
+import sqnEducation02 from "@/assets/sqn-education-02_result.webp";
+import sqnEducation03 from "@/assets/sqn-education-03_result.webp";
+import sunwinsMask01v2 from "@/assets/sunwins_surgical_mask-01_result-2.webp";
+import sushiKiwami01v2 from "@/assets/sushi-kiwami-01_result-2.webp";
 
 // ── Unified Project Interface ──────────────────────────
 
