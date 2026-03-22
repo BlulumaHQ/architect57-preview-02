@@ -78,6 +78,18 @@ import ramenOneBroadway01 from "@/assets/ramen-one-broadway-01_result.webp";
 import sushiKiwami01 from "@/assets/sushi-kiwami-01_result.webp";
 import applianceCanada01 from "@/assets/Appliance_Canada_01.webp";
 
+// Real project images (batch 10)
+import fiftyFourthAveCondo01v2 from "@/assets/54th_ave_condo-01_result-2.webp";
+import fiftyFourthAveCondo02Result from "@/assets/54th_ave_condo-02_result.webp";
+import fiftyFourthAveCondo03Result from "@/assets/54th_ave_condo-03_result.webp";
+import aceEsports01v2 from "@/assets/ace_e-sports-01_result-2.webp";
+import aceEsports02 from "@/assets/ace_e-sports-02_result.webp";
+import aceEsports03 from "@/assets/ace_e-sports-03_result.webp";
+import adore01v2 from "@/assets/adore-01_result-2.webp";
+import applianceCanada01v2 from "@/assets/Appliance_Canada_01-2.webp";
+import architect5701v2 from "@/assets/architect-57-01_result-2.webp";
+import architect5702 from "@/assets/architect-57-02_result.webp";
+
 
 // ── Unified Project Interface ──────────────────────────
 
@@ -138,7 +150,7 @@ export const allProjects: Project[] = [
   { slug: "atomic-fitness", name: "Atomic Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: atomicFitness01, galleryImgs: [atomicFitness01] },
   { slug: "vanguard-fitness", name: "Vanguard Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: vanguardFitness01, galleryImgs: [vanguardFitness01] },
   { slug: "morgan-play", name: "Morgan Play", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Surrey, BC", detail: "Designer: Yan Design Studio", img: morganPlay01, galleryImgs: [morganPlay01] },
-  { slug: "ace-esports", name: "ACE E-Sports", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", area: "4,886 sq. ft.", img: aceEsports01, galleryImgs: [aceEsports01] },
+  { slug: "ace-esports", name: "ACE E-Sports", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", area: "4,886 sq. ft.", img: aceEsports01v2, galleryImgs: [aceEsports01v2, aceEsports02, aceEsports03] },
 
   // ─── INSTITUTIONAL — DAYCARE / EDUCATION ───
   { slug: "east-2nd-avenue", name: "East 2nd Avenue", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Vancouver, BC", img: east2ndAve01, galleryImgs: [east2ndAve01] },
@@ -168,23 +180,23 @@ export const allProjects: Project[] = [
 
   // ─── INTERIOR PROJECTS ───
   { slug: "teco-office", name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", area: "12,339 sq. ft.", img: tecoOffice01, galleryImgs: [tecoOffice01] },
-  { slug: "appliance-canada", name: "Appliance Canada", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Richmond, BC", area: "11,639 sq. ft.", img: applianceCanada01, galleryImgs: [applianceCanada01] },
+  { slug: "appliance-canada", name: "Appliance Canada", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Richmond, BC", area: "11,639 sq. ft.", img: applianceCanada01v2, galleryImgs: [applianceCanada01v2] },
   { slug: "titanic-exhibition", name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Cultural"], location: "Richmond, BC", area: "15,801 sq. ft.", img: titanicExhibition01, galleryImgs: [titanicExhibition01] },
   { slug: "beresford-doctor-clinic", name: "Beresford Doctor Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: beresfordClinic01, galleryImgs: [beresfordClinic01] },
   { slug: "willingdon-green-clinic", name: "Willingdon Green Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: willingdonClinic01, galleryImgs: [willingdonClinic01] },
   { slug: "cleardent", name: "Cleardent", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: cleardent01, galleryImgs: [cleardent01] },
   { slug: "lions-travel", name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: lionsTravel01, galleryImgs: [lionsTravel01] },
-  { slug: "adore", name: "Adore", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Tsawwassen Mills Mall, Delta, BC", img: adore01, galleryImgs: [adore01] },
+  { slug: "adore", name: "Adore", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Tsawwassen Mills Mall, Delta, BC", img: adore01v2, galleryImgs: [adore01v2] },
   // Existing extra interior projects
-  { slug: "architect-57-office", name: "Architect 57", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Richmond, BC", img: architect5701, galleryImgs: [architect5701] },
+  { slug: "architect-57-office", name: "Architect 57", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Richmond, BC", img: architect5701v2, galleryImgs: [architect5701v2, architect5702] },
   { slug: "triple-a-commercial", name: "Triple-A (AAA) Commercial", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], area: "12,339 sq. ft.", location: "", img: src11, galleryImgs: [src11] },
 
   // ─── COMMERCIAL ───
   { slug: "austin-high-rise", name: "Austin High-Rise", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 millions", img: austinHighRise01Result, galleryImgs: [austinHighRise01Result] },
-  { slug: "54th-ave-condo-12", name: "54th Ave Condo (12-storey)", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Langley, BC", detail: "Underground parking", img: fiftyFourthAveCondo01Result, galleryImgs: [fiftyFourthAveCondo01Result] },
+  { slug: "54th-ave-condo-12", name: "54th Ave Condo (12-storey)", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Langley, BC", detail: "Underground parking", img: fiftyFourthAveCondo01v2, galleryImgs: [fiftyFourthAveCondo01v2] },
   { slug: "bridgeport-office", name: "Bridgeport Office Building", category: "Commercial", categorySlug: "commercial", tags: ["Office"], location: "Richmond, BC", area: "28,703 sq. ft.", budget: "$10 millions", img: bridgeportOffice01Result, galleryImgs: [bridgeportOffice01Result, bridgeportOffice02, bridgeportOffice03] },
   { slug: "wellington-mixed-use", name: "Wellington Mixed-Use", category: "Commercial", categorySlug: "commercial", tags: ["Mixed-use"], location: "Chilliwack, BC", area: "90,740 sq. ft.", budget: "$20 millions", img: wellingtonMixUse01Result, galleryImgs: [wellingtonMixUse01Result] },
-  { slug: "54th-ave-condo-4", name: "54th Ave Condo (4-storey)", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Langley, BC", img: fiftyFourthAveCondo02, galleryImgs: [fiftyFourthAveCondo02] },
+  { slug: "54th-ave-condo-4", name: "54th Ave Condo (4-storey)", category: "Commercial", categorySlug: "commercial", tags: ["High-rise"], location: "Langley, BC", img: fiftyFourthAveCondo03Result, galleryImgs: [fiftyFourthAveCondo02Result, fiftyFourthAveCondo03Result] },
   { slug: "fletcher-townhouses", name: "Fletcher Townhouses", category: "Commercial", categorySlug: "commercial", tags: ["Townhouse"], location: "Maple Ridge, BC", detail: "15 units", img: fletcherTownhouses01v2, galleryImgs: [fletcherTownhouses01v2] },
   { slug: "sushi-kiwami", name: "Sushi Kiwami", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", area: "2,415 sq. ft.", budget: "$1 million", img: sushiKiwami01, galleryImgs: [sushiKiwami01] },
   { slug: "torake-japanese-cuisine", name: "Torake Japanese Cuisine", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", img: torakeCuisine01, galleryImgs: [torakeCuisine01] },
