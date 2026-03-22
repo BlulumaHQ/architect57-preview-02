@@ -124,6 +124,18 @@ import goldBuddhaMonastery03 from "@/assets/gold_buddha_monastery-03_result.webp
 import greenlightInnovation01v2 from "@/assets/greenlight_innovation-01_result-2.webp";
 import greenlightInnovation02 from "@/assets/greenlight_innovation-02_result.webp";
 
+// Real project images (batch 13)
+import hanResidence01v2 from "@/assets/han-residence-01_result-2.webp";
+import hanResidence02 from "@/assets/han-residence-02_result.webp";
+import hanResidence03 from "@/assets/han-residence-03_result.webp";
+import hanResidence04 from "@/assets/han-residence-04_result.webp";
+import hanResidence05 from "@/assets/han-residence-05_result.webp";
+import happyMay01v2 from "@/assets/happy-may-01_result-2.webp";
+import hazcoEnvironmental01v2 from "@/assets/hazco_environmental_waste-01_result-2.webp";
+import herbalandProduction01v2 from "@/assets/herbaland_new_production-01_result-2.webp";
+import herbalandProduction02 from "@/assets/herbaland_new_production-02_result.webp";
+import iglesiaNiCristo01v2 from "@/assets/iglesia_ni_cristo_locale-01_result-2.webp";
+
 
 // ── Unified Project Interface ──────────────────────────
 
