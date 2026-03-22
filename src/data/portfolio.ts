@@ -100,6 +100,7 @@ import royalOak01v2 from "@/assets/royal-oak01_result-2.webp";
 import bridgeportHotel01 from "@/assets/bridgeport-hotel-01_result.webp";
 import ramenOneBroadway01 from "@/assets/ramen-one-broadway-01_result.webp";
 import sushiKiwami01 from "@/assets/sushi-kiwami-01_result.webp";
+import applianceCanada01 from "@/assets/Appliance_Canada_01.webp";
 
 
 export interface FeaturedProject {
