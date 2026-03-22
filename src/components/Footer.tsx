@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logoWhite from "@/assets/architect57-logo-white.svg";
 
 const Footer = () => {
   const year = new Date().getFullYear();
