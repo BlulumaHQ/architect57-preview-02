@@ -277,7 +277,7 @@ export const allProjects: Project[] = [
   { slug: "fletcher-townhouses", name: "Fletcher Townhouses", category: "Commercial", categorySlug: "commercial", tags: ["Townhouse"], location: "Maple Ridge, BC", detail: "15 units", img: fletcherTownhouses01v3, galleryImgs: [fletcherTownhouses01v3] },
   { slug: "sushi-kiwami", name: "Sushi Kiwami", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", area: "2,415 sq. ft.", budget: "$1 million", img: sushiKiwami01, galleryImgs: [sushiKiwami01] },
   { slug: "torake-japanese-cuisine", name: "Torake Japanese Cuisine", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", img: torakeCuisine01, galleryImgs: [torakeCuisine01] },
-  { slug: "ramen-one-broadway", name: "Ramen One on Broadway", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Vancouver, BC", img: ramenOneBroadway01, galleryImgs: [ramenOneBroadway01] },
+  { slug: "ramen-one-broadway", name: "Ramen One on Broadway", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Vancouver, BC", img: ramenOneBroadway01v2, galleryImgs: [ramenOneBroadway01v2] },
   { slug: "bridgeport-hotel", name: "Bridgeport Hotel", category: "Commercial", categorySlug: "commercial", tags: ["Hotel"], location: "Richmond, BC", detail: "Design architect: GBL Architects", img: bridgeportHotel01, galleryImgs: [bridgeportHotel01, bridgeportHotel03] },
 
   // ─── RESIDENTIAL ───
