@@ -177,6 +177,16 @@ import sqnEducation02 from "@/assets/sqn-education-02_result.webp";
 import sqnEducation03 from "@/assets/sqn-education-03_result.webp";
 import sunwinsMask01v2 from "@/assets/sunwins_surgical_mask-01_result-2.webp";
 import sushiKiwami01v2 from "@/assets/sushi-kiwami-01_result-2.webp";
+import sushiKiwami02 from "@/assets/sushi-kiwami-02_result.webp";
+import sushiKiwami03 from "@/assets/sushi-kiwami-03_result.webp";
+import sushiKiwami04 from "@/assets/sushi-kiwami-04_result.webp";
+import sushiKiwami05 from "@/assets/sushi-kiwami-05_result.webp";
+import torakeCuisine01v2 from "@/assets/tarake-japanese-cuisine-01_result-2.webp";
+import torakeCuisine02 from "@/assets/tarake-japanese-cuisine-02_result.webp";
+import tecoOffice01v2 from "@/assets/teco_office-01_result-2.webp";
+import titanicExhibition01v2 from "@/assets/titanic_exhibition-01_result-2.webp";
+import titanicExhibition02 from "@/assets/titanic_exhibition-02_result.webp";
+import treasureCoveCasino01v2 from "@/assets/treasure_cove_casino-01_result-2.webp";
 
 // ── Unified Project Interface ──────────────────────────
 
