@@ -29,7 +29,7 @@ const getTopFeatured = () => {
 };
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const topFeatured = useMemo(getTopFeatured, []);
   const [activeTag, setActiveTag] = useState<string | null>(null);
 
   const categoryFiltered = useMemo(() => {
