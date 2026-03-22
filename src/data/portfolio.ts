@@ -101,6 +101,16 @@ import chenResidence02 from "@/assets/chen-residence-02_result.webp";
 import chenResidence03 from "@/assets/chen-residence-03_result.webp";
 import chenResidence04 from "@/assets/chen-residence-04_result.webp";
 import cleardent01v2 from "@/assets/cleardent-01_result-2.webp";
+import cleardent02 from "@/assets/cleardent-02_result.webp";
+import collingwood01v3 from "@/assets/collingwood-01_result-3.webp";
+import collingwood02 from "@/assets/collingwood-02_result.webp";
+import collingwood03 from "@/assets/collingwood-03_result.webp";
+import collingwood04 from "@/assets/collingwood-04_result.webp";
+import collingwood05 from "@/assets/collingwood-05_result.webp";
+import collingwood06 from "@/assets/collingwood-06_result.webp";
+import corvusEnergy01v2 from "@/assets/corvus_energy_expansion-01_result-2.webp";
+import corvusEnergy02 from "@/assets/corvus_energy_expansion-02_result.webp";
+import dubaiHouse01v3 from "@/assets/dubai_house_of_the_future-01_result-3.webp";
 
 
 // ── Unified Project Interface ──────────────────────────
@@ -150,7 +160,7 @@ export const allProjects: Project[] = [
   // ─── MASTER PLANNING ───
   { slug: "zone-5-union-bay-estate", name: "Zone 5, Union Bay Estate", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning"], location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01v2, galleryImgs: [unionBayEstate01v2] },
   { slug: "new-university-hospital", name: "New University Hospital of Northern BC Building Construction Phase Planning", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Healthcare"], location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 millions", img: newUniversityHospital01v2, galleryImgs: [newUniversityHospital01v2] },
-  { slug: "dubai-house-of-the-future", name: "Dubai House of the Future Competition", category: "Master Planning", categorySlug: "master-planning", tags: ["Concept"], location: "—", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01v2, galleryImgs: [dubaiHouse01v2] },
+  { slug: "dubai-house-of-the-future", name: "Dubai House of the Future Competition", category: "Master Planning", categorySlug: "master-planning", tags: ["Concept"], location: "—", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01v2, galleryImgs: [dubaiHouse01v2, dubaiHouse01v3] },
 
   // ─── COMMUNITY & CULTURAL — RELIGIOUS ───
   { slug: "gold-buddha-monastery", name: "Gold Buddha Monastery Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Vancouver, BC", area: "33,034 sq. ft.", detail: "Design architect: DYS Architecture; Building permit architect: Architect 57", img: goldBuddhaMonastery01, galleryImgs: [goldBuddhaMonastery01] },
@@ -184,7 +194,7 @@ export const allProjects: Project[] = [
   { slug: "brightway-cfia-seafood", name: "Brightway CFIA Seafood Processing", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Delta, BC", area: "41,839 sq. ft.", budget: "$6M+", detail: "CBD oil processing ready", img: brightwaySeafood01v2, galleryImgs: [brightwaySeafood01v2, brightwaySeafood02, brightwaySeafood03] },
   { slug: "atlas-power-technologies", name: "Atlas Power Technologies", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Abbotsford, BC", area: "19,579 sq. ft.", img: atlasPower01, galleryImgs: [atlasPower01] },
   { slug: "greenlight-innovation", name: "Greenlight Innovation", category: "Industrial", categorySlug: "industrial", tags: ["Energy"], location: "Burnaby, BC", area: "48,756 sq. ft.", detail: "Designer: SSDG Interiors", img: greenlightInnovation01, galleryImgs: [greenlightInnovation01] },
-  { slug: "corvus-energy-expansion", name: "Corvus Energy Expansion", category: "Industrial", categorySlug: "industrial", tags: ["Energy"], location: "Richmond, BC", area: "33,828 sq. ft.", img: corvusEnergy01, galleryImgs: [corvusEnergy01] },
+  { slug: "corvus-energy-expansion", name: "Corvus Energy Expansion", category: "Industrial", categorySlug: "industrial", tags: ["Energy"], location: "Richmond, BC", area: "33,828 sq. ft.", img: corvusEnergy01v2, galleryImgs: [corvusEnergy01v2, corvusEnergy02] },
   { slug: "rayacom-premium-print", name: "Rayacom Premium Print Upgrade", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "32,675 sq. ft.", img: rayacomPrint01, galleryImgs: [rayacomPrint01] },
   { slug: "sunwins-surgical-mask", name: "Sunwins Surgical Mask Factory", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", detail: "Cleanroom level 5 ready", img: sunwinsMask01, galleryImgs: [sunwinsMask01] },
   { slug: "herbaland-production", name: "Herbaland Production Plant", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Richmond, BC", area: "43,601 sq. ft.", img: herbalandProduction01, galleryImgs: [herbalandProduction01] },
@@ -196,7 +206,7 @@ export const allProjects: Project[] = [
   { slug: "titanic-exhibition", name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Cultural"], location: "Richmond, BC", area: "15,801 sq. ft.", img: titanicExhibition01, galleryImgs: [titanicExhibition01] },
   { slug: "beresford-doctor-clinic", name: "Beresford Doctor Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: beresfordClinic01, galleryImgs: [beresfordClinic01] },
   { slug: "willingdon-green-clinic", name: "Willingdon Green Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: willingdonClinic01, galleryImgs: [willingdonClinic01] },
-  { slug: "cleardent", name: "Cleardent", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: cleardent01v2, galleryImgs: [cleardent01v2] },
+  { slug: "cleardent", name: "Cleardent", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: cleardent01v2, galleryImgs: [cleardent01v2, cleardent02] },
   { slug: "lions-travel", name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: lionsTravel01, galleryImgs: [lionsTravel01] },
   { slug: "adore", name: "Adore", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Tsawwassen Mills Mall, Delta, BC", img: adore01v2, galleryImgs: [adore01v2] },
   // Existing extra interior projects
@@ -226,7 +236,7 @@ export const allProjects: Project[] = [
   { slug: "lu-residence", name: "Lu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Delta, BC", area: "5,177 sq. ft.", img: luResidence01, galleryImgs: [luResidence01] },
   { slug: "cartier-residence", name: "Cartier Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: cartierResidence01v2, galleryImgs: [cartierResidence01v2] },
   { slug: "laurel-residence", name: "Laurel Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Vancouver, BC", img: laurelResidence01, galleryImgs: [laurelResidence01] },
-  { slug: "collingwood", name: "Collingwood", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "10,500 sq. ft.", budget: "$5 millions", img: collingwood01, galleryImgs: [collingwood01, collingwood01v2] },
+  { slug: "collingwood", name: "Collingwood", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "10,500 sq. ft.", budget: "$5 millions", img: collingwood01v3, galleryImgs: [collingwood01v3, collingwood02, collingwood03, collingwood04, collingwood05, collingwood06] },
   { slug: "royal-oak", name: "Royal Oak", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Burnaby, BC", area: "12,627 sq. ft.", budget: "$5.45 millions", img: royalOak01v2, galleryImgs: [royalOak01v2] },
   { slug: "west-39-avenue", name: "West 39 Avenue", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Vancouver, BC", area: "4,438 sq. ft.", budget: "$1.78 millions", img: west3901v2, galleryImgs: [west3901v2] },
   { slug: "seavale", name: "Seavale", category: "Residential", categorySlug: "residential", tags: ["Multiplex"], location: "Richmond, BC", area: "4,658 sq. ft.", budget: "$1.39 millions", img: seavale01, galleryImgs: [seavale01] },
