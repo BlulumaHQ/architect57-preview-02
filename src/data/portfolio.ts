@@ -211,7 +211,7 @@ export const allProjects: Project[] = [
   { slug: "east-2nd-avenue", name: "East 2nd Avenue", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Vancouver, BC", img: east2ndAve01v2, galleryImgs: [east2ndAve01v2, east2ndAve02, east2ndAve03, east2ndAve04] },
   { slug: "sqn-education", name: "SQN Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Richmond, BC", detail: "Designer: ID Design Consulting Ltd.", img: sqnEducation01, galleryImgs: [sqnEducation01] },
   { slug: "phi-education", name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: phiEducation01, galleryImgs: [phiEducation01] },
-  { slug: "little-marines-preschool", name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: littleMarines01, galleryImgs: [littleMarines01] },
+  { slug: "little-marines-preschool", name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: littleMarines01v2, galleryImgs: [littleMarines01v2, littleMarines02] },
   { slug: "happy-may-iv", name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: happyMay01v2, galleryImgs: [happyMay01v2] },
 
   // ─── INSTITUTIONAL — HEALTH CARE ───
