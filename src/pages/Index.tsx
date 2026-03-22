@@ -6,6 +6,7 @@ import DiagonalMarquee from "@/components/DiagonalMarquee";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutImg from "@/assets/about-us-01.webp";
+import chbaAward from "@/assets/chba-award.jpg";
 import { allProjects } from "@/data/portfolio";
 import { useLang } from "@/contexts/LangContext";
 
@@ -199,6 +200,9 @@ const Index = () => {
                 {t("about.cta")}
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
+              <div className="mt-8">
+                <img src={chbaAward} alt="CHBA National Awards for Housing Excellence" className="w-40 md:w-48 object-contain" loading="lazy" />
+              </div>
             </ScrollReveal>
           </div>
         </div>
