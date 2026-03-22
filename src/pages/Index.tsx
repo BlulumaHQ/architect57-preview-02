@@ -200,6 +200,9 @@ const Index = () => {
                 {t("about.cta")}
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
+              <div className="mt-8">
+                <img src={chbaAward} alt="CHBA National Awards for Housing Excellence" className="w-40 md:w-48 object-contain" loading="lazy" />
+              </div>
             </ScrollReveal>
           </div>
         </div>
