@@ -157,6 +157,16 @@ import no6Residence02 from "@/assets/no6-residence-02_result.webp";
 import okanaganChateau01v2 from "@/assets/okanagan_chateau_retirement-01_result-2.webp";
 import ontarioStorage01v2 from "@/assets/ontario_storage_warehouse-01_result-2.webp";
 import phiEducation01v2 from "@/assets/phi-education-01_result-2.webp";
+import phiEducation02 from "@/assets/phi-education-02_result.webp";
+import poLamTemple01v2 from "@/assets/po_lam_temple-01_result-2.webp";
+import poLamTemple02 from "@/assets/po_lam_temple-02_result.webp";
+import ramenOneBroadway01v2 from "@/assets/ramen-one-broadway-01_result-2.webp";
+import rayacomPrint01v2 from "@/assets/rayacom_premium_print-01_result-2.webp";
+import rayacomFactory01v2 from "@/assets/rayacom_super_print_factory01_result-2.webp";
+import rayacomFactory02 from "@/assets/rayacom_super_print_factory02_result.webp";
+import royalOak01v3 from "@/assets/royal-oak01_result-3.webp";
+import royalOak02 from "@/assets/royal-oak02_result.webp";
+import seavale01v2 from "@/assets/seavale-01_result-2.webp";
 
 // ── Unified Project Interface ──────────────────────────
 
