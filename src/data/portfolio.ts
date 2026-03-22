@@ -90,6 +90,18 @@ import applianceCanada01v2 from "@/assets/Appliance_Canada_01-2.webp";
 import architect5701v2 from "@/assets/architect-57-01_result-2.webp";
 import architect5702 from "@/assets/architect-57-02_result.webp";
 
+// Real project images (batch 11)
+import bridgeportHotel03 from "@/assets/bridgeport-hotel-03_result.webp";
+import brightwaySeafood01v2 from "@/assets/brightway_cfia-certified_seafood_-01_result-2.webp";
+import brightwaySeafood02 from "@/assets/brightway_cfia-certified_seafood_-02_result.webp";
+import brightwaySeafood03 from "@/assets/brightway_cfia-certified_seafood_-03_result.webp";
+import cartierResidence01v2 from "@/assets/cartier-residence-01_result-2.webp";
+import chenResidence01v2 from "@/assets/chen-residence-01_result-2.webp";
+import chenResidence02 from "@/assets/chen-residence-02_result.webp";
+import chenResidence03 from "@/assets/chen-residence-03_result.webp";
+import chenResidence04 from "@/assets/chen-residence-04_result.webp";
+import cleardent01v2 from "@/assets/cleardent-01_result-2.webp";
+
 
 // ── Unified Project Interface ──────────────────────────
 
