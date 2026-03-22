@@ -1,6 +1,9 @@
 import { Phone } from "lucide-react";
+import { useLang } from "@/contexts/LangContext";
 
 const StickyCTA = () => {
+  const { t } = useLang();
+
   return (
     <>
       {/* Desktop: fixed right-side button — RED */}
@@ -21,13 +24,13 @@ const StickyCTA = () => {
             className="flex-1 flex items-center justify-center gap-2 text-[13px] font-heading font-light tracking-[0.1em] text-white py-3 border border-white/20 rounded-sm transition-all hover:border-white/40 active:scale-[0.97]"
           >
             <Phone className="w-3.5 h-3.5" />
-            Call Now
+            {t("cta.callNow")}
           </a>
           <a
             href="/contact"
             className="flex-1 text-center font-heading font-light text-[13px] tracking-[0.1em] text-white bg-[#a11d2d] py-3 px-4 rounded-sm transition-all hover:bg-[#8a1826] active:scale-[0.97]"
           >
-            Get a Quote
+            {t("cta.getQuote")}
           </a>
         </div>
       </div>

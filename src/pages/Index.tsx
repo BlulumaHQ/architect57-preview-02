@@ -6,30 +6,8 @@ import DiagonalMarquee from "@/components/DiagonalMarquee";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutImg from "@/assets/about-us-01.webp";
-import { allProjects, categories } from "@/data/portfolio";
-
-const services = [
-  {
-    num: "01",
-    title: "Integrated Building Design",
-    desc: "Full-spectrum architectural design for commercial, residential, industrial, and institutional projects.",
-  },
-  {
-    num: "02",
-    title: "Code Consultation",
-    desc: "Complex building code consultation with CP Certified Professional expertise.",
-  },
-  {
-    num: "03",
-    title: "Project Management",
-    desc: "End-to-end project management including planning, coordination, and delivery oversight.",
-  },
-  {
-    num: "04",
-    title: "Sustainable Architecture",
-    desc: "Environmentally responsible design guided by green building principles and LEED standards.",
-  },
-];
+import { allProjects } from "@/data/portfolio";
+import { useLang } from "@/contexts/LangContext";
 
 // Randomly select 4 projects from Residential + Commercial only (2+2 ideal)
 const getRandomFeatured = () => {
@@ -41,12 +19,10 @@ const getRandomFeatured = () => {
     return shuffled.slice(0, n);
   };
 
-  // 2 from each category
   const resPicks = shuffleAndPick(residential, 2);
   const comPicks = shuffleAndPick(commercial, 2);
   let picks = [...resPicks, ...comPicks];
 
-  // Fallback if either category is short
   if (picks.length < 4) {
     const all = [...residential, ...commercial].filter(
       (p) => !picks.some((x) => x.slug === p.slug)
@@ -55,12 +31,12 @@ const getRandomFeatured = () => {
     picks = [...picks, ...extra];
   }
 
-  // Shuffle final order
   picks.sort(() => Math.random() - 0.5);
 
   return picks.map((p) => ({
     img: p.img,
     title: p.name,
+    categorySlug: p.categorySlug,
     category: p.category,
     link: `/projects/${p.slug}`,
   }));
@@ -68,34 +44,41 @@ const getRandomFeatured = () => {
 
 const Index = () => {
   const featuredProjects = useMemo(getRandomFeatured, []);
+  const { t } = useLang();
+
+  const services = [
+    { num: "01", title: t("services.s1.title"), desc: t("services.s1.desc") },
+    { num: "02", title: t("services.s2.title"), desc: t("services.s2.desc") },
+    { num: "03", title: t("services.s3.title"), desc: t("services.s3.desc") },
+    { num: "04", title: t("services.s4.title"), desc: t("services.s4.desc") },
+  ];
 
   return (
     <main className="pb-16 md:pb-0">
-      {/* HERO — Fullscreen Slideshow */}
+      {/* HERO */}
       <section className="relative h-screen min-h-[600px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img src={hero1} alt="Modern architecture at twilight" className="absolute inset-0 w-full h-full object-cover hero-slide-1" />
           <img src={hero2} alt="Residential tower at night" className="absolute inset-0 w-full h-full object-cover hero-slide-2" />
           <div className="absolute inset-0 bg-gradient-to-t from-[hsl(240,6%,10%)]/90 via-[hsl(240,6%,10%)]/40 to-transparent" />
         </div>
-        {/* Micro red corner tick */}
         <div className="absolute top-28 right-10 w-4 h-4 border-t border-r border-[#a11d2d]/25 z-10 hidden md:block" />
         <div className="container-wide relative z-10 pb-20 md:pb-28">
           <ScrollReveal>
             <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-5">
-              Richmond, BC — Design Build
+              {t("hero.location")}
             </p>
           </ScrollReveal>
           <ScrollReveal delay={120}>
             <h1 className="font-heading text-[40px] md:text-[60px] lg:text-[76px] font-light leading-[0.95] text-white max-w-4xl mb-6 tracking-tight">
-              Architecture that
+              {t("hero.title1")}
               <br />
-              <span className="font-medium">transforms space</span>
+              <span className="font-medium">{t("hero.title2")}</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={240}>
             <p className="text-base md:text-lg text-white/60 max-w-lg mb-10 leading-relaxed font-light">
-              Integrated building design, code consultation, and sustainable architecture — from concept to completion.
+              {t("hero.desc")}
             </p>
           </ScrollReveal>
           <ScrollReveal delay={360}>
@@ -104,47 +87,45 @@ const Index = () => {
                 to="/contact"
                 className="inline-flex items-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
               >
-                Start a Project
+                {t("hero.cta1")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 to="/projects"
                 className="inline-flex items-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-white border border-white/25 px-8 py-4 rounded-sm transition-all duration-300 hover:border-white/50 active:scale-[0.97]"
               >
-                View Work
+                {t("hero.cta2")}
               </Link>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* DIAGONAL MARQUEE PORTFOLIO */}
       <DiagonalMarquee />
 
-      {/* SERVICES — Split asymmetrical layout */}
+      {/* SERVICES */}
       <section className="section-padding-lg bg-background relative">
-        {/* Micro red detail */}
         <div className="absolute top-12 left-6 md:left-10 w-px h-8 bg-[#a11d2d]/20" />
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
             <div className="lg:col-span-4">
               <ScrollReveal>
                 <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
-                  What We Do
+                  {t("services.label")}
                 </p>
                 <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground leading-tight mb-6 tracking-tight">
-                  Comprehensive
+                  {t("services.title1")}
                   <br />
-                  <span className="font-medium">Services</span>
+                  <span className="font-medium">{t("services.title2")}</span>
                 </h2>
                 <p className="text-muted-foreground font-light leading-relaxed mb-8">
-                  From design through delivery, we bring technical precision and creative vision to every project.
+                  {t("services.desc")}
                 </p>
                 <Link
                   to="/contact"
                   className="inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground active:scale-[0.97]"
                 >
-                  Discuss Your Project
+                  {t("services.cta")}
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </ScrollReveal>
@@ -172,56 +153,50 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ABOUT — Image + text overlap */}
+      {/* ABOUT */}
       <section className="relative bg-[hsl(var(--surface-warm))] overflow-hidden">
         <div className="container-wide py-28 md:py-40">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <ScrollReveal direction="left" className="lg:col-span-6">
               <div className="relative">
-                <img
-                  src={aboutImg}
-                  alt="Architect 57 Inc. office reception"
-                  className="w-full aspect-[3/4] object-cover rounded-sm"
-                  loading="lazy"
-                />
-                {/* Tiny red corner accent */}
+                <img src={aboutImg} alt="Architect 57 無極建築 office reception" className="w-full aspect-[3/4] object-cover rounded-sm" loading="lazy" />
                 <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b border-r border-[#a11d2d]/25" />
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right" className="lg:col-span-5 lg:col-start-8">
               <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
-                About
+                {t("about.label")}
               </p>
               <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground leading-tight mb-6 tracking-tight">
-                Building a better,
+                {t("about.title1")}
                 <br />
-                <span className="font-medium">healthier world</span>
+                <span className="font-medium">{t("about.title2")}</span>
               </h2>
               <p className="text-muted-foreground font-light leading-relaxed mb-6">
-                Architect 57 Inc. specializes in integrated building design, complex building code consultation, specialized industrial, research and technology, mix-use, commercial, residential, and sustainable architecture.
+                {t("about.desc")}
               </p>
               <p className="text-muted-foreground font-light leading-relaxed mb-6 text-[15px] italic">
-                "We believe that it is our responsibility making this world a better and healthier place for living."
+                {t("about.quote")}
               </p>
               <div className="flex flex-wrap gap-x-8 gap-y-3 mb-8">
                 <div>
                   <span className="font-heading text-2xl font-light text-foreground">CP</span>
-                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">Certified Professional</span>
+                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">{t("about.cp")}</span>
                 </div>
                 <div>
                   <span className="font-heading text-2xl font-light text-foreground">CHBA</span>
-                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">Awards Finalist</span>
+                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">{t("about.chba")}</span>
                 </div>
                 <div>
                   <span className="font-heading text-2xl font-light text-foreground">BIM</span>
-                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">Integrated Design</span>
+                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">{t("about.bim")}</span>
                 </div>
               </div>
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground"
               >
-                Learn More
+                {t("about.cta")}
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </ScrollReveal>
@@ -229,46 +204,39 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FEATURED PROJECTS — Compact grid */}
+      {/* FEATURED PROJECTS */}
       <section className="section-padding-lg bg-background relative">
-        {/* Micro red tick */}
         <div className="absolute top-12 right-6 md:right-10 w-3 h-3 border-t border-r border-[#a11d2d]/20 hidden md:block" />
         <div className="container-wide">
           <ScrollReveal>
             <div className="flex items-end justify-between mb-10">
               <div>
                 <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
-                  Our Work
+                  {t("featured.label")}
                 </p>
                 <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground tracking-tight">
-                  Featured <span className="font-medium">Projects</span>
+                  {t("featured.title1")} <span className="font-medium">{t("featured.title2")}</span>
                 </h2>
               </div>
               <Link
                 to="/projects"
                 className="hidden md:inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground"
               >
-                View All
+                {t("featured.viewAll")}
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </ScrollReveal>
 
-          {/* Tight 2x2 grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {featuredProjects.map((p, i) => (
               <ScrollReveal key={p.link} delay={i * 80}>
                 <Link to={p.link} className="group block relative overflow-hidden rounded-sm">
-                  <img
-                    src={p.img}
-                    alt={p.title}
-                    className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    loading="lazy"
-                  />
+                  <img src={p.img} alt={p.title} className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 p-5 md:p-6">
                     <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
-                      {p.category}
+                      {t(`cat.${p.categorySlug}`)}
                     </span>
                     <h3 className="font-heading text-lg md:text-xl font-light text-white mt-1">
                       {p.title}
@@ -279,13 +247,12 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Mobile "View All" */}
           <div className="mt-8 text-center md:hidden">
             <Link
               to="/projects"
               className="inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1"
             >
-              View All Projects
+              {t("featured.viewAllProjects")}
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -297,22 +264,22 @@ const Index = () => {
         <div className="container-wide py-28 md:py-40 text-center relative z-10">
           <ScrollReveal>
             <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-5">
-              Let's Collaborate
+              {t("cta.label")}
             </p>
             <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl font-light text-white tracking-tight leading-[0.95] mb-8 mx-auto max-w-3xl">
-              Ready to start your
+              {t("cta.title1")}
               <br />
-              <span className="font-medium">next project?</span>
+              <span className="font-medium">{t("cta.title2")}</span>
             </h2>
             <p className="text-white/50 font-light max-w-md mx-auto mb-10 leading-relaxed">
-              Contact Architect 57 Inc. for integrated building design, code consultation, and project management in Richmond, BC.
+              {t("cta.desc")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
               >
-                Get a Free Consultation
+                {t("cta.btn1")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
@@ -336,7 +303,7 @@ const Index = () => {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Architect 57 Inc. Location — 203-2680 Shell Road, Richmond, BC"
+          title="Architect 57 無極建築 Location — 203-2680 Shell Road, Richmond, BC"
         />
       </section>
     </main>
