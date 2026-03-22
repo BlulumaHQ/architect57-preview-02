@@ -240,7 +240,7 @@ export const allProjects: Project[] = [
   { slug: "beresford-doctor-clinic", name: "Beresford Doctor Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: beresfordClinic01, galleryImgs: [beresfordClinic01] },
   { slug: "willingdon-green-clinic", name: "Willingdon Green Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: willingdonClinic01, galleryImgs: [willingdonClinic01] },
   { slug: "cleardent", name: "Cleardent", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Healthcare"], location: "Burnaby, BC", img: cleardent01v2, galleryImgs: [cleardent01v2, cleardent02] },
-  { slug: "lions-travel", name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: lionsTravel01, galleryImgs: [lionsTravel01] },
+  { slug: "lions-travel", name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: lionsTravel01v2, galleryImgs: [lionsTravel01v2] },
   { slug: "adore", name: "Adore", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Tsawwassen Mills Mall, Delta, BC", img: adore01v2, galleryImgs: [adore01v2] },
   // Existing extra interior projects
   { slug: "architect-57-office", name: "Architect 57", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Richmond, BC", img: architect5701v2, galleryImgs: [architect5701v2, architect5702] },
