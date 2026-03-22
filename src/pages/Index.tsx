@@ -35,8 +35,7 @@ const homepageCurated = (() => {
   const chen = allFeatured.find((p) => p.slug === "chen-residence");
   const collingwood = allFeatured.find((p) => p.slug === "collingwood");
   const bridgeport = allFeatured.find((p) => p.slug === "bridgeport-office");
-  const masterPlanningCollection = collections.find((c) => c.slug === "master-planning");
-  const zone5 = masterPlanningCollection?.projects.find((p) => p.name === "Zone 5, Union Bay Estate");
+  const zone5 = allGridProjects.find((p) => p.name === "Zone 5, Union Bay Estate");
 
   return [
     chen ? { img: chen.coverImg, title: chen.title, category: chen.category, link: `/projects/${chen.slug}` } : null,
