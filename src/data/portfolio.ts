@@ -160,7 +160,7 @@ export const allProjects: Project[] = [
   // ─── MASTER PLANNING ───
   { slug: "zone-5-union-bay-estate", name: "Zone 5, Union Bay Estate", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning"], location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01v2, galleryImgs: [unionBayEstate01v2] },
   { slug: "new-university-hospital", name: "New University Hospital of Northern BC Building Construction Phase Planning", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Healthcare"], location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 millions", img: newUniversityHospital01v2, galleryImgs: [newUniversityHospital01v2] },
-  { slug: "dubai-house-of-the-future", name: "Dubai House of the Future Competition", category: "Master Planning", categorySlug: "master-planning", tags: ["Concept"], location: "—", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01v2, galleryImgs: [dubaiHouse01v2] },
+  { slug: "dubai-house-of-the-future", name: "Dubai House of the Future Competition", category: "Master Planning", categorySlug: "master-planning", tags: ["Concept"], location: "—", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01v2, galleryImgs: [dubaiHouse01v2, dubaiHouse01v3] },
 
   // ─── COMMUNITY & CULTURAL — RELIGIOUS ───
   { slug: "gold-buddha-monastery", name: "Gold Buddha Monastery Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Vancouver, BC", area: "33,034 sq. ft.", detail: "Design architect: DYS Architecture; Building permit architect: Architect 57", img: goldBuddhaMonastery01, galleryImgs: [goldBuddhaMonastery01] },
