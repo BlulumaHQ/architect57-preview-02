@@ -58,6 +58,17 @@ import chenResidence01 from "@/assets/chen-residence-01_result.webp";
 import hanResidence01 from "@/assets/han-residence-01_result.webp";
 import laurelResidence01 from "@/assets/laurel-residence-01_result.webp";
 
+// Real project images (batch 5)
+import luResidence01 from "@/assets/lu-residence-01_result.webp";
+import poLamTemple01 from "@/assets/po_lam_temple-01_result.webp";
+import goldBuddhaMonastery01 from "@/assets/gold_buddha_monastery-01_result.webp";
+import iglesiaNiCristo01 from "@/assets/iglesia_ni_cristo_locale-01_result.webp";
+import lutheranChurch01 from "@/assets/lutheran_community_church-01_result.webp";
+import ontarioStorage01 from "@/assets/ontario_storage_warehouse-01_result.webp";
+import rayacomPrint01 from "@/assets/rayacom_premium_print-01_result.webp";
+import rayacomFactory01 from "@/assets/rayacom_super_print_factory01_result.webp";
+import sunwinsMask01 from "@/assets/sunwins_surgical_mask-01_result.webp";
+import trouwFrankie01 from "@/assets/trouw_frankie_feed_mill-01_result.webp";
 
 export interface FeaturedProject {
   slug: string;
@@ -230,7 +241,7 @@ export const collections: Collection[] = [
       { name: "No6 Residence", location: "Richmond, BC", img: no6Residence01 },
       { name: "Vinson Creek Residence", location: "West Vancouver, BC", area: "9,343 sq. ft.", coDesigner: "Angel Wang", img: vinsonCreek01 },
       { name: "Wu Residence", location: "West Vancouver, BC", area: "6,733 sq. ft.", img: wuResidence01 },
-      { name: "Lu Residence", location: "Delta, BC", area: "5,177 sq. ft.", img: src7 },
+      { name: "Lu Residence", location: "Delta, BC", area: "5,177 sq. ft.", img: luResidence01 },
       { name: "Cartier Residence", location: "Vancouver, BC", img: cartierResidence01 },
       { name: "Laurel Residence", location: "Vancouver, BC", img: laurelResidence01 },
     ],
@@ -272,6 +283,15 @@ export const collections: Collection[] = [
       { name: "Okanagan Chateau Retirement", location: "Kelowna, BC", img: okanaganChateau01 },
       { name: "Sienna Rideau Retirement", location: "Ottawa, ON", img: siennaRideau01 },
       { name: "Treasure Cove Casino", location: "Prince George, BC", img: treasureCoveCasino01 },
+      { name: "Po Lam Temple", location: "Richmond, BC", img: poLamTemple01 },
+      { name: "Gold Buddha Monastery", location: "Vancouver, BC", img: goldBuddhaMonastery01 },
+      { name: "Iglesia Ni Cristo Locale", location: "Vancouver, BC", img: iglesiaNiCristo01 },
+      { name: "Lutheran Community Church", location: "Vancouver, BC", img: lutheranChurch01 },
+      { name: "Ontario Storage Warehouse", location: "Ontario, BC", img: ontarioStorage01 },
+      { name: "Rayacom Premium Print", location: "Richmond, BC", img: rayacomPrint01 },
+      { name: "Rayacom Super Print Factory", location: "Richmond, BC", img: rayacomFactory01 },
+      { name: "Sunwins Surgical Mask", location: "Richmond, BC", img: sunwinsMask01 },
+      { name: "Trouw Frankie Feed Mill", location: "BC", img: trouwFrankie01 },
     ],
   },
   {
