@@ -77,7 +77,18 @@ import adore01 from "@/assets/adore-01_result.webp";
 import architect5701 from "@/assets/architect-57-01_result.webp";
 import beresfordClinic01 from "@/assets/beresford_doctor_clinic-01_result.webp";
 
-// ── Types ──────────────────────────────────────────────
+// Real project images (batch 7)
+import cleardent01 from "@/assets/cleardent-01_result.webp";
+import lionsTravel01 from "@/assets/lions_travel-01_result.webp";
+import tecoOffice01 from "@/assets/teco_office-01_result.webp";
+import titanicExhibition01 from "@/assets/titanic_exhibition-01_result.webp";
+import east2ndAve01 from "@/assets/east-2nd-ave-01_result.webp";
+import happyMay01 from "@/assets/happy-may-01_result.webp";
+import littleMarines01 from "@/assets/little-marines-01_result.webp";
+import phiEducation01 from "@/assets/phi-education-01_result.webp";
+import sqnEducation01 from "@/assets/sqn-education-01_result.webp";
+import torakeCuisine01 from "@/assets/tarake-japanese-cuisine-01_result.webp";
+
 
 export interface FeaturedProject {
   slug: string;
@@ -243,9 +254,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "An education facility in Richmond designed for creative learning environments, with code compliance by Architect 57.",
     longDesc: "SQN Education is a purpose-built educational facility in Richmond, designed by ID Design Consulting Ltd. with building code and compliance services provided by Architect 57 Inc. The project demanded careful adherence to BC Building Code requirements for assembly and institutional occupancies, including life safety, accessibility, and structural standards. The result is a facility that supports contemporary pedagogy within a safe, code-compliant architectural framework.",
     services: ["Code Consultation (CP)", "Building Code Compliance"],
-    heroImg: src3,
-    galleryImgs: [src5, src7],
-    coverImg: src3,
+    heroImg: sqnEducation01,
+    galleryImgs: [sqnEducation01],
+    coverImg: sqnEducation01,
   },
 ];
 
@@ -278,7 +289,7 @@ const allProjectsRaw: GridProject[] = [
   { name: "54th Ave Condo (4-storey)", category: "Commercial", categorySlug: "commercial", tags: ["Condo"], location: "Langley, BC", detail: "4-storey with underground parking", img: fiftyFourthAveCondo02 },
   { name: "Fletcher Townhouses", category: "Commercial", categorySlug: "commercial", tags: ["Townhouse"], location: "Maple Ridge, BC", detail: "15 units (5 types)", img: fletcherTownhouses01Result },
   { name: "Sushi Kiwami", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", area: "2,415 sq. ft.", budget: "$1 million", img: src4 },
-  { name: "Torake Japanese Cuisine", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", img: src6 },
+  { name: "Torake Japanese Cuisine", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Richmond, BC", img: torakeCuisine01 },
   { name: "Ramen One on Broadway", category: "Commercial", categorySlug: "commercial", tags: ["Restaurant"], location: "Vancouver, BC", img: src7 },
   { name: "Bridgeport Hotel", category: "Commercial", categorySlug: "commercial", tags: ["Hotel"], location: "Richmond, BC", detail: "Design architect: GBL Architects", img: src10 },
 
@@ -296,11 +307,11 @@ const allProjectsRaw: GridProject[] = [
   { name: "Hazco Environmental Waste Transfer Station", category: "Industrial", categorySlug: "industrial", tags: ["Waste Processing"], location: "Richmond, BC", area: "29,925 sq. ft.", img: hazcoEnvironmental01 },
 
   // ─── INSTITUTIONAL ───
-  { name: "East 2nd Avenue", category: "Institutional", categorySlug: "institutional", tags: ["Daycare", "Education"], location: "Vancouver, BC", img: src5 },
-  { name: "SQN Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Richmond, BC", detail: "Designer: ID Design Consulting Ltd.", img: src3, detailLink: "/projects/sqn-education" },
-  { name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: src8 },
-  { name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Preschool"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: src9 },
-  { name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: src1 },
+  { name: "East 2nd Avenue", category: "Institutional", categorySlug: "institutional", tags: ["Daycare", "Education"], location: "Vancouver, BC", img: east2ndAve01 },
+  { name: "SQN Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Richmond, BC", detail: "Designer: ID Design Consulting Ltd.", img: sqnEducation01, detailLink: "/projects/sqn-education" },
+  { name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: phiEducation01 },
+  { name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Preschool"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: littleMarines01 },
+  { name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: happyMay01 },
   { name: "Katalin Care Homes", category: "Institutional", categorySlug: "institutional", tags: ["Healthcare", "Senior Care"], location: "Mission, BC", area: "6,225 sq. ft.", img: katalinCareHomes01 },
   { name: "Okanagan Chateau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care", "Renovation"], location: "Kelowna, BC", detail: "Interior renovation", img: okanaganChateau01 },
   { name: "Mariposa Gardens Retirement Residence and Care", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Osoyoos, BC", area: "109,487 sq. ft.", detail: "Plumbing upgrade", img: mariposaGardens01 },
@@ -320,13 +331,13 @@ const allProjectsRaw: GridProject[] = [
   // ─── INTERIOR PROJECTS ───
   { name: "Architect 57", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office Interior"], location: "Richmond, BC", img: architect5701 },
   { name: "Appliance Canada", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Richmond, BC", area: "11,639 sq. ft.", img: src2 },
-  { name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Exhibition"], location: "Richmond, BC", area: "15,801 sq. ft.", img: src4 },
+  { name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Exhibition"], location: "Richmond, BC", area: "15,801 sq. ft.", img: titanicExhibition01 },
   { name: "Beresford Doctor Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Medical"], location: "Burnaby, BC", img: beresfordClinic01 },
   { name: "Willingdon Green Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Medical"], location: "Burnaby, BC", img: willingdonClinic01 },
-  { name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", img: src10 },
+  { name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", img: tecoOffice01 },
   { name: "Triple-A (AAA) Commercial", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Commercial Interior"], area: "12,339 sq. ft.", location: "", img: src11 },
-  { name: "Cleardent", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Dental"], location: "Burnaby, BC", img: src1 },
-  { name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: src7 },
+  { name: "Cleardent", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Dental"], location: "Burnaby, BC", img: cleardent01 },
+  { name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: lionsTravel01 },
   { name: "Adore", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Tsawwassen Mills Mall, Delta, BC", img: adore01 },
 
   // ─── MASTER PLANNING ───
