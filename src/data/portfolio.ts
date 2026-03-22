@@ -10,6 +10,18 @@ import src9 from "@/assets/source-project-9.jpg";
 import src10 from "@/assets/source-project-10.jpg";
 import src11 from "@/assets/source-project-11.jpg";
 
+// New real project images
+import austinHighRise01 from "@/assets/austin_high-rise-01.jpg";
+import austinHighRise02 from "@/assets/austin_high-rise-02.jpg";
+import bridgeportOffice01 from "@/assets/bridgeport_office_building-01.jpg";
+import bridgeportOffice02 from "@/assets/bridgeport_office_building-02.jpg";
+import bridgeportOffice03 from "@/assets/bridgeport_office_building-03.jpg";
+import fletcherTownhouses01 from "@/assets/fletcher_townhouses-01.jpg";
+import wellingtonMixUse01 from "@/assets/wellington_mix-use-01.jpg";
+import fiftyFourthAveCondo01 from "@/assets/54th_ave_condo-01.jpg";
+import fiftyFourthAveCondo02 from "@/assets/54th_ave_condo-02.jpg";
+import fiftyFourthAveCondo03 from "@/assets/54th_ave_condo-03.jpg";
+
 // ── Types ──────────────────────────────────────────────
 
 export interface FeaturedProject {
