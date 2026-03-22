@@ -14,6 +14,8 @@ const Contact = () => {
     <main className="pb-16 md:pb-0">
       {/* Hero */}
       <section className="relative bg-[hsl(var(--surface-dark))] pt-32 md:pt-44 pb-20 md:pb-28">
+        {/* Micro red corner */}
+        <div className="absolute bottom-8 right-10 w-4 h-4 border-b border-r border-[#a11d2d]/20 hidden md:block" />
         <div className="container-wide">
           <ScrollReveal>
             <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-4">Get in Touch</p>
