@@ -205,7 +205,7 @@ export const collections: Collection[] = [
     title: "Multi-Unit Housing",
     categorySlug: "multi-unit-housing",
     desc: "High-rise towers, mixed-use developments, townhouse communities, and multiplex projects across British Columbia.",
-    coverImg: src3,
+    coverImg: austinHighRise01,
     projects: [
       { name: "Austin High-Rise", location: "Coquitlam, BC", area: "77,527 sq. ft.", budget: "$25 million", img: austinHighRise01 },
       { name: "54th Ave Condo (12-Storey)", location: "Langley, BC", notes: "12-storey with underground parking", img: fiftyFourthAveCondo01 },
