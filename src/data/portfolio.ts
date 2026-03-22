@@ -152,9 +152,9 @@ export const featuredProjects: FeaturedProject[] = [
     desc: "A contemporary single-family residence in Richmond with clean proportions and considered detailing.",
     longDesc: "The Severn Residence demonstrates that strong architecture doesn't require excess. Designed with a disciplined approach to massing, fenestration, and material selection, this Richmond home delivers a quiet confidence. The floor plan is organized to maximize natural daylight and visual connection between interior living spaces and the surrounding landscape.",
     services: ["Integrated Building Design", "Code Consultation"],
-    heroImg: src7,
+    heroImg: severnResidence01,
     galleryImgs: [src8, src9],
-    coverImg: src7,
+    coverImg: severnResidence01,
   },
   {
     slug: "xu-residence",
