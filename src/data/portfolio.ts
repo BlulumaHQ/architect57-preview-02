@@ -70,6 +70,18 @@ import rayacomFactory01 from "@/assets/rayacom_super_print_factory01_result.webp
 import sunwinsMask01 from "@/assets/sunwins_surgical_mask-01_result.webp";
 import trouwFrankie01 from "@/assets/trouw_frankie_feed_mill-01_result.webp";
 
+// Real project images (batch 6)
+import atlasPower01 from "@/assets/atlas_power_technologies-01_result.webp";
+import brightwaySeafood01 from "@/assets/brightway_cfia-certified_seafood_-01_result.webp";
+import corvusEnergy01 from "@/assets/corvus_energy_expansion-01_result.webp";
+import greenlightInnovation01 from "@/assets/greenlight_innovation-01_result.webp";
+import hazcoEnvironmental01 from "@/assets/hazco_environmental_waste-01_result.webp";
+import herbalandProduction01 from "@/assets/herbaland_new_production-01_result.webp";
+import willingdonClinic01 from "@/assets/willingdon_green_clinic-01_result.webp";
+import adore01 from "@/assets/adore-01_result.webp";
+import architect5701 from "@/assets/architect-57-01_result.webp";
+import beresfordClinic01 from "@/assets/beresford_doctor_clinic-01_result.webp";
+
 export interface FeaturedProject {
   slug: string;
   title: string;
@@ -292,6 +304,16 @@ export const collections: Collection[] = [
       { name: "Rayacom Super Print Factory", location: "Richmond, BC", img: rayacomFactory01 },
       { name: "Sunwins Surgical Mask", location: "Richmond, BC", img: sunwinsMask01 },
       { name: "Trouw Frankie Feed Mill", location: "BC", img: trouwFrankie01 },
+      { name: "Atlas Power Technologies", location: "Richmond, BC", img: atlasPower01 },
+      { name: "Brightway CFIA-Certified Seafood", location: "Richmond, BC", img: brightwaySeafood01 },
+      { name: "Corvus Energy Expansion", location: "Richmond, BC", img: corvusEnergy01 },
+      { name: "Greenlight Innovation", location: "Burnaby, BC", img: greenlightInnovation01 },
+      { name: "Hazco Environmental Waste", location: "Burnaby, BC", img: hazcoEnvironmental01 },
+      { name: "Herbaland New Production", location: "Richmond, BC", img: herbalandProduction01 },
+      { name: "Willingdon Green Clinic", location: "Burnaby, BC", img: willingdonClinic01 },
+      { name: "Adore", location: "Vancouver, BC", img: adore01 },
+      { name: "Architect 57 Office", location: "Richmond, BC", img: architect5701 },
+      { name: "Beresford Doctor Clinic", location: "Burnaby, BC", img: beresfordClinic01 },
     ],
   },
   {
