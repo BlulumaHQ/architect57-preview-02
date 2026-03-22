@@ -146,6 +146,18 @@ import luResidence01v2 from "@/assets/lu-residence-01_result-2.webp";
 import luResidence02 from "@/assets/lu-residence-02_result.webp";
 import lutheranChurch01v2 from "@/assets/lutheran_community_church-01_result-2.webp";
 
+// Real project images (batch 15)
+import mariposaGardens01v2 from "@/assets/mariposa_gardens_retirement-01_result-2.webp";
+import morganPlay01v2 from "@/assets/morgan_play-01_result-2.webp";
+import morganPlay02 from "@/assets/morgan_play-02_result.webp";
+import morganPlay03 from "@/assets/morgan_play-03_result.webp";
+import newUniversityHospital01v3 from "@/assets/new_university_hospital-01_result-3.webp";
+import no6Residence01v2 from "@/assets/no6-residence-01_result-2.webp";
+import no6Residence02 from "@/assets/no6-residence-02_result.webp";
+import okanaganChateau01v2 from "@/assets/okanagan_chateau_retirement-01_result-2.webp";
+import ontarioStorage01v2 from "@/assets/ontario_storage_warehouse-01_result-2.webp";
+import phiEducation01v2 from "@/assets/phi-education-01_result-2.webp";
+
 // ── Unified Project Interface ──────────────────────────
 
 export interface Project {
@@ -192,7 +204,7 @@ export const allProjects: Project[] = [
 
   // ─── MASTER PLANNING ───
   { slug: "zone-5-union-bay-estate", name: "Zone 5, Union Bay Estate", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning"], location: "Union Bay, BC", area: "1,189,000 sq. ft. (27.30 acres)", img: unionBayEstate01v2, galleryImgs: [unionBayEstate01v2] },
-  { slug: "new-university-hospital", name: "New University Hospital of Northern BC Building Construction Phase Planning", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Healthcare"], location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 millions", img: newUniversityHospital01v2, galleryImgs: [newUniversityHospital01v2] },
+  { slug: "new-university-hospital", name: "New University Hospital of Northern BC Building Construction Phase Planning", category: "Master Planning", categorySlug: "master-planning", tags: ["Planning", "Healthcare"], location: "Prince George, BC", area: "277,000 sq. ft.", budget: "$700 millions", img: newUniversityHospital01v2, galleryImgs: [newUniversityHospital01v2, newUniversityHospital01v3] },
   { slug: "dubai-house-of-the-future", name: "Dubai House of the Future Competition", category: "Master Planning", categorySlug: "master-planning", tags: ["Concept"], location: "—", area: "570,000 sq. ft. (13.09 acres)", img: dubaiHouse01v2, galleryImgs: [dubaiHouse01v2, dubaiHouse01v3] },
 
   // ─── COMMUNITY & CULTURAL — RELIGIOUS ───
@@ -204,26 +216,26 @@ export const allProjects: Project[] = [
   { slug: "treasure-cove-casino", name: "Treasure Cove Casino Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Casino"], location: "Prince George, BC", area: "15,326 sq. ft.", budget: "$15 millions", img: treasureCoveCasino01, galleryImgs: [treasureCoveCasino01] },
   { slug: "atomic-fitness", name: "Atomic Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: atomicFitness01, galleryImgs: [atomicFitness01] },
   { slug: "vanguard-fitness", name: "Vanguard Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: vanguardFitness01, galleryImgs: [vanguardFitness01] },
-  { slug: "morgan-play", name: "Morgan Play", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Surrey, BC", detail: "Designer: Yan Design Studio", img: morganPlay01, galleryImgs: [morganPlay01] },
+  { slug: "morgan-play", name: "Morgan Play", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Surrey, BC", detail: "Designer: Yan Design Studio", img: morganPlay01v2, galleryImgs: [morganPlay01v2, morganPlay02, morganPlay03] },
   { slug: "ace-esports", name: "ACE E-Sports", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", area: "4,886 sq. ft.", img: aceEsports01v2, galleryImgs: [aceEsports01v2, aceEsports02, aceEsports03] },
 
   // ─── INSTITUTIONAL — DAYCARE / EDUCATION ───
   { slug: "east-2nd-avenue", name: "East 2nd Avenue", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Vancouver, BC", img: east2ndAve01v2, galleryImgs: [east2ndAve01v2, east2ndAve02, east2ndAve03, east2ndAve04] },
   { slug: "sqn-education", name: "SQN Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Richmond, BC", detail: "Designer: ID Design Consulting Ltd.", img: sqnEducation01, galleryImgs: [sqnEducation01] },
-  { slug: "phi-education", name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: phiEducation01, galleryImgs: [phiEducation01] },
+  { slug: "phi-education", name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: phiEducation01v2, galleryImgs: [phiEducation01v2] },
   { slug: "little-marines-preschool", name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: littleMarines01v2, galleryImgs: [littleMarines01v2, littleMarines02] },
   { slug: "happy-may-iv", name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: happyMay01v2, galleryImgs: [happyMay01v2] },
 
   // ─── INSTITUTIONAL — HEALTH CARE ───
   { slug: "katalin-care-homes", name: "Katalin Care Homes", category: "Institutional", categorySlug: "institutional", tags: ["Healthcare", "Senior Care"], location: "Mission, BC", area: "6,225 sq. ft.", img: katalinCareHomes01v2, galleryImgs: [katalinCareHomes01v2] },
-  { slug: "okanagan-chateau", name: "Okanagan Chateau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Kelowna, BC", detail: "Interior renovation", img: okanaganChateau01, galleryImgs: [okanaganChateau01] },
-  { slug: "mariposa-gardens", name: "Mariposa Gardens Retirement Residence and Care", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Osoyoos, BC", area: "109,487 sq. ft.", detail: "Plumbing upgrade", img: mariposaGardens01, galleryImgs: [mariposaGardens01] },
+  { slug: "okanagan-chateau", name: "Okanagan Chateau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Kelowna, BC", detail: "Interior renovation", img: okanaganChateau01v2, galleryImgs: [okanaganChateau01v2] },
+  { slug: "mariposa-gardens", name: "Mariposa Gardens Retirement Residence and Care", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Osoyoos, BC", area: "109,487 sq. ft.", detail: "Plumbing upgrade", img: mariposaGardens01v2, galleryImgs: [mariposaGardens01v2] },
   { slug: "sienna-rideau", name: "Sienna Rideau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Burnaby, BC", detail: "Interior renovation + fire sprinkler upgrade; Building height: 19 storeys", img: siennaRideau01, galleryImgs: [siennaRideau01] },
 
   // ─── INDUSTRIAL ───
   { slug: "rayacom-super-print-factory", name: "Rayacom Super Print Factory", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "128,285 sq. ft.", img: rayacomFactory01, galleryImgs: [rayacomFactory01] },
   { slug: "trouw-frankie-feed-mill", name: "Trouw Frankie Feed Mill", category: "Industrial", categorySlug: "industrial", tags: ["Industrial"], location: "Chilliwack, BC", detail: "Heavy industrial; Design engineer: CMC Engineering", img: trouwFrankie01, galleryImgs: [trouwFrankie01] },
-  { slug: "ontario-storage-warehouse", name: "Ontario Storage Warehouse", category: "Industrial", categorySlug: "industrial", tags: ["Warehouse"], location: "Vancouver, BC", img: ontarioStorage01, galleryImgs: [ontarioStorage01] },
+  { slug: "ontario-storage-warehouse", name: "Ontario Storage Warehouse", category: "Industrial", categorySlug: "industrial", tags: ["Warehouse"], location: "Vancouver, BC", img: ontarioStorage01v2, galleryImgs: [ontarioStorage01v2] },
   { slug: "brightway-cfia-seafood", name: "Brightway CFIA Seafood Processing", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Delta, BC", area: "41,839 sq. ft.", budget: "$6M+", detail: "CBD oil processing ready", img: brightwaySeafood01v2, galleryImgs: [brightwaySeafood01v2, brightwaySeafood02, brightwaySeafood03] },
   { slug: "atlas-power-technologies", name: "Atlas Power Technologies", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Abbotsford, BC", area: "19,579 sq. ft.", img: atlasPower01, galleryImgs: [atlasPower01] },
   { slug: "greenlight-innovation", name: "Greenlight Innovation", category: "Industrial", categorySlug: "industrial", tags: ["Energy"], location: "Burnaby, BC", area: "48,756 sq. ft.", detail: "Designer: SSDG Interiors", img: greenlightInnovation01v2, galleryImgs: [greenlightInnovation01v2, greenlightInnovation02] },
@@ -262,7 +274,7 @@ export const allProjects: Project[] = [
   { slug: "chen-residence", name: "Chen Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,729 sq. ft.", detail: "CHBA National SAM Awards Finalist", img: chenResidence01v2, galleryImgs: [chenResidence01v2, chenResidence02, chenResidence03, chenResidence04] },
   { slug: "han-residence", name: "Han Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Delta, BC", area: "6,078 sq. ft.", img: hanResidence01v2, galleryImgs: [hanResidence01v2, hanResidence02, hanResidence03, hanResidence04, hanResidence05] },
   { slug: "severn-residence", name: "Severn Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: severnResidence01, galleryImgs: [severnResidence01] },
-  { slug: "no6-residence", name: "No6 Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: no6Residence01, galleryImgs: [no6Residence01] },
+  { slug: "no6-residence", name: "No6 Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: no6Residence01v2, galleryImgs: [no6Residence01v2, no6Residence02] },
   { slug: "vinson-creek-residence", name: "Vinson Creek Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "9,343 sq. ft.", img: vinsonCreek01, galleryImgs: [vinsonCreek01] },
   { slug: "xu-residence", name: "Xu Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", area: "3,680 sq. ft.", img: xuResidence01, galleryImgs: [xuResidence01] },
   { slug: "wu-residence", name: "Wu Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,733 sq. ft.", img: wuResidence01, galleryImgs: [wuResidence01] },
