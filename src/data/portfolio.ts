@@ -112,6 +112,18 @@ import corvusEnergy01v2 from "@/assets/corvus_energy_expansion-01_result-2.webp"
 import corvusEnergy02 from "@/assets/corvus_energy_expansion-02_result.webp";
 import dubaiHouse01v3 from "@/assets/dubai_house_of_the_future-01_result-3.webp";
 
+// Real project images (batch 12)
+import east2ndAve01v2 from "@/assets/east-2nd-ave-01_result-2.webp";
+import east2ndAve02 from "@/assets/east-2nd-ave-02_result.webp";
+import east2ndAve03 from "@/assets/east-2nd-ave-03_result.webp";
+import east2ndAve04 from "@/assets/east-2nd-ave-04_result.webp";
+import fletcherTownhouses01v3 from "@/assets/fletcher_townhouses-01_result-3.webp";
+import goldBuddhaMonastery01v2 from "@/assets/gold_buddha_monastery-01_result-2.webp";
+import goldBuddhaMonastery02 from "@/assets/gold_buddha_monastery-02_result.webp";
+import goldBuddhaMonastery03 from "@/assets/gold_buddha_monastery-03_result.webp";
+import greenlightInnovation01v2 from "@/assets/greenlight_innovation-01_result-2.webp";
+import greenlightInnovation02 from "@/assets/greenlight_innovation-02_result.webp";
+
 
 // ── Unified Project Interface ──────────────────────────
 
