@@ -119,6 +119,7 @@ import east2ndAve02 from "@/assets/east-2nd-ave-02_result.webp";
 import east2ndAve03 from "@/assets/east-2nd-ave-03_result.webp";
 import east2ndAve04 from "@/assets/east-2nd-ave-04_result.webp";
 import fletcherTownhouses01v3 from "@/assets/fletcher_townhouses-01_result-3.webp";
+import fletcherTownhouses01v4 from "@/assets/fletcher_townhouses-01_result-4.webp";
 import goldBuddhaMonastery01v2 from "@/assets/gold_buddha_monastery-01_result-2.webp";
 import goldBuddhaMonastery02 from "@/assets/gold_buddha_monastery-02_result.webp";
 import goldBuddhaMonastery03 from "@/assets/gold_buddha_monastery-03_result.webp";
