@@ -34,6 +34,18 @@ import dubaiHouse01 from "@/assets/dubai_house_of_the_future-01_result.webp";
 import newUniversityHospital01 from "@/assets/new_university_hospital-01_result.webp";
 import unionBayEstate01 from "@/assets/zone_5_union_bay_estate-01_result.webp";
 
+// Real project images (batch 3)
+import austinHighRise01Result from "@/assets/austin_high-rise-01_result.webp";
+import bridgeportOffice01Result from "@/assets/bridgeport_office_building-01_result.webp";
+import vanguardFitness01 from "@/assets/vanguard_fitness-01_result.webp";
+import aceEsports01 from "@/assets/ace_e-sports-01_result.webp";
+import atomicFitness01 from "@/assets/atomic_fitness-01_result.webp";
+import katalinCareHomes01 from "@/assets/katalin_care_homes-01_result.webp";
+import mariposaGardens01 from "@/assets/mariposa_gardens_retirement-01_result.webp";
+import morganPlay01 from "@/assets/morgan_play-01_result.webp";
+import okanaganChateau01 from "@/assets/okanagan_chateau_retirement-01_result.webp";
+import siennaRideau01 from "@/assets/sienna_rideau_retirement-01_result.webp";
+
 // ── Types ──────────────────────────────────────────────
 
 export interface FeaturedProject {
