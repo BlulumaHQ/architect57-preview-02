@@ -135,7 +135,16 @@ import hazcoEnvironmental01v2 from "@/assets/hazco_environmental_waste-01_result
 import herbalandProduction01v2 from "@/assets/herbaland_new_production-01_result-2.webp";
 import herbalandProduction02 from "@/assets/herbaland_new_production-02_result.webp";
 import iglesiaNiCristo01v2 from "@/assets/iglesia_ni_cristo_locale-01_result-2.webp";
-
+import iglesiaNiCristo02 from "@/assets/iglesia_ni_cristo_locale-02_result.webp";
+import katalinCareHomes01v2 from "@/assets/katalin_care_homes-01_result-2.webp";
+import laurelResidence01v2 from "@/assets/laurel-residence-01_result-2.webp";
+import laurelResidence02 from "@/assets/laurel-residence-02_result.webp";
+import lionsTravel01v2 from "@/assets/lions_travel-01_result-2.webp";
+import littleMarines01v2 from "@/assets/little-marines-01_result-2.webp";
+import littleMarines02 from "@/assets/little-marines-02_result.webp";
+import luResidence01v2 from "@/assets/lu-residence-01_result-2.webp";
+import luResidence02 from "@/assets/lu-residence-02_result.webp";
+import lutheranChurch01v2 from "@/assets/lutheran_community_church-01_result-2.webp";
 
 // ── Unified Project Interface ──────────────────────────
 
