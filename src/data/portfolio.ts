@@ -188,7 +188,7 @@ export const allProjects: Project[] = [
   { slug: "lions-travel", name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: lionsTravel01, galleryImgs: [lionsTravel01] },
   { slug: "adore", name: "Adore", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Tsawwassen Mills Mall, Delta, BC", img: adore01v2, galleryImgs: [adore01v2] },
   // Existing extra interior projects
-  { slug: "architect-57-office", name: "Architect 57", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Richmond, BC", img: architect5701, galleryImgs: [architect5701] },
+  { slug: "architect-57-office", name: "Architect 57", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Richmond, BC", img: architect5701v2, galleryImgs: [architect5701v2, architect5702] },
   { slug: "triple-a-commercial", name: "Triple-A (AAA) Commercial", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], area: "12,339 sq. ft.", location: "", img: src11, galleryImgs: [src11] },
 
   // ─── COMMERCIAL ───
