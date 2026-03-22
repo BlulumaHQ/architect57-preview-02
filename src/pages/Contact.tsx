@@ -27,7 +27,9 @@ const Contact = () => {
       </section>
 
       {/* Contact Grid */}
-      <section className="section-padding-lg bg-background">
+      <section className="section-padding-lg bg-background relative">
+        {/* Micro red line */}
+        <div className="absolute top-12 left-6 md:left-10 w-px h-8 bg-[#a11d2d]/20" />
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Form */}
