@@ -124,6 +124,18 @@ import goldBuddhaMonastery03 from "@/assets/gold_buddha_monastery-03_result.webp
 import greenlightInnovation01v2 from "@/assets/greenlight_innovation-01_result-2.webp";
 import greenlightInnovation02 from "@/assets/greenlight_innovation-02_result.webp";
 
+// Real project images (batch 13)
+import hanResidence01v2 from "@/assets/han-residence-01_result-2.webp";
+import hanResidence02 from "@/assets/han-residence-02_result.webp";
+import hanResidence03 from "@/assets/han-residence-03_result.webp";
+import hanResidence04 from "@/assets/han-residence-04_result.webp";
+import hanResidence05 from "@/assets/han-residence-05_result.webp";
+import happyMay01v2 from "@/assets/happy-may-01_result-2.webp";
+import hazcoEnvironmental01v2 from "@/assets/hazco_environmental_waste-01_result-2.webp";
+import herbalandProduction01v2 from "@/assets/herbaland_new_production-01_result-2.webp";
+import herbalandProduction02 from "@/assets/herbaland_new_production-02_result.webp";
+import iglesiaNiCristo01v2 from "@/assets/iglesia_ni_cristo_locale-01_result-2.webp";
+
 
 // ── Unified Project Interface ──────────────────────────
 
@@ -178,7 +190,7 @@ export const allProjects: Project[] = [
   { slug: "gold-buddha-monastery", name: "Gold Buddha Monastery Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Vancouver, BC", area: "33,034 sq. ft.", detail: "Design architect: DYS Architecture; Building permit architect: Architect 57", img: goldBuddhaMonastery01v2, galleryImgs: [goldBuddhaMonastery01v2, goldBuddhaMonastery02, goldBuddhaMonastery03] },
   { slug: "po-lam-temple", name: "Po Lam Temple", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Chilliwack, BC", area: "27,340 sf", budget: "$19 millions", img: poLamTemple01, galleryImgs: [poLamTemple01] },
   { slug: "lutheran-community-church", name: "Lutheran Community Church Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Las Vegas, NV", detail: "Architect: TSK Architects; Designer: Cary Tsai", img: lutheranChurch01, galleryImgs: [lutheranChurch01] },
-  { slug: "iglesia-ni-cristo-surrey", name: "Iglesia Ni Cristo Locale of Surrey", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Surrey, BC", area: "10,964 sf", detail: "Exterior envelope replacement and interior renovation", img: iglesiaNiCristo01, galleryImgs: [iglesiaNiCristo01] },
+  { slug: "iglesia-ni-cristo-surrey", name: "Iglesia Ni Cristo Locale of Surrey", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Religious"], location: "Surrey, BC", area: "10,964 sf", detail: "Exterior envelope replacement and interior renovation", img: iglesiaNiCristo01v2, galleryImgs: [iglesiaNiCristo01v2] },
   // Community & Cultural — existing extra projects
   { slug: "treasure-cove-casino", name: "Treasure Cove Casino Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Casino"], location: "Prince George, BC", area: "15,326 sq. ft.", budget: "$15 millions", img: treasureCoveCasino01, galleryImgs: [treasureCoveCasino01] },
   { slug: "atomic-fitness", name: "Atomic Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: atomicFitness01, galleryImgs: [atomicFitness01] },
@@ -191,7 +203,7 @@ export const allProjects: Project[] = [
   { slug: "sqn-education", name: "SQN Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Richmond, BC", detail: "Designer: ID Design Consulting Ltd.", img: sqnEducation01, galleryImgs: [sqnEducation01] },
   { slug: "phi-education", name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: phiEducation01, galleryImgs: [phiEducation01] },
   { slug: "little-marines-preschool", name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: littleMarines01, galleryImgs: [littleMarines01] },
-  { slug: "happy-may-iv", name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: happyMay01, galleryImgs: [happyMay01] },
+  { slug: "happy-may-iv", name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: happyMay01v2, galleryImgs: [happyMay01v2] },
 
   // ─── INSTITUTIONAL — HEALTH CARE ───
   { slug: "katalin-care-homes", name: "Katalin Care Homes", category: "Institutional", categorySlug: "institutional", tags: ["Healthcare", "Senior Care"], location: "Mission, BC", area: "6,225 sq. ft.", img: katalinCareHomes01, galleryImgs: [katalinCareHomes01] },
@@ -209,8 +221,8 @@ export const allProjects: Project[] = [
   { slug: "corvus-energy-expansion", name: "Corvus Energy Expansion", category: "Industrial", categorySlug: "industrial", tags: ["Energy"], location: "Richmond, BC", area: "33,828 sq. ft.", img: corvusEnergy01v2, galleryImgs: [corvusEnergy01v2, corvusEnergy02] },
   { slug: "rayacom-premium-print", name: "Rayacom Premium Print Upgrade", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", area: "32,675 sq. ft.", img: rayacomPrint01, galleryImgs: [rayacomPrint01] },
   { slug: "sunwins-surgical-mask", name: "Sunwins Surgical Mask Factory", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Vancouver, BC", detail: "Cleanroom level 5 ready", img: sunwinsMask01, galleryImgs: [sunwinsMask01] },
-  { slug: "herbaland-production", name: "Herbaland Production Plant", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Richmond, BC", area: "43,601 sq. ft.", img: herbalandProduction01, galleryImgs: [herbalandProduction01] },
-  { slug: "hazco-environmental", name: "Hazco Environmental Transfer Station", category: "Industrial", categorySlug: "industrial", tags: ["Industrial"], location: "Richmond, BC", area: "29,925 sq. ft.", img: hazcoEnvironmental01, galleryImgs: [hazcoEnvironmental01] },
+  { slug: "herbaland-production", name: "Herbaland Production Plant", category: "Industrial", categorySlug: "industrial", tags: ["Manufacturing"], location: "Richmond, BC", area: "43,601 sq. ft.", img: herbalandProduction01v2, galleryImgs: [herbalandProduction01v2, herbalandProduction02] },
+  { slug: "hazco-environmental", name: "Hazco Environmental Transfer Station", category: "Industrial", categorySlug: "industrial", tags: ["Industrial"], location: "Richmond, BC", area: "29,925 sq. ft.", img: hazcoEnvironmental01v2, galleryImgs: [hazcoEnvironmental01v2] },
 
   // ─── INTERIOR PROJECTS ───
   { slug: "teco-office", name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", area: "12,339 sq. ft.", img: tecoOffice01, galleryImgs: [tecoOffice01] },
@@ -239,7 +251,7 @@ export const allProjects: Project[] = [
 
   // ─── RESIDENTIAL ───
   { slug: "chen-residence", name: "Chen Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "6,729 sq. ft.", detail: "CHBA National SAM Awards Finalist", img: chenResidence01v2, galleryImgs: [chenResidence01v2, chenResidence02, chenResidence03, chenResidence04] },
-  { slug: "han-residence", name: "Han Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Delta, BC", area: "6,078 sq. ft.", img: hanResidence01, galleryImgs: [hanResidence01] },
+  { slug: "han-residence", name: "Han Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Delta, BC", area: "6,078 sq. ft.", img: hanResidence01v2, galleryImgs: [hanResidence01v2, hanResidence02, hanResidence03, hanResidence04, hanResidence05] },
   { slug: "severn-residence", name: "Severn Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: severnResidence01, galleryImgs: [severnResidence01] },
   { slug: "no6-residence", name: "No6 Residence", category: "Residential", categorySlug: "residential", tags: ["Custom Home"], location: "Richmond, BC", img: no6Residence01, galleryImgs: [no6Residence01] },
   { slug: "vinson-creek-residence", name: "Vinson Creek Residence", category: "Residential", categorySlug: "residential", tags: ["Luxury Home"], location: "West Vancouver, BC", area: "9,343 sq. ft.", img: vinsonCreek01, galleryImgs: [vinsonCreek01] },
