@@ -270,7 +270,7 @@ export const allProjects: Project[] = [
   // Community & Cultural — existing extra projects
   { slug: "treasure-cove-casino", name: "Treasure Cove Casino Expansion", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Casino"], location: "Prince George, BC", area: "15,326 sq. ft.", budget: "$15 millions", img: treasureCoveCasino01v2, galleryImgs: [treasureCoveCasino01v2, treasureCoveCasino02] },
   { slug: "atomic-fitness", name: "Atomic Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: atomicFitness01, galleryImgs: [atomicFitness01] },
-  { slug: "vanguard-fitness", name: "Vanguard Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: vanguardFitness01v2, galleryImgs: [vanguardFitness01v2, vanguardFitness02] },
+  { slug: "vanguard-fitness", name: "Vanguard Fitness", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", img: vanguardFitness01v3, galleryImgs: [vanguardFitness01v3, vanguardFitness01v2, vanguardFitness02] },
   { slug: "morgan-play", name: "Morgan Play", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Surrey, BC", detail: "Designer: Yan Design Studio", img: morganPlay01v2, galleryImgs: [morganPlay01v2, morganPlay02, morganPlay03] },
   { slug: "ace-esports", name: "ACE E-Sports", category: "Community & Cultural", categorySlug: "community-cultural", tags: ["Entertainment"], location: "Richmond, BC", area: "4,886 sq. ft.", img: aceEsports01v2, galleryImgs: [aceEsports01v2, aceEsports02, aceEsports03] },
 
