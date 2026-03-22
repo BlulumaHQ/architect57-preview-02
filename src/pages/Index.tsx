@@ -6,6 +6,7 @@ import DiagonalMarquee from "@/components/DiagonalMarquee";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutImg from "@/assets/about-us-01.webp";
+import chbaAward from "@/assets/chba-award.jpg";
 import { allProjects } from "@/data/portfolio";
 import { useLang } from "@/contexts/LangContext";
 
