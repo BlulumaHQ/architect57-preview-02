@@ -1,10 +1,15 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useLang } from "@/contexts/LangContext";
+import usePageMeta from "@/hooks/usePageMeta";
 
 const NotFound = () => {
   const location = useLocation();
   const { t } = useLang();
+  usePageMeta({
+    title: "Page Not Found | Architect 57 無極建築",
+    description: "The page you are looking for does not exist. Return to the Architect 57 無極建築 homepage.",
+  });
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
