@@ -231,3 +231,45 @@ export const collections: Collection[] = [
     ],
   },
 ];
+
+// ── Flat list of ALL projects for grid display ─────────
+
+export interface GridProject {
+  name: string;
+  category: string;
+  categorySlug: string;
+  location: string;
+  area?: string;
+  budget?: string;
+  notes?: string;
+  img: string;
+  detailLink?: string; // only for featured projects
+}
+
+export const allGridProjects: GridProject[] = [
+  // Featured projects included in the grid
+  ...featuredProjects.map((p) => ({
+    name: p.title,
+    category: p.category,
+    categorySlug: p.categorySlug,
+    location: p.location,
+    area: p.area,
+    budget: p.budget,
+    notes: p.notes,
+    img: p.coverImg,
+    detailLink: `/projects/${p.slug}`,
+  })),
+  // Collection projects flattened into the grid
+  ...collections.flatMap((c) =>
+    c.projects.map((p) => ({
+      name: p.name,
+      category: c.title,
+      categorySlug: c.categorySlug,
+      location: p.location,
+      area: p.area,
+      budget: p.budget,
+      notes: p.notes,
+      img: p.img,
+    }))
+  ),
+];
