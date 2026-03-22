@@ -30,7 +30,26 @@ const services = [
   },
 ];
 
-const featuredProjects = allFeatured.slice(0, 4).map((p) => ({
+// Select diverse projects across categories for homepage variety
+const diverseSelection = (() => {
+  const picked: typeof allFeatured = [];
+  const usedCategories = new Set<string>();
+  // First pass: one project per category
+  for (const p of allFeatured) {
+    if (!usedCategories.has(p.categorySlug) && picked.length < 4) {
+      picked.push(p);
+      usedCategories.add(p.categorySlug);
+    }
+  }
+  // Second pass: fill remaining slots if needed
+  for (const p of allFeatured) {
+    if (picked.length >= 4) break;
+    if (!picked.includes(p)) picked.push(p);
+  }
+  return picked;
+})();
+
+const featuredProjects = diverseSelection.map((p) => ({
   img: p.coverImg,
   title: p.title,
   category: p.category,
