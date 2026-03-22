@@ -343,7 +343,7 @@ const allProjectsRaw: GridProject[] = [
 
   // ─── INTERIOR PROJECTS ───
   { name: "Architect 57", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office Interior"], location: "Richmond, BC", img: architect5701 },
-  { name: "Appliance Canada", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Richmond, BC", area: "11,639 sq. ft.", img: src2 },
+  { name: "Appliance Canada", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Richmond, BC", area: "11,639 sq. ft.", img: applianceCanada01 },
   { name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Exhibition"], location: "Richmond, BC", area: "15,801 sq. ft.", img: titanicExhibition01 },
   { name: "Beresford Doctor Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Medical"], location: "Burnaby, BC", img: beresfordClinic01 },
   { name: "Willingdon Green Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Medical"], location: "Burnaby, BC", img: willingdonClinic01 },
