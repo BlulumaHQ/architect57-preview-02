@@ -307,11 +307,11 @@ const allProjectsRaw: GridProject[] = [
   { name: "Hazco Environmental Waste Transfer Station", category: "Industrial", categorySlug: "industrial", tags: ["Waste Processing"], location: "Richmond, BC", area: "29,925 sq. ft.", img: hazcoEnvironmental01 },
 
   // ─── INSTITUTIONAL ───
-  { name: "East 2nd Avenue", category: "Institutional", categorySlug: "institutional", tags: ["Daycare", "Education"], location: "Vancouver, BC", img: src5 },
-  { name: "SQN Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Richmond, BC", detail: "Designer: ID Design Consulting Ltd.", img: src3, detailLink: "/projects/sqn-education" },
-  { name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: src8 },
-  { name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Preschool"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: src9 },
-  { name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: src1 },
+  { name: "East 2nd Avenue", category: "Institutional", categorySlug: "institutional", tags: ["Daycare", "Education"], location: "Vancouver, BC", img: east2ndAve01 },
+  { name: "SQN Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Richmond, BC", detail: "Designer: ID Design Consulting Ltd.", img: sqnEducation01, detailLink: "/projects/sqn-education" },
+  { name: "PHI Education", category: "Institutional", categorySlug: "institutional", tags: ["Education"], location: "Vancouver, BC", img: phiEducation01 },
+  { name: "Little Marines Preschool", category: "Institutional", categorySlug: "institutional", tags: ["Preschool"], location: "Coquitlam, BC", detail: "Designer: Yan Design Studio", img: littleMarines01 },
+  { name: "Happy May IV", category: "Institutional", categorySlug: "institutional", tags: ["Daycare"], location: "Richmond, BC", img: happyMay01 },
   { name: "Katalin Care Homes", category: "Institutional", categorySlug: "institutional", tags: ["Healthcare", "Senior Care"], location: "Mission, BC", area: "6,225 sq. ft.", img: katalinCareHomes01 },
   { name: "Okanagan Chateau Retirement Residence", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care", "Renovation"], location: "Kelowna, BC", detail: "Interior renovation", img: okanaganChateau01 },
   { name: "Mariposa Gardens Retirement Residence and Care", category: "Institutional", categorySlug: "institutional", tags: ["Senior Care"], location: "Osoyoos, BC", area: "109,487 sq. ft.", detail: "Plumbing upgrade", img: mariposaGardens01 },
