@@ -331,13 +331,13 @@ const allProjectsRaw: GridProject[] = [
   // ─── INTERIOR PROJECTS ───
   { name: "Architect 57", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office Interior"], location: "Richmond, BC", img: architect5701 },
   { name: "Appliance Canada", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Richmond, BC", area: "11,639 sq. ft.", img: src2 },
-  { name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Exhibition"], location: "Richmond, BC", area: "15,801 sq. ft.", img: src4 },
+  { name: "Titanic Exhibition", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Exhibition"], location: "Richmond, BC", area: "15,801 sq. ft.", img: titanicExhibition01 },
   { name: "Beresford Doctor Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Medical"], location: "Burnaby, BC", img: beresfordClinic01 },
   { name: "Willingdon Green Clinic", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Medical"], location: "Burnaby, BC", img: willingdonClinic01 },
-  { name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", img: src10 },
+  { name: "Teco Office", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Downtown Vancouver, BC", img: tecoOffice01 },
   { name: "Triple-A (AAA) Commercial", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Commercial Interior"], area: "12,339 sq. ft.", location: "", img: src11 },
-  { name: "Cleardent", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Dental"], location: "Burnaby, BC", img: src1 },
-  { name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: src7 },
+  { name: "Cleardent", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Dental"], location: "Burnaby, BC", img: cleardent01 },
+  { name: "Lions Travel", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Office"], location: "Burnaby, BC", img: lionsTravel01 },
   { name: "Adore", category: "Interior Projects", categorySlug: "interior-projects", tags: ["Retail"], location: "Tsawwassen Mills Mall, Delta, BC", img: adore01 },
 
   // ─── MASTER PLANNING ───
