@@ -252,7 +252,7 @@ const Index = () => {
             {/* Right stack */}
             <div className="md:col-span-5 flex flex-col gap-4 md:gap-5">
               <ScrollReveal delay={100}>
-                <Link to={`/projects/${featuredProjects[1].slug}`} className="group block relative overflow-hidden rounded-sm">
+                <Link to={featuredProjects[1].link} className="group block relative overflow-hidden rounded-sm">
                   <img
                     src={featuredProjects[1].img}
                     alt={featuredProjects[1].title}
