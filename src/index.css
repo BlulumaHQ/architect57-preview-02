@@ -78,29 +78,25 @@
   }
 }
 
-/* Boost Chinese character size — CJK glyphs render smaller than Latin at the same font-size */
+/* Bump base body copy slightly for both languages — English was reading small */
+body {
+  font-size: 16.5px;
+}
+
+/* Gentle CJK boost — Chinese glyphs render optically smaller than Latin.
+   Scoped to body content only (header/nav excluded) so nav stays tight. */
 html[lang^="zh"] body {
   font-size: 17px;
 }
-html[lang^="zh"] {
-  --cjk-boost: 1.12;
-}
-html[lang^="zh"] .font-heading,
-html[lang^="zh"] h1,
-html[lang^="zh"] h2,
-html[lang^="zh"] h3,
-html[lang^="zh"] h4,
-html[lang^="zh"] h5,
-html[lang^="zh"] h6,
-html[lang^="zh"] p,
-html[lang^="zh"] a,
-html[lang^="zh"] span,
-html[lang^="zh"] button,
-html[lang^="zh"] li,
-html[lang^="zh"] label,
-html[lang^="zh"] input,
-html[lang^="zh"] textarea {
-  font-size: calc(1em * var(--cjk-boost));
+html[lang^="zh"] main p,
+html[lang^="zh"] main li,
+html[lang^="zh"] main label,
+html[lang^="zh"] main blockquote,
+html[lang^="zh"] footer p,
+html[lang^="zh"] footer li,
+html[lang^="zh"] footer span,
+html[lang^="zh"] footer a {
+  font-size: 1.05em;
 }
 
 @layer utilities {
