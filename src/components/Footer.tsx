@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import logoWhite from "@/assets/architect57-logo-white.svg";
+import logoAsset from "@/assets/architect57-logo.svg.asset.json";
+const logoWhite = logoAsset.url;
 import { useLang } from "@/contexts/LangContext";
 
 const Footer = () => {
