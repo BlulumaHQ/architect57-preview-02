@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logoWhite from "@/assets/architect57-logo-white.svg";
+import logoAsset from "@/assets/architect57-logo.svg.asset.json";
+const logoWhite = logoAsset.url;
 import { useLang } from "@/contexts/LangContext";
 
 const Header = () => {
