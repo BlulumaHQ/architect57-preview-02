@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import logoWhite from "@/assets/architect57-logo-white.svg";
+import logoAsset from "@/assets/architect57-logo.svg.asset.json";
+const logoWhite = logoAsset.url;
 import { useLang } from "@/contexts/LangContext";
 
 const Footer = () => {
@@ -12,7 +13,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-6">
           {/* Col 1: Logo + description */}
           <div className="md:col-span-1">
-            <img src={logoWhite} alt="Architect 57 無極建築" className="h-[55px] w-auto mb-5" />
+            <img src={logoWhite} alt="Architect 57 無極建築" className="h-[70px] w-auto mb-5" />
             <p className="text-[13px] text-white/50 leading-relaxed max-w-xs font-light">
               {t("footer.desc")}
             </p>

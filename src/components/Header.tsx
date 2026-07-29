@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logoWhite from "@/assets/architect57-logo-white.svg";
+import logoAsset from "@/assets/architect57-logo.svg.asset.json";
+const logoWhite = logoAsset.url;
 import { useLang } from "@/contexts/LangContext";
 
 const Header = () => {
@@ -36,7 +37,7 @@ const Header = () => {
     >
       <div className="container-wide flex items-center justify-between h-20 md:h-24">
         <Link to="/" className="flex items-center">
-          <img src={logoWhite} alt="Architect 57 無極建築" className="h-[36px] md:h-[42px] w-auto" />
+          <img src={logoWhite} alt="Architect 57 無極建築" className="h-[48px] md:h-[60px] w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
