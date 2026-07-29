@@ -244,6 +244,10 @@ const translations: Record<string, Record<Lang, string>> = {
 export const LangProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<Lang>("en");
 
+  useEffect(() => {
+    document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  }, [lang]);
+
   const t = useCallback(
     (key: string): string => {
       const entry = translations[key];
