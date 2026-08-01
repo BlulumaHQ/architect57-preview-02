@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useArchitect57Projects } from "@/hooks/useArchitect57Projects";
 import { useLang } from "@/contexts/LangContext";
-import { projectTitle } from "@/types/project";
+import { projectTitle, type PublicProject } from "@/types/project";
 
 const DiagonalMarquee = () => {
   const { projects } = useArchitect57Projects();
@@ -16,12 +16,8 @@ const DiagonalMarquee = () => {
 
   if (row1.length === 0) return null;
 
-  const renderTile = (
-    item: { slug: string; featuredImageUrl: string | null } & Parameters<
-      typeof projectTitle
-    >[0],
-    key: string
-  ) => {
+  const renderTile = (item: PublicProject, key: string) => {
+
     const name = projectTitle(item, lang);
     return (
       <Link
