@@ -114,30 +114,6 @@ export interface PublicProject {
 
 export type Lang = "en" | "zh";
 
-/** Localized value helper: use Chinese when active and available, else English. */
-export const localized = (
-  lang: Lang,
-  en: string | null | undefined,
-  zh: string | null | undefined
-): string | null => {
-  if (lang === "zh" && zh && zh.trim()) return zh;
-  return en && en.trim() ? en : null;
-};
-
-export const projectTitle = (p: PublicProject, lang: Lang): string =>
-  localized(lang, p.title, p.titleZh) ?? p.title;
-
-export const categoryName = (
-  category: PublicProjectCategory | null,
-  lang: Lang
-): string | null =>
-  category ? localized(lang, category.name, category.nameZh) : null;
-
-export const tagName = (
-  tag: PublicProjectTag | null,
-  lang: Lang
-): string | null => (tag ? localized(lang, tag.name, tag.nameZh) : null);
-
 /** Formatted area string, floor area first, then site area. */
 export const projectArea = (p: PublicProject): string | null => {
   const fmt = (value: number | null, unit: string | null) => {
@@ -154,22 +130,4 @@ export const projectArea = (p: PublicProject): string | null => {
     fmt(p.siteAreaValue, p.siteAreaUnit) ??
     null
   );
-};
-
-export const projectOverview = (
-  p: PublicProject,
-  lang: Lang
-): string | null => {
-  const en =
-    [p.bodyContent, p.scopeOfWork, p.shortSummary, p.excerpt].find(
-      (v) => v && v.trim()
-    ) ?? null;
-  if (lang === "zh") {
-    const zh =
-      [p.bodyContentZh, p.scopeOfWorkZh, p.excerptZh].find(
-        (v) => v && v.trim()
-      ) ?? null;
-    return zh ?? en;
-  }
-  return en;
 };

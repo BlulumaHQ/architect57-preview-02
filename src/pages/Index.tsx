@@ -8,7 +8,7 @@ import hero2 from "@/assets/hero-2.jpg";
 import aboutImg from "@/assets/about-us-01.webp";
 import chbaAward from "@/assets/chba-award.jpg";
 import { useArchitect57Projects, fisherYatesShuffle } from "@/hooks/useArchitect57Projects";
-import { categoryName, projectTitle } from "@/types/project";
+import { localizedCategoryName, localizedProjectTitle } from "@/utils/projectLocalization";
 import { useLang } from "@/contexts/LangContext";
 import usePageMeta from "@/hooks/usePageMeta";
 
@@ -227,17 +227,17 @@ const Index = () => {
                 <ScrollReveal key={p.id} delay={i * 80}>
                   <Link to={`/projects/${p.slug}`} className="group block relative overflow-hidden rounded-sm">
                     {p.featuredImageUrl ? (
-                      <img src={p.featuredImageUrl} alt={projectTitle(p, lang)} className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
+                      <img src={p.featuredImageUrl} alt={localizedProjectTitle(p, lang)} className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
                     ) : (
                       <div className="w-full aspect-[16/10] bg-muted" />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <div className="absolute bottom-0 left-0 p-5 md:p-6">
                       <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
-                        {categoryName(p.category, lang) ?? ""}
+                        {localizedCategoryName(p.category, lang)}
                       </span>
                       <h3 className="font-heading text-lg md:text-xl font-light text-white mt-1">
-                        {projectTitle(p, lang)}
+                        {localizedProjectTitle(p, lang)}
                       </h3>
                     </div>
                   </Link>

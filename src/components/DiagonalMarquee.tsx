@@ -2,7 +2,8 @@ import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useArchitect57Projects } from "@/hooks/useArchitect57Projects";
 import { useLang } from "@/contexts/LangContext";
-import { projectTitle, type PublicProject } from "@/types/project";
+import type { PublicProject } from "@/types/project";
+import { localizedProjectTitle } from "@/utils/projectLocalization";
 
 const DiagonalMarquee = () => {
   const { projects } = useArchitect57Projects();
@@ -18,7 +19,7 @@ const DiagonalMarquee = () => {
 
   const renderTile = (item: PublicProject, key: string) => {
 
-    const name = projectTitle(item, lang);
+    const name = localizedProjectTitle(item, lang);
     return (
       <Link
         key={key}

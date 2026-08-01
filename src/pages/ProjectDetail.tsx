@@ -4,12 +4,14 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useArchitect57Projects } from "@/hooks/useArchitect57Projects";
 import {
-  categoryName,
-  localized,
-  projectOverview,
-  projectTitle,
-  tagName,
-} from "@/types/project";
+  localizedCategoryName,
+  localizedDescription,
+  localizedImageAlt,
+  localizedProjectTitle,
+  localizedSeoDescription,
+  localizedSeoTitle,
+  localizedTagName,
+} from "@/utils/projectLocalization";
 import { useLang } from "@/contexts/LangContext";
 import usePageMeta from "@/hooks/usePageMeta";
 
@@ -38,24 +40,20 @@ const ProjectDetail = () => {
   const nextProject =
     currentIndex >= 0 ? projects[(currentIndex + 1) % projects.length] : null;
 
-  const title = project ? projectTitle(project, lang) : "";
+  const title = project ? localizedProjectTitle(project, lang) : "";
 
   const metaTitle = project
-    ? (lang === "zh"
-        ? project.seoTitleZh ?? `${title} | Architect 57 無極建築`
-        : project.seoTitle ?? `${title} | Architect 57 無極建築`)
+    ? localizedSeoTitle(project, lang)
     : "Project | Architect 57 無極建築";
 
   const factualDesc = project
-    ? [title, categoryName(project.category, lang), project.location]
+    ? [title, localizedCategoryName(project.category, lang), project.location]
         .filter(Boolean)
         .join(" — ")
     : "";
 
   const metaDesc = project
-    ? (lang === "zh"
-        ? project.seoDescriptionZh ?? project.excerptZh ?? project.seoDescription ?? project.excerpt ?? project.shortSummary ?? factualDesc
-        : project.seoDescription ?? project.excerpt ?? project.shortSummary ?? factualDesc)
+    ? localizedSeoDescription(project, lang) || factualDesc
     : "";
 
   usePageMeta({ title: metaTitle, description: metaDesc });
@@ -112,8 +110,8 @@ const ProjectDetail = () => {
   }
 
   const projectIndex = currentIndex + 1;
-  const overview = projectOverview(project, lang);
-  const category = categoryName(project.category, lang);
+  const overview = localizedDescription(project, lang);
+  const category = localizedCategoryName(project.category, lang) || null;
 
   const facts: { label: string; value: string }[] = [];
   const push = (label: string, value: string | null | undefined) => {
@@ -121,8 +119,8 @@ const ProjectDetail = () => {
   };
 
   push(t("detail.category"), category);
-  push(t("detail.tag1"), tagName(project.tag1, lang));
-  push(t("detail.tag2"), tagName(project.tag2, lang));
+  push(t("detail.tag1"), localizedTagName(project.tag1, lang));
+  push(t("detail.tag2"), localizedTagName(project.tag2, lang));
   push(t("detail.location"), project.location);
   push(t("detail.projectStatus"), project.projectStatus);
   push(t("detail.projectYear"), project.projectYear);
@@ -242,7 +240,7 @@ const ProjectDetail = () => {
                   <div className={`overflow-hidden rounded-sm ${i === 0 && project.images.length > 1 ? "md:col-span-2" : ""}`}>
                     <img
                       src={img.url}
-                      alt={localized(lang, img.altText, img.altTextZh) ?? `${title} — view ${i + 1}`}
+                      alt={localizedImageAlt(img, lang, `${title} — view ${i + 1}`)}
                       className={`w-full object-cover hover:scale-[1.02] transition-transform duration-700 ${i === 0 && project.images.length > 1 ? "aspect-[21/9]" : "aspect-[3/2]"}`}
                       loading="lazy"
                     />
@@ -264,7 +262,7 @@ const ProjectDetail = () => {
                 <div>
                   <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-white/40 mb-2">{t("detail.previous")}</p>
                   <h3 className="font-heading text-lg md:text-2xl font-light text-white tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
-                    {projectTitle(prevProject, lang)}
+                    {localizedProjectTitle(prevProject, lang)}
                   </h3>
                 </div>
               </div>
@@ -274,7 +272,7 @@ const ProjectDetail = () => {
                 <div>
                   <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-white/40 mb-2">{t("detail.next")}</p>
                   <h3 className="font-heading text-lg md:text-2xl font-light text-white tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
-                    {projectTitle(nextProject, lang)}
+                    {localizedProjectTitle(nextProject, lang)}
                   </h3>
                 </div>
                 <ArrowRight className="w-5 h-5 text-white/30 group-hover:text-[hsl(var(--gold-accent))] group-hover:translate-x-1 transition-all duration-300 shrink-0" />
