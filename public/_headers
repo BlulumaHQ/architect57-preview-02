@@ -1,0 +1,6 @@
+# Preview / staging hosts must not compete with www.architect57.com in search.
+https://:project.netlify.app/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:project.lovable.app/*
+  X-Robots-Tag: noindex, nofollow
