@@ -7,50 +7,28 @@ import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutImg from "@/assets/about-us-01.webp";
 import chbaAward from "@/assets/chba-award.jpg";
-import { allProjects } from "@/data/portfolio";
+import { useArchitect57Projects, fisherYatesShuffle } from "@/hooks/useArchitect57Projects";
+import { categoryName, projectTitle } from "@/types/project";
 import { useLang } from "@/contexts/LangContext";
 import usePageMeta from "@/hooks/usePageMeta";
 
-// Randomly select 4 projects from Residential + Commercial only (2+2 ideal)
-const getRandomFeatured = () => {
-  const residential = allProjects.filter((p) => p.categorySlug === "residential");
-  const commercial = allProjects.filter((p) => p.categorySlug === "commercial");
-
-  const shuffleAndPick = (arr: typeof allProjects, n: number) => {
-    const shuffled = [...arr].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, n);
-  };
-
-  const resPicks = shuffleAndPick(residential, 2);
-  const comPicks = shuffleAndPick(commercial, 2);
-  let picks = [...resPicks, ...comPicks];
-
-  if (picks.length < 4) {
-    const all = [...residential, ...commercial].filter(
-      (p) => !picks.some((x) => x.slug === p.slug)
-    );
-    const extra = shuffleAndPick(all, 4 - picks.length);
-    picks = [...picks, ...extra];
-  }
-
-  picks.sort(() => Math.random() - 0.5);
-
-  return picks.map((p) => ({
-    img: p.img,
-    title: p.name,
-    categorySlug: p.categorySlug,
-    category: p.category,
-    link: `/projects/${p.slug}`,
-  }));
-};
-
 const Index = () => {
-  const featuredProjects = useMemo(getRandomFeatured, []);
-  const { t } = useLang();
+  const { projects, isLoading } = useArchitect57Projects();
+  const { t, lang } = useLang();
+
+  // Randomize once per Homepage mount, after data has loaded.
+  const featuredProjects = useMemo(() => {
+    if (projects.length === 0) return [];
+    const pool = projects.slice(0, 18);
+    return fisherYatesShuffle(pool).slice(0, 6);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projects.length === 0]);
+
   usePageMeta({
     title: "Architect 57 無極建築 | Design Build | Richmond, BC",
     description: "Architect 57 無極建築 delivers integrated design-build services across residential, commercial, industrial, and institutional sectors in Metro Vancouver and beyond.",
   });
+
 
   const services = [
     { num: "01", title: t("services.s1.title"), desc: t("services.s1.desc") },
