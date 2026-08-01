@@ -2,63 +2,120 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { allProjects, categories } from "@/data/portfolio";
+import { useArchitect57Projects } from "@/hooks/useArchitect57Projects";
+import {
+  categoryName,
+  projectArea,
+  projectTitle,
+  tagName,
+  type PublicProject,
+  type PublicProjectCategory,
+  type PublicProjectTag,
+} from "@/types/project";
 import { useLang } from "@/contexts/LangContext";
 import usePageMeta from "@/hooks/usePageMeta";
 
-// Randomly select 3 featured from Residential + Commercial only
-const getTopFeatured = () => {
-  const residential = allProjects.filter((p) => p.categorySlug === "residential");
-  const commercial = allProjects.filter((p) => p.categorySlug === "commercial");
-
-  const shuffleAndPick = (arr: typeof allProjects, n: number) =>
-    [...arr].sort(() => Math.random() - 0.5).slice(0, n);
-
-  const resFirst = Math.random() > 0.5;
-  const resPicks = shuffleAndPick(residential, resFirst ? 2 : 1);
-  const comPicks = shuffleAndPick(commercial, resFirst ? 1 : 2);
-  let picks = [...resPicks, ...comPicks];
-
-  if (picks.length < 3) {
-    const all = [...residential, ...commercial].filter(
-      (p) => !picks.some((x) => x.slug === p.slug)
-    );
-    picks = [...picks, ...shuffleAndPick(all, 3 - picks.length)];
-  }
-
-  return picks.sort(() => Math.random() - 0.5);
-};
-
 const Projects = () => {
-  const topFeatured = useMemo(getTopFeatured, []);
+  const { projects, isLoading, error, refetch } = useArchitect57Projects();
   const [activeCategory, setActiveCategory] = useState("all");
-  const { t } = useLang();
+  const [activeTag1, setActiveTag1] = useState<string | null>(null);
+  const [activeTag2, setActiveTag2] = useState<string | null>(null);
+  const { t, lang } = useLang();
+
   usePageMeta({
     title: "Projects | Architect 57 無極建築",
-    description: "Explore 80+ architectural projects by Architect 57 無極建築 spanning residential homes, commercial high-rises, industrial facilities, and institutional buildings across Metro Vancouver.",
+    description:
+      lang === "zh"
+        ? "瀏覽 Architect 57 無極建築的住宅、商業、工業、機構、社區、文化、室內及規劃專案。"
+        : "Explore architectural projects by Architect 57 無極建築 across residential, commercial, industrial, institutional, community, cultural, interior, and planning work.",
   });
-  const [activeTag, setActiveTag] = useState<string | null>(null);
+
+  // Signature Projects — prefer CMS is_featured, fill by sort order.
+  const topFeatured = useMemo(() => {
+    const featured = projects
+      .filter((p) => p.isFeatured)
+      .sort((a, b) => a.sortOrder - b.sortOrder)
+      .slice(0, 3);
+    const picks = [...featured];
+    for (const p of projects) {
+      if (picks.length >= 3) break;
+      if (!picks.some((x) => x.id === p.id)) picks.push(p);
+    }
+    return picks.slice(0, 3);
+  }, [projects]);
+
+  const categories = useMemo(() => {
+    const map = new Map<string, PublicProjectCategory>();
+    projects.forEach((p) => {
+      if (p.category && p.category.isActive) map.set(p.category.id, p.category);
+    });
+    return Array.from(map.values()).sort(
+      (a, b) => a.sortOrder - b.sortOrder || a.name.localeCompare(b.name)
+    );
+  }, [projects]);
 
   const categoryFiltered = useMemo(() => {
-    if (activeCategory === "all") return allProjects;
-    return allProjects.filter((p) => p.categorySlug === activeCategory);
-  }, [activeCategory]);
+    if (activeCategory === "all") return projects;
+    return projects.filter((p) => p.category?.slug === activeCategory);
+  }, [projects, activeCategory]);
 
-  const availableTags = useMemo(() => {
-    const tagSet = new Set<string>();
-    categoryFiltered.forEach((p) => p.tags.forEach((t) => tagSet.add(t)));
-    return Array.from(tagSet).sort();
+  const tag1Options = useMemo(() => {
+    const map = new Map<string, PublicProjectTag>();
+    categoryFiltered.forEach((p) => {
+      if (p.tag1 && p.tag1.isActive) map.set(p.tag1.id, p.tag1);
+    });
+    return Array.from(map.values()).sort(
+      (a, b) => a.sortOrder - b.sortOrder || a.name.localeCompare(b.name)
+    );
   }, [categoryFiltered]);
 
+  const tag1Filtered = useMemo(() => {
+    if (!activeTag1) return categoryFiltered;
+    return categoryFiltered.filter((p) => p.tag1?.id === activeTag1);
+  }, [categoryFiltered, activeTag1]);
+
+  const tag2Options = useMemo(() => {
+    if (!activeTag1) return [];
+    const map = new Map<string, PublicProjectTag>();
+    tag1Filtered.forEach((p) => {
+      const tg = p.tag2;
+      if (tg && tg.isActive && tg.parentTagId === activeTag1) map.set(tg.id, tg);
+    });
+    return Array.from(map.values()).sort(
+      (a, b) => a.sortOrder - b.sortOrder || a.name.localeCompare(b.name)
+    );
+  }, [tag1Filtered, activeTag1]);
+
   const filteredProjects = useMemo(() => {
-    if (!activeTag) return categoryFiltered;
-    return categoryFiltered.filter((p) => p.tags.includes(activeTag));
-  }, [categoryFiltered, activeTag]);
+    if (!activeTag2) return tag1Filtered;
+    return tag1Filtered.filter((p) => p.tag2?.id === activeTag2);
+  }, [tag1Filtered, activeTag2]);
 
   const handleCategoryChange = (slug: string) => {
     setActiveCategory(slug);
-    setActiveTag(null);
+    setActiveTag1(null);
+    setActiveTag2(null);
   };
+
+  const handleTag1Change = (id: string | null) => {
+    setActiveTag1(id);
+    setActiveTag2(null);
+  };
+
+  const activeCategoryLabel =
+    activeCategory === "all"
+      ? t("projects.allProjects")
+      : categoryName(
+          categories.find((c) => c.slug === activeCategory) ?? null,
+          lang
+        ) ?? t("projects.allProjects");
+
+  const tagButtonClass = (active: boolean) =>
+    `text-[10px] font-light tracking-[0.1em] uppercase px-3 py-1.5 rounded-full transition-all duration-300 active:scale-[0.97] whitespace-nowrap border ${
+      active
+        ? "border-foreground/30 bg-foreground/5 text-foreground"
+        : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
+    }`;
 
   return (
     <main className="pb-16 md:pb-0">
@@ -79,144 +136,196 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Featured */}
-      <section className="section-padding-lg bg-background">
-        <div className="container-wide">
-          <ScrollReveal>
-            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-3">
-              {t("projects.featuredLabel")}
-            </p>
-            <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground mb-14 tracking-tight">
-              {t("projects.featuredTitle")}
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {topFeatured.map((p, i) => (
-              <ScrollReveal key={p.slug} delay={i * 100}>
-                <Link to={`/projects/${p.slug}`} className="group block">
-                  <div className="overflow-hidden rounded-sm">
-                    <img src={p.img} alt={p.name} className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
-                  </div>
-                  <div className="mt-4">
-                    <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
-                      {t(`cat.${p.categorySlug}`)}
-                    </span>
-                    <h3 className="font-heading text-xl font-light text-foreground mt-1 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
-                      {p.name}
-                    </h3>
-                    <p className="text-muted-foreground/70 text-sm font-light mt-1 flex items-center gap-1.5">
-                      <MapPin className="w-3 h-3" />
-                      {p.location}
-                    </p>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="container-wide">
-        <div className="h-px bg-border" />
-      </div>
-
-      {/* Category Filter */}
-      <section className="bg-background sticky top-[72px] z-30 border-b border-border">
-        <div className="container-wide py-4 overflow-x-auto scrollbar-hide">
-          <div className="flex gap-2 min-w-max">
-            {categories.map((cat) => (
-              <button
-                key={cat.slug}
-                onClick={() => handleCategoryChange(cat.slug)}
-                className={`font-heading text-[11px] font-light tracking-[0.15em] uppercase px-5 py-2.5 rounded-sm transition-all duration-300 active:scale-[0.97] whitespace-nowrap ${
-                  activeCategory === cat.slug
-                    ? "bg-foreground text-background"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                }`}
-              >
-                {t(`cat.${cat.slug}`)}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tag Filter */}
-      {availableTags.length > 1 && (
-        <section className="bg-background border-b border-border/50">
-          <div className="container-wide py-3 overflow-x-auto scrollbar-hide">
-            <div className="flex gap-1.5 min-w-max items-center">
-              <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-muted-foreground/50 mr-2">{t("projects.tags")}</span>
-              <button
-                onClick={() => setActiveTag(null)}
-                className={`text-[10px] font-light tracking-[0.1em] uppercase px-3 py-1.5 rounded-full transition-all duration-300 active:scale-[0.97] whitespace-nowrap border ${
-                  !activeTag
-                    ? "border-foreground/30 bg-foreground/5 text-foreground"
-                    : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
-                }`}
-              >
-                {t("cat.all")}
-              </button>
-              {availableTags.map((tag) => (
-                <button
-                  key={tag}
-                  onClick={() => setActiveTag(tag)}
-                  className={`text-[10px] font-light tracking-[0.1em] uppercase px-3 py-1.5 rounded-full transition-all duration-300 active:scale-[0.97] whitespace-nowrap border ${
-                    activeTag === tag
-                      ? "border-foreground/30 bg-foreground/5 text-foreground"
-                      : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
-                  }`}
-                >
-                  {tag}
-                </button>
-              ))}
-            </div>
+      {error ? (
+        <section className="section-padding-lg bg-background">
+          <div className="container-wide text-center py-20">
+            <p className="text-muted-foreground font-light">{t("state.error")}</p>
+            <button
+              onClick={() => refetch()}
+              className="mt-4 font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
+            >
+              {t("state.retry")}
+            </button>
           </div>
         </section>
-      )}
+      ) : (
+        <>
+          {/* Featured */}
+          <section className="section-padding-lg bg-background">
+            <div className="container-wide">
+              <ScrollReveal>
+                <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-3">
+                  {t("projects.featuredLabel")}
+                </p>
+                <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground mb-14 tracking-tight">
+                  {t("projects.featuredTitle")}
+                </h2>
+              </ScrollReveal>
 
-      {/* All Projects Grid */}
-      <section className="section-padding-lg bg-background">
-        <div className="container-wide">
-          <ScrollReveal>
-            <div className="flex items-end justify-between mb-10">
-              <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground tracking-tight">
-                {activeCategory === "all"
-                  ? t("projects.allProjects")
-                  : t(`cat.${activeCategory}`)}
-                {activeTag && <span className="text-muted-foreground ml-2">/ {activeTag}</span>}
-              </h2>
-              <span className="text-muted-foreground font-light text-sm">
-                {filteredProjects.length} {filteredProjects.length !== 1 ? t("projects.projects") : t("projects.project")}
-              </span>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                {isLoading
+                  ? Array.from({ length: 3 }).map((_, i) => (
+                      <div key={i}>
+                        <div className="w-full aspect-[4/3] rounded-sm bg-muted animate-pulse" />
+                      </div>
+                    ))
+                  : topFeatured.map((p, i) => (
+                      <ScrollReveal key={p.id} delay={i * 100}>
+                        <Link to={`/projects/${p.slug}`} className="group block">
+                          <div className="overflow-hidden rounded-sm">
+                            {p.featuredImageUrl ? (
+                              <img src={p.featuredImageUrl} alt={projectTitle(p, lang)} className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
+                            ) : (
+                              <div className="w-full aspect-[4/3] bg-muted" />
+                            )}
+                          </div>
+                          <div className="mt-4">
+                            <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
+                              {categoryName(p.category, lang) ?? ""}
+                            </span>
+                            <h3 className="font-heading text-xl font-light text-foreground mt-1 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
+                              {projectTitle(p, lang)}
+                            </h3>
+                            {p.location && (
+                              <p className="text-muted-foreground/70 text-sm font-light mt-1 flex items-center gap-1.5">
+                                <MapPin className="w-3 h-3" />
+                                {p.location}
+                              </p>
+                            )}
+                          </div>
+                        </Link>
+                      </ScrollReveal>
+                    ))}
+              </div>
             </div>
-          </ScrollReveal>
+          </section>
 
-          {filteredProjects.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {filteredProjects.map((p, i) => (
-                <ScrollReveal key={`${p.slug}-${i}`} delay={i * 40}>
-                  <Link to={`/projects/${p.slug}`} className="group block">
-                    <ProjectCard project={p} />
-                  </Link>
-                </ScrollReveal>
-              ))}
+          {/* Divider */}
+          <div className="container-wide">
+            <div className="h-px bg-border" />
+          </div>
+
+          {/* Category Filter */}
+          <section className="bg-background sticky top-[72px] z-30 border-b border-border">
+            <div className="container-wide py-4 overflow-x-auto scrollbar-hide">
+              <div className="flex gap-2 min-w-max">
+                {[{ id: "all", slug: "all", label: t("cat.all") }, ...categories.map((c) => ({ id: c.id, slug: c.slug, label: categoryName(c, lang) ?? c.name }))].map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => handleCategoryChange(cat.slug)}
+                    className={`font-heading text-[11px] font-light tracking-[0.15em] uppercase px-5 py-2.5 rounded-sm transition-all duration-300 active:scale-[0.97] whitespace-nowrap ${
+                      activeCategory === cat.slug
+                        ? "bg-foreground text-background"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
             </div>
-          ) : (
-            <div className="text-center py-20">
-              <p className="text-muted-foreground font-light">{t("projects.noResults")}</p>
-              <button
-                onClick={() => { setActiveCategory("all"); setActiveTag(null); }}
-                className="mt-4 font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
-              >
-                {t("projects.viewAll")}
-              </button>
-            </div>
+          </section>
+
+          {/* Tag 1 Filter */}
+          {tag1Options.length > 1 && (
+            <section className="bg-background border-b border-border/50">
+              <div className="container-wide py-3 overflow-x-auto scrollbar-hide">
+                <div className="flex gap-1.5 min-w-max items-center">
+                  <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-muted-foreground/50 mr-2">{t("projects.tags")}</span>
+                  <button onClick={() => handleTag1Change(null)} className={tagButtonClass(!activeTag1)}>
+                    {t("cat.all")}
+                  </button>
+                  {tag1Options.map((tg) => (
+                    <button key={tg.id} onClick={() => handleTag1Change(tg.id)} className={tagButtonClass(activeTag1 === tg.id)}>
+                      {tagName(tg, lang) ?? tg.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </section>
           )}
-        </div>
-      </section>
+
+          {/* Tag 2 Filter */}
+          {activeTag1 && tag2Options.length > 0 && (
+            <section className="bg-background border-b border-border/50">
+              <div className="container-wide py-3 overflow-x-auto scrollbar-hide">
+                <div className="flex gap-1.5 min-w-max items-center">
+                  <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-muted-foreground/50 mr-2">{t("projects.tag2")}</span>
+                  <button onClick={() => setActiveTag2(null)} className={tagButtonClass(!activeTag2)}>
+                    {t("cat.all")}
+                  </button>
+                  {tag2Options.map((tg) => (
+                    <button key={tg.id} onClick={() => setActiveTag2(tg.id)} className={tagButtonClass(activeTag2 === tg.id)}>
+                      {tagName(tg, lang) ?? tg.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* All Projects Grid */}
+          <section className="section-padding-lg bg-background">
+            <div className="container-wide">
+              <ScrollReveal>
+                <div className="flex items-end justify-between mb-10">
+                  <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground tracking-tight">
+                    {activeCategoryLabel}
+                    {activeTag1 && (
+                      <span className="text-muted-foreground ml-2">
+                        / {tagName(tag1Options.find((tg) => tg.id === activeTag1) ?? null, lang)}
+                      </span>
+                    )}
+                    {activeTag2 && (
+                      <span className="text-muted-foreground ml-2">
+                        / {tagName(tag2Options.find((tg) => tg.id === activeTag2) ?? null, lang)}
+                      </span>
+                    )}
+                  </h2>
+                  <span className="text-muted-foreground font-light text-sm">
+                    {filteredProjects.length} {filteredProjects.length !== 1 ? t("projects.projects") : t("projects.project")}
+                  </span>
+                </div>
+              </ScrollReveal>
+
+              {isLoading ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  {Array.from({ length: 8 }).map((_, i) => (
+                    <div key={i}>
+                      <div className="w-full aspect-[4/3] rounded-sm bg-muted animate-pulse" />
+                      <div className="mt-3 h-4 w-2/3 rounded-sm bg-muted animate-pulse" />
+                    </div>
+                  ))}
+                </div>
+              ) : filteredProjects.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  {filteredProjects.map((p, i) => (
+                    <ScrollReveal key={p.id} delay={i * 40}>
+                      <Link to={`/projects/${p.slug}`} className="group block">
+                        <ProjectCard project={p} />
+                      </Link>
+                    </ScrollReveal>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-20">
+                  <p className="text-muted-foreground font-light">
+                    {projects.length === 0 ? t("state.empty") : t("projects.noResults")}
+                  </p>
+                  {projects.length > 0 && (
+                    <button
+                      onClick={() => { setActiveCategory("all"); setActiveTag1(null); setActiveTag2(null); }}
+                      className="mt-4 font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
+                    >
+                      {t("projects.viewAll")}
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          </section>
+        </>
+      )}
 
       {/* CTA */}
       <section className="bg-[hsl(var(--surface-dark))] py-24 md:py-32 text-center">
@@ -243,23 +352,18 @@ const Projects = () => {
 
 // ── Project Card Component ─────────────────────────────
 
-interface ProjectCardProps {
-  project: {
-    name: string;
-    category: string;
-    categorySlug: string;
-    location: string;
-    area?: string;
-    img: string;
-  };
-}
-
-const ProjectCard = ({ project }: ProjectCardProps) => {
-  const { t } = useLang();
+const ProjectCard = ({ project }: { project: PublicProject }) => {
+  const { t, lang } = useLang();
+  const name = projectTitle(project, lang);
+  const area = projectArea(project);
   return (
     <>
       <div className="overflow-hidden rounded-sm relative">
-        <img src={project.img} alt={project.name} className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
+        {project.featuredImageUrl ? (
+          <img src={project.featuredImageUrl} alt={name} className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
+        ) : (
+          <div className="w-full aspect-[4/3] bg-muted" />
+        )}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">
           <span className="font-heading text-[13px] font-light tracking-[0.15em] uppercase text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
             {t("projects.seeDetails")}
@@ -268,10 +372,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       </div>
       <div className="mt-3">
         <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
-          {t(`cat.${project.categorySlug}`)}
+          {categoryName(project.category, lang) ?? ""}
         </span>
         <h3 className="font-heading text-[15px] font-light text-foreground mt-0.5 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300 leading-snug">
-          {project.name}
+          {name}
         </h3>
         {project.location && (
           <p className="text-muted-foreground/60 text-xs font-light mt-1 flex items-center gap-1">
@@ -279,8 +383,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             {project.location}
           </p>
         )}
-        {project.area && (
-          <p className="text-muted-foreground/50 text-[11px] font-light mt-0.5">{project.area}</p>
+        {area && (
+          <p className="text-muted-foreground/50 text-[11px] font-light mt-0.5">{area}</p>
         )}
       </div>
     </>
