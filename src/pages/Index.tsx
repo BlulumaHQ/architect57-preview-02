@@ -215,24 +215,37 @@ const Index = () => {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {featuredProjects.map((p, i) => (
-              <ScrollReveal key={p.link} delay={i * 80}>
-                <Link to={p.link} className="group block relative overflow-hidden rounded-sm">
-                  <img src={p.img} alt={p.title} className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-5 md:p-6">
-                    <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
-                      {t(`cat.${p.categorySlug}`)}
-                    </span>
-                    <h3 className="font-heading text-lg md:text-xl font-light text-white mt-1">
-                      {p.title}
-                    </h3>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="w-full aspect-[16/10] rounded-sm bg-muted animate-pulse" />
+              ))}
+            </div>
+          ) : featuredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {featuredProjects.map((p, i) => (
+                <ScrollReveal key={p.id} delay={i * 80}>
+                  <Link to={`/projects/${p.slug}`} className="group block relative overflow-hidden rounded-sm">
+                    {p.featuredImageUrl ? (
+                      <img src={p.featuredImageUrl} alt={projectTitle(p, lang)} className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
+                    ) : (
+                      <div className="w-full aspect-[16/10] bg-muted" />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-5 md:p-6">
+                      <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
+                        {categoryName(p.category, lang) ?? ""}
+                      </span>
+                      <h3 className="font-heading text-lg md:text-xl font-light text-white mt-1">
+                        {projectTitle(p, lang)}
+                      </h3>
+                    </div>
+                  </Link>
+                </ScrollReveal>
+              ))}
+            </div>
+          ) : null}
+
 
           <div className="mt-8 text-center md:hidden">
             <Link
