@@ -1,1 +1,10 @@
+# Trailing-slash redirects first (canonical = no trailing slash)
+/single-family/                  /single-family                  301
+/daycare/                        /daycare                        301
+/multi-family-office-building/   /multi-family-office-building   301
+/projects/                       /projects                       301
+/about/                          /about                          301
+/contact/                        /contact                        301
+
+# SPA fallback last
 /*    /index.html   200
