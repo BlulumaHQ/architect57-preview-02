@@ -4,14 +4,16 @@ import { ArrowRight, MapPin } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useArchitect57Projects } from "@/hooks/useArchitect57Projects";
 import {
-  categoryName,
   projectArea,
-  projectTitle,
-  tagName,
   type PublicProject,
   type PublicProjectCategory,
   type PublicProjectTag,
 } from "@/types/project";
+import {
+  localizedCategoryName,
+  localizedProjectTitle,
+  localizedTagName,
+} from "@/utils/projectLocalization";
 import { useLang } from "@/contexts/LangContext";
 import usePageMeta from "@/hooks/usePageMeta";
 
@@ -105,10 +107,10 @@ const Projects = () => {
   const activeCategoryLabel =
     activeCategory === "all"
       ? t("projects.allProjects")
-      : categoryName(
+      : localizedCategoryName(
           categories.find((c) => c.slug === activeCategory) ?? null,
           lang
-        ) ?? t("projects.allProjects");
+        ) || t("projects.allProjects");
 
   const tagButtonClass = (active: boolean) =>
     `text-[10px] font-light tracking-[0.1em] uppercase px-3 py-1.5 rounded-full transition-all duration-300 active:scale-[0.97] whitespace-nowrap border ${
@@ -174,17 +176,17 @@ const Projects = () => {
                         <Link to={`/projects/${p.slug}`} className="group block">
                           <div className="overflow-hidden rounded-sm">
                             {p.featuredImageUrl ? (
-                              <img src={p.featuredImageUrl} alt={projectTitle(p, lang)} className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
+                              <img src={p.featuredImageUrl} alt={localizedProjectTitle(p, lang)} className="w-full aspect-[4/3] object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
                             ) : (
                               <div className="w-full aspect-[4/3] bg-muted" />
                             )}
                           </div>
                           <div className="mt-4">
                             <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
-                              {categoryName(p.category, lang) ?? ""}
+                              {localizedCategoryName(p.category, lang)}
                             </span>
                             <h3 className="font-heading text-xl font-light text-foreground mt-1 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
-                              {projectTitle(p, lang)}
+                              {localizedProjectTitle(p, lang)}
                             </h3>
                             {p.location && (
                               <p className="text-muted-foreground/70 text-sm font-light mt-1 flex items-center gap-1.5">
@@ -209,7 +211,7 @@ const Projects = () => {
           <section className="bg-background sticky top-[72px] z-30 border-b border-border">
             <div className="container-wide py-4 overflow-x-auto scrollbar-hide">
               <div className="flex gap-2 min-w-max">
-                {[{ id: "all", slug: "all", label: t("cat.all") }, ...categories.map((c) => ({ id: c.id, slug: c.slug, label: categoryName(c, lang) ?? c.name }))].map((cat) => (
+                {[{ id: "all", slug: "all", label: t("cat.all") }, ...categories.map((c) => ({ id: c.id, slug: c.slug, label: localizedCategoryName(c, lang) || c.name }))].map((cat) => (
                   <button
                     key={cat.id}
                     onClick={() => handleCategoryChange(cat.slug)}
@@ -237,7 +239,7 @@ const Projects = () => {
                   </button>
                   {tag1Options.map((tg) => (
                     <button key={tg.id} onClick={() => handleTag1Change(tg.id)} className={tagButtonClass(activeTag1 === tg.id)}>
-                      {tagName(tg, lang) ?? tg.name}
+                      {localizedTagName(tg, lang) || tg.name}
                     </button>
                   ))}
                 </div>
@@ -256,7 +258,7 @@ const Projects = () => {
                   </button>
                   {tag2Options.map((tg) => (
                     <button key={tg.id} onClick={() => setActiveTag2(tg.id)} className={tagButtonClass(activeTag2 === tg.id)}>
-                      {tagName(tg, lang) ?? tg.name}
+                      {localizedTagName(tg, lang) || tg.name}
                     </button>
                   ))}
                 </div>
@@ -273,12 +275,12 @@ const Projects = () => {
                     {activeCategoryLabel}
                     {activeTag1 && (
                       <span className="text-muted-foreground ml-2">
-                        / {tagName(tag1Options.find((tg) => tg.id === activeTag1) ?? null, lang)}
+                        / {localizedTagName(tag1Options.find((tg) => tg.id === activeTag1) ?? null, lang)}
                       </span>
                     )}
                     {activeTag2 && (
                       <span className="text-muted-foreground ml-2">
-                        / {tagName(tag2Options.find((tg) => tg.id === activeTag2) ?? null, lang)}
+                        / {localizedTagName(tag2Options.find((tg) => tg.id === activeTag2) ?? null, lang)}
                       </span>
                     )}
                   </h2>
@@ -354,7 +356,7 @@ const Projects = () => {
 
 const ProjectCard = ({ project }: { project: PublicProject }) => {
   const { t, lang } = useLang();
-  const name = projectTitle(project, lang);
+  const name = localizedProjectTitle(project, lang);
   const area = projectArea(project);
   return (
     <>
@@ -372,7 +374,7 @@ const ProjectCard = ({ project }: { project: PublicProject }) => {
       </div>
       <div className="mt-3">
         <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
-          {categoryName(project.category, lang) ?? ""}
+          {localizedCategoryName(project.category, lang)}
         </span>
         <h3 className="font-heading text-[15px] font-light text-foreground mt-0.5 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300 leading-snug">
           {name}
