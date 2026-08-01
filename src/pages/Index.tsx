@@ -138,7 +138,7 @@ const Index = () => {
       </section>
 
       {/* ABOUT */}
-      <section className="relative bg-[hsl(var(--surface-warm))] overflow-hidden">
+      <section id="about" className="relative bg-[hsl(var(--surface-warm))] overflow-hidden">
         <div className="container-wide py-28 md:py-40">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <ScrollReveal direction="left" className="lg:col-span-6">
@@ -192,7 +192,7 @@ const Index = () => {
       </section>
 
       {/* FEATURED PROJECTS */}
-      <section className="section-padding-lg bg-background relative">
+      <section id="projects" className="section-padding-lg bg-background relative">
         <div className="absolute top-12 right-6 md:right-10 w-3 h-3 border-t border-r border-[#a11d2d]/20 hidden md:block" />
         <div className="container-wide">
           <ScrollReveal>
@@ -260,7 +260,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))]">
+      <section id="contact" className="relative overflow-hidden bg-[hsl(var(--surface-dark))]">
         <div className="container-wide py-28 md:py-40 text-center relative z-10">
           <ScrollReveal>
             <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-5">

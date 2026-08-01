@@ -15,6 +15,7 @@ import CollectionGallery from "./pages/CollectionGallery";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import LegacyPortfolioPage from "./pages/LegacyPortfolioPage";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,13 @@ const App = () => (
             <Route path="/projects/collection/:slug" element={<CollectionGallery />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            {/* Preserved legacy Architect 57 portfolio URLs (indexed by Google) */}
+            <Route path="/single-family" element={<LegacyPortfolioPage routeKey="single-family" />} />
+            <Route path="/daycare" element={<LegacyPortfolioPage routeKey="daycare" />} />
+            <Route
+              path="/multi-family-office-building"
+              element={<LegacyPortfolioPage routeKey="multi-family-office-building" />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
