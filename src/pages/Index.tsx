@@ -127,7 +127,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ABOUT */}
+      {/* CATEGORY SHOWCASE */}
+      <CategoryShowcase projects={projects} isLoading={isLoading} />
+
+      {/* ABOUT — sits immediately above Let's Collaborate */}
       <section id="about" className="relative bg-[hsl(var(--surface-warm))] overflow-hidden">
         <div className="container-wide py-16 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -138,21 +141,21 @@ const Index = () => {
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right" className="lg:col-span-5 lg:col-start-8">
-              <p className="section-eyebrow section-eyebrow--purple mb-4">
+              <p className="section-eyebrow section-eyebrow--purple mb-3">
                 {t("about.label")}
               </p>
-              <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground leading-tight mb-6 tracking-tight">
+              <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground leading-tight mb-5 tracking-tight">
                 {t("about.title1")}
                 <br />
                 <span className="font-medium">{t("about.title2")}</span>
               </h2>
-              <p className="text-muted-foreground font-light leading-relaxed mb-6">
+              <p className="text-muted-foreground font-light leading-relaxed mb-5">
                 {t("about.desc")}
               </p>
-              <p className="text-muted-foreground font-light leading-relaxed mb-6 text-[15px] italic">
+              <p className="text-muted-foreground font-light leading-relaxed mb-5 text-[15px] italic">
                 {t("about.quote")}
               </p>
-              <div className="flex flex-wrap gap-x-8 gap-y-3 mb-8">
+              <div className="flex flex-wrap gap-x-8 gap-y-3 mb-6">
                 <div>
                   <span className="font-heading text-2xl font-light text-foreground">CP</span>
                   <span className="block card-label card-label--muted mt-1">{t("about.cp")}</span>
@@ -173,78 +176,7 @@ const Index = () => {
                 {t("about.cta")}
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
-              <div className="mt-8">
-                <img src={chbaAward} alt="CHBA National Awards for Housing Excellence" className="w-40 md:w-48 object-contain" loading="lazy" />
-              </div>
             </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURED PROJECTS */}
-      <section id="projects" className="section-padding-lg bg-background relative">
-        <div className="absolute top-12 right-6 md:right-10 w-3 h-3 border-t border-r border-[#a11d2d]/20 hidden md:block" />
-        <div className="container-wide">
-          <ScrollReveal>
-            <div className="flex items-end justify-between mb-10">
-              <div>
-                <p className="section-eyebrow section-eyebrow--purple mb-4">
-                  {t("featured.label")}
-                </p>
-                <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground tracking-tight">
-                  {t("featured.title1")} <span className="font-medium">{t("featured.title2")}</span>
-                </h2>
-              </div>
-              <Link
-                to="/projects"
-                className="hidden md:inline-flex items-center gap-2 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground"
-              >
-                {t("featured.viewAll")}
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </ScrollReveal>
-
-          {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="w-full aspect-[16/10] rounded-sm bg-muted animate-pulse" />
-              ))}
-            </div>
-          ) : featuredProjects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {featuredProjects.map((p, i) => (
-                <ScrollReveal key={p.id} delay={i * 80}>
-                  <Link to={`/projects/${p.slug}`} className="group block relative overflow-hidden rounded-sm">
-                    {p.featuredImageUrl ? (
-                      <img src={p.featuredImageUrl} alt={localizedProjectTitle(p, lang)} className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" />
-                    ) : (
-                      <div className="w-full aspect-[16/10] bg-muted" />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-5 md:p-6">
-                      <span className="card-label card-label--on-dark">
-                        {localizedCategoryName(p.category, lang)}
-                      </span>
-                      <h3 className="font-heading text-lg md:text-xl font-light text-white mt-1">
-                        {localizedProjectTitle(p, lang)}
-                      </h3>
-                    </div>
-                  </Link>
-                </ScrollReveal>
-              ))}
-            </div>
-          ) : null}
-
-
-          <div className="mt-8 text-center md:hidden">
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1"
-            >
-              {t("featured.viewAllProjects")}
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
         </div>
       </section>
