@@ -256,6 +256,7 @@ const translations: Record<string, Record<Lang, string>> = {
   "contact.infoTitle1": { en: "Contact", zh: "聯絡" },
   "contact.infoTitle2": { en: "Info", zh: "資訊" },
   "contact.phoneLabel": { en: "Phone", zh: "電話" },
+  "contact.companyLabel": { en: "Company", zh: "公司" },
   "contact.emailLabel": { en: "Email", zh: "電郵" },
   "contact.addressLabel": { en: "Address", zh: "地址" },
 

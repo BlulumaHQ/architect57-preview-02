@@ -89,7 +89,11 @@ const Contact = () => {
               <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-8 tracking-tight">
                 {t("contact.infoTitle1")} <span className="font-medium">{t("contact.infoTitle2")}</span>
               </h2>
-              <div className="space-y-8">
+              <div className="space-y-6">
+                <div>
+                  <span className="card-label card-label--muted block mb-2">{t("contact.companyLabel")}</span>
+                  <p className="text-foreground font-medium">Architect 57 Inc.</p>
+                </div>
                 <div>
                   <span className="card-label card-label--muted block mb-2">{t("contact.phoneLabel")}</span>
                   <a href="tel:604-818-2088" className="text-foreground font-light hover:text-[hsl(var(--purple-muted))] transition-colors">604.818.2088</a>
