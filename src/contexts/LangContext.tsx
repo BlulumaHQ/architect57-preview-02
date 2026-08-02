@@ -285,6 +285,13 @@ const translations: Record<string, Record<Lang, string>> = {
   "footer.codeConsultation": { en: "Code Consultation", zh: "法規諮詢" },
   "footer.projectManagement": { en: "Project Management", zh: "項目管理" },
   "footer.bimServices": { en: "BIM Services", zh: "BIM 服務" },
+  "footer.descShort": {
+    en: "Integrated building design, code consultation, and project delivery.",
+    zh: "整合建築設計、法規顧問與專案交付。",
+  },
+  "footer.navSummary": { en: "Navigation", zh: "網站導覽" },
+  "footer.servicesSummary": { en: "Services", zh: "服務項目" },
+  "footer.ipd": { en: "Integrated Project Delivery", zh: "整合專案交付" },
 
   // Sticky CTA
   "cta.callNow": { en: "Call Now", zh: "立即致電" },
