@@ -19,7 +19,10 @@ export const ARCHITECT57_ADDRESS = {
 export const ARCHITECT57_DIRECTIONS_URL =
   "https://www.google.com/maps/dir/?api=1&destination=49.1944073,-123.1043397";
 
-type LoadState = "loading" | "ready" | "error";
+type LoadState = "loading" | "ready" | "fallback";
+
+/** Emergency fallback embed — standard Google marker, exact verified coordinates. */
+export const ARCHITECT57_EMBED_URL = `https://www.google.com/maps?q=${ARCHITECT57_OFFICE_QUERY}&z=16&output=embed`;
 
 declare global {
   interface Window {
