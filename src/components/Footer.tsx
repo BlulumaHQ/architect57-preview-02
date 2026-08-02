@@ -120,7 +120,7 @@ const Footer = () => {
       {/* Copyright bar */}
       <div className="border-t border-white/10 relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#a11d2d]/30" />
-        <div className="container-wide py-6 flex flex-col md:flex-row items-center justify-center gap-1 text-[12px] text-white/75 font-normal">
+        <div className="container-wide py-4 md:py-6 flex flex-col md:flex-row items-center justify-center gap-1 text-[11px] md:text-[12px] text-white/75 font-normal text-center">
           <span>© {year} Architect 57 Inc. All Rights Reserved.</span>
           <span className="hidden md:inline mx-1">|</span>
           <span>
