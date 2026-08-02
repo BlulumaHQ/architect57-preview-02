@@ -154,13 +154,13 @@ const CategoryShowcase = ({ projects, isLoading }: CategoryShowcaseProps) => {
         </ScrollReveal>
 
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {Array.from({ length: SHOWCASE_COUNT }).map((_, i) => (
               <div key={i} className="w-full aspect-[16/10] rounded-sm bg-muted animate-pulse" />
             ))}
           </div>
         ) : selected.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {selected.map(({ category, imageUrl }, i) => (
               <ScrollReveal key={category.id} delay={i * 80}>
                 <Link
