@@ -47,7 +47,7 @@ const Header = () => {
               className={`font-heading text-[13px] font-light tracking-[0.15em] uppercase transition-colors duration-300 ${
                 location.pathname === link.to
                   ? "text-white"
-                  : "text-white/60 hover:text-white"
+                  : "text-white/90 hover:text-white"
               }`}
             >
               {link.label}
@@ -57,14 +57,14 @@ const Header = () => {
           <div className="flex items-center gap-1 text-[12px] font-heading font-light tracking-wider">
             <button
               onClick={() => setLang("en")}
-              className={`transition-colors duration-300 ${lang === "en" ? "text-white" : "text-white/40 hover:text-white/70"}`}
+              className={`transition-colors duration-300 ${lang === "en" ? "text-white" : "text-white/90 hover:text-white/90"}`}
             >
               EN
             </button>
             <span className="text-white/20">|</span>
             <button
               onClick={() => setLang("zh")}
-              className={`transition-colors duration-300 ${lang === "zh" ? "text-white" : "text-white/40 hover:text-white/70"}`}
+              className={`transition-colors duration-300 ${lang === "zh" ? "text-white" : "text-white/90 hover:text-white/90"}`}
             >
               繁中
             </button>
@@ -76,14 +76,14 @@ const Header = () => {
           <div className="flex items-center gap-1 text-[11px] font-heading font-light">
             <button
               onClick={() => setLang("en")}
-              className={`transition-colors ${lang === "en" ? "text-white" : "text-white/40"}`}
+              className={`transition-colors ${lang === "en" ? "text-white" : "text-white/90"}`}
             >
               EN
             </button>
             <span className="text-white/20">|</span>
             <button
               onClick={() => setLang("zh")}
-              className={`transition-colors ${lang === "zh" ? "text-white" : "text-white/40"}`}
+              className={`transition-colors ${lang === "zh" ? "text-white" : "text-white/90"}`}
             >
               繁中
             </button>
@@ -99,7 +99,7 @@ const Header = () => {
 
         <a
           href="tel:604-818-2088"
-          className="hidden md:inline-flex font-heading text-[13px] font-light tracking-[0.1em] text-white/60 hover:text-white transition-colors duration-300"
+          className="hidden md:inline-flex font-heading text-[13px] font-light tracking-[0.1em] text-white/90 hover:text-white transition-colors duration-300"
         >
           604.818.2088
         </a>
@@ -110,7 +110,7 @@ const Header = () => {
           <nav className="flex flex-col py-6">
             <Link
               to="/"
-              className="px-6 py-3 font-heading text-[13px] font-light tracking-[0.15em] uppercase text-white/70 hover:text-white transition-colors"
+              className="px-6 py-3 font-heading text-[13px] font-light tracking-[0.15em] uppercase text-white/90 hover:text-white transition-colors"
             >
               {t("nav.home")}
             </Link>
@@ -121,7 +121,7 @@ const Header = () => {
                 className={`px-6 py-3 font-heading text-[13px] font-light tracking-[0.15em] uppercase transition-colors ${
                   location.pathname === link.to
                     ? "text-white"
-                    : "text-white/70 hover:text-white"
+                    : "text-white/90 hover:text-white"
                 }`}
               >
                 {link.label}

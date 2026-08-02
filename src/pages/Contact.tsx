@@ -24,7 +24,7 @@ const Contact = () => {
         <div className="absolute bottom-8 right-10 w-4 h-4 border-b border-r border-[#a11d2d]/20 hidden md:block" />
         <div className="container-wide">
           <ScrollReveal>
-            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-4">{t("contact.label")}</p>
+            <p className="section-eyebrow section-eyebrow--gold-bright mb-4">{t("contact.label")}</p>
             <h1 className="font-heading text-[40px] md:text-[60px] lg:text-[76px] font-light leading-[0.95] text-white max-w-3xl tracking-tight">
               {t("contact.title")}
             </h1>
@@ -39,7 +39,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Form */}
             <ScrollReveal direction="left" className="lg:col-span-7">
-              <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
+              <p className="section-eyebrow section-eyebrow--purple mb-4">
                 {t("contact.formLabel")}
               </p>
               <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-8 tracking-tight">
@@ -83,7 +83,7 @@ const Contact = () => {
 
             {/* Info */}
             <ScrollReveal direction="right" className="lg:col-span-4 lg:col-start-9">
-              <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
+              <p className="section-eyebrow section-eyebrow--purple mb-4">
                 {t("contact.infoLabel")}
               </p>
               <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-8 tracking-tight">

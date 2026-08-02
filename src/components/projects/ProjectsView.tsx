@@ -150,13 +150,13 @@ const ProjectsView = ({
       <section className="relative bg-[hsl(var(--surface-dark))] pt-32 md:pt-44 pb-20 md:pb-28">
         <div className="container-wide">
           <ScrollReveal>
-            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-4">
+            <p className="section-eyebrow section-eyebrow--gold-bright mb-4">
               {heroLabel}
             </p>
             <h1 className="font-heading text-[40px] md:text-[60px] lg:text-[76px] font-light leading-[0.95] text-white max-w-3xl tracking-tight">
               {heroTitle}
             </h1>
-            <p className="text-white/50 font-light mt-6 max-w-xl leading-relaxed">
+            <p className="text-white/90 font-light mt-6 max-w-xl leading-relaxed">
               {heroDescription}
             </p>
           </ScrollReveal>
@@ -183,7 +183,7 @@ const ProjectsView = ({
               <section className="section-padding-lg bg-background">
                 <div className="container-wide">
                   <ScrollReveal>
-                    <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-3">
+                    <p className="section-eyebrow section-eyebrow--purple mb-3">
                       {t("projects.featuredLabel")}
                     </p>
                     <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground mb-14 tracking-tight">
@@ -209,14 +209,14 @@ const ProjectsView = ({
                                 )}
                               </div>
                               <div className="mt-4">
-                                <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
+                                <span className="card-label card-label--purple">
                                   {localizedCategoryName(p.category, lang)}
                                 </span>
                                 <h3 className="font-heading text-xl font-light text-foreground mt-1 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
                                   {localizedProjectTitle(p, lang)}
                                 </h3>
                                 {p.location && (
-                                  <p className="text-muted-foreground/70 text-sm font-light mt-1 flex items-center gap-1.5">
+                                  <p className="text-muted-foreground text-sm font-light mt-1 flex items-center gap-1.5">
                                     <MapPin className="w-3 h-3" />
                                     {p.location}
                                   </p>
@@ -264,7 +264,7 @@ const ProjectsView = ({
             <section className="bg-background border-b border-border/50">
               <div className="container-wide py-3 overflow-x-auto scrollbar-hide">
                 <div className="flex gap-1.5 min-w-max items-center">
-                  <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-muted-foreground/50 mr-2">{t("projects.tags")}</span>
+                  <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-muted-foreground mr-2">{t("projects.tags")}</span>
                   <button onClick={() => handleTag1Change(null)} className={tagButtonClass(!activeTag1)}>
                     {t("cat.all")}
                   </button>
@@ -283,7 +283,7 @@ const ProjectsView = ({
             <section className="bg-background border-b border-border/50">
               <div className="container-wide py-3 overflow-x-auto scrollbar-hide">
                 <div className="flex gap-1.5 min-w-max items-center">
-                  <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-muted-foreground/50 mr-2">{t("projects.tag2")}</span>
+                  <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-muted-foreground mr-2">{t("projects.tag2")}</span>
                   <button onClick={() => setActiveTag2(null)} className={tagButtonClass(!activeTag2)}>
                     {t("cat.all")}
                   </button>
@@ -375,13 +375,13 @@ const ProjectsView = ({
       )}
 
       {/* CTA */}
-      <section className="bg-[hsl(var(--surface-dark))] py-24 md:py-32 text-center">
+      <section className="bg-[hsl(var(--surface-dark))] py-14 md:py-24 text-center">
         <div className="container-tight">
           <ScrollReveal>
             <h2 className="font-heading text-3xl md:text-4xl font-light text-white mb-6 tracking-tight">
               {t("projects.ctaTitle")}
             </h2>
-            <p className="text-white/50 font-light max-w-lg mx-auto mb-8 leading-relaxed">
+            <p className="text-white/90 font-light max-w-lg mx-auto mb-8 leading-relaxed">
               {t("projects.ctaDesc")}
             </p>
             <Link
@@ -418,20 +418,20 @@ const ProjectCard = ({ project }: { project: PublicProject }) => {
         </div>
       </div>
       <div className="mt-3">
-        <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
+        <span className="card-label card-label--purple">
           {localizedCategoryName(project.category, lang)}
         </span>
         <h3 className="font-heading text-[15px] font-light text-foreground mt-0.5 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300 leading-snug">
           {name}
         </h3>
         {project.location && (
-          <p className="text-muted-foreground/60 text-xs font-light mt-1 flex items-center gap-1">
+          <p className="text-muted-foreground text-xs font-light mt-1 flex items-center gap-1">
             <MapPin className="w-2.5 h-2.5" />
             {project.location}
           </p>
         )}
         {area && (
-          <p className="text-muted-foreground/50 text-[11px] font-light mt-0.5">{area}</p>
+          <p className="text-muted-foreground text-[11px] font-light mt-0.5">{area}</p>
         )}
       </div>
     </>

@@ -49,7 +49,7 @@ const Index = () => {
         <div className="absolute top-28 right-10 w-4 h-4 border-t border-r border-[#a11d2d]/25 z-10 hidden md:block" />
         <div className="container-wide relative z-10 pb-20 md:pb-28">
           <ScrollReveal>
-            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-5">
+            <p className="section-eyebrow section-eyebrow--gold-bright mb-5">
               {t("hero.location")}
             </p>
           </ScrollReveal>
@@ -61,7 +61,7 @@ const Index = () => {
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={240}>
-            <p className="text-base md:text-lg text-white/60 max-w-lg mb-10 leading-relaxed font-light">
+            <p className="text-base md:text-lg text-white/90 max-w-lg mb-10 leading-relaxed font-light">
               {t("hero.desc")}
             </p>
           </ScrollReveal>
@@ -94,7 +94,7 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
             <div className="lg:col-span-4">
               <ScrollReveal>
-                <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
+                <p className="section-eyebrow section-eyebrow--purple mb-4">
                   {t("services.label")}
                 </p>
                 <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground leading-tight mb-6 tracking-tight">
@@ -139,7 +139,7 @@ const Index = () => {
 
       {/* ABOUT */}
       <section id="about" className="relative bg-[hsl(var(--surface-warm))] overflow-hidden">
-        <div className="container-wide py-28 md:py-40">
+        <div className="container-wide py-16 md:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <ScrollReveal direction="left" className="lg:col-span-6">
               <div className="relative">
@@ -148,7 +148,7 @@ const Index = () => {
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right" className="lg:col-span-5 lg:col-start-8">
-              <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
+              <p className="section-eyebrow section-eyebrow--purple mb-4">
                 {t("about.label")}
               </p>
               <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground leading-tight mb-6 tracking-tight">
@@ -198,7 +198,7 @@ const Index = () => {
           <ScrollReveal>
             <div className="flex items-end justify-between mb-10">
               <div>
-                <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
+                <p className="section-eyebrow section-eyebrow--purple mb-4">
                   {t("featured.label")}
                 </p>
                 <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground tracking-tight">
@@ -233,7 +233,7 @@ const Index = () => {
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <div className="absolute bottom-0 left-0 p-5 md:p-6">
-                      <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60">
+                      <span className="card-label card-label--on-dark">
                         {localizedCategoryName(p.category, lang)}
                       </span>
                       <h3 className="font-heading text-lg md:text-xl font-light text-white mt-1">
@@ -261,9 +261,9 @@ const Index = () => {
 
       {/* CTA */}
       <section id="contact" className="relative overflow-hidden bg-[hsl(var(--surface-dark))]">
-        <div className="container-wide py-28 md:py-40 text-center relative z-10">
+        <div className="container-wide py-16 md:py-28 text-center relative z-10">
           <ScrollReveal>
-            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-5">
+            <p className="section-eyebrow section-eyebrow--gold-bright mb-5">
               {t("cta.label")}
             </p>
             <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl font-light text-white tracking-tight leading-[0.95] mb-8 mx-auto max-w-3xl">
@@ -271,7 +271,7 @@ const Index = () => {
               <br />
               <span className="font-medium">{t("cta.title2")}</span>
             </h2>
-            <p className="text-white/50 font-light max-w-md mx-auto mb-10 leading-relaxed">
+            <p className="text-white/90 font-light max-w-md mx-auto mb-10 leading-relaxed">
               {t("cta.desc")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

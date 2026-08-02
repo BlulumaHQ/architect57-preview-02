@@ -170,11 +170,11 @@ const ProjectDetail = () => {
           <ScrollReveal>
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 font-heading text-[11px] font-light tracking-[0.2em] uppercase text-white/60 hover:text-white transition-colors mb-6"
+              className="inline-flex items-center gap-2 card-label card-label--on-dark hover:text-white transition-colors mb-6"
             >
               <ArrowLeft className="w-4 h-4" /> {t("detail.back")}
             </Link>
-            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-3">
+            <p className="section-eyebrow section-eyebrow--gold-bright mb-3">
               <span className="mr-3">{String(projectIndex).padStart(2, "0")}</span>
               {category ?? "—"} — {project.location || "—"}
             </p>
@@ -212,7 +212,7 @@ const ProjectDetail = () => {
                 <div className="space-y-6">
                   {facts.map((f) => (
                     <div key={f.label}>
-                      <p className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))] mb-1.5">
+                      <p className="card-label card-label--purple mb-1.5">
                         {f.label}
                       </p>
                       <p className="text-foreground font-light">{f.value}</p>
@@ -260,7 +260,7 @@ const ProjectDetail = () => {
               <div className="container-wide py-16 md:py-24 flex items-center gap-4">
                 <ArrowLeft className="w-5 h-5 text-white/30 group-hover:text-[hsl(var(--gold-accent))] group-hover:-translate-x-1 transition-all duration-300 shrink-0" />
                 <div>
-                  <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-white/40 mb-2">{t("detail.previous")}</p>
+                  <p className="section-eyebrow section-eyebrow--on-dark mb-2">{t("detail.previous")}</p>
                   <h3 className="font-heading text-lg md:text-2xl font-light text-white tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
                     {localizedProjectTitle(prevProject, lang)}
                   </h3>
@@ -270,7 +270,7 @@ const ProjectDetail = () => {
             <Link to={`/projects/${nextProject.slug}`} className="group block">
               <div className="container-wide py-16 md:py-24 flex items-center justify-end gap-4 text-right">
                 <div>
-                  <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-white/40 mb-2">{t("detail.next")}</p>
+                  <p className="section-eyebrow section-eyebrow--on-dark mb-2">{t("detail.next")}</p>
                   <h3 className="font-heading text-lg md:text-2xl font-light text-white tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
                     {localizedProjectTitle(nextProject, lang)}
                   </h3>
