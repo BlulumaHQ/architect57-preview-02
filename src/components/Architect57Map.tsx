@@ -22,7 +22,9 @@ export const ARCHITECT57_DIRECTIONS_URL =
 type LoadState = "loading" | "ready" | "fallback";
 
 /** Emergency fallback embed — standard Google marker, exact verified coordinates. */
-export const ARCHITECT57_EMBED_URL = `https://www.google.com/maps?q=${ARCHITECT57_OFFICE_QUERY}&z=16&output=embed`;
+export const ARCHITECT57_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(
+  `${ARCHITECT57_OFFICE.lat},${ARCHITECT57_OFFICE.lng}`
+)}&z=16&output=embed`;
 
 declare global {
   interface Window {
