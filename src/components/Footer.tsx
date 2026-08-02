@@ -8,7 +8,56 @@ const Footer = () => {
 
   return (
     <footer className="bg-[hsl(var(--surface-dark))] text-white">
-      <div className="container-wide py-14 md:py-20">
+      {/* ── MOBILE (compact) ───────────────────────────── */}
+      <div className="md:hidden container-wide pt-11 pb-8">
+        <div className="mb-6">
+          <img src={logoWhite} alt="Architect 57 無極建築" className="h-[48px] w-auto mb-3" />
+          <p className="text-[14px] text-white leading-snug font-light">
+            {t("footer.descShort")}
+          </p>
+        </div>
+
+        <div className="mb-6 flex flex-col gap-2">
+          <p className="text-[15px] text-white font-semibold">Architect 57 Inc.</p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <a href="tel:6048182088" className="text-[14px] text-white font-medium">604.818.2088</a>
+            <a href="mailto:cary@architect57.com" className="text-[14px] text-white font-medium">cary@architect57.com</a>
+          </div>
+          <p className="text-[14px] text-white font-medium leading-snug">
+            203-2680 Shell Road, Richmond, BC V6X 4C9
+          </p>
+        </div>
+
+        <details className="group border-t border-white/10">
+          <summary className="flex items-center justify-between cursor-pointer list-none py-[15px] text-[14px] font-bold text-white">
+            {t("footer.navSummary")}
+            <span aria-hidden className="transition-transform group-open:rotate-180">⌄</span>
+          </summary>
+          <div className="flex flex-col gap-2.5 pb-4">
+            <Link to="/" className="text-[13px] text-white">{t("nav.home")}</Link>
+            <Link to="/projects" className="text-[13px] text-white">{t("nav.projects")}</Link>
+            <Link to="/about" className="text-[13px] text-white">{t("nav.about")}</Link>
+            <Link to="/contact" className="text-[13px] text-white">{t("nav.contact")}</Link>
+          </div>
+        </details>
+
+        <details className="group border-t border-b border-white/10">
+          <summary className="flex items-center justify-between cursor-pointer list-none py-[15px] text-[14px] font-bold text-white">
+            {t("footer.servicesSummary")}
+            <span aria-hidden className="transition-transform group-open:rotate-180">⌄</span>
+          </summary>
+          <div className="flex flex-col gap-2.5 pb-4">
+            <span className="text-[13px] text-white">{t("footer.buildingDesign")}</span>
+            <span className="text-[13px] text-white">{t("footer.ipd")}</span>
+            <span className="text-[13px] text-white">{t("footer.codeConsultation")}</span>
+            <span className="text-[13px] text-white">{t("footer.bimServices")}</span>
+            <span className="text-[13px] text-white">{t("footer.projectManagement")}</span>
+          </div>
+        </details>
+      </div>
+
+      {/* ── DESKTOP / TABLET (unchanged) ───────────────── */}
+      <div className="hidden md:block container-wide py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-6">
           {/* Col 1: Logo + description */}
           <div className="md:col-span-1">
@@ -71,7 +120,7 @@ const Footer = () => {
       {/* Copyright bar */}
       <div className="border-t border-white/10 relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#a11d2d]/30" />
-        <div className="container-wide py-6 flex flex-col md:flex-row items-center justify-center gap-1 text-[12px] text-white/75 font-normal">
+        <div className="container-wide py-4 md:py-6 flex flex-col md:flex-row items-center justify-center gap-1 text-[11px] md:text-[12px] text-white/75 font-normal text-center">
           <span>© {year} Architect 57 Inc. All Rights Reserved.</span>
           <span className="hidden md:inline mx-1">|</span>
           <span>

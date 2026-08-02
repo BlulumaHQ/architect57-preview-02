@@ -26,6 +26,13 @@ const Index = () => {
     { num: "02", title: t("services.s2.title"), desc: t("services.s2.desc") },
     { num: "03", title: t("services.s3.title"), desc: t("services.s3.desc") },
     { num: "04", title: t("services.s4.title"), desc: t("services.s4.desc") },
+    { num: "05", title: t("services.s5.title"), desc: t("services.s5.desc") },
+  ];
+
+  const sectors = [
+    { label: t("services.sector1"), to: "/projects" },
+    { label: t("services.sector2"), to: "/projects" },
+    { label: t("services.sector3"), to: "/projects" },
   ];
 
   return (
@@ -93,8 +100,11 @@ const Index = () => {
                   <br />
                   <span className="font-medium">{t("services.title2")}</span>
                 </h2>
-                <p className="text-muted-foreground font-light leading-relaxed mb-8">
+                <p className="text-muted-foreground font-light leading-relaxed mb-4">
                   {t("services.desc")}
+                </p>
+                <p className="text-foreground/80 leading-relaxed text-[15px] mb-6">
+                  {t("services.sustainability")}
                 </p>
                 <Link
                   to="/contact"
@@ -108,20 +118,39 @@ const Index = () => {
             <div className="lg:col-span-8">
               <div className="space-y-0 divide-y divide-border">
                 {services.map((s, i) => (
-                  <ScrollReveal key={s.num} delay={i * 80}>
-                    <div className="py-6 md:py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
-                      <span className="md:col-span-2 font-heading text-[13px] font-light text-[hsl(var(--purple-muted))] tracking-wider">
+                  <ScrollReveal key={s.num} delay={i * 60}>
+                    <div className="py-[18px] md:py-6 grid grid-cols-1 md:grid-cols-12 gap-x-4 gap-y-1.5 items-start">
+                      <span className="md:col-span-2 font-heading text-[13px] md:text-[14px] font-bold text-[hsl(var(--purple-brand))] tracking-wider">
                         {s.num}
                       </span>
-                      <h3 className="md:col-span-4 font-heading text-lg font-medium text-foreground">
+                      <h3 className="md:col-span-4 font-heading text-[17px] md:text-lg font-medium text-foreground">
                         {s.title}
                       </h3>
-                      <p className="md:col-span-6 text-muted-foreground font-light leading-relaxed text-[15px]">
+                      <p className="md:col-span-6 text-muted-foreground leading-relaxed text-[15px] mt-1.5 md:mt-0">
                         {s.desc}
                       </p>
                     </div>
                   </ScrollReveal>
                 ))}
+              </div>
+
+              {/* SECTOR EXPERTISE */}
+              <div className="border-t border-border pt-6 mt-2">
+                <p className="card-label card-label--purple mb-4">
+                  {t("services.sectorLabel")}
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {sectors.map((s) => (
+                    <Link
+                      key={s.label}
+                      to={s.to}
+                      className="group inline-flex items-center justify-between gap-3 border border-border rounded-sm px-4 py-3 text-[14px] font-medium text-foreground transition-colors hover:border-[hsl(var(--purple-brand))] hover:text-[hsl(var(--purple-brand))]"
+                    >
+                      {s.label}
+                      <ArrowRight className="w-3.5 h-3.5 shrink-0 text-[hsl(var(--purple-brand))]" />
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
