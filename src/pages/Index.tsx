@@ -1,32 +1,22 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { useMemo } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import DiagonalMarquee from "@/components/DiagonalMarquee";
+import CategoryShowcase from "@/components/home/CategoryShowcase";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutImg from "@/assets/about-us-01.webp";
-import chbaAward from "@/assets/chba-award.jpg";
-import { useArchitect57Projects, fisherYatesShuffle } from "@/hooks/useArchitect57Projects";
-import { localizedCategoryName, localizedProjectTitle } from "@/utils/projectLocalization";
+import { useArchitect57Projects } from "@/hooks/useArchitect57Projects";
 import { useLang } from "@/contexts/LangContext";
 import usePageMeta from "@/hooks/usePageMeta";
 
 const Index = () => {
   const { projects, isLoading } = useArchitect57Projects();
-  const { t, lang } = useLang();
-
-  // Randomize once per Homepage mount, after data has loaded.
-  const featuredProjects = useMemo(() => {
-    if (projects.length === 0) return [];
-    const pool = projects.slice(0, 18);
-    return fisherYatesShuffle(pool).slice(0, 6);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [projects.length === 0]);
+  const { t } = useLang();
 
   usePageMeta({
     title: "Architect 57 無極建築 | Design Build | Richmond, BC",
-    description: "Architect 57 無極建築 delivers integrated design-build services across residential, commercial, industrial, and institutional sectors in Metro Vancouver and beyond.",
+    description: "Architect 57 Inc. delivers integrated design-build services across residential, commercial, industrial, and institutional sectors in Metro Vancouver and beyond.",
   });
 
 
