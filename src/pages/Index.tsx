@@ -193,7 +193,7 @@ const Index = () => {
               <br />
               <span className="font-medium">{t("cta.title2")}</span>
             </h2>
-            <p className="text-white/90 font-light max-w-md mx-auto mb-10 leading-relaxed">
+            <p className="copy-on-dark max-w-md mx-auto mb-8 leading-relaxed">
               {t("cta.desc")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -216,7 +216,7 @@ const Index = () => {
       </section>
 
       {/* MAP */}
-      <section className="h-[350px] md:h-[400px] w-full">
+      <section className="h-[280px] md:h-[380px] w-full">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2607.8!2d-123.1286!3d49.1766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDEwJzM1LjgiTiAxMjPCsDA3JzQzLjAiVw!5e0!3m2!1sen!2sca!4v1"
           width="100%"
