@@ -85,7 +85,6 @@ const LegacyPortfolioPage = ({ routeKey }: LegacyPortfolioPageProps) => {
       isLoading={isLoading}
       error={error}
       refetch={refetch}
-      showFeatured={false}
       showFilters={false}
       gridHeading={heading}
     />

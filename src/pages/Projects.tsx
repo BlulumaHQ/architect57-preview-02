@@ -25,7 +25,6 @@ const Projects = () => {
       isLoading={isLoading}
       error={error}
       refetch={refetch}
-      showFeatured
       showFilters
     />
   );
