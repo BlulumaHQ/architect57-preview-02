@@ -106,7 +106,6 @@ const Architect57Map = ({
   const zh = lang === "zh";
   const directionsLabel = zh ? "路線導航" : "Get Directions";
   const loadingLabel = zh ? "地圖載入中……" : "Loading map…";
-  const errorLabel = zh ? "地圖目前暫時無法載入。" : "Map is temporarily unavailable.";
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined;
