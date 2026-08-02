@@ -126,7 +126,7 @@ const Architect57Map = ({
       console.error(
         "[Architect57Map] VITE_GOOGLE_MAPS_API_KEY is not configured; the Google Maps JavaScript API will not be loaded."
       );
-      setState("error");
+      setState("fallback");
       return;
     }
 
@@ -137,7 +137,7 @@ const Architect57Map = ({
       console.error(
         "[Architect57Map] Google Maps authentication failed. Check VITE_GOOGLE_MAPS_API_KEY, HTTP referrer restrictions, billing, and Maps JavaScript API status."
       );
-      setState("error");
+      setState("fallback");
     };
 
     const init = async () => {
@@ -204,7 +204,7 @@ const Architect57Map = ({
     init().catch((error) => {
       if (cancelled) return;
       console.error("[Architect57Map] Google Maps initialization failed:", error);
-      setState("error");
+      setState("fallback");
     });
 
     return () => {
