@@ -81,7 +81,7 @@ const ProjectDetail = () => {
             <p className="text-muted-foreground font-light">{t("state.error")}</p>
             <button
               onClick={() => refetch()}
-              className="mt-4 font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
+              className="mt-4 font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
             >
               {t("state.retry")}
             </button>
@@ -99,7 +99,7 @@ const ProjectDetail = () => {
             <p className="text-muted-foreground font-light">{t("projects.noResults")}</p>
             <Link
               to="/projects"
-              className="mt-4 inline-block font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
+              className="mt-4 inline-block font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
             >
               {t("detail.back")}
             </Link>

@@ -44,7 +44,7 @@ const Header = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`font-heading text-[13px] font-light tracking-[0.15em] uppercase transition-colors duration-300 ${
+              className={`font-heading text-[13px] font-semibold tracking-[0.07em] uppercase transition-colors duration-300 ${
                 location.pathname === link.to
                   ? "text-white"
                   : "text-white/90 hover:text-white"
@@ -110,7 +110,7 @@ const Header = () => {
           <nav className="flex flex-col py-6">
             <Link
               to="/"
-              className="px-6 py-3 font-heading text-[13px] font-light tracking-[0.15em] uppercase text-white/90 hover:text-white transition-colors"
+              className="px-6 py-3 font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-white/90 hover:text-white transition-colors"
             >
               {t("nav.home")}
             </Link>
@@ -118,7 +118,7 @@ const Header = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`px-6 py-3 font-heading text-[13px] font-light tracking-[0.15em] uppercase transition-colors ${
+                className={`px-6 py-3 font-heading text-[13px] font-semibold tracking-[0.07em] uppercase transition-colors ${
                   location.pathname === link.to
                     ? "text-white"
                     : "text-white/90 hover:text-white"

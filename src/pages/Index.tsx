@@ -69,14 +69,14 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
+                className="inline-flex items-center gap-3 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
               >
                 {t("hero.cta1")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-white border border-white/25 px-8 py-4 rounded-sm transition-all duration-300 hover:border-white/50 active:scale-[0.97]"
+                className="inline-flex items-center gap-3 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-white border border-white/25 px-8 py-4 rounded-sm transition-all duration-300 hover:border-white/50 active:scale-[0.97]"
               >
                 {t("hero.cta2")}
               </Link>
@@ -107,7 +107,7 @@ const Index = () => {
                 </p>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground active:scale-[0.97]"
+                  className="inline-flex items-center gap-2 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground active:scale-[0.97]"
                 >
                   {t("services.cta")}
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -165,20 +165,20 @@ const Index = () => {
               <div className="flex flex-wrap gap-x-8 gap-y-3 mb-8">
                 <div>
                   <span className="font-heading text-2xl font-light text-foreground">CP</span>
-                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">{t("about.cp")}</span>
+                  <span className="block card-label card-label--muted mt-1">{t("about.cp")}</span>
                 </div>
                 <div>
                   <span className="font-heading text-2xl font-light text-foreground">CHBA</span>
-                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">{t("about.chba")}</span>
+                  <span className="block card-label card-label--muted mt-1">{t("about.chba")}</span>
                 </div>
                 <div>
                   <span className="font-heading text-2xl font-light text-foreground">BIM</span>
-                  <span className="block text-[11px] text-muted-foreground font-light tracking-wider uppercase mt-1">{t("about.bim")}</span>
+                  <span className="block card-label card-label--muted mt-1">{t("about.bim")}</span>
                 </div>
               </div>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground"
+                className="inline-flex items-center gap-2 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground"
               >
                 {t("about.cta")}
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -207,7 +207,7 @@ const Index = () => {
               </div>
               <Link
                 to="/projects"
-                className="hidden md:inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground"
+                className="hidden md:inline-flex items-center gap-2 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 transition-colors hover:border-foreground"
               >
                 {t("featured.viewAll")}
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -250,7 +250,7 @@ const Index = () => {
           <div className="mt-8 text-center md:hidden">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-foreground border-b border-foreground/30 pb-1"
+              className="inline-flex items-center gap-2 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1"
             >
               {t("featured.viewAllProjects")}
               <ArrowRight className="w-3.5 h-3.5" />
@@ -277,14 +277,14 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
+                className="inline-flex items-center justify-center gap-3 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
               >
                 {t("cta.btn1")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="tel:604-818-2088"
-                className="inline-flex items-center justify-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-white border border-white/20 px-8 py-4 rounded-sm transition-all duration-300 hover:border-white/40 active:scale-[0.97]"
+                className="inline-flex items-center justify-center gap-3 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-white border border-white/20 px-8 py-4 rounded-sm transition-all duration-300 hover:border-white/40 active:scale-[0.97]"
               >
                 Call 604.818.2088
               </a>

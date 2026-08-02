@@ -138,7 +138,7 @@ const ProjectsView = ({
         ) || t("projects.allProjects");
 
   const tagButtonClass = (active: boolean) =>
-    `text-[10px] font-light tracking-[0.1em] uppercase px-3 py-1.5 rounded-full transition-all duration-300 active:scale-[0.97] whitespace-nowrap border ${
+    `text-[12px] font-semibold tracking-[0.06em] uppercase px-3 py-1.5 rounded-full transition-all duration-300 active:scale-[0.97] whitespace-nowrap border ${
       active
         ? "border-foreground/30 bg-foreground/5 text-foreground"
         : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
@@ -169,7 +169,7 @@ const ProjectsView = ({
             <p className="text-muted-foreground font-light">{t("state.error")}</p>
             <button
               onClick={() => refetch()}
-              className="mt-4 font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
+              className="mt-4 font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
             >
               {t("state.retry")}
             </button>
@@ -245,7 +245,7 @@ const ProjectsView = ({
                     <button
                       key={cat.id}
                       onClick={() => handleCategoryChange(cat.slug)}
-                      className={`font-heading text-[11px] font-light tracking-[0.15em] uppercase px-5 py-2.5 rounded-sm transition-all duration-300 active:scale-[0.97] whitespace-nowrap ${
+                      className={`font-heading text-[13px] font-semibold tracking-[0.07em] uppercase px-5 py-2.5 rounded-sm transition-all duration-300 active:scale-[0.97] whitespace-nowrap ${
                         activeCategory === cat.slug
                           ? "bg-foreground text-background"
                           : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -264,7 +264,7 @@ const ProjectsView = ({
             <section className="bg-background border-b border-border/50">
               <div className="container-wide py-3 overflow-x-auto scrollbar-hide">
                 <div className="flex gap-1.5 min-w-max items-center">
-                  <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-muted-foreground mr-2">{t("projects.tags")}</span>
+                  <span className="card-label card-label--muted mr-2">{t("projects.tags")}</span>
                   <button onClick={() => handleTag1Change(null)} className={tagButtonClass(!activeTag1)}>
                     {t("cat.all")}
                   </button>
@@ -283,7 +283,7 @@ const ProjectsView = ({
             <section className="bg-background border-b border-border/50">
               <div className="container-wide py-3 overflow-x-auto scrollbar-hide">
                 <div className="flex gap-1.5 min-w-max items-center">
-                  <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-muted-foreground mr-2">{t("projects.tag2")}</span>
+                  <span className="card-label card-label--muted mr-2">{t("projects.tag2")}</span>
                   <button onClick={() => setActiveTag2(null)} className={tagButtonClass(!activeTag2)}>
                     {t("cat.all")}
                   </button>
@@ -354,7 +354,7 @@ const ProjectsView = ({
                   {showFilters && projects.length > 0 && (
                     <button
                       onClick={() => { setActiveCategory("all"); setActiveTag1(null); setActiveTag2(null); }}
-                      className="mt-4 font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
+                      className="mt-4 font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
                     >
                       {t("projects.viewAll")}
                     </button>
@@ -362,7 +362,7 @@ const ProjectsView = ({
                   {!showFilters && (
                     <Link
                       to="/projects"
-                      className="mt-4 inline-block font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
+                      className="mt-4 inline-block font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
                     >
                       {t("projects.viewAll")}
                     </Link>
@@ -386,7 +386,7 @@ const ProjectsView = ({
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
+              className="inline-flex items-center gap-3 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
             >
               {t("projects.ctaBtn")} <ArrowRight className="w-4 h-4" />
             </Link>
@@ -412,7 +412,7 @@ const ProjectCard = ({ project }: { project: PublicProject }) => {
           <div className="w-full aspect-[4/3] bg-muted" />
         )}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">
-          <span className="font-heading text-[13px] font-light tracking-[0.15em] uppercase text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+          <span className="font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
             {t("projects.seeDetails")}
           </span>
         </div>
@@ -425,13 +425,13 @@ const ProjectCard = ({ project }: { project: PublicProject }) => {
           {name}
         </h3>
         {project.location && (
-          <p className="text-muted-foreground text-xs font-light mt-1 flex items-center gap-1">
+          <p className="text-muted-foreground text-[13px] font-normal mt-1 flex items-center gap-1">
             <MapPin className="w-2.5 h-2.5" />
             {project.location}
           </p>
         )}
         {area && (
-          <p className="text-muted-foreground text-[11px] font-light mt-0.5">{area}</p>
+          <p className="text-muted-foreground text-[12px] font-normal mt-0.5">{area}</p>
         )}
       </div>
     </>

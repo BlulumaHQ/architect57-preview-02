@@ -73,7 +73,7 @@ const Contact = () => {
                     <label htmlFor="message" className="block text-[13px] font-light text-foreground mb-2">{t("contact.message")}</label>
                     <textarea id="message" rows={5} required className="w-full px-0 py-3 bg-transparent border-0 border-b border-border text-foreground font-light focus:outline-none focus:border-foreground transition-colors resize-none" placeholder={t("contact.messagePlaceholder")} />
                   </div>
-                  <button type="submit" className="inline-flex items-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]">
+                  <button type="submit" className="inline-flex items-center gap-3 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]">
                     <Send className="w-4 h-4" />
                     {t("contact.send")}
                   </button>
@@ -91,15 +91,15 @@ const Contact = () => {
               </h2>
               <div className="space-y-8">
                 <div>
-                  <span className="text-[11px] font-light tracking-[0.2em] uppercase text-muted-foreground block mb-2">{t("contact.phoneLabel")}</span>
+                  <span className="card-label card-label--muted block mb-2">{t("contact.phoneLabel")}</span>
                   <a href="tel:604-818-2088" className="text-foreground font-light hover:text-[hsl(var(--purple-muted))] transition-colors">604.818.2088</a>
                 </div>
                 <div>
-                  <span className="text-[11px] font-light tracking-[0.2em] uppercase text-muted-foreground block mb-2">{t("contact.emailLabel")}</span>
+                  <span className="card-label card-label--muted block mb-2">{t("contact.emailLabel")}</span>
                   <a href="mailto:cary@architect57.com" className="text-foreground font-light hover:text-[hsl(var(--purple-muted))] transition-colors">cary@architect57.com</a>
                 </div>
                 <div>
-                  <span className="text-[11px] font-light tracking-[0.2em] uppercase text-muted-foreground block mb-2">{t("contact.addressLabel")}</span>
+                  <span className="card-label card-label--muted block mb-2">{t("contact.addressLabel")}</span>
                   <p className="text-foreground font-light leading-relaxed">203-2680 Shell Road<br />Richmond, BC V6X 4C9</p>
                 </div>
               </div>
