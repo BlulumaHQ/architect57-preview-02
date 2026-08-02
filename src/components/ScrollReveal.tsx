@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState, ReactNode } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -7,8 +7,12 @@ interface ScrollRevealProps {
   direction?: "up" | "left" | "right" | "none";
 }
 
-const ScrollReveal = ({ children, className = "", delay = 0, direction = "up" }: ScrollRevealProps) => {
+const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(function ScrollReveal(
+  { children, className = "", delay = 0, direction = "up" },
+  forwardedRef
+) {
   const ref = useRef<HTMLDivElement>(null);
+  useImperativeHandle(forwardedRef, () => ref.current as HTMLDivElement);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -48,6 +52,6 @@ const ScrollReveal = ({ children, className = "", delay = 0, direction = "up" }:
       {children}
     </div>
   );
-};
+});
 
 export default ScrollReveal;
