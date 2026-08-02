@@ -5,6 +5,8 @@ interface PageMeta {
   description: string;
   /** Absolute path for the self-referencing canonical / og:url, e.g. "/daycare". */
   path?: string;
+  /** Force "noindex, nofollow" (e.g. the 404 page) even on the production host. */
+  noindex?: boolean;
 }
 
 /** Production canonical host — never a Netlify/Lovable preview host. */
@@ -14,7 +16,7 @@ export const CANONICAL_HOST = "https://www.architect57.com";
 export const isNoindexHost = (hostname: string): boolean =>
   hostname.endsWith(".netlify.app") || hostname.endsWith(".lovable.app");
 
-const usePageMeta = ({ title, description, path }: PageMeta) => {
+const usePageMeta = ({ title, description, path, noindex = false }: PageMeta) => {
   useEffect(() => {
     document.title = title;
 
@@ -60,7 +62,7 @@ const usePageMeta = ({ title, description, path }: PageMeta) => {
 
     // Staging / preview hosts: keep them out of the index.
     let robots = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
-    if (isNoindexHost(window.location.hostname)) {
+    if (noindex || isNoindexHost(window.location.hostname)) {
       if (!robots) {
         robots = document.createElement("meta");
         robots.setAttribute("name", "robots");
@@ -70,7 +72,7 @@ const usePageMeta = ({ title, description, path }: PageMeta) => {
     } else if (robots) {
       robots.setAttribute("content", "index, follow");
     }
-  }, [title, description, path]);
+  }, [title, description, path, noindex]);
 };
 
 export default usePageMeta;
