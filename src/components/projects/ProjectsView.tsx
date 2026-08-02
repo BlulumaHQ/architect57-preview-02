@@ -138,7 +138,7 @@ const ProjectsView = ({
         ) || t("projects.allProjects");
 
   const tagButtonClass = (active: boolean) =>
-    `text-[10px] font-light tracking-[0.1em] uppercase px-3 py-1.5 rounded-full transition-all duration-300 active:scale-[0.97] whitespace-nowrap border ${
+    `text-[12px] font-semibold tracking-[0.06em] uppercase px-3 py-1.5 rounded-full transition-all duration-300 active:scale-[0.97] whitespace-nowrap border ${
       active
         ? "border-foreground/30 bg-foreground/5 text-foreground"
         : "border-transparent text-muted-foreground hover:text-foreground hover:border-border"
@@ -147,16 +147,16 @@ const ProjectsView = ({
   return (
     <main className="pb-16 md:pb-0">
       {/* Hero */}
-      <section className="relative bg-[hsl(var(--surface-dark))] pt-32 md:pt-44 pb-20 md:pb-28">
+      <section className="relative bg-[hsl(var(--surface-dark))] pt-28 md:pt-36 pb-12 md:pb-20">
         <div className="container-wide">
           <ScrollReveal>
-            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-4">
+            <p className="section-eyebrow section-eyebrow--gold-bright mb-4">
               {heroLabel}
             </p>
             <h1 className="font-heading text-[40px] md:text-[60px] lg:text-[76px] font-light leading-[0.95] text-white max-w-3xl tracking-tight">
               {heroTitle}
             </h1>
-            <p className="text-white/50 font-light mt-6 max-w-xl leading-relaxed">
+            <p className="text-white/90 font-light mt-6 max-w-xl leading-relaxed">
               {heroDescription}
             </p>
           </ScrollReveal>
@@ -169,7 +169,7 @@ const ProjectsView = ({
             <p className="text-muted-foreground font-light">{t("state.error")}</p>
             <button
               onClick={() => refetch()}
-              className="mt-4 font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
+              className="mt-4 font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
             >
               {t("state.retry")}
             </button>
@@ -183,10 +183,10 @@ const ProjectsView = ({
               <section className="section-padding-lg bg-background">
                 <div className="container-wide">
                   <ScrollReveal>
-                    <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-3">
+                    <p className="section-eyebrow section-eyebrow--purple mb-3">
                       {t("projects.featuredLabel")}
                     </p>
-                    <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground mb-14 tracking-tight">
+                    <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground mb-8 tracking-tight">
                       {t("projects.featuredTitle")}
                     </h2>
                   </ScrollReveal>
@@ -209,14 +209,14 @@ const ProjectsView = ({
                                 )}
                               </div>
                               <div className="mt-4">
-                                <span className="font-heading text-[11px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
+                                <span className="card-label card-label--purple">
                                   {localizedCategoryName(p.category, lang)}
                                 </span>
                                 <h3 className="font-heading text-xl font-light text-foreground mt-1 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">
                                   {localizedProjectTitle(p, lang)}
                                 </h3>
                                 {p.location && (
-                                  <p className="text-muted-foreground/70 text-sm font-light mt-1 flex items-center gap-1.5">
+                                  <p className="text-muted-foreground text-sm font-light mt-1 flex items-center gap-1.5">
                                     <MapPin className="w-3 h-3" />
                                     {p.location}
                                   </p>
@@ -245,7 +245,7 @@ const ProjectsView = ({
                     <button
                       key={cat.id}
                       onClick={() => handleCategoryChange(cat.slug)}
-                      className={`font-heading text-[11px] font-light tracking-[0.15em] uppercase px-5 py-2.5 rounded-sm transition-all duration-300 active:scale-[0.97] whitespace-nowrap ${
+                      className={`font-heading text-[13px] font-semibold tracking-[0.07em] uppercase px-5 py-2.5 rounded-sm transition-all duration-300 active:scale-[0.97] whitespace-nowrap ${
                         activeCategory === cat.slug
                           ? "bg-foreground text-background"
                           : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -264,7 +264,7 @@ const ProjectsView = ({
             <section className="bg-background border-b border-border/50">
               <div className="container-wide py-3 overflow-x-auto scrollbar-hide">
                 <div className="flex gap-1.5 min-w-max items-center">
-                  <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-muted-foreground/50 mr-2">{t("projects.tags")}</span>
+                  <span className="card-label card-label--muted mr-2">{t("projects.tags")}</span>
                   <button onClick={() => handleTag1Change(null)} className={tagButtonClass(!activeTag1)}>
                     {t("cat.all")}
                   </button>
@@ -283,7 +283,7 @@ const ProjectsView = ({
             <section className="bg-background border-b border-border/50">
               <div className="container-wide py-3 overflow-x-auto scrollbar-hide">
                 <div className="flex gap-1.5 min-w-max items-center">
-                  <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-muted-foreground/50 mr-2">{t("projects.tag2")}</span>
+                  <span className="card-label card-label--muted mr-2">{t("projects.tag2")}</span>
                   <button onClick={() => setActiveTag2(null)} className={tagButtonClass(!activeTag2)}>
                     {t("cat.all")}
                   </button>
@@ -301,7 +301,7 @@ const ProjectsView = ({
           <section className="section-padding-lg bg-background">
             <div className="container-wide">
               <ScrollReveal>
-                <div className="flex items-end justify-between mb-10">
+                <div className="flex items-end justify-between mb-7">
                   <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground tracking-tight">
                     {showFilters ? (
                       <>
@@ -354,7 +354,7 @@ const ProjectsView = ({
                   {showFilters && projects.length > 0 && (
                     <button
                       onClick={() => { setActiveCategory("all"); setActiveTag1(null); setActiveTag2(null); }}
-                      className="mt-4 font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
+                      className="mt-4 font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
                     >
                       {t("projects.viewAll")}
                     </button>
@@ -362,7 +362,7 @@ const ProjectsView = ({
                   {!showFilters && (
                     <Link
                       to="/projects"
-                      className="mt-4 inline-block font-heading text-[12px] font-light tracking-[0.15em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
+                      className="mt-4 inline-block font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-foreground border-b border-foreground/30 pb-1 hover:border-foreground transition-colors"
                     >
                       {t("projects.viewAll")}
                     </Link>
@@ -375,18 +375,18 @@ const ProjectsView = ({
       )}
 
       {/* CTA */}
-      <section className="bg-[hsl(var(--surface-dark))] py-24 md:py-32 text-center">
+      <section className="bg-[hsl(var(--surface-dark))] py-14 md:py-24 text-center">
         <div className="container-tight">
           <ScrollReveal>
             <h2 className="font-heading text-3xl md:text-4xl font-light text-white mb-6 tracking-tight">
               {t("projects.ctaTitle")}
             </h2>
-            <p className="text-white/50 font-light max-w-lg mx-auto mb-8 leading-relaxed">
+            <p className="text-white/90 font-light max-w-lg mx-auto mb-8 leading-relaxed">
               {t("projects.ctaDesc")}
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
+              className="inline-flex items-center gap-3 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
             >
               {t("projects.ctaBtn")} <ArrowRight className="w-4 h-4" />
             </Link>
@@ -412,26 +412,26 @@ const ProjectCard = ({ project }: { project: PublicProject }) => {
           <div className="w-full aspect-[4/3] bg-muted" />
         )}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">
-          <span className="font-heading text-[13px] font-light tracking-[0.15em] uppercase text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+          <span className="font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
             {t("projects.seeDetails")}
           </span>
         </div>
       </div>
       <div className="mt-3">
-        <span className="font-heading text-[10px] font-light tracking-[0.2em] uppercase text-[hsl(var(--purple-muted))]">
+        <span className="card-label card-label--purple">
           {localizedCategoryName(project.category, lang)}
         </span>
         <h3 className="font-heading text-[15px] font-light text-foreground mt-0.5 tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300 leading-snug">
           {name}
         </h3>
         {project.location && (
-          <p className="text-muted-foreground/60 text-xs font-light mt-1 flex items-center gap-1">
+          <p className="text-muted-foreground text-[13px] font-normal mt-1 flex items-center gap-1">
             <MapPin className="w-2.5 h-2.5" />
             {project.location}
           </p>
         )}
         {area && (
-          <p className="text-muted-foreground/50 text-[11px] font-light mt-0.5">{area}</p>
+          <p className="text-muted-foreground text-[12px] font-normal mt-0.5">{area}</p>
         )}
       </div>
     </>

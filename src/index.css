@@ -22,7 +22,7 @@
     --secondary-foreground: 240 5% 12%;
 
     --muted: 240 4% 92%;
-    --muted-foreground: 240 4% 46%;
+    --muted-foreground: 240 5% 32%;
 
     --accent: 260 12% 90%;
     --accent-foreground: 260 28% 38%;
@@ -40,7 +40,19 @@
     --surface-charcoal: 240 5% 15%;
     --surface-warm: 30 8% 95%;
     --gold-accent: 43 76% 58%;
-    --purple-muted: 260 18% 60%;
+    /* Brand purple #714C90 — used for every readable purple label/number */
+    --purple-muted: 273 31% 43%;
+    --purple-brand: 273 31% 43%;
+    /* Accessible mustard-gold for readable yellow text on light backgrounds */
+    --gold-text: 48 100% 27%;
+
+    /* Global small-text (eyebrow / label) tokens */
+    --eyebrow-size: 13px;
+    --eyebrow-size-md: 14.5px;
+    --label-size: 12.5px;
+    --label-size-md: 13.5px;
+    --eyebrow-tracking: 0.08em;
+    --eyebrow-leading: 1.4;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -99,13 +111,102 @@ html[lang^="zh"] footer a {
   font-size: 1.05em;
 }
 
+@layer components {
+  /* ── Global small-text system ─────────────────────────────
+     One shared eyebrow/subtitle treatment for the whole site. */
+  .section-eyebrow {
+    @apply font-heading uppercase;
+    font-size: var(--eyebrow-size);
+    font-weight: 700;
+    line-height: var(--eyebrow-leading);
+    letter-spacing: var(--eyebrow-tracking);
+    opacity: 1;
+  }
+
+  .section-eyebrow--purple {
+    color: hsl(var(--purple-brand));
+  }
+
+  /* Readable yellow on LIGHT backgrounds */
+  .section-eyebrow--gold {
+    color: hsl(var(--gold-text));
+  }
+
+  /* Brand yellow on DARK backgrounds (contrast is strong) */
+  .section-eyebrow--gold-bright {
+    color: hsl(var(--gold-accent));
+  }
+
+  .section-eyebrow--light {
+    color: hsl(var(--foreground));
+  }
+
+  .section-eyebrow--on-dark {
+    color: #fff;
+  }
+
+  /* Slightly smaller supporting label (cards, filters, metadata) */
+  .card-label {
+    @apply font-heading uppercase;
+    font-size: var(--label-size);
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: 0.07em;
+    opacity: 1;
+  }
+
+  .card-label--purple {
+    color: hsl(var(--purple-brand));
+  }
+
+  .card-label--muted {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .card-label--on-dark {
+    color: #fff;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+  }
+
+  /* Readable supporting copy on dark backgrounds / photography */
+  .copy-on-dark {
+    color: rgba(255, 255, 255, 0.94);
+    font-weight: 400;
+  }
+
+  /* Text sitting directly over photography */
+  .overlay-text {
+    color: #fff;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Localized gradient scrim behind overlay text */
+  .overlay-scrim {
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.45) 32%,
+      rgba(0, 0, 0, 0) 68%
+    );
+  }
+}
+
+@media (min-width: 768px) {
+  .section-eyebrow {
+    font-size: var(--eyebrow-size-md);
+  }
+  .card-label {
+    font-size: var(--label-size-md);
+  }
+}
+
 @layer utilities {
   .section-padding {
-    @apply py-24 md:py-32;
+    @apply py-14 md:py-24;
   }
 
   .section-padding-lg {
-    @apply py-28 md:py-40;
+    @apply py-16 md:py-28;
   }
 
   .container-tight {

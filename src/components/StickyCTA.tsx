@@ -9,7 +9,7 @@ const StickyCTA = () => {
       {/* Desktop: fixed right-side button — RED */}
       <a
         href="tel:604-818-2088"
-        className="hidden md:flex fixed right-0 top-1/2 -translate-y-1/2 z-40 items-center gap-2 text-[11px] font-heading font-light tracking-[0.15em] uppercase text-white/90 bg-[#a11d2d] px-4 py-6 rounded-l transition-all duration-300 hover:bg-[#8a1826] hover:text-white active:scale-[0.97]"
+        className="hidden md:flex fixed right-0 top-1/2 -translate-y-1/2 z-40 items-center gap-2 text-[12px] font-heading font-semibold tracking-[0.07em] uppercase text-white bg-[#a11d2d] px-4 py-6 rounded-l transition-all duration-300 hover:bg-[#8a1826] hover:text-white active:scale-[0.97]"
         style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
       >
         <Phone className="w-3.5 h-3.5 rotate-90" />

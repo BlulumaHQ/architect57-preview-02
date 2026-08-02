@@ -91,6 +91,10 @@ const translations: Record<string, Record<Lang, string>> = {
   "featured.viewAll": { en: "View All", zh: "查看全部" },
   "featured.viewAllProjects": { en: "View All Projects", zh: "查看所有項目" },
 
+  // Category showcase
+  "categories.title": { en: "Explore by Category", zh: "依類別瀏覽" },
+  "category.viewProjects": { en: "View Projects", zh: "查看專案" },
+
   // CTA
   "cta.label": { en: "Let's Collaborate", zh: "合作洽談" },
   "cta.title1": { en: "Ready to start your", zh: "準備開始您的" },
@@ -252,6 +256,7 @@ const translations: Record<string, Record<Lang, string>> = {
   "contact.infoTitle1": { en: "Contact", zh: "聯絡" },
   "contact.infoTitle2": { en: "Info", zh: "資訊" },
   "contact.phoneLabel": { en: "Phone", zh: "電話" },
+  "contact.companyLabel": { en: "Company", zh: "公司" },
   "contact.emailLabel": { en: "Email", zh: "電郵" },
   "contact.addressLabel": { en: "Address", zh: "地址" },
 

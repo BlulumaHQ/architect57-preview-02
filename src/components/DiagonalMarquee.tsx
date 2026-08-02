@@ -34,7 +34,7 @@ const DiagonalMarquee = () => {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
-          <span className="text-white text-[12px] font-heading tracking-[0.15em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span className="overlay-text text-[13px] font-heading font-bold tracking-[0.07em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             {name}
           </span>
         </div>
@@ -43,7 +43,7 @@ const DiagonalMarquee = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))] py-28 md:py-40">
+    <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))] py-16 md:py-28">
       <div className="absolute inset-0 flex flex-col justify-center gap-6" style={{ transform: "rotate(-5deg) scale(1.3)" }}>
         {/* Row 1 - moving left */}
         <div className="flex animate-marquee" style={{ width: "fit-content" }}>

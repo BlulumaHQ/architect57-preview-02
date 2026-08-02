@@ -44,27 +44,27 @@ const Header = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`font-heading text-[13px] font-light tracking-[0.15em] uppercase transition-colors duration-300 ${
+              className={`font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase transition-colors duration-300 ${
                 location.pathname === link.to
                   ? "text-white"
-                  : "text-white/60 hover:text-white"
+                  : "text-white/80 hover:text-white"
               }`}
             >
               {link.label}
             </Link>
           ))}
           {/* Language Toggle */}
-          <div className="flex items-center gap-1 text-[12px] font-heading font-light tracking-wider">
+          <div className="flex items-center gap-1 text-[13px] font-heading font-semibold tracking-wider">
             <button
               onClick={() => setLang("en")}
-              className={`transition-colors duration-300 ${lang === "en" ? "text-white" : "text-white/40 hover:text-white/70"}`}
+              className={`transition-colors duration-300 ${lang === "en" ? "text-white" : "text-white/70 hover:text-white"}`}
             >
               EN
             </button>
             <span className="text-white/20">|</span>
             <button
               onClick={() => setLang("zh")}
-              className={`transition-colors duration-300 ${lang === "zh" ? "text-white" : "text-white/40 hover:text-white/70"}`}
+              className={`transition-colors duration-300 ${lang === "zh" ? "text-white" : "text-white/70 hover:text-white"}`}
             >
               繁中
             </button>
@@ -73,17 +73,17 @@ const Header = () => {
 
         <div className="flex items-center gap-4 md:hidden">
           {/* Mobile language toggle */}
-          <div className="flex items-center gap-1 text-[11px] font-heading font-light">
+          <div className="flex items-center gap-1 text-[12px] font-heading font-semibold">
             <button
               onClick={() => setLang("en")}
-              className={`transition-colors ${lang === "en" ? "text-white" : "text-white/40"}`}
+              className={`transition-colors ${lang === "en" ? "text-white" : "text-white/70"}`}
             >
               EN
             </button>
             <span className="text-white/20">|</span>
             <button
               onClick={() => setLang("zh")}
-              className={`transition-colors ${lang === "zh" ? "text-white" : "text-white/40"}`}
+              className={`transition-colors ${lang === "zh" ? "text-white" : "text-white/70"}`}
             >
               繁中
             </button>
@@ -99,7 +99,7 @@ const Header = () => {
 
         <a
           href="tel:604-818-2088"
-          className="hidden md:inline-flex font-heading text-[13px] font-light tracking-[0.1em] text-white/60 hover:text-white transition-colors duration-300"
+          className="hidden md:inline-flex font-heading text-[14px] font-semibold tracking-[0.06em] text-white/90 hover:text-white transition-colors duration-300"
         >
           604.818.2088
         </a>
@@ -110,7 +110,7 @@ const Header = () => {
           <nav className="flex flex-col py-6">
             <Link
               to="/"
-              className="px-6 py-3 font-heading text-[13px] font-light tracking-[0.15em] uppercase text-white/70 hover:text-white transition-colors"
+              className="px-6 py-3 font-heading text-[13px] font-semibold tracking-[0.07em] uppercase text-white/90 hover:text-white transition-colors"
             >
               {t("nav.home")}
             </Link>
@@ -118,10 +118,10 @@ const Header = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`px-6 py-3 font-heading text-[13px] font-light tracking-[0.15em] uppercase transition-colors ${
+                className={`px-6 py-3 font-heading text-[13px] font-semibold tracking-[0.07em] uppercase transition-colors ${
                   location.pathname === link.to
                     ? "text-white"
-                    : "text-white/70 hover:text-white"
+                    : "text-white/80 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -130,7 +130,7 @@ const Header = () => {
             <div className="px-6 pt-4">
               <a
                 href="tel:604-818-2088"
-                className="font-heading text-[13px] font-light tracking-[0.1em] text-[hsl(var(--gold-accent))]"
+                className="font-heading text-[14px] font-semibold tracking-[0.06em] text-[hsl(var(--gold-accent))]"
               >
                 604.818.2088
               </a>

@@ -20,11 +20,11 @@ const Contact = () => {
   return (
     <main className="pb-16 md:pb-0">
       {/* Hero */}
-      <section className="relative bg-[hsl(var(--surface-dark))] pt-32 md:pt-44 pb-20 md:pb-28">
+      <section className="relative bg-[hsl(var(--surface-dark))] pt-28 md:pt-36 pb-12 md:pb-20">
         <div className="absolute bottom-8 right-10 w-4 h-4 border-b border-r border-[#a11d2d]/20 hidden md:block" />
         <div className="container-wide">
           <ScrollReveal>
-            <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--gold-accent))] mb-4">{t("contact.label")}</p>
+            <p className="section-eyebrow section-eyebrow--gold-bright mb-4">{t("contact.label")}</p>
             <h1 className="font-heading text-[40px] md:text-[60px] lg:text-[76px] font-light leading-[0.95] text-white max-w-3xl tracking-tight">
               {t("contact.title")}
             </h1>
@@ -39,7 +39,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Form */}
             <ScrollReveal direction="left" className="lg:col-span-7">
-              <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
+              <p className="section-eyebrow section-eyebrow--purple mb-4">
                 {t("contact.formLabel")}
               </p>
               <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-8 tracking-tight">
@@ -73,7 +73,7 @@ const Contact = () => {
                     <label htmlFor="message" className="block text-[13px] font-light text-foreground mb-2">{t("contact.message")}</label>
                     <textarea id="message" rows={5} required className="w-full px-0 py-3 bg-transparent border-0 border-b border-border text-foreground font-light focus:outline-none focus:border-foreground transition-colors resize-none" placeholder={t("contact.messagePlaceholder")} />
                   </div>
-                  <button type="submit" className="inline-flex items-center gap-3 font-heading text-[13px] font-light tracking-[0.1em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]">
+                  <button type="submit" className="inline-flex items-center gap-3 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]">
                     <Send className="w-4 h-4" />
                     {t("contact.send")}
                   </button>
@@ -83,23 +83,27 @@ const Contact = () => {
 
             {/* Info */}
             <ScrollReveal direction="right" className="lg:col-span-4 lg:col-start-9">
-              <p className="font-heading text-[11px] font-light tracking-[0.3em] uppercase text-[hsl(var(--purple-muted))] mb-4">
+              <p className="section-eyebrow section-eyebrow--purple mb-4">
                 {t("contact.infoLabel")}
               </p>
               <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-8 tracking-tight">
                 {t("contact.infoTitle1")} <span className="font-medium">{t("contact.infoTitle2")}</span>
               </h2>
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div>
-                  <span className="text-[11px] font-light tracking-[0.2em] uppercase text-muted-foreground block mb-2">{t("contact.phoneLabel")}</span>
+                  <span className="card-label card-label--muted block mb-2">{t("contact.companyLabel")}</span>
+                  <p className="text-foreground font-medium">Architect 57 Inc.</p>
+                </div>
+                <div>
+                  <span className="card-label card-label--muted block mb-2">{t("contact.phoneLabel")}</span>
                   <a href="tel:604-818-2088" className="text-foreground font-light hover:text-[hsl(var(--purple-muted))] transition-colors">604.818.2088</a>
                 </div>
                 <div>
-                  <span className="text-[11px] font-light tracking-[0.2em] uppercase text-muted-foreground block mb-2">{t("contact.emailLabel")}</span>
+                  <span className="card-label card-label--muted block mb-2">{t("contact.emailLabel")}</span>
                   <a href="mailto:cary@architect57.com" className="text-foreground font-light hover:text-[hsl(var(--purple-muted))] transition-colors">cary@architect57.com</a>
                 </div>
                 <div>
-                  <span className="text-[11px] font-light tracking-[0.2em] uppercase text-muted-foreground block mb-2">{t("contact.addressLabel")}</span>
+                  <span className="card-label card-label--muted block mb-2">{t("contact.addressLabel")}</span>
                   <p className="text-foreground font-light leading-relaxed">203-2680 Shell Road<br />Richmond, BC V6X 4C9</p>
                 </div>
               </div>
