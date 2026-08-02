@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[hsl(var(--surface-dark))] text-white">
-      <div className="container-wide py-20 md:py-28">
+      <div className="container-wide py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-6">
           {/* Col 1: Logo + description */}
           <div className="md:col-span-1">
