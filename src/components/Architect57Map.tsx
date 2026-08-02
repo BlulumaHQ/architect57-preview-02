@@ -19,7 +19,12 @@ export const ARCHITECT57_ADDRESS = {
 export const ARCHITECT57_DIRECTIONS_URL =
   "https://www.google.com/maps/dir/?api=1&destination=49.1944073,-123.1043397";
 
-type LoadState = "loading" | "ready" | "error";
+type LoadState = "loading" | "ready" | "fallback";
+
+/** Emergency fallback embed — standard Google marker, exact verified coordinates. */
+export const ARCHITECT57_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(
+  `${ARCHITECT57_OFFICE.lat},${ARCHITECT57_OFFICE.lng}`
+)}&z=16&output=embed`;
 
 declare global {
   interface Window {
@@ -101,7 +106,6 @@ const Architect57Map = ({
   const zh = lang === "zh";
   const directionsLabel = zh ? "路線導航" : "Get Directions";
   const loadingLabel = zh ? "地圖載入中……" : "Loading map…";
-  const errorLabel = zh ? "地圖目前暫時無法載入。" : "Map is temporarily unavailable.";
 
   useEffect(() => {
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined;
@@ -121,7 +125,7 @@ const Architect57Map = ({
       console.error(
         "[Architect57Map] VITE_GOOGLE_MAPS_API_KEY is not configured; the Google Maps JavaScript API will not be loaded."
       );
-      setState("error");
+      setState("fallback");
       return;
     }
 
@@ -132,7 +136,7 @@ const Architect57Map = ({
       console.error(
         "[Architect57Map] Google Maps authentication failed. Check VITE_GOOGLE_MAPS_API_KEY, HTTP referrer restrictions, billing, and Maps JavaScript API status."
       );
-      setState("error");
+      setState("fallback");
     };
 
     const init = async () => {
@@ -199,7 +203,7 @@ const Architect57Map = ({
     init().catch((error) => {
       if (cancelled) return;
       console.error("[Architect57Map] Google Maps initialization failed:", error);
-      setState("error");
+      setState("fallback");
     });
 
     return () => {
@@ -232,41 +236,45 @@ const Architect57Map = ({
     );
   }, [directionsLabel, state]);
 
-  if (state === "error") {
+  if (state === "fallback") {
     return (
       <div
         className={className}
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: "6px",
-          padding: "24px",
-          backgroundColor: "hsl(var(--surface-dark))",
-          color: "#fff",
-        }}
+        style={{ position: "relative", width: "100%", height: "100%" }}
         role="region"
         aria-label={title}
       >
-        <p style={{ fontSize: "13px", opacity: 0.72, marginBottom: "6px" }}>{errorLabel}</p>
-        <strong style={{ fontWeight: 600 }}>{ARCHITECT57_ADDRESS.company}</strong>
-        <span style={{ fontWeight: 300, fontSize: "14px" }}>{ARCHITECT57_ADDRESS.line1}</span>
-        <span style={{ fontWeight: 300, fontSize: "14px" }}>{ARCHITECT57_ADDRESS.line2}</span>
-        <span style={{ fontWeight: 300, fontSize: "14px" }}>{ARCHITECT57_ADDRESS.country}</span>
+        <iframe
+          title={title}
+          src={ARCHITECT57_EMBED_URL}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+          style={{
+            width: "100%",
+            height: "100%",
+            border: 0,
+            display: "block",
+            filter: "grayscale(0.35) contrast(1.05)",
+          }}
+        />
         <a
           href={ARCHITECT57_DIRECTIONS_URL}
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            marginTop: "12px",
-            fontSize: "12px",
+            position: "absolute",
+            left: "12px",
+            bottom: "40px",
+            fontSize: "11px",
             fontWeight: 600,
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            color: "#b79ad2",
-            alignSelf: "flex-start",
+            color: "#ffffff",
+            backgroundColor: "rgba(24,24,27,0.86)",
+            padding: "8px 14px",
+            borderRadius: "2px",
+            textDecoration: "none",
           }}
         >
           {directionsLabel}
@@ -274,6 +282,7 @@ const Architect57Map = ({
       </div>
     );
   }
+
 
   return (
     <div className={className} style={{ position: "relative", width: "100%", height: "100%" }}>
