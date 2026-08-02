@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import DiagonalMarquee from "@/components/DiagonalMarquee";
 import CategoryShowcase from "@/components/home/CategoryShowcase";
+import BrandMap from "@/components/BrandMap";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutImg from "@/assets/about-us-01.webp";
