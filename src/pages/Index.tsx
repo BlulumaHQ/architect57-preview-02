@@ -30,14 +30,14 @@ const Index = () => {
   return (
     <main className="pb-16 md:pb-0">
       {/* HERO */}
-      <section className="relative h-screen min-h-[600px] flex items-end overflow-hidden">
+      <section className="relative h-[76svh] min-h-[520px] md:h-screen md:min-h-[600px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img src={hero1} alt="Modern architecture at twilight" className="absolute inset-0 w-full h-full object-cover hero-slide-1" />
           <img src={hero2} alt="Residential tower at night" className="absolute inset-0 w-full h-full object-cover hero-slide-2" />
           <div className="absolute inset-0 bg-gradient-to-t from-[hsl(240,6%,10%)]/90 via-[hsl(240,6%,10%)]/40 to-transparent" />
         </div>
         <div className="absolute top-28 right-10 w-4 h-4 border-t border-r border-[#a11d2d]/25 z-10 hidden md:block" />
-        <div className="container-wide relative z-10 pb-20 md:pb-28">
+        <div className="container-wide relative z-10 pb-14 md:pb-24">
           <ScrollReveal>
             <p className="section-eyebrow section-eyebrow--gold-bright mb-5">
               {t("hero.location")}
@@ -51,7 +51,7 @@ const Index = () => {
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={240}>
-            <p className="text-base md:text-lg text-white/90 max-w-lg mb-10 leading-relaxed font-light">
+            <p className="text-[15px] md:text-lg copy-on-dark overlay-text max-w-lg mb-8 leading-relaxed">
               {t("hero.desc")}
             </p>
           </ScrollReveal>
