@@ -25,10 +25,15 @@ declare global {
   interface Window {
     google?: any;
     __architect57MapsLoader?: Promise<void>;
+    gm_authFailure?: () => void;
+    __architect57MapsCallback?: () => void;
   }
 }
 
-/** Loads the Google Maps JS API bootstrap exactly once per page. */
+/**
+ * Loads the Google Maps JS API bootstrap exactly once per page using the
+ * official callback parameter, so it resolves only when the API is ready.
+ */
 const loadMapsApi = (apiKey: string): Promise<void> => {
   if (typeof window === "undefined") {
     return Promise.reject(new Error("Google Maps requires a browser environment"));
@@ -40,12 +45,29 @@ const loadMapsApi = (apiKey: string): Promise<void> => {
       resolve();
       return;
     }
+
+    const existing = document.getElementById(
+      "architect57-google-maps"
+    ) as HTMLScriptElement | null;
+
+    window.__architect57MapsCallback = () => {
+      if (window.google?.maps?.importLibrary) resolve();
+      else reject(new Error("Google Maps loaded without importLibrary support"));
+    };
+
+    if (existing) {
+      existing.addEventListener("error", () =>
+        reject(new Error("Google Maps script failed to load"))
+      );
+      return;
+    }
+
     const script = document.createElement("script");
+    script.id = "architect57-google-maps";
     script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(
       apiKey
-    )}&v=weekly&loading=async&libraries=maps,marker`;
+    )}&v=weekly&loading=async&libraries=maps,marker&callback=__architect57MapsCallback`;
     script.async = true;
-    script.onload = () => resolve();
     script.onerror = () => reject(new Error("Google Maps script failed to load"));
     document.head.appendChild(script);
   }).catch((error) => {
@@ -71,6 +93,9 @@ const Architect57Map = ({
   const { lang } = useLang();
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
+  const markerRef = useRef<any>(null);
+  const infoWindowRef = useRef<any>(null);
+  const clickListenerRef = useRef<any>(null);
   const [state, setState] = useState<LoadState>("loading");
 
   const zh = lang === "zh";
@@ -81,26 +106,53 @@ const Architect57Map = ({
   useEffect(() => {
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined;
 
+    if (import.meta.env.DEV) {
+      console.info("[Architect57Map] Browser API key configured:", Boolean(apiKey));
+      console.info("[Architect57Map] Current hostname:", window.location.hostname);
+      console.info("[Architect57Map] Using Map ID:", ARCHITECT57_MAP_ID);
+      console.info(
+        "[Architect57Map] Using office coordinates:",
+        ARCHITECT57_OFFICE.lat,
+        ARCHITECT57_OFFICE.lng
+      );
+    }
+
     if (!apiKey) {
-      if (import.meta.env.DEV) {
-        console.error(
-          "[Architect57Map] VITE_GOOGLE_MAPS_API_KEY is not configured; rendering fallback panel."
-        );
-      }
+      console.error(
+        "[Architect57Map] VITE_GOOGLE_MAPS_API_KEY is not configured; the Google Maps JavaScript API will not be loaded."
+      );
       setState("error");
       return;
     }
 
     let cancelled = false;
 
+    const previousAuthFailure = window.gm_authFailure;
+    window.gm_authFailure = () => {
+      console.error(
+        "[Architect57Map] Google Maps authentication failed. Check VITE_GOOGLE_MAPS_API_KEY, HTTP referrer restrictions, billing, and Maps JavaScript API status."
+      );
+      setState("error");
+    };
+
     const init = async () => {
       await loadMapsApi(apiKey);
       if (cancelled || !containerRef.current || mapRef.current) return;
 
       const { Map } = await window.google.maps.importLibrary("maps");
-      const { AdvancedMarkerElement, PinElement } = await window.google.maps.importLibrary(
-        "marker"
-      );
+      const markerLib = await window.google.maps.importLibrary("marker");
+      const { AdvancedMarkerElement, PinElement } = markerLib ?? {};
+
+      if (!AdvancedMarkerElement || !PinElement) {
+        const missing = [
+          !AdvancedMarkerElement && "AdvancedMarkerElement",
+          !PinElement && "PinElement",
+        ]
+          .filter(Boolean)
+          .join(", ");
+        throw new Error(`Google Maps marker library unavailable: missing ${missing}`);
+      }
+
       if (cancelled || !containerRef.current || mapRef.current) return;
 
       const map = new Map(containerRef.current, {
@@ -132,64 +184,89 @@ const Architect57Map = ({
         title: ARCHITECT57_ADDRESS.company,
         content: pin.element,
       });
+      markerRef.current = marker;
 
-      const infoWindow = new window.google.maps.InfoWindow({
-        content: `<div style="font-family:inherit;color:#18181b;line-height:1.55;font-size:13px">
-            <strong style="display:block;margin-bottom:4px">${ARCHITECT57_ADDRESS.company}</strong>
-            <span style="display:block">${ARCHITECT57_ADDRESS.line1}</span>
-            <span style="display:block">${ARCHITECT57_ADDRESS.line2}</span>
-            <span style="display:block">${ARCHITECT57_ADDRESS.country}</span>
-            <a href="${ARCHITECT57_DIRECTIONS_URL}" target="_blank" rel="noopener noreferrer"
-               style="display:inline-block;margin-top:6px;color:#714C90;font-weight:600">${directionsLabel}</a>
-          </div>`,
-      });
+      const infoWindow = new window.google.maps.InfoWindow();
+      infoWindowRef.current = infoWindow;
 
-      marker.addListener("click", () => infoWindow.open({ map, anchor: marker }));
+      clickListenerRef.current = marker.addListener("click", () =>
+        infoWindow.open({ map, anchor: marker })
+      );
 
       setState("ready");
     };
 
-    init().catch(() => {
-      if (!cancelled) setState("error");
+    init().catch((error) => {
+      if (cancelled) return;
+      console.error("[Architect57Map] Google Maps initialization failed:", error);
+      setState("error");
     });
 
     return () => {
       cancelled = true;
+      if (clickListenerRef.current?.remove) clickListenerRef.current.remove();
+      clickListenerRef.current = null;
+      if (infoWindowRef.current?.close) infoWindowRef.current.close();
+      infoWindowRef.current = null;
+      if (markerRef.current) markerRef.current.map = null;
+      markerRef.current = null;
+      mapRef.current = null;
+      window.gm_authFailure = previousAuthFailure;
     };
-    // Language only affects the info-window label; the map is never rebuilt.
+    // The map is built once; language only affects info-window content.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [zoom]);
 
+  // Keep the info-window content in sync with the active language.
+  useEffect(() => {
+    if (!infoWindowRef.current) return;
+    infoWindowRef.current.setContent(
+      `<div style="font-family:inherit;color:#18181b;line-height:1.55;font-size:13px">
+        <strong style="display:block;margin-bottom:4px">${ARCHITECT57_ADDRESS.company}</strong>
+        <span style="display:block">${ARCHITECT57_ADDRESS.line1}</span>
+        <span style="display:block">${ARCHITECT57_ADDRESS.line2}</span>
+        <span style="display:block">${ARCHITECT57_ADDRESS.country}</span>
+        <a href="${ARCHITECT57_DIRECTIONS_URL}" target="_blank" rel="noopener noreferrer"
+           style="display:inline-block;margin-top:6px;color:#714C90;font-weight:600">${directionsLabel}</a>
+      </div>`
+    );
+  }, [directionsLabel, state]);
+
   if (state === "error") {
-    // Keyless Google Maps embed so the office location is always visible,
-    // even when VITE_GOOGLE_MAPS_API_KEY is not available in this environment.
     return (
-      <div className={className} style={{ position: "relative", width: "100%", height: "100%" }}>
-        <iframe
-          title={title}
-          src={`https://www.google.com/maps?q=${ARCHITECT57_OFFICE.lat},${ARCHITECT57_OFFICE.lng}&z=${zoom}&output=embed`}
-          width="100%"
-          height="100%"
-          style={{ border: 0, display: "block", filter: "grayscale(0.35) contrast(1.05)" }}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          allowFullScreen
-        />
+      <div
+        className={className}
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "6px",
+          padding: "24px",
+          backgroundColor: "hsl(var(--surface-dark))",
+          color: "#fff",
+        }}
+        role="region"
+        aria-label={title}
+      >
+        <p style={{ fontSize: "13px", opacity: 0.72, marginBottom: "6px" }}>{errorLabel}</p>
+        <strong style={{ fontWeight: 600 }}>{ARCHITECT57_ADDRESS.company}</strong>
+        <span style={{ fontWeight: 300, fontSize: "14px" }}>{ARCHITECT57_ADDRESS.line1}</span>
+        <span style={{ fontWeight: 300, fontSize: "14px" }}>{ARCHITECT57_ADDRESS.line2}</span>
+        <span style={{ fontWeight: 300, fontSize: "14px" }}>{ARCHITECT57_ADDRESS.country}</span>
         <a
           href={ARCHITECT57_DIRECTIONS_URL}
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            position: "absolute",
-            left: 12,
-            bottom: 12,
-            padding: "6px 10px",
-            borderRadius: 2,
-            backgroundColor: "hsl(var(--surface-dark))",
-            color: "#fff",
+            marginTop: "12px",
             fontSize: "12px",
             fontWeight: 600,
-            letterSpacing: "0.04em",
+            letterSpacing: "0.06em",
+            textTransform: "uppercase",
+            color: "#b79ad2",
+            alignSelf: "flex-start",
           }}
         >
           {directionsLabel}
@@ -197,7 +274,6 @@ const Architect57Map = ({
       </div>
     );
   }
-
 
   return (
     <div className={className} style={{ position: "relative", width: "100%", height: "100%" }}>
