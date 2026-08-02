@@ -1,5 +1,6 @@
 import { useState, FormEvent } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
+import BrandMap from "@/components/BrandMap";
 import { Send } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 import usePageMeta from "@/hooks/usePageMeta";
