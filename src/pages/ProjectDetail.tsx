@@ -61,7 +61,7 @@ const ProjectDetail = () => {
   if (isLoading) {
     return (
       <main className="pb-16 md:pb-0">
-        <section className="relative h-[70vh] min-h-[500px] bg-muted animate-pulse" />
+        <section className="relative h-[74svh] min-h-[460px] md:h-[70vh] md:min-h-[500px] bg-muted animate-pulse" />
         <section className="section-padding bg-background">
           <div className="container-wide space-y-4">
             <div className="h-6 w-1/3 bg-muted rounded-sm animate-pulse" />
@@ -159,7 +159,7 @@ const ProjectDetail = () => {
   return (
     <main className="pb-16 md:pb-0">
       {/* Hero */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
+      <section className="relative h-[74svh] min-h-[460px] md:h-[70vh] md:min-h-[500px] flex items-end overflow-hidden">
         {project.featuredImageUrl ? (
           <img src={project.featuredImageUrl} alt={title} className="absolute inset-0 w-full h-full object-cover" />
         ) : (
@@ -188,7 +188,7 @@ const ProjectDetail = () => {
       {/* Info */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-7">
               <ScrollReveal>
                 <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-6 tracking-tight">
@@ -230,7 +230,7 @@ const ProjectDetail = () => {
         <section className="section-padding-lg bg-[hsl(var(--surface-warm))]">
           <div className="container-wide">
             <ScrollReveal>
-              <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-12 tracking-tight">
+              <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-8 tracking-tight">
                 {t("detail.gallery")}
               </h2>
             </ScrollReveal>
@@ -257,7 +257,7 @@ const ProjectDetail = () => {
         <section className="bg-[hsl(var(--surface-dark))]">
           <div className="grid grid-cols-2 divide-x divide-white/10">
             <Link to={`/projects/${prevProject.slug}`} className="group block">
-              <div className="container-wide py-16 md:py-24 flex items-center gap-4">
+              <div className="container-wide py-12 md:py-16 flex items-center gap-4">
                 <ArrowLeft className="w-5 h-5 text-white/30 group-hover:text-[hsl(var(--gold-accent))] group-hover:-translate-x-1 transition-all duration-300 shrink-0" />
                 <div>
                   <p className="section-eyebrow section-eyebrow--on-dark mb-2">{t("detail.previous")}</p>
@@ -268,7 +268,7 @@ const ProjectDetail = () => {
               </div>
             </Link>
             <Link to={`/projects/${nextProject.slug}`} className="group block">
-              <div className="container-wide py-16 md:py-24 flex items-center justify-end gap-4 text-right">
+              <div className="container-wide py-12 md:py-16 flex items-center justify-end gap-4 text-right">
                 <div>
                   <p className="section-eyebrow section-eyebrow--on-dark mb-2">{t("detail.next")}</p>
                   <h3 className="font-heading text-lg md:text-2xl font-light text-white tracking-tight group-hover:text-[hsl(var(--gold-accent))] transition-colors duration-300">

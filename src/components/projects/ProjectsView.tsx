@@ -147,7 +147,7 @@ const ProjectsView = ({
   return (
     <main className="pb-16 md:pb-0">
       {/* Hero */}
-      <section className="relative bg-[hsl(var(--surface-dark))] pt-32 md:pt-44 pb-20 md:pb-28">
+      <section className="relative bg-[hsl(var(--surface-dark))] pt-28 md:pt-36 pb-12 md:pb-20">
         <div className="container-wide">
           <ScrollReveal>
             <p className="section-eyebrow section-eyebrow--gold-bright mb-4">
@@ -186,7 +186,7 @@ const ProjectsView = ({
                     <p className="section-eyebrow section-eyebrow--purple mb-3">
                       {t("projects.featuredLabel")}
                     </p>
-                    <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground mb-14 tracking-tight">
+                    <h2 className="font-heading text-3xl md:text-4xl font-light text-foreground mb-8 tracking-tight">
                       {t("projects.featuredTitle")}
                     </h2>
                   </ScrollReveal>
@@ -301,7 +301,7 @@ const ProjectsView = ({
           <section className="section-padding-lg bg-background">
             <div className="container-wide">
               <ScrollReveal>
-                <div className="flex items-end justify-between mb-10">
+                <div className="flex items-end justify-between mb-7">
                   <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground tracking-tight">
                     {showFilters ? (
                       <>

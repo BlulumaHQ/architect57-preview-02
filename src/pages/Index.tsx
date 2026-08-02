@@ -81,7 +81,7 @@ const Index = () => {
       <section className="section-padding-lg bg-background relative">
         <div className="absolute top-12 left-6 md:left-10 w-px h-8 bg-[#a11d2d]/20" />
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-4">
               <ScrollReveal>
                 <p className="section-eyebrow section-eyebrow--purple mb-4">
@@ -108,7 +108,7 @@ const Index = () => {
               <div className="space-y-0 divide-y divide-border">
                 {services.map((s, i) => (
                   <ScrollReveal key={s.num} delay={i * 80}>
-                    <div className="py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+                    <div className="py-6 md:py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
                       <span className="md:col-span-2 font-heading text-[13px] font-light text-[hsl(var(--purple-muted))] tracking-wider">
                         {s.num}
                       </span>
