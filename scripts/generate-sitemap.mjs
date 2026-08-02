@@ -40,6 +40,26 @@ export const readLegacyPaths = () => {
 
 const STATIC_ROUTES = ["/", "/projects", "/about", "/contact"];
 
+/** The eleven approved Architect 57 CMS categories eligible for collection pages. */
+const APPROVED_CATEGORIES = [
+  "Civic / Institutional",
+  "Commercial",
+  "Cultural",
+  "Healthcare",
+  "Hospitality",
+  "Industrial",
+  "Interior Design / Tenant Improvement",
+  "Mixed-Use",
+  "Religious",
+  "Residential",
+  "Urban Design & Master Planning",
+];
+
+const normalizeCategoryKey = (value) =>
+  (value ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+const APPROVED_KEYS = new Set(APPROVED_CATEGORIES.map(normalizeCategoryKey));
+
 async function fetchPublishedProjects() {
   const clients = await rest(
     "clients?select=id,slug&slug=in.(architect57,architect-57)&status=eq.active"
@@ -49,13 +69,39 @@ async function fetchPublishedProjects() {
   if (!client) throw new Error("Architect57 client not found in CMS");
 
   const items = await rest(
-    `content_items?select=slug,updated_at&client_id=eq.${client.id}&content_type=eq.portfolio&status=eq.published&limit=1000`
+    `content_items?select=id,slug,updated_at&client_id=eq.${client.id}&content_type=eq.portfolio&status=eq.published&limit=1000`
   );
   const projects = items.filter((i) => i.slug && i.slug.trim());
   if (projects.length === 0) {
     throw new Error("CMS returned zero published portfolio projects");
   }
   return projects;
+}
+
+/** Approved, active category collection pages that actually have published projects. */
+async function fetchCollectionCategories(projects) {
+  const ids = projects.map((p) => p.id).filter(Boolean);
+  if (ids.length === 0) return [];
+
+  const links = await rest(
+    `content_categories?select=content_id,category_id&content_id=in.(${ids.join(",")})&limit=5000`
+  );
+  const categoryIds = [...new Set(links.map((l) => l.category_id).filter(Boolean))];
+  if (categoryIds.length === 0) return [];
+
+  const categories = await rest(
+    `categories?select=id,name,slug,sort_order,is_active&id=in.(${categoryIds.join(",")})&limit=1000`
+  );
+
+  return categories
+    .filter(
+      (c) =>
+        c.is_active !== false &&
+        c.slug &&
+        (APPROVED_KEYS.has(normalizeCategoryKey(c.name)) ||
+          APPROVED_KEYS.has(normalizeCategoryKey(c.slug)))
+    )
+    .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0) || a.slug.localeCompare(b.slug));
 }
 
 const urlEntry = ({ path, lastmod, changefreq, priority }) =>
@@ -73,12 +119,18 @@ const urlEntry = ({ path, lastmod, changefreq, priority }) =>
 export async function buildSitemap() {
   const legacyPaths = readLegacyPaths();
   const projects = await fetchPublishedProjects();
+  const collections = await fetchCollectionCategories(projects);
 
   const entries = [
     { path: "/", changefreq: "weekly", priority: "1.0" },
     { path: "/projects", changefreq: "weekly", priority: "0.9" },
     ...legacyPaths.map((p) => ({
       path: p,
+      changefreq: "monthly",
+      priority: "0.8",
+    })),
+    ...collections.map((c) => ({
+      path: `/projects/collection/${c.slug}`,
       changefreq: "monthly",
       priority: "0.8",
     })),
@@ -99,7 +151,7 @@ export async function buildSitemap() {
     "</urlset>",
   ].join("\n");
 
-  return { xml, entries, projects, legacyPaths, staticRoutes: STATIC_ROUTES };
+  return { xml, entries, projects, collections, legacyPaths, staticRoutes: STATIC_ROUTES };
 }
 
 const isMain =
@@ -107,10 +159,10 @@ const isMain =
 
 if (isMain) {
   try {
-    const { xml, entries, projects } = await buildSitemap();
+    const { xml, entries, projects, collections } = await buildSitemap();
     writeFileSync(resolve("public/sitemap.xml"), xml);
     console.log(
-      `sitemap.xml written (${entries.length} URLs, ${projects.length} CMS project detail pages)`
+      `sitemap.xml written (${entries.length} URLs, ${projects.length} CMS project detail pages, ${collections.length} collection pages)`
     );
   } catch (err) {
     console.error("Sitemap generation FAILED:", err.message);
