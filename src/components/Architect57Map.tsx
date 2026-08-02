@@ -161,41 +161,43 @@ const Architect57Map = ({
   }, [zoom]);
 
   if (state === "error") {
+    // Keyless Google Maps embed so the office location is always visible,
+    // even when VITE_GOOGLE_MAPS_API_KEY is not available in this environment.
     return (
-      <div
-        className={className}
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "6px",
-          textAlign: "center",
-          padding: "24px",
-          backgroundColor: "hsl(var(--surface-dark))",
-          color: "hsl(var(--muted-foreground))",
-          fontSize: "13px",
-          lineHeight: 1.6,
-        }}
-      >
-        <span>{errorLabel}</span>
-        <span style={{ color: "hsl(var(--foreground))" }}>{ARCHITECT57_ADDRESS.company}</span>
-        <span>
-          {ARCHITECT57_ADDRESS.line1}, {ARCHITECT57_ADDRESS.line2}
-        </span>
+      <div className={className} style={{ position: "relative", width: "100%", height: "100%" }}>
+        <iframe
+          title={title}
+          src={`https://www.google.com/maps?q=${ARCHITECT57_OFFICE.lat},${ARCHITECT57_OFFICE.lng}&z=${zoom}&output=embed`}
+          width="100%"
+          height="100%"
+          style={{ border: 0, display: "block", filter: "grayscale(0.35) contrast(1.05)" }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
         <a
           href={ARCHITECT57_DIRECTIONS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: "hsl(var(--purple-muted))", fontWeight: 600, marginTop: "4px" }}
+          style={{
+            position: "absolute",
+            left: 12,
+            bottom: 12,
+            padding: "6px 10px",
+            borderRadius: 2,
+            backgroundColor: "hsl(var(--surface-dark))",
+            color: "#fff",
+            fontSize: "12px",
+            fontWeight: 600,
+            letterSpacing: "0.04em",
+          }}
         >
           {directionsLabel}
         </a>
       </div>
     );
   }
+
 
   return (
     <div className={className} style={{ position: "relative", width: "100%", height: "100%" }}>
