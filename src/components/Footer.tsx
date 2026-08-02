@@ -53,6 +53,7 @@ const Footer = () => {
               {t("footer.contact")}
             </h4>
             <div className="flex flex-col gap-3">
+              <p className="text-[14px] text-white font-semibold leading-relaxed">Architect 57 Inc.</p>
               <a href="tel:604-818-2088" className="text-[14px] text-white hover:text-white transition-colors font-medium">
                 604.818.2088
               </a>
@@ -71,7 +72,7 @@ const Footer = () => {
       <div className="border-t border-white/10 relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#a11d2d]/30" />
         <div className="container-wide py-6 flex flex-col md:flex-row items-center justify-center gap-1 text-[12px] text-white/75 font-normal">
-          <span>© {year} Architect 57 無極建築 Inc. All rights reserved.</span>
+          <span>© {year} Architect 57 Inc. All Rights Reserved.</span>
           <span className="hidden md:inline mx-1">|</span>
           <span>
             Web Design by{" "}
