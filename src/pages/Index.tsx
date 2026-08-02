@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import DiagonalMarquee from "@/components/DiagonalMarquee";
 import CategoryShowcase from "@/components/home/CategoryShowcase";
-import BrandMap from "@/components/BrandMap";
+import Architect57Map from "@/components/Architect57Map";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutImg from "@/assets/about-us-01.webp";
@@ -218,7 +218,7 @@ const Index = () => {
 
       {/* MAP */}
       <section className="h-[280px] md:h-[380px] w-full">
-        <BrandMap title="Architect 57 無極建築 Location — 203-2680 Shell Road, Richmond, BC" />
+        <Architect57Map title="Architect 57 Inc. — 203-2680 Shell Road, Richmond, BC" />
       </section>
     </main>
   );
