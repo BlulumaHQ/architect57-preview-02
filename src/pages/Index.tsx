@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import DiagonalMarquee from "@/components/DiagonalMarquee";
 import CategoryShowcase from "@/components/home/CategoryShowcase";
+import BrandMap from "@/components/BrandMap";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import aboutImg from "@/assets/about-us-01.webp";
@@ -217,16 +218,7 @@ const Index = () => {
 
       {/* MAP */}
       <section className="h-[280px] md:h-[380px] w-full">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2607.8!2d-123.1286!3d49.1766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDEwJzM1LjgiTiAxMjPCsDA3JzQzLjAiVw!5e0!3m2!1sen!2sca!4v1"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Architect 57 無極建築 Location — 203-2680 Shell Road, Richmond, BC"
-        />
+        <BrandMap title="Architect 57 無極建築 Location — 203-2680 Shell Road, Richmond, BC" />
       </section>
     </main>
   );
