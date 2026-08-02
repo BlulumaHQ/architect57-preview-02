@@ -1,6 +1,6 @@
 import { useState, FormEvent } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
-import BrandMap from "@/components/BrandMap";
+import Architect57Map from "@/components/Architect57Map";
 import { Send } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 import usePageMeta from "@/hooks/usePageMeta";
@@ -110,7 +110,7 @@ const Contact = () => {
               </div>
 
               <div className="mt-10 overflow-hidden rounded-sm h-[280px]">
-                <BrandMap title="Architect 57 無極建築 Location" zoom={16} />
+                <Architect57Map title="Architect 57 Inc. — 203-2680 Shell Road, Richmond, BC" zoom={16} />
               </div>
             </ScrollReveal>
           </div>
