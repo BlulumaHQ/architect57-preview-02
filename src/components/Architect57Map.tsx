@@ -237,41 +237,45 @@ const Architect57Map = ({
     );
   }, [directionsLabel, state]);
 
-  if (state === "error") {
+  if (state === "fallback") {
     return (
       <div
         className={className}
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: "6px",
-          padding: "24px",
-          backgroundColor: "hsl(var(--surface-dark))",
-          color: "#fff",
-        }}
+        style={{ position: "relative", width: "100%", height: "100%" }}
         role="region"
         aria-label={title}
       >
-        <p style={{ fontSize: "13px", opacity: 0.72, marginBottom: "6px" }}>{errorLabel}</p>
-        <strong style={{ fontWeight: 600 }}>{ARCHITECT57_ADDRESS.company}</strong>
-        <span style={{ fontWeight: 300, fontSize: "14px" }}>{ARCHITECT57_ADDRESS.line1}</span>
-        <span style={{ fontWeight: 300, fontSize: "14px" }}>{ARCHITECT57_ADDRESS.line2}</span>
-        <span style={{ fontWeight: 300, fontSize: "14px" }}>{ARCHITECT57_ADDRESS.country}</span>
+        <iframe
+          title={title}
+          src={ARCHITECT57_EMBED_URL}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+          style={{
+            width: "100%",
+            height: "100%",
+            border: 0,
+            display: "block",
+            filter: "grayscale(0.35) contrast(1.05)",
+          }}
+        />
         <a
           href={ARCHITECT57_DIRECTIONS_URL}
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            marginTop: "12px",
-            fontSize: "12px",
+            position: "absolute",
+            left: "12px",
+            bottom: "40px",
+            fontSize: "11px",
             fontWeight: 600,
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            color: "#b79ad2",
-            alignSelf: "flex-start",
+            color: "#ffffff",
+            backgroundColor: "rgba(24,24,27,0.86)",
+            padding: "8px 14px",
+            borderRadius: "2px",
+            textDecoration: "none",
           }}
         >
           {directionsLabel}
@@ -279,6 +283,7 @@ const Architect57Map = ({
       </div>
     );
   }
+
 
   return (
     <div className={className} style={{ position: "relative", width: "100%", height: "100%" }}>
