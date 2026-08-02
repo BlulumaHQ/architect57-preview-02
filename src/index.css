@@ -22,7 +22,7 @@
     --secondary-foreground: 240 5% 12%;
 
     --muted: 240 4% 92%;
-    --muted-foreground: 240 4% 46%;
+    --muted-foreground: 240 5% 32%;
 
     --accent: 260 12% 90%;
     --accent-foreground: 260 28% 38%;
@@ -40,7 +40,19 @@
     --surface-charcoal: 240 5% 15%;
     --surface-warm: 30 8% 95%;
     --gold-accent: 43 76% 58%;
-    --purple-muted: 260 18% 60%;
+    /* Brand purple #714C90 — used for every readable purple label/number */
+    --purple-muted: 273 31% 43%;
+    --purple-brand: 273 31% 43%;
+    /* Accessible mustard-gold for readable yellow text on light backgrounds */
+    --gold-text: 48 100% 27%;
+
+    /* Global small-text (eyebrow / label) tokens */
+    --eyebrow-size: 13px;
+    --eyebrow-size-md: 14.5px;
+    --label-size: 12.5px;
+    --label-size-md: 13.5px;
+    --eyebrow-tracking: 0.08em;
+    --eyebrow-leading: 1.4;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
