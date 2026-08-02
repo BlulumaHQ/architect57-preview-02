@@ -26,6 +26,13 @@ const Index = () => {
     { num: "02", title: t("services.s2.title"), desc: t("services.s2.desc") },
     { num: "03", title: t("services.s3.title"), desc: t("services.s3.desc") },
     { num: "04", title: t("services.s4.title"), desc: t("services.s4.desc") },
+    { num: "05", title: t("services.s5.title"), desc: t("services.s5.desc") },
+  ];
+
+  const sectors = [
+    { label: t("services.sector1"), to: "/projects" },
+    { label: t("services.sector2"), to: "/projects" },
+    { label: t("services.sector3"), to: "/projects" },
   ];
 
   return (
