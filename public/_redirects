@@ -1,10 +1,6 @@
-# Trailing-slash redirects first (canonical = no trailing slash)
-/single-family/                  /single-family                  301
-/daycare/                        /daycare                        301
-/multi-family-office-building/   /multi-family-office-building   301
-/projects/                       /projects                       301
-/about/                          /about                          301
-/contact/                        /contact                        301
-
-# SPA fallback last
+# SPA fallback: serve index.html for every client-side route (HTTP 200 rewrite,
+# visible URL unchanged). Netlify's Pretty URLs setting already normalises
+# trailing slashes, so explicit /path/ -> /path rules are NOT added here:
+# Netlify matches /path/ and /path with the same rule, which caused an
+# infinite 301 redirect loop on /projects, /about, /contact and the legacy URLs.
 /*    /index.html   200
