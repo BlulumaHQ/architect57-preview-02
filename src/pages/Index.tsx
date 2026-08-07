@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import DiagonalMarquee from "@/components/DiagonalMarquee";
-import CategoryShowcase from "@/components/home/CategoryShowcase";
+import OurWork from "@/components/home/OurWork";
 import Architect57Map from "@/components/Architect57Map";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
@@ -64,19 +64,13 @@ const Index = () => {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={360}>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-3 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-[hsl(var(--surface-dark))] bg-[hsl(var(--gold-accent))] px-8 py-4 rounded-sm transition-all duration-300 hover:opacity-90 active:scale-[0.97]"
-              >
-                {t("hero.cta1")}
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+            <div className="flex">
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-3 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-white border border-white/25 px-8 py-4 rounded-sm transition-all duration-300 hover:border-white/50 active:scale-[0.97]"
+                className="inline-flex items-center gap-3 font-heading text-[13px] md:text-[14px] font-semibold tracking-[0.07em] uppercase text-white bg-[#714C90] px-8 py-4 rounded-sm transition-all duration-300 hover:bg-[#56386F] active:scale-[0.97]"
               >
                 {t("hero.cta2")}
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </ScrollReveal>
@@ -86,7 +80,7 @@ const Index = () => {
       <DiagonalMarquee />
 
       {/* SERVICES */}
-      <section className="section-padding-lg bg-background relative">
+      <section className="pt-16 md:pt-28 pb-8 md:pb-12 bg-background relative">
         <div className="absolute top-12 left-6 md:left-10 w-px h-8 bg-[#a11d2d]/20" />
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
@@ -119,7 +113,7 @@ const Index = () => {
               <div className="space-y-0 divide-y divide-border">
                 {services.map((s, i) => (
                   <ScrollReveal key={s.num} delay={i * 60}>
-                    <div className="py-[18px] md:py-6 grid grid-cols-1 md:grid-cols-12 gap-x-4 gap-y-1.5 items-start">
+                    <div className="py-3 md:py-[14px] grid grid-cols-1 md:grid-cols-12 gap-x-4 gap-y-1.5 items-start">
                       <span className="md:col-span-2 font-heading text-[13px] md:text-[14px] font-bold text-[hsl(var(--purple-brand))] tracking-wider">
                         {s.num}
                       </span>
@@ -135,7 +129,7 @@ const Index = () => {
               </div>
 
               {/* SECTOR EXPERTISE */}
-              <div className="border-t border-border pt-6 mt-2">
+              <div className="border-t border-border pt-6 mt-3">
                 <p className="card-label card-label--purple mb-4">
                   {t("services.sectorLabel")}
                 </p>
@@ -144,10 +138,10 @@ const Index = () => {
                     <Link
                       key={s.label}
                       to={s.to}
-                      className="group inline-flex items-center justify-between gap-3 border border-border rounded-sm px-4 py-3 text-[14px] font-medium text-foreground transition-colors hover:border-[hsl(var(--purple-brand))] hover:text-[hsl(var(--purple-brand))]"
+                      className="group inline-flex items-center justify-between gap-3 rounded-sm px-4 py-3 text-[14px] font-medium text-white bg-[#714C90] transition-colors hover:bg-[#56386F]"
                     >
                       {s.label}
-                      <ArrowRight className="w-3.5 h-3.5 shrink-0 text-[hsl(var(--purple-brand))]" />
+                      <ArrowRight className="w-3.5 h-3.5 shrink-0 text-white" />
                     </Link>
                   ))}
                 </div>
@@ -157,8 +151,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CATEGORY SHOWCASE */}
-      <CategoryShowcase projects={projects} isLoading={isLoading} />
+      {/* OUR WORK */}
+      <OurWork projects={projects} isLoading={isLoading} />
 
       {/* ABOUT — sits immediately above Let's Collaborate */}
       <section id="about" className="relative bg-[hsl(var(--surface-warm))] overflow-hidden">

@@ -58,10 +58,10 @@ const Footer = () => {
 
       {/* ── DESKTOP / TABLET (unchanged) ───────────────── */}
       <div className="hidden md:block container-wide py-14 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-6 items-start">
           {/* Col 1: Logo + description */}
           <div className="md:col-span-1">
-            <img src={logoWhite} alt="Architect 57 無極建築" className="h-[70px] w-auto mb-5" />
+            <img src={logoWhite} alt="Architect 57 無極建築" className="h-[70px] w-auto mb-5 block" />
             <p className="text-[14px] text-white leading-relaxed max-w-xs font-light">
               {t("footer.desc")}
             </p>
@@ -120,9 +120,8 @@ const Footer = () => {
       {/* Copyright bar */}
       <div className="border-t border-white/10 relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#a11d2d]/30" />
-        <div className="container-wide py-4 md:py-6 flex flex-col md:flex-row items-center justify-center gap-1 text-[11px] md:text-[12px] text-white/75 font-normal text-center">
+        <div className="container-wide py-4 md:py-5 flex flex-col md:flex-row items-center md:justify-between gap-1 text-[11px] md:text-[12px] text-white/80 font-normal text-center md:text-left">
           <span>© {year} Architect 57 Inc. All Rights Reserved.</span>
-          <span className="hidden md:inline mx-1">|</span>
           <span>
             Web Design by{" "}
             <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="hover:text-white/90 transition-colors">
