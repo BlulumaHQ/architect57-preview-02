@@ -32,12 +32,25 @@ const DiagonalMarquee = () => {
           className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
+        {titleAtTop && (
+          <div
+            className="absolute inset-x-0 top-0 h-1/3"
+            style={{
+              backgroundImage:
+                "linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0) 100%)",
+            }}
+          />
+        )}
         <div
           className={`absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex p-4 ${
             titleAtTop ? "items-start" : "items-end"
           }`}
         >
-          <span className="overlay-text text-[14px] md:text-[15px] font-heading font-bold tracking-[0.07em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span
+            className={`overlay-text text-[14px] md:text-[15px] font-heading font-bold tracking-[0.07em] uppercase transition-opacity duration-300 ${
+              titleAtTop ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+            }`}
+          >
             {name}
           </span>
         </div>
