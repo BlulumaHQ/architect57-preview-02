@@ -17,14 +17,13 @@ const DiagonalMarquee = () => {
 
   if (row1.length === 0) return null;
 
-  const renderTile = (item: PublicProject, key: string) => {
-
+  const renderTile = (item: PublicProject, key: string, titleAtTop = false) => {
     const name = localizedProjectTitle(item, lang);
     return (
       <Link
         key={key}
         to={`/projects/${item.slug}`}
-        className="flex-shrink-0 w-[320px] md:w-[420px] h-[200px] md:h-[260px] mx-3 rounded-sm overflow-hidden group relative block"
+        className="flex-shrink-0 w-[480px] md:w-[630px] h-[300px] md:h-[390px] mx-3 rounded-sm overflow-hidden group relative block"
         aria-label={name}
       >
         <img
@@ -33,8 +32,12 @@ const DiagonalMarquee = () => {
           className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
-          <span className="overlay-text text-[13px] font-heading font-bold tracking-[0.07em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div
+          className={`absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex p-4 ${
+            titleAtTop ? "items-start" : "items-end"
+          }`}
+        >
+          <span className="overlay-text text-[14px] md:text-[15px] font-heading font-bold tracking-[0.07em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             {name}
           </span>
         </div>
