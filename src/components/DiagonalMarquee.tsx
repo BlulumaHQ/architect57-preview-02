@@ -46,17 +46,17 @@ const DiagonalMarquee = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))] py-16 md:py-28">
+    <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))] py-24 md:py-[168px]">
       <div className="absolute inset-0 flex flex-col justify-center gap-6" style={{ transform: "rotate(-5deg) scale(1.3)" }}>
         {/* Row 1 - moving left */}
         <div className="flex animate-marquee" style={{ width: "fit-content" }}>
           {[...row1, ...row1, ...row1].map((item, i) => renderTile(item, `r1-${i}`))}
         </div>
 
-        {/* Row 2 - moving right */}
+        {/* Row 2 - moving right (titles sit at the top of each card) */}
         {row2.length > 0 && (
           <div className="flex animate-marquee-reverse" style={{ width: "fit-content" }}>
-            {[...row2, ...row2, ...row2].map((item, i) => renderTile(item, `r2-${i}`))}
+            {[...row2, ...row2, ...row2].map((item, i) => renderTile(item, `r2-${i}`, true))}
           </div>
         )}
       </div>
