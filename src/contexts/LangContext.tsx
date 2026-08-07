@@ -27,14 +27,13 @@ const translations: Record<string, Record<Lang, string>> = {
   "nav.contact": { en: "Contact", zh: "聯絡" },
 
   // Homepage Hero
-  "hero.location": { en: "Richmond, BC — Design Build", zh: "列治文, BC — 設計建造" },
+  "hero.location": { en: "Building the Way of Life™", zh: "Building the Way of Life™" },
   "hero.title1": { en: "Architecture that", zh: "建築改變" },
   "hero.title2": { en: "transforms space", zh: "空間格局" },
   "hero.desc": {
     en: "Integrated building design, code consultation, and sustainable architecture — from concept to completion.",
     zh: "整合式建築設計、法規諮詢及永續建築 — 從概念到完成。",
   },
-  "hero.cta1": { en: "Start a Project", zh: "開始項目" },
   "hero.cta2": { en: "View Work", zh: "查看作品" },
 
   // Services
@@ -116,7 +115,7 @@ const translations: Record<string, Record<Lang, string>> = {
     en: "Contact Architect 57 Inc. for integrated building design, code consultation, and project management in Richmond, BC.",
     zh: "聯絡 Architect 57 無極建築，提供列治文的整合式建築設計、法規諮詢及項目管理服務。",
   },
-  "cta.btn1": { en: "Get a Free Consultation", zh: "免費諮詢" },
+  "cta.btn1": { en: "Consultation", zh: "諮詢" },
 
   // About Page
   "aboutPage.label": { en: "About Us", zh: "關於我們" },
