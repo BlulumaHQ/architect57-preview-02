@@ -59,7 +59,7 @@ const DiagonalMarquee = () => {
         {/* Row 2 - moving right (titles sit at the top of each card) */}
         {row2.length > 0 && (
           <div className="flex animate-marquee-reverse" style={{ width: "fit-content" }}>
-            {[...row2, ...row2, ...row2].map((item, i) => renderTile(item, `r2-${i}`, true))}
+            {[...row2, ...row2, ...row2].map((item, i) => renderTile(item, `r2-${i}`))}
           </div>
         )}
       </div>
