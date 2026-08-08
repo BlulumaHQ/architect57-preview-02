@@ -14,7 +14,8 @@
     "predev": "node scripts/generate-sitemap.mjs",
     "prebuild": "node scripts/generate-sitemap.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
-    "audit:routes": "node scripts/audit-routes.mjs"
+    "audit:routes": "node scripts/audit-routes.mjs",
+    "build:cloudflare": "npm run build && npm run audit:routes && node scripts/prepare-cloudflare.mjs"
   },
   "dependencies": {
     "@fontsource/montserrat": "^5.2.8",
