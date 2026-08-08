@@ -90,9 +90,10 @@ const Footer = () => {
             </h4>
             <nav className="flex flex-col gap-3">
               <span className="text-[14px] text-white font-medium">{t("footer.buildingDesign")}</span>
+              <span className="text-[14px] text-white font-medium">{t("footer.ipd")}</span>
               <span className="text-[14px] text-white font-medium">{t("footer.codeConsultation")}</span>
-              <span className="text-[14px] text-white font-medium">{t("footer.projectManagement")}</span>
               <span className="text-[14px] text-white font-medium">{t("footer.bimServices")}</span>
+              <span className="text-[14px] text-white font-medium">{t("footer.projectManagement")}</span>
             </nav>
           </div>
 
