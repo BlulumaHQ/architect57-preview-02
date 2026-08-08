@@ -121,11 +121,11 @@ const Footer = () => {
       {/* Copyright bar */}
       <div className="border-t border-white/10 relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#a11d2d]/30" />
-        <div className="container-wide py-4 md:py-5 flex flex-col md:flex-row items-center md:justify-between gap-1 text-[11px] md:text-[12px] text-white/80 font-normal text-center md:text-left">
+        <div className="container-wide py-4 md:py-5 flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-1 text-[11px] md:text-[12px] text-white/80 font-normal text-center md:text-left">
           <span>© {year} Architect 57 Inc. All Rights Reserved.</span>
-          <span>
+          <span className="text-[10px] md:text-[11px] text-white/35">
             Web Design by{" "}
-            <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="hover:text-white/90 transition-colors">
+            <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">
               Bluluma
             </a>
           </span>
