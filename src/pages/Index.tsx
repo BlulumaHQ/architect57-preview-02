@@ -75,7 +75,7 @@ const Index = () => {
       <DiagonalMarquee />
 
       {/* SERVICES */}
-      <section className="pt-16 md:pt-28 pb-8 md:pb-12 bg-background relative">
+      <section className="pt-12 md:pt-20 pb-6 md:pb-10 bg-background relative">
         <div className="absolute top-12 left-6 md:left-10 w-px h-8 bg-[#a11d2d]/20" />
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
@@ -132,7 +132,7 @@ const Index = () => {
 
       {/* ABOUT — sits immediately above Let's Collaborate */}
       <section id="about" className="relative bg-[hsl(var(--surface-warm))] overflow-hidden">
-        <div className="container-wide py-16 md:py-28">
+        <div className="container-wide py-12 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <ScrollReveal direction="left" className="lg:col-span-6">
               <div className="relative">
@@ -183,7 +183,7 @@ const Index = () => {
 
       {/* CTA */}
       <section id="contact" className="relative overflow-hidden bg-[hsl(var(--surface-dark))]">
-        <div className="container-wide py-16 md:py-28 text-center relative z-10">
+        <div className="container-wide py-12 md:py-20 text-center relative z-10">
           <ScrollReveal>
             <p className="section-eyebrow section-eyebrow--gold-bright mb-5">
               {t("cta.label")}
