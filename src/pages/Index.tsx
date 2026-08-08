@@ -127,25 +127,6 @@ const Index = () => {
                   </ScrollReveal>
                 ))}
               </div>
-
-              {/* SECTOR EXPERTISE */}
-              <div className="border-t border-border pt-6 mt-3">
-                <p className="card-label card-label--purple mb-4">
-                  {t("services.sectorLabel")}
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {sectors.map((s) => (
-                    <Link
-                      key={s.label}
-                      to={s.to}
-                      className="group inline-flex items-center justify-between gap-3 rounded-sm px-4 py-3 text-[14px] font-medium text-white bg-[#714C90] transition-colors hover:bg-[#56386F]"
-                    >
-                      {s.label}
-                      <ArrowRight className="w-3.5 h-3.5 shrink-0 text-white" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>
