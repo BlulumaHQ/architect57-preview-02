@@ -29,11 +29,6 @@ const Index = () => {
     { num: "05", title: t("services.s5.title"), desc: t("services.s5.desc") },
   ];
 
-  const sectors = [
-    { label: t("services.sector1"), to: "/projects" },
-    { label: t("services.sector2"), to: "/projects" },
-    { label: t("services.sector3"), to: "/projects" },
-  ];
 
   return (
     <main className="pb-16 md:pb-0">
