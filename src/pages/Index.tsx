@@ -29,11 +29,6 @@ const Index = () => {
     { num: "05", title: t("services.s5.title"), desc: t("services.s5.desc") },
   ];
 
-  const sectors = [
-    { label: t("services.sector1"), to: "/projects" },
-    { label: t("services.sector2"), to: "/projects" },
-    { label: t("services.sector3"), to: "/projects" },
-  ];
 
   return (
     <main className="pb-16 md:pb-0">
@@ -80,7 +75,7 @@ const Index = () => {
       <DiagonalMarquee />
 
       {/* SERVICES */}
-      <section className="pt-16 md:pt-28 pb-8 md:pb-12 bg-background relative">
+      <section className="pt-12 md:pt-20 pb-6 md:pb-10 bg-background relative">
         <div className="absolute top-12 left-6 md:left-10 w-px h-8 bg-[#a11d2d]/20" />
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
@@ -127,25 +122,6 @@ const Index = () => {
                   </ScrollReveal>
                 ))}
               </div>
-
-              {/* SECTOR EXPERTISE */}
-              <div className="border-t border-border pt-6 mt-3">
-                <p className="card-label card-label--purple mb-4">
-                  {t("services.sectorLabel")}
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {sectors.map((s) => (
-                    <Link
-                      key={s.label}
-                      to={s.to}
-                      className="group inline-flex items-center justify-between gap-3 rounded-sm px-4 py-3 text-[14px] font-medium text-white bg-[#714C90] transition-colors hover:bg-[#56386F]"
-                    >
-                      {s.label}
-                      <ArrowRight className="w-3.5 h-3.5 shrink-0 text-white" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -156,7 +132,7 @@ const Index = () => {
 
       {/* ABOUT — sits immediately above Let's Collaborate */}
       <section id="about" className="relative bg-[hsl(var(--surface-warm))] overflow-hidden">
-        <div className="container-wide py-16 md:py-28">
+        <div className="container-wide py-12 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <ScrollReveal direction="left" className="lg:col-span-6">
               <div className="relative">
@@ -207,7 +183,7 @@ const Index = () => {
 
       {/* CTA */}
       <section id="contact" className="relative overflow-hidden bg-[hsl(var(--surface-dark))]">
-        <div className="container-wide py-16 md:py-28 text-center relative z-10">
+        <div className="container-wide py-12 md:py-20 text-center relative z-10">
           <ScrollReveal>
             <p className="section-eyebrow section-eyebrow--gold-bright mb-5">
               {t("cta.label")}
