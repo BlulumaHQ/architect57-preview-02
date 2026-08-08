@@ -17,13 +17,13 @@ const DiagonalMarquee = () => {
 
   if (row1.length === 0) return null;
 
-  const renderTile = (item: PublicProject, key: string, titleAtTop = false) => {
+  const renderTile = (item: PublicProject, key: string) => {
     const name = localizedProjectTitle(item, lang);
     return (
       <Link
         key={key}
         to={`/projects/${item.slug}`}
-        className="flex-shrink-0 w-[480px] md:w-[630px] h-[300px] md:h-[390px] mx-3 rounded-sm overflow-hidden group relative block"
+        className="flex-shrink-0 w-[340px] md:w-[430px] h-[300px] md:h-[390px] mx-3 rounded-sm overflow-hidden group relative block"
         aria-label={name}
       >
         <img
@@ -32,25 +32,15 @@ const DiagonalMarquee = () => {
           className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        {titleAtTop && (
-          <div
-            className="absolute inset-x-0 top-0 h-1/3"
-            style={{
-              backgroundImage:
-                "linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0) 100%)",
-            }}
-          />
-        )}
         <div
-          className={`absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex p-4 ${
-            titleAtTop ? "items-start" : "items-end"
-          }`}
-        >
-          <span
-            className={`overlay-text text-[14px] md:text-[15px] font-heading font-bold tracking-[0.07em] uppercase transition-opacity duration-300 ${
-              titleAtTop ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-            }`}
-          >
+          className="absolute inset-x-0 bottom-0 h-1/3"
+          style={{
+            backgroundImage:
+              "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0) 100%)",
+          }}
+        />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end p-4">
+          <span className="overlay-text text-[14px] md:text-[15px] font-heading font-bold tracking-[0.07em] uppercase">
             {name}
           </span>
         </div>
