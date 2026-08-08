@@ -14,7 +14,9 @@ export const CANONICAL_HOST = "https://www.architect57.com";
 
 /** Preview / staging hosts must never compete with the production domain. */
 export const isNoindexHost = (hostname: string): boolean =>
-  hostname.endsWith(".netlify.app") || hostname.endsWith(".lovable.app");
+  hostname.endsWith(".netlify.app") ||
+  hostname.endsWith(".lovable.app") ||
+  hostname.endsWith(".pages.dev");
 
 const usePageMeta = ({ title, description, path, noindex = false }: PageMeta) => {
   useEffect(() => {
