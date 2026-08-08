@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import ProjectGallery from "@/components/projects/ProjectGallery";
 import { useArchitect57Projects } from "@/hooks/useArchitect57Projects";
 import {
   localizedCategoryName,
@@ -119,9 +120,10 @@ const ProjectDetail = () => {
   };
 
   push(t("detail.category"), category);
-  push(t("detail.tag1"), localizedTagName(project.tag1, lang));
-  push(t("detail.tag2"), localizedTagName(project.tag2, lang));
   push(t("detail.location"), project.location);
+  if (project.architectRoles.length > 0)
+    push(t("detail.architectRole"), project.architectRoles.join(" · "));
+  push(t("detail.client"), project.developerOwnerClient);
   push(t("detail.projectStatus"), project.projectStatus);
   push(t("detail.projectYear"), project.projectYear);
   push(t("detail.yearStarted"), project.yearStarted);
@@ -135,7 +137,6 @@ const ProjectDetail = () => {
   if (project.parkingSpaces !== null) push(t("detail.parking"), String(project.parkingSpaces));
   push(t("detail.budget"), project.constructionBudget);
   if (project.services.length > 0) push(t("detail.services"), project.services.join(", "));
-  push(t("detail.role"), project.role);
   push(t("detail.designArchitect"), project.designArchitect);
   push(t("detail.architectOfRecord"), project.architectOfRecord);
   push(t("detail.interiorDesigner"), project.interiorDesigner);
@@ -146,11 +147,21 @@ const ProjectDetail = () => {
   push(t("detail.civilEngineer"), project.civilEngineer);
   push(t("detail.otherConsultants"), project.otherConsultants);
   push(t("detail.generalContractor"), project.generalContractor);
-  push(t("detail.developer"), project.developerOwnerClient);
   push(t("detail.photographer"), project.photographer);
-  push(t("detail.otherCredits"), project.otherCredits);
   push(t("detail.awards"), project.awards);
   push(t("detail.publications"), project.publications);
+
+  const galleryImages = Array.from(
+    new Map(project.images.filter((i) => i.url).map((i) => [i.url, i])).values()
+  );
+
+  const tagNames = Array.from(
+    new Set(
+      project.allTags
+        .map((tg) => localizedTagName(tg, lang))
+        .filter((n): n is string => Boolean(n && n.trim()))
+    )
+  );
 
   const overviewParagraphs = overview
     ? overview.split(/\n{2,}|\n/).map((s) => s.trim()).filter(Boolean)
@@ -185,72 +196,77 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Info */}
+      {/* Gallery + Project Information */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-            <div className="lg:col-span-7">
-              <ScrollReveal>
-                <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-6 tracking-tight">
-                  {t("detail.overview")}
-                </h2>
-                <div className="space-y-4 text-muted-foreground font-light leading-[1.8]">
-                  {overviewParagraphs.length > 0 ? (
-                    overviewParagraphs.map((para, i) => <p key={i}>{para}</p>)
-                  ) : (
-                    <p>
-                      {title}
-                      {category ? ` — ${category}` : ""}
-                      {project.location ? `, ${project.location}` : ""}.
-                    </p>
-                  )}
-                </div>
-              </ScrollReveal>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            <div className="lg:col-span-8">
+              {galleryImages.length > 0 && (
+                <>
+                  <h2 className="sr-only">{t("detail.gallery")}</h2>
+                  <ProjectGallery images={galleryImages} title={title} />
+                </>
+              )}
             </div>
-            <div className="lg:col-span-4 lg:col-start-9">
-              <ScrollReveal delay={100}>
-                <div className="space-y-6">
-                  {facts.map((f) => (
-                    <div key={f.label}>
-                      <p className="card-label card-label--purple mb-1.5">
-                        {f.label}
-                      </p>
-                      <p className="text-foreground font-light">{f.value}</p>
-                    </div>
-                  ))}
-                </div>
-              </ScrollReveal>
-            </div>
+            <aside className="lg:col-span-4">
+              <p className="section-eyebrow mb-5">{t("detail.information")}</p>
+              <div className="space-y-5">
+                {facts.map((f) => (
+                  <div key={f.label}>
+                    <p className="card-label card-label--purple mb-1.5">{f.label}</p>
+                    <p className="text-foreground font-light">{f.value}</p>
+                  </div>
+                ))}
+              </div>
+            </aside>
           </div>
         </div>
       </section>
 
-      {/* Gallery */}
-      {project.images.length > 0 && (
-        <section className="section-padding-lg bg-[hsl(var(--surface-warm))]">
-          <div className="container-wide">
-            <ScrollReveal>
-              <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-8 tracking-tight">
-                {t("detail.gallery")}
-              </h2>
-            </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {project.images.map((img, i) => (
-                <ScrollReveal key={img.id} delay={i * 60}>
-                  <div className={`overflow-hidden rounded-sm ${i === 0 && project.images.length > 1 ? "md:col-span-2" : ""}`}>
-                    <img
-                      src={img.url}
-                      alt={localizedImageAlt(img, lang, `${title} — view ${i + 1}`)}
-                      className={`w-full object-cover hover:scale-[1.02] transition-transform duration-700 ${i === 0 && project.images.length > 1 ? "aspect-[21/9]" : "aspect-[3/2]"}`}
-                      loading="lazy"
-                    />
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+      {/* Overview / Other Credits / Tags */}
+      <section className="section-padding bg-[hsl(var(--surface-warm))]">
+        <div className="container-wide">
+          <div className="max-w-3xl space-y-10">
+            {overviewParagraphs.length > 0 && (
+              <ScrollReveal>
+                <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-5 tracking-tight">
+                  {t("detail.overview")}
+                </h2>
+                <div className="space-y-4 text-muted-foreground font-light leading-[1.8]">
+                  {overviewParagraphs.map((para, i) => (
+                    <p key={i}>{para}</p>
+                  ))}
+                </div>
+              </ScrollReveal>
+            )}
+
+            {project.otherCredits && (
+              <ScrollReveal>
+                <h2 className="card-label card-label--purple mb-2">{t("detail.otherCredits")}</h2>
+                <p className="text-foreground font-light leading-[1.8] whitespace-pre-line">
+                  {project.otherCredits}
+                </p>
+              </ScrollReveal>
+            )}
+
+            {tagNames.length > 0 && (
+              <ScrollReveal>
+                <h2 className="card-label card-label--purple mb-3">{t("detail.tags")}</h2>
+                <div className="flex flex-wrap gap-2">
+                  {tagNames.map((name) => (
+                    <span
+                      key={name}
+                      className="px-3 py-1 rounded-full border border-foreground/15 text-[13px] font-light text-muted-foreground"
+                    >
+                      {name}
+                    </span>
+                  ))}
+                </div>
+              </ScrollReveal>
+            )}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Prev / Next */}
       {prevProject && nextProject && (

@@ -277,6 +277,15 @@ export async function fetchArchitect57Projects(): Promise<PublicProject[]> {
       category: linkedCats[0] ?? null,
       tag1: pickTag(linkedTags, 1, item.slug as string),
       tag2: pickTag(linkedTags, 2, item.slug as string),
+      allTags: Array.from(
+        new Map(
+          linkedTags
+            .filter((tg) => tg.isActive)
+            .map((tg) => [tg.slug || tg.name, tg])
+        ).values()
+      ).sort(
+        (a, b) => a.level - b.level || a.sortOrder - b.sortOrder || a.name.localeCompare(b.name)
+      ),
       location,
       city,
       province,
@@ -295,6 +304,11 @@ export async function fetchArchitect57Projects(): Promise<PublicProject[]> {
       constructionBudget: nonEmpty(d.construction_budget),
       services: Array.isArray(d.services) ? (d.services as string[]) : [],
       role: nonEmpty(d.role),
+      architectRoles: Array.isArray(d.architect_roles)
+        ? (d.architect_roles as unknown[])
+            .map((r) => (typeof r === "string" ? r.trim() : ""))
+            .filter((r) => r.length > 0)
+        : [],
       shortSummary: nonEmpty(d.short_summary),
       scopeOfWork: nonEmpty(d.scope_of_work),
       scopeOfWorkZh: nonEmpty(d.scope_of_work_zh),

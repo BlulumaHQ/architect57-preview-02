@@ -58,6 +58,7 @@ export interface PublicProject {
   category: PublicProjectCategory | null;
   tag1: PublicProjectTag | null;
   tag2: PublicProjectTag | null;
+  allTags: PublicProjectTag[];
 
   location: string | null;
   city: string | null;
@@ -81,6 +82,7 @@ export interface PublicProject {
 
   services: string[];
   role: string | null;
+  architectRoles: string[];
   shortSummary: string | null;
 
   scopeOfWork: string | null;
