@@ -17,13 +17,14 @@ const DiagonalMarquee = () => {
 
   if (row1.length === 0) return null;
 
-  const renderTile = (item: PublicProject, key: string) => {
+  const renderTile = (item: PublicProject, key: string, labelPosition: "top" | "bottom") => {
     const name = localizedProjectTitle(item, lang);
+    const atTop = labelPosition === "top";
     return (
       <Link
         key={key}
         to={`/projects/${item.slug}`}
-        className="flex-shrink-0 w-[340px] md:w-[430px] h-[300px] md:h-[390px] mx-3 rounded-sm overflow-hidden group relative block"
+        className="flex-shrink-0 w-[380px] md:w-[520px] h-[240px] md:h-[300px] mx-3 rounded-sm overflow-hidden group relative block"
         aria-label={name}
       >
         <img
@@ -33,13 +34,14 @@ const DiagonalMarquee = () => {
           loading="lazy"
         />
         <div
-          className="absolute inset-x-0 bottom-0 h-1/3"
+          className={`absolute inset-x-0 ${atTop ? "top-0" : "bottom-0"} h-1/3`}
           style={{
-            backgroundImage:
-              "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0) 100%)",
+            backgroundImage: `linear-gradient(to ${atTop ? "bottom" : "top"}, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0) 100%)`,
           }}
         />
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end p-4">
+        <div
+          className={`absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex ${atTop ? "items-start" : "items-end"} p-4`}
+        >
           <span className="overlay-text text-[14px] md:text-[15px] font-heading font-bold tracking-[0.07em] uppercase">
             {name}
           </span>
@@ -51,15 +53,15 @@ const DiagonalMarquee = () => {
   return (
     <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))] py-16 md:py-[120px]">
       <div className="absolute inset-0 flex flex-col justify-center gap-6" style={{ transform: "rotate(-5deg) scale(1.3)" }}>
-        {/* Row 1 - moving left */}
+        {/* Row 1 - moving left (titles at the bottom) */}
         <div className="flex animate-marquee" style={{ width: "fit-content" }}>
-          {[...row1, ...row1, ...row1].map((item, i) => renderTile(item, `r1-${i}`))}
+          {[...row1, ...row1, ...row1].map((item, i) => renderTile(item, `r1-${i}`, "bottom"))}
         </div>
 
-        {/* Row 2 - moving right (titles sit at the top of each card) */}
+        {/* Row 2 - moving right (titles at the top) */}
         {row2.length > 0 && (
           <div className="flex animate-marquee-reverse" style={{ width: "fit-content" }}>
-            {[...row2, ...row2, ...row2].map((item, i) => renderTile(item, `r2-${i}`))}
+            {[...row2, ...row2, ...row2].map((item, i) => renderTile(item, `r2-${i}`, "top"))}
           </div>
         )}
       </div>
