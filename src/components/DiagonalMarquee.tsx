@@ -52,7 +52,7 @@ const DiagonalMarquee = () => {
 
   return (
     <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))] py-16 md:py-[120px]">
-      <div className="absolute inset-0 flex flex-col justify-center gap-6" style={{ transform: "rotate(-5deg) scale(1.3)" }}>
+      <div className="absolute inset-0 flex flex-col justify-center gap-6" style={{ transform: "rotate(-3deg) scale(1.15)" }}>
         {/* Row 1 - moving left (titles at the bottom) */}
         <div className="flex animate-marquee" style={{ width: "fit-content" }}>
           {[...row1, ...row1, ...row1].map((item, i) => renderTile(item, `r1-${i}`, "bottom"))}
