@@ -5,10 +5,13 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ProjectGallery from "@/components/projects/ProjectGallery";
 import { useArchitect57Projects } from "@/hooks/useArchitect57Projects";
 import {
+  localizedBodyContent,
   localizedCategoryName,
-  localizedDescription,
-  localizedImageAlt,
+  
+  localizedExcerpt,
+  localizedKeyFeatures,
   localizedProjectTitle,
+  localizedScopeOfWork,
   localizedSeoDescription,
   localizedSeoTitle,
   localizedTagName,
@@ -111,45 +114,59 @@ const ProjectDetail = () => {
   }
 
   const projectIndex = currentIndex + 1;
-  const overview = localizedDescription(project, lang);
   const category = localizedCategoryName(project.category, lang) || null;
+  const tag1 = localizedTagName(project.tag1, lang) || null;
+  const tag2 = localizedTagName(project.tag2, lang) || null;
+  const classification = [category, tag1, tag2].filter(Boolean) as string[];
 
-  const facts: { label: string; value: string }[] = [];
-  const push = (label: string, value: string | null | undefined) => {
-    if (value && String(value).trim()) facts.push({ label, value: String(value) });
-  };
+  const label = (f: { label: string; labelZh: string | null }) =>
+    (lang === "zh" && f.labelZh) || f.label;
 
-  push(t("detail.category"), category);
-  push(t("detail.location"), project.location);
-  if (project.architectRoles.length > 0)
-    push(t("detail.architectRole"), project.architectRoles.join(" · "));
-  push(t("detail.client"), project.developerOwnerClient);
-  push(t("detail.projectStatus"), project.projectStatus);
-  push(t("detail.projectYear"), project.projectYear);
-  push(t("detail.yearStarted"), project.yearStarted);
-  push(t("detail.yearCompleted"), project.yearCompleted);
-  if (project.floorAreaValue !== null)
-    push(t("detail.floorArea"), formatNumber(project.floorAreaValue, project.floorAreaUnit));
-  if (project.siteAreaValue !== null)
-    push(t("detail.siteArea"), formatNumber(project.siteAreaValue, project.siteAreaUnit));
-  if (project.unitsCount !== null) push(t("detail.units"), String(project.unitsCount));
-  if (project.storeysCount !== null) push(t("detail.storeys"), String(project.storeysCount));
-  if (project.parkingSpaces !== null) push(t("detail.parking"), String(project.parkingSpaces));
-  push(t("detail.budget"), project.constructionBudget);
-  if (project.services.length > 0) push(t("detail.services"), project.services.join(", "));
-  push(t("detail.designArchitect"), project.designArchitect);
-  push(t("detail.architectOfRecord"), project.architectOfRecord);
-  push(t("detail.interiorDesigner"), project.interiorDesigner);
-  push(t("detail.landscapeArchitect"), project.landscapeArchitect);
-  push(t("detail.structuralEngineer"), project.structuralEngineer);
-  push(t("detail.mechanicalEngineer"), project.mechanicalEngineer);
-  push(t("detail.electricalEngineer"), project.electricalEngineer);
-  push(t("detail.civilEngineer"), project.civilEngineer);
-  push(t("detail.otherConsultants"), project.otherConsultants);
-  push(t("detail.generalContractor"), project.generalContractor);
-  push(t("detail.photographer"), project.photographer);
-  push(t("detail.awards"), project.awards);
-  push(t("detail.publications"), project.publications);
+  /** Non-empty rows only — empty values never produce a label or placeholder. */
+  const rows = (
+    entries: Array<[string, string | null | undefined]>
+  ): { label: string; value: string }[] =>
+    entries
+      .filter(([, v]) => typeof v === "string" && v.trim().length > 0)
+      .map(([l, v]) => ({ label: l, value: (v as string).trim() }));
+
+  // Definition-driven specifications, plus legacy public values no definition covers.
+  const specRows = [
+    ...project.specifications.map((f) => ({ label: label(f), value: f.value })),
+    ...rows([
+      [t("detail.projectYear"), project.projectYear],
+      [t("detail.architectRole"), project.architectRoles.join(" · ")],
+      [t("detail.client"), project.developerOwnerClient],
+    ]),
+  ].filter(
+    (row, i, all) => all.findIndex((r) => r.label === row.label) === i
+  );
+
+  // Definition-driven credits (role label + value), plus uncovered legacy roles.
+  const dynamicCredits = project.credits.map((f) => ({
+    label: label(f),
+    value: f.value,
+  }));
+  const dynamicCreditValues = new Set(dynamicCredits.map((c) => c.value));
+  const creditRows = [
+    ...dynamicCredits,
+    ...rows([
+      [t("detail.designArchitect"), project.designArchitect],
+      [t("detail.architectOfRecord"), project.architectOfRecord],
+      [t("detail.interiorDesigner"), project.interiorDesigner],
+      [t("detail.landscapeArchitect"), project.landscapeArchitect],
+      [t("detail.structuralEngineer"), project.structuralEngineer],
+      [t("detail.mechanicalEngineer"), project.mechanicalEngineer],
+      [t("detail.electricalEngineer"), project.electricalEngineer],
+      [t("detail.civilEngineer"), project.civilEngineer],
+      [t("detail.otherConsultants"), project.otherConsultants],
+      [t("detail.generalContractor"), project.generalContractor],
+      [t("detail.photographer"), project.photographer],
+      [t("detail.awards"), project.awards],
+      [t("detail.publications"), project.publications],
+      [t("detail.otherCredits"), project.otherCredits],
+    ]).filter((r) => !dynamicCreditValues.has(r.value)),
+  ].filter((row, i, all) => all.findIndex((r) => r.label === row.label) === i);
 
   const galleryImages = Array.from(
     new Map(project.images.filter((i) => i.url).map((i) => [i.url, i])).values()
@@ -163,9 +180,24 @@ const ProjectDetail = () => {
     )
   );
 
-  const overviewParagraphs = overview
-    ? overview.split(/\n{2,}|\n/).map((s) => s.trim()).filter(Boolean)
-    : [];
+  const toParagraphs = (text: string) =>
+    text.split(/\n{2,}|\n/).map((s) => s.trim()).filter(Boolean);
+
+  // Lead = short description; body = full description. Scope of work has its own
+  // section, so it is never reused here (avoids duplicated copy).
+  const lead = localizedExcerpt(project, lang) || (project.shortSummary ?? "");
+  const bodyText = localizedBodyContent(project, lang);
+  const bodyParagraphs = toParagraphs(bodyText).filter((p) => p !== lead.trim());
+  const scope = localizedScopeOfWork(project, lang);
+  const scopeParagraphs = toParagraphs(scope).filter(
+    (p) => p !== lead.trim() && !bodyParagraphs.includes(p)
+  );
+  const keyFeaturesText = localizedKeyFeatures(project, lang);
+  const keyFeatureItems = keyFeaturesText
+    .split(/;\s*/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const hasNarrative = Boolean(lead) || bodyParagraphs.length > 0;
 
   return (
     <main className="pb-16 md:pb-0">
@@ -185,10 +217,14 @@ const ProjectDetail = () => {
             >
               <ArrowLeft className="w-4 h-4" /> {t("detail.back")}
             </Link>
-            <p className="section-eyebrow section-eyebrow--gold-bright mb-3">
-              <span className="mr-3">{String(projectIndex).padStart(2, "0")}</span>
-              {category ?? "—"} — {project.location || "—"}
-            </p>
+            {(classification.length > 0 || project.location) && (
+              <p className="section-eyebrow section-eyebrow--gold-bright mb-3">
+                <span className="mr-3">{String(projectIndex).padStart(2, "0")}</span>
+                {[classification.join(" / "), project.location]
+                  .filter(Boolean)
+                  .join(" — ")}
+              </p>
+            )}
             <h1 className="font-heading text-[36px] md:text-[56px] lg:text-[68px] font-light leading-[0.95] text-white tracking-tight max-w-3xl">
               {title}
             </h1>
@@ -211,62 +247,158 @@ const ProjectDetail = () => {
             <aside className="lg:col-span-4">
               <p className="section-eyebrow mb-5">{t("detail.information")}</p>
               <div className="space-y-5">
-                {facts.map((f) => (
-                  <div key={f.label}>
-                    <p className="card-label card-label--purple mb-1.5">{f.label}</p>
-                    <p className="text-foreground font-light">{f.value}</p>
+                {classification.length > 0 && (
+                  <div>
+                    <p className="card-label card-label--purple mb-1.5">{t("detail.category")}</p>
+                    <p className="text-foreground font-light">
+                      {classification.map((c, i) => (
+                        <span key={c}>
+                          {i > 0 && <span className="text-muted-foreground/50 mx-1.5">/</span>}
+                          {c}
+                        </span>
+                      ))}
+                    </p>
                   </div>
-                ))}
+                )}
+
+                {project.location && (
+                  <div>
+                    <p className="card-label card-label--purple mb-1.5">{t("detail.location")}</p>
+                    <p className="text-foreground font-light">{project.location}</p>
+                  </div>
+                )}
+
+                {project.services.length > 0 && (
+                  <div>
+                    <p className="card-label card-label--purple mb-1.5">{t("detail.services")}</p>
+                    <ul className="space-y-1">
+                      {project.services
+                        .filter((s) => s && s.trim())
+                        .map((s) => (
+                          <li key={s} className="text-foreground font-light">
+                            {s}
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
+                )}
+
+                {specRows.length > 0 && (
+                  <div className="pt-1">
+                    <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-x-6 gap-y-5">
+                      {specRows.map((f) => (
+                        <div key={f.label}>
+                          <dt className="card-label card-label--purple mb-1.5">{f.label}</dt>
+                          <dd className="text-foreground font-light">{f.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                )}
               </div>
             </aside>
           </div>
         </div>
       </section>
 
-      {/* Overview / Other Credits / Tags */}
-      <section className="section-padding bg-[hsl(var(--surface-warm))]">
-        <div className="container-wide">
-          <div className="max-w-3xl space-y-10">
-            {overviewParagraphs.length > 0 && (
-              <ScrollReveal>
-                <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-5 tracking-tight">
-                  {t("detail.overview")}
-                </h2>
-                <div className="space-y-4 text-muted-foreground font-light leading-[1.8]">
-                  {overviewParagraphs.map((para, i) => (
-                    <p key={i}>{para}</p>
-                  ))}
-                </div>
-              </ScrollReveal>
-            )}
+      {/* Narrative / Scope / Key Features / Credits / Tags */}
+      {(hasNarrative ||
+        scopeParagraphs.length > 0 ||
+        keyFeatureItems.length > 0 ||
+        creditRows.length > 0 ||
+        tagNames.length > 0) && (
+        <section className="section-padding bg-[hsl(var(--surface-warm))]">
+          <div className="container-wide">
+            <div className="max-w-3xl space-y-10">
+              {hasNarrative && (
+                <ScrollReveal>
+                  <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-5 tracking-tight">
+                    {t("detail.overview")}
+                  </h2>
+                  {lead && (
+                    <p className="text-foreground font-light text-[18px] md:text-[20px] leading-[1.7] mb-5">
+                      {lead}
+                    </p>
+                  )}
+                  {bodyParagraphs.length > 0 && (
+                    <div className="space-y-4 text-muted-foreground font-light leading-[1.8]">
+                      {bodyParagraphs.map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))}
+                    </div>
+                  )}
+                </ScrollReveal>
+              )}
 
-            {project.otherCredits && (
-              <ScrollReveal>
-                <h2 className="card-label card-label--purple mb-2">{t("detail.otherCredits")}</h2>
-                <p className="text-foreground font-light leading-[1.8] whitespace-pre-line">
-                  {project.otherCredits}
-                </p>
-              </ScrollReveal>
-            )}
+              {scopeParagraphs.length > 0 && (
+                <ScrollReveal>
+                  <h2 className="card-label card-label--purple mb-3">{t("detail.scopeOfWork")}</h2>
+                  <div className="space-y-3 text-muted-foreground font-light leading-[1.8]">
+                    {scopeParagraphs.map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
+                </ScrollReveal>
+              )}
 
-            {tagNames.length > 0 && (
-              <ScrollReveal>
-                <h2 className="card-label card-label--purple mb-3">{t("detail.tags")}</h2>
-                <div className="flex flex-wrap gap-2">
-                  {tagNames.map((name) => (
-                    <span
-                      key={name}
-                      className="px-3 py-1 rounded-full border border-foreground/15 text-[13px] font-light text-muted-foreground"
-                    >
-                      {name}
-                    </span>
-                  ))}
-                </div>
-              </ScrollReveal>
-            )}
+              {keyFeatureItems.length > 0 && (
+                <ScrollReveal>
+                  <h2 className="card-label card-label--purple mb-3">{t("detail.keyFeatures")}</h2>
+                  {keyFeatureItems.length > 1 ? (
+                    <ul className="space-y-2 text-muted-foreground font-light leading-[1.8]">
+                      {keyFeatureItems.map((item) => (
+                        <li key={item} className="flex gap-3">
+                          <span className="text-[#714C90] shrink-0">—</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-muted-foreground font-light leading-[1.8] whitespace-pre-line">
+                      {keyFeatureItems[0]}
+                    </p>
+                  )}
+                </ScrollReveal>
+              )}
+
+              {creditRows.length > 0 && (
+                <ScrollReveal>
+                  <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-5 tracking-tight">
+                    {t("detail.credits")}
+                  </h2>
+                  <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5">
+                    {creditRows.map((c) => (
+                      <div key={c.label}>
+                        <dt className="card-label card-label--purple mb-1.5">{c.label}</dt>
+                        <dd className="text-foreground font-light leading-[1.7] whitespace-pre-line">
+                          {c.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </ScrollReveal>
+              )}
+
+              {tagNames.length > 0 && (
+                <ScrollReveal>
+                  <h2 className="card-label card-label--purple mb-3">{t("detail.tags")}</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {tagNames.map((name) => (
+                      <span
+                        key={name}
+                        className="px-3 py-1 rounded-full border border-foreground/15 text-[13px] font-light text-muted-foreground"
+                      >
+                        {name}
+                      </span>
+                    ))}
+                  </div>
+                </ScrollReveal>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
 
       {/* Prev / Next */}
       {prevProject && nextProject && (
