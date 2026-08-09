@@ -7,7 +7,7 @@ import { useArchitect57Projects } from "@/hooks/useArchitect57Projects";
 import {
   localizedBodyContent,
   localizedCategoryName,
-  localizedDescription,
+  
   localizedExcerpt,
   localizedKeyFeatures,
   localizedProjectTitle,
