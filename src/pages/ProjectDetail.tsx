@@ -183,11 +183,15 @@ const ProjectDetail = () => {
   const toParagraphs = (text: string) =>
     text.split(/\n{2,}|\n/).map((s) => s.trim()).filter(Boolean);
 
-  const lead = localizedExcerpt(project, lang);
-  const bodyText = localizedBodyContent(project, lang) || (lead ? "" : localizedDescription(project, lang));
+  // Lead = short description; body = full description. Scope of work has its own
+  // section, so it is never reused here (avoids duplicated copy).
+  const lead = localizedExcerpt(project, lang) || (project.shortSummary ?? "");
+  const bodyText = localizedBodyContent(project, lang);
   const bodyParagraphs = toParagraphs(bodyText).filter((p) => p !== lead.trim());
   const scope = localizedScopeOfWork(project, lang);
-  const scopeParagraphs = toParagraphs(scope);
+  const scopeParagraphs = toParagraphs(scope).filter(
+    (p) => p !== lead.trim() && !bodyParagraphs.includes(p)
+  );
   const keyFeaturesText = localizedKeyFeatures(project, lang);
   const keyFeatureItems = keyFeaturesText
     .split(/;\s*/)
