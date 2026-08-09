@@ -4,6 +4,7 @@ import type {
   PublicProjectCategory,
   PublicProjectImage,
   PublicProjectTag,
+  ResolvedProjectField,
 } from "@/types/project";
 
 const CLIENT_SLUGS = ["architect57", "architect-57"];
@@ -22,6 +23,119 @@ const nonEmpty = (v: unknown): string | null => {
 
 const num = (v: unknown): number | null =>
   v === null || v === undefined || v === "" ? null : Number(v);
+
+/* ------------------------------------------------------------------ */
+/* Dynamic, definition-driven fields (portfolio_field_definitions)      */
+/* ------------------------------------------------------------------ */
+
+interface FieldDefinitionRow {
+  scope_type: string | null;
+  industry: string | null;
+  client_id: string | null;
+  section: string | null;
+  field_key: string | null;
+  label_en: string | null;
+  label_zh: string | null;
+  field_type: string | null;
+  display_order: number | null;
+  settings: Record<string, unknown> | null;
+}
+
+const formatNumeric = (value: number, unit?: string | null): string => {
+  const hasDecimals = !Number.isInteger(value);
+  const formatted = value.toLocaleString("en-US", {
+    minimumFractionDigits: hasDecimals ? 2 : 0,
+    maximumFractionDigits: 2,
+  });
+  const u = nonEmpty(unit);
+  return u ? `${formatted} ${u}` : formatted;
+};
+
+const asRecord = (v: unknown): Record<string, unknown> | null =>
+  v && typeof v === "object" && !Array.isArray(v)
+    ? (v as Record<string, unknown>)
+    : null;
+
+/** Format one definition's raw value (JSONB or legacy) into display text, or null. */
+function formatFieldValue(
+  def: FieldDefinitionRow,
+  raw: unknown,
+  legacy: Record<string, unknown>
+): string | null {
+  const settings = def.settings ?? {};
+  const type = (def.field_type ?? "text").toLowerCase();
+  const obj = asRecord(raw);
+
+  const legacyOf = (key: string): unknown => {
+    const col = nonEmpty(settings[key]);
+    return col ? legacy[col] : undefined;
+  };
+
+  if (type === "measurement") {
+    const valueKey = nonEmpty(settings.value_key) ?? "value";
+    const unitKey = nonEmpty(settings.unit_key) ?? "unit";
+    let value = obj ? num(obj[valueKey]) : num(raw);
+    let unit = obj ? nonEmpty(obj[unitKey]) : null;
+    if (value === null || Number.isNaN(value)) {
+      value = num(legacyOf("legacy_value_column"));
+      unit = nonEmpty(legacyOf("legacy_unit_column"));
+    }
+    if (value === null || Number.isNaN(value)) return null;
+    return formatNumeric(value, unit ?? nonEmpty(settings.default_unit));
+  }
+
+  if (type === "number") {
+    let value = obj ? num(obj.value) : num(raw);
+    if (value === null || Number.isNaN(value)) value = num(legacyOf("legacy_column"));
+    if (value === null || Number.isNaN(value)) return null;
+    return formatNumeric(value);
+  }
+
+  if (type === "currency") {
+    const display = obj ? nonEmpty(obj.display) : nonEmpty(raw);
+    if (display) return display;
+    const value = obj ? num(obj.value) : null;
+    if (value !== null && !Number.isNaN(value)) return formatNumeric(value);
+    return nonEmpty(legacyOf("legacy_column"));
+  }
+
+  // year / text / everything else
+  const direct =
+    obj !== null
+      ? nonEmpty(obj.display) ?? nonEmpty(obj.value)
+      : typeof raw === "number"
+        ? String(raw)
+        : nonEmpty(raw);
+  if (direct) return direct;
+  const fallback = legacyOf("legacy_column");
+  return typeof fallback === "number" ? String(fallback) : nonEmpty(fallback);
+}
+
+function resolveSection(
+  defs: FieldDefinitionRow[],
+  section: "specifications" | "credits",
+  additional: Record<string, unknown>,
+  legacy: Record<string, unknown>
+): ResolvedProjectField[] {
+  const stored = asRecord(additional[section]) ?? {};
+  const out: ResolvedProjectField[] = [];
+  for (const def of defs) {
+    if ((def.section ?? "") !== section) continue;
+    const key = nonEmpty(def.field_key);
+    if (!key) continue;
+    const value = formatFieldValue(def, stored[key], legacy);
+    if (!value) continue;
+    out.push({
+      key,
+      label: nonEmpty(def.label_en) ?? key,
+      labelZh: nonEmpty(def.label_zh),
+      fieldType: def.field_type ?? "text",
+      value,
+    });
+  }
+  return out;
+}
+
 
 interface ContentItemRow {
   id: string;
@@ -55,7 +169,7 @@ export async function fetchArchitect57Projects(): Promise<PublicProject[]> {
   // 1. Find the Architect57 client by slug.
   const { data: clients, error: clientError } = await supabase
     .from("clients")
-    .select("id, client_name, slug")
+    .select("id, client_name, slug, industry")
     .in("slug", CLIENT_SLUGS)
     .eq("status", "active");
 
@@ -92,8 +206,8 @@ export async function fetchArchitect57Projects(): Promise<PublicProject[]> {
 
   const ids = items.map((i) => i.id);
 
-  // 3-9. Related data, batched.
-  const [detailsRes, contentCatsRes, contentTagsRes, mediaRes] =
+  // 3-9. Related data, batched (one query per table — no N+1 per field).
+  const [detailsRes, contentCatsRes, contentTagsRes, mediaRes, defsRes] =
     await Promise.all([
       supabase.from("portfolio_details").select("*").in("content_id", ids),
       supabase
@@ -105,11 +219,39 @@ export async function fetchArchitect57Projects(): Promise<PublicProject[]> {
         .select("content_id, tag_id")
         .in("content_id", ids),
       supabase.from("media_assets").select("*").in("content_id", ids),
+      supabase
+        .from("portfolio_field_definitions")
+        .select(
+          "scope_type, industry, client_id, section, field_key, label_en, label_zh, field_type, display_order, settings"
+        )
+        .eq("content_type", "portfolio")
+        .eq("is_active", true)
+        .eq("show_on_frontend", true),
     ]);
+
 
   for (const res of [detailsRes, contentCatsRes, contentTagsRes, mediaRes]) {
     if (res.error) throw res.error;
   }
+
+  // Field definitions are optional metadata: never crash the page over them.
+  if (defsRes.error) {
+    devWarn("[Architect57] Field definitions unavailable:", defsRes.error);
+  }
+
+  const allDefs = ((defsRes.data ?? []) as FieldDefinitionRow[]).slice();
+  const clientDefs = allDefs.filter(
+    (d) => d.scope_type === "client" && d.client_id === client.id
+  );
+  const industry = nonEmpty((client as { industry?: unknown }).industry);
+  const industryDefs = allDefs.filter(
+    (d) => d.scope_type === "industry" && (!industry || d.industry === industry)
+  );
+  // Client-specific definitions win outright; otherwise fall back to industry.
+  const activeDefs = (clientDefs.length > 0 ? clientDefs : industryDefs).sort(
+    (a, b) => (a.display_order ?? 0) - (b.display_order ?? 0)
+  );
+
 
   const categoryIds = Array.from(
     new Set((contentCatsRes.data ?? []).map((r) => r.category_id).filter(Boolean))
@@ -229,6 +371,7 @@ export async function fetchArchitect57Projects(): Promise<PublicProject[]> {
 
   const projects: PublicProject[] = items.map((item) => {
     const d = (detailByContent.get(item.id) ?? {}) as Record<string, unknown>;
+    const additional = asRecord(d.additional_project_data) ?? {};
     const linkedCats = (catsByContent.get(item.id) ?? [])
       .filter((c) => c.isActive)
       .sort((a, b) => a.sortOrder - b.sortOrder || a.name.localeCompare(b.name));
@@ -251,9 +394,10 @@ export async function fetchArchitect57Projects(): Promise<PublicProject[]> {
     const city = nonEmpty(d.city);
     const province = nonEmpty(d.province);
     const country = nonEmpty(d.country);
+    // Compose from the structured parts first so no empty segments ever appear.
     const location =
-      nonEmpty(d.location) ??
-      ([city, province, country].filter(Boolean).join(", ") || null);
+      ([city, province, country].filter(Boolean).join(", ") || null) ??
+      nonEmpty(d.location);
 
     return {
       id: item.id,
@@ -331,6 +475,8 @@ export async function fetchArchitect57Projects(): Promise<PublicProject[]> {
       publications: nonEmpty(d.publications),
       featuredImageUrl,
       images,
+      specifications: resolveSection(activeDefs, "specifications", additional, d),
+      credits: resolveSection(activeDefs, "credits", additional, d),
       createdAt: item.created_at,
       updatedAt: item.updated_at,
     };

@@ -241,6 +241,9 @@ const translations: Record<string, Record<Lang, string>> = {
   "detail.otherCredits": { en: "Other Credits", zh: "其他致謝" },
   "detail.awards": { en: "Awards", zh: "獎項" },
   "detail.publications": { en: "Publications", zh: "刊物報導" },
+  "detail.scopeOfWork": { en: "Scope of Work", zh: "工作範圍" },
+  "detail.keyFeatures": { en: "Key Features", zh: "項目特色" },
+  "detail.credits": { en: "Credits", zh: "團隊致謝" },
 
   // Data states
   "state.loading": { en: "Loading projects…", zh: "正在載入專案…" },

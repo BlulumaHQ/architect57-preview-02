@@ -33,6 +33,16 @@ export interface PublicProjectImage {
   height: number | null;
 }
 
+/** A field definition (portfolio_field_definitions) resolved against a project's stored values. */
+export interface ResolvedProjectField {
+  key: string;
+  label: string;
+  labelZh: string | null;
+  fieldType: string;
+  /** Already formatted, never empty. */
+  value: string;
+}
+
 export interface PublicProject {
   id: string;
   slug: string;
@@ -109,6 +119,10 @@ export interface PublicProject {
 
   featuredImageUrl: string | null;
   images: PublicProjectImage[];
+
+  /** Definition-driven, already filtered to non-empty values, in display_order. */
+  specifications: ResolvedProjectField[];
+  credits: ResolvedProjectField[];
 
   createdAt: string;
   updatedAt: string;
