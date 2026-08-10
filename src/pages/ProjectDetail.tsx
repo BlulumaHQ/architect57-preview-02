@@ -240,15 +240,13 @@ const ProjectDetail = () => {
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            <div className="lg:col-span-8">
-              {galleryImages.length > 0 && (
-                <>
-                  <h2 className="sr-only">{t("detail.gallery")}</h2>
-                  <ProjectGallery images={galleryImages} title={title} />
-                </>
-              )}
-            </div>
-            <aside className="lg:col-span-4">
+            {galleryImages.length > 0 && (
+              <div className="lg:col-span-8">
+                <h2 className="sr-only">{t("detail.gallery")}</h2>
+                <ProjectGallery images={galleryImages} title={title} />
+              </div>
+            )}
+            <aside className={galleryImages.length > 0 ? "lg:col-span-4" : "lg:col-span-12"}>
               <p className="section-eyebrow mb-5">{t("detail.information")}</p>
               <div className="space-y-5">
                 {classification.length > 0 && (
