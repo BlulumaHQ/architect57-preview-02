@@ -7,16 +7,22 @@ interface PageMeta {
   path?: string;
   /** Force "noindex, nofollow" (e.g. the 404 page) even on the production host. */
   noindex?: boolean;
+  /** Page-specific social image (e.g. a CMS featured image). Falls back to the site default. */
+  image?: string | null;
 }
 
 /** Production canonical host — never a Netlify/Lovable preview host. */
 export const CANONICAL_HOST = "https://www.architect57.com";
+
+/** Site-wide default social sharing image. */
+export const DEFAULT_OG_IMAGE = `${CANONICAL_HOST}/architect57-og.png`;
 
 /** Preview / staging hosts must never compete with the production domain. */
 export const isNoindexHost = (hostname: string): boolean =>
   hostname.endsWith(".netlify.app") ||
   hostname.endsWith(".lovable.app") ||
   hostname.endsWith(".pages.dev");
+
 
 const usePageMeta = ({ title, description, path, noindex = false }: PageMeta) => {
   useEffect(() => {
