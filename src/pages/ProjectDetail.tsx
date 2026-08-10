@@ -168,9 +168,10 @@ const ProjectDetail = () => {
     ]).filter((r) => !dynamicCreditValues.has(r.value)),
   ].filter((row, i, all) => all.findIndex((r) => r.label === row.label) === i);
 
+  // Deduplicate by URL, and drop the hero/featured image so it is not rendered twice.
   const galleryImages = Array.from(
     new Map(project.images.filter((i) => i.url).map((i) => [i.url, i])).values()
-  );
+  ).filter((i) => i.url !== project.featuredImageUrl);
 
   const tagNames = Array.from(
     new Set(
