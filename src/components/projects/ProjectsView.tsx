@@ -73,8 +73,21 @@ const ProjectsView = ({
 
   const categoryFiltered = useMemo(() => {
     if (activeCategory === "all") return projects;
-    return projects.filter((p) => p.category?.slug === activeCategory);
+    const inCategory = projects.filter((p) => p.category?.slug === activeCategory);
+    // Client-requested first-position priority, category-filter only.
+    // Frontend display order only — CMS sort_order is never modified.
+    const prioritySlug = categoryFirstProjectSlug(
+      activeCategory,
+      inCategory[0]?.category?.name ?? null
+    );
+    if (!prioritySlug) return inCategory;
+    const idx = inCategory.findIndex((p) => p.slug === prioritySlug);
+    if (idx <= 0) return inCategory;
+    const reordered = [...inCategory];
+    const [pinned] = reordered.splice(idx, 1);
+    return [pinned, ...reordered];
   }, [projects, activeCategory]);
+
 
   const tag1Options = useMemo(() => {
     if (activeCategory === "all") return [];
