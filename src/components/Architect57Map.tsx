@@ -3,7 +3,7 @@ import { useLang } from "@/contexts/LangContext";
 
 /** Single source of truth for the Architect 57 office location. */
 export const ARCHITECT57_OFFICE = {
-  lat: 49.1944800,
+  lat: 49.1943600,
   lng: -123.1023500,
 };
 
@@ -17,7 +17,7 @@ export const ARCHITECT57_ADDRESS = {
 };
 
 export const ARCHITECT57_DIRECTIONS_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=49.1944800,-123.1023500";
+  "https://www.google.com/maps/dir/?api=1&destination=49.1943600,-123.1023500";
 
 type LoadState = "loading" | "ready" | "fallback";
 
