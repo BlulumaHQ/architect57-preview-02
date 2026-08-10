@@ -31,6 +31,24 @@ export interface ProjectsViewProps {
   /** Heading above the grid when filters are hidden. */
   gridHeading?: string;
 }
+/**
+ * Client-requested first-position projects per category filter.
+ * Frontend display only — no CMS/sort_order change. Matched on stable slugs.
+ */
+const CATEGORY_FIRST_PROJECT: Array<{ match: RegExp; slug: string }> = [
+  { match: /^commercial$|commercial/, slug: "bridgeport-office" },
+  { match: /^hospitality$|hospitality/, slug: "arabica-coffee" },
+  { match: /interior|tenant/, slug: "1ne-collective" },
+];
+
+const categoryFirstProjectSlug = (
+  categorySlug: string,
+  categoryName: string | null
+): string | null => {
+  const haystack = `${categorySlug} ${categoryName ?? ""}`.toLowerCase();
+  return CATEGORY_FIRST_PROJECT.find((r) => r.match.test(haystack))?.slug ?? null;
+};
+
 
 /**
  * The one and only Projects presentation component.
