@@ -24,7 +24,7 @@ const DiagonalMarquee = () => {
       <Link
         key={key}
         to={`/projects/${item.slug}`}
-        className="flex-shrink-0 w-[380px] md:w-[520px] h-[312px] md:h-[390px] mx-3 rounded-sm overflow-hidden group relative block"
+        className="flex-shrink-0 w-[380px] md:w-[520px] h-[240px] md:h-[300px] mx-3 rounded-sm overflow-hidden group relative block"
         aria-label={name}
       >
         <img
@@ -51,7 +51,7 @@ const DiagonalMarquee = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))] py-16 md:py-[120px]">
+    <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))] h-[290px] md:h-[430px]">
       <div className="absolute inset-0 flex flex-col justify-center gap-6" style={{ transform: "rotate(-3deg) scale(1.15)" }}>
         {/* Row 1 - moving left (titles at the bottom) */}
         <div className="flex animate-marquee" style={{ width: "fit-content" }}>
