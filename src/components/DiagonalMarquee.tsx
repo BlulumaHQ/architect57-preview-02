@@ -24,17 +24,18 @@ const DiagonalMarquee = () => {
       <Link
         key={key}
         to={`/projects/${item.slug}`}
-        className="flex-shrink-0 w-[380px] md:w-[520px] h-[240px] md:h-[300px] mx-3 rounded-sm overflow-hidden group relative block"
+        className="flex-shrink-0 w-[344px] md:w-[482px] h-[194px] md:h-[272px] mx-3 overflow-hidden group relative block bg-[hsl(var(--surface-dark))]"
+        style={{ transform: "translateZ(0)", backfaceVisibility: "hidden" }}
         aria-label={name}
       >
         <img
           src={item.featuredImageUrl ?? ""}
           alt={name}
-          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+          className="block w-[calc(100%+2px)] h-[calc(100%+2px)] -ml-px -mt-px object-cover object-center transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
         <div
-          className={`absolute inset-x-0 ${atTop ? "top-0" : "bottom-0"} h-1/3`}
+          className={`absolute inset-x-0 ${atTop ? "top-0" : "bottom-0"} h-1/4`}
           style={{
             backgroundImage: `linear-gradient(to ${atTop ? "bottom" : "top"}, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0) 100%)`,
           }}
@@ -52,7 +53,7 @@ const DiagonalMarquee = () => {
 
   return (
     <section className="relative overflow-hidden bg-[hsl(var(--surface-dark))] h-[290px] md:h-[430px]">
-      <div className="absolute inset-0 flex flex-col justify-center gap-6" style={{ transform: "rotate(-3deg) scale(1.15)" }}>
+      <div className="absolute inset-0 flex flex-col justify-center gap-[18px]" style={{ transform: "rotate(-3deg) scale(1.12)", backgroundColor: "hsl(var(--surface-dark))" }}>
         {/* Row 1 - moving left (titles at the bottom) */}
         <div className="flex animate-marquee" style={{ width: "fit-content" }}>
           {[...row1, ...row1, ...row1].map((item, i) => renderTile(item, `r1-${i}`, "bottom"))}
