@@ -24,7 +24,7 @@ const DiagonalMarquee = () => {
       <Link
         key={key}
         to={`/projects/${item.slug}`}
-        className="flex-shrink-0 w-[380px] md:w-[520px] h-[240px] md:h-[300px] mx-3 rounded-sm overflow-hidden group relative block"
+        className="flex-shrink-0 w-[380px] md:w-[520px] h-[312px] md:h-[390px] mx-3 rounded-sm overflow-hidden group relative block"
         aria-label={name}
       >
         <img

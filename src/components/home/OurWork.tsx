@@ -16,10 +16,10 @@ export const OUR_WORK_SLUGS = [
   "54th-ave-condo-12", // 2. Residential — 54th
   "new-university-hospital", // 3. University Hospital
   "bridgeport-office", // 4. Commercial — Bridgeport Office
-  "lutheran-community-church", // 5. Religious — Lutheran
+  "arabica-coffee", // 5. Hospitality — %Arabica Coffee (2nd row, middle)
   "architect-57-office", // 6. Interior — Architect 57
   "sqn-education", // 7. Civic — SQN
-  "katalin-care-homes", // 8. Healthcare — Katalin
+  "lutheran-community-church", // 8. Religious — Lutheran (3rd row, middle)
   "titanic-exhibition", // 9. Cultural — Titanic
 ] as const;
 

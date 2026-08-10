@@ -134,9 +134,9 @@ const ProjectGallery = ({ images, title }: Props) => {
             type="button"
             onClick={() => setLightbox(false)}
             aria-label="Close"
-            className="absolute top-4 right-4 p-2 text-white/70 hover:text-white transition-colors"
+            className="absolute top-4 right-4 z-[110] inline-flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-sm bg-[hsl(var(--purple-brand))] text-white shadow-lg transition-colors hover:bg-[#56386F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
-            <X className="w-6 h-6" />
+            <X className="w-6 h-6" strokeWidth={2.5} />
           </button>
           {multi && (
             <>
