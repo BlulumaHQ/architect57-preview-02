@@ -51,8 +51,26 @@ const usePageMeta = ({ title, description, path, noindex = false, image }: PageM
     setMeta("description", description);
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
+    setMeta("twitter:card", "summary_large_image");
     setOg("og:title", title);
     setOg("og:description", description);
+
+    // Social image: page-specific (CMS featured image) or the site-wide default.
+    const socialImage = image && /^https?:\/\//.test(image) ? image : DEFAULT_OG_IMAGE;
+    const isDefaultImage = socialImage === DEFAULT_OG_IMAGE;
+    setOg("og:image", socialImage);
+    setOg("og:image:secure_url", socialImage);
+    setMeta("twitter:image", socialImage);
+    if (isDefaultImage) {
+      setOg("og:image:type", "image/png");
+      setOg("og:image:width", "1200");
+      setOg("og:image:height", "630");
+    } else {
+      for (const prop of ["og:image:type", "og:image:width", "og:image:height"]) {
+        document.querySelector(`meta[property="${prop}"]`)?.remove();
+      }
+    }
+
 
     // Self-referencing canonical + og:url on the production host.
     const rawPath = path ?? window.location.pathname;
