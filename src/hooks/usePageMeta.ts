@@ -98,7 +98,7 @@ const usePageMeta = ({ title, description, path, noindex = false, image }: PageM
     } else if (robots) {
       robots.setAttribute("content", "index, follow");
     }
-  }, [title, description, path, noindex]);
+  }, [title, description, path, noindex, image]);
 };
 
 export default usePageMeta;
