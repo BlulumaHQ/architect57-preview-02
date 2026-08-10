@@ -296,17 +296,32 @@ const ProjectDetail = () => {
                     </dl>
                   </div>
                 )}
+
+                {creditRows.length > 0 && (
+                  <div className="pt-6 mt-1 border-t border-border">
+                    <p className="section-eyebrow mb-5">{t("detail.credits")}</p>
+                    <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-x-6 gap-y-5">
+                      {creditRows.map((c) => (
+                        <div key={c.label}>
+                          <dt className="card-label card-label--purple mb-1.5">{c.label}</dt>
+                          <dd className="text-foreground font-light leading-[1.7] whitespace-pre-line break-words">
+                            {c.value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                )}
               </div>
             </aside>
           </div>
         </div>
       </section>
 
-      {/* Narrative / Scope / Key Features / Credits / Tags */}
+      {/* Narrative / Scope / Key Features / Tags */}
       {(hasNarrative ||
         scopeParagraphs.length > 0 ||
         keyFeatureItems.length > 0 ||
-        creditRows.length > 0 ||
         tagNames.length > 0) && (
         <section className="section-padding bg-[hsl(var(--surface-warm))]">
           <div className="container-wide">
