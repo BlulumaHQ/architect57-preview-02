@@ -121,7 +121,7 @@ const Footer = () => {
       {/* Copyright bar */}
       <div className="border-t border-white/10 relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#a11d2d]/30" />
-        <div className="container-wide py-4 md:py-5 flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-1 text-[11px] md:text-[12px] text-white/80 font-normal text-center md:text-left">
+        <div className="container-wide py-4 md:py-5 pb-[calc(1rem+84px+env(safe-area-inset-bottom))] md:pb-5 flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-1 text-[11px] md:text-[12px] text-white/80 font-normal text-center md:text-left">
           <span>© {year} Architect 57 Inc. All Rights Reserved.</span>
           <span className="text-[10px] md:text-[11px] text-white/35">
             Web Design by{" "}
