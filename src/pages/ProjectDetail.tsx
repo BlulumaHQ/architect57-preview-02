@@ -362,23 +362,6 @@ const ProjectDetail = () => {
                 </ScrollReveal>
               )}
 
-              {creditRows.length > 0 && (
-                <ScrollReveal>
-                  <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-5 tracking-tight">
-                    {t("detail.credits")}
-                  </h2>
-                  <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5">
-                    {creditRows.map((c) => (
-                      <div key={c.label}>
-                        <dt className="card-label card-label--purple mb-1.5">{c.label}</dt>
-                        <dd className="text-foreground font-light leading-[1.7] whitespace-pre-line">
-                          {c.value}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                </ScrollReveal>
-              )}
 
               {tagNames.length > 0 && (
                 <ScrollReveal>
