@@ -168,9 +168,13 @@ const ProjectDetail = () => {
     ]).filter((r) => !dynamicCreditValues.has(r.value)),
   ].filter((row, i, all) => all.findIndex((r) => r.label === row.label) === i);
 
-  const galleryImages = Array.from(
+  // Deduplicate by URL; drop the hero/featured image from the gallery when other
+  // images exist, so the same picture is never rendered twice on the page.
+  const uniqueImages = Array.from(
     new Map(project.images.filter((i) => i.url).map((i) => [i.url, i])).values()
   );
+  const withoutFeatured = uniqueImages.filter((i) => i.url !== project.featuredImageUrl);
+  const galleryImages = withoutFeatured.length > 0 ? withoutFeatured : uniqueImages;
 
   const tagNames = Array.from(
     new Set(
@@ -236,15 +240,13 @@ const ProjectDetail = () => {
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            <div className="lg:col-span-8">
-              {galleryImages.length > 0 && (
-                <>
-                  <h2 className="sr-only">{t("detail.gallery")}</h2>
-                  <ProjectGallery images={galleryImages} title={title} />
-                </>
-              )}
-            </div>
-            <aside className="lg:col-span-4">
+            {galleryImages.length > 0 && (
+              <div className="lg:col-span-8">
+                <h2 className="sr-only">{t("detail.gallery")}</h2>
+                <ProjectGallery images={galleryImages} title={title} />
+              </div>
+            )}
+            <aside className={galleryImages.length > 0 ? "lg:col-span-4" : "lg:col-span-12"}>
               <p className="section-eyebrow mb-5">{t("detail.information")}</p>
               <div className="space-y-5">
                 {classification.length > 0 && (
@@ -295,17 +297,32 @@ const ProjectDetail = () => {
                     </dl>
                   </div>
                 )}
+
+                {creditRows.length > 0 && (
+                  <div className="pt-6 mt-1 border-t border-border">
+                    <p className="section-eyebrow mb-5">{t("detail.credits")}</p>
+                    <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-x-6 gap-y-5">
+                      {creditRows.map((c) => (
+                        <div key={c.label}>
+                          <dt className="card-label card-label--purple mb-1.5">{c.label}</dt>
+                          <dd className="text-foreground font-light leading-[1.7] whitespace-pre-line break-words">
+                            {c.value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                )}
               </div>
             </aside>
           </div>
         </div>
       </section>
 
-      {/* Narrative / Scope / Key Features / Credits / Tags */}
+      {/* Narrative / Scope / Key Features / Tags */}
       {(hasNarrative ||
         scopeParagraphs.length > 0 ||
         keyFeatureItems.length > 0 ||
-        creditRows.length > 0 ||
         tagNames.length > 0) && (
         <section className="section-padding bg-[hsl(var(--surface-warm))]">
           <div className="container-wide">
@@ -361,23 +378,6 @@ const ProjectDetail = () => {
                 </ScrollReveal>
               )}
 
-              {creditRows.length > 0 && (
-                <ScrollReveal>
-                  <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-5 tracking-tight">
-                    {t("detail.credits")}
-                  </h2>
-                  <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5">
-                    {creditRows.map((c) => (
-                      <div key={c.label}>
-                        <dt className="card-label card-label--purple mb-1.5">{c.label}</dt>
-                        <dd className="text-foreground font-light leading-[1.7] whitespace-pre-line">
-                          {c.value}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                </ScrollReveal>
-              )}
 
               {tagNames.length > 0 && (
                 <ScrollReveal>
