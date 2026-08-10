@@ -7,10 +7,15 @@ interface PageMeta {
   path?: string;
   /** Force "noindex, nofollow" (e.g. the 404 page) even on the production host. */
   noindex?: boolean;
+  /** Page-specific social image (e.g. a CMS featured image). Falls back to the site default. */
+  image?: string | null;
 }
 
 /** Production canonical host — never a Netlify/Lovable preview host. */
 export const CANONICAL_HOST = "https://www.architect57.com";
+
+/** Site-wide default social sharing image. */
+export const DEFAULT_OG_IMAGE = `${CANONICAL_HOST}/architect57-og.png`;
 
 /** Preview / staging hosts must never compete with the production domain. */
 export const isNoindexHost = (hostname: string): boolean =>
@@ -18,7 +23,8 @@ export const isNoindexHost = (hostname: string): boolean =>
   hostname.endsWith(".lovable.app") ||
   hostname.endsWith(".pages.dev");
 
-const usePageMeta = ({ title, description, path, noindex = false }: PageMeta) => {
+
+const usePageMeta = ({ title, description, path, noindex = false, image }: PageMeta) => {
   useEffect(() => {
     document.title = title;
 
@@ -45,8 +51,26 @@ const usePageMeta = ({ title, description, path, noindex = false }: PageMeta) =>
     setMeta("description", description);
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
+    setMeta("twitter:card", "summary_large_image");
     setOg("og:title", title);
     setOg("og:description", description);
+
+    // Social image: page-specific (CMS featured image) or the site-wide default.
+    const socialImage = image && /^https?:\/\//.test(image) ? image : DEFAULT_OG_IMAGE;
+    const isDefaultImage = socialImage === DEFAULT_OG_IMAGE;
+    setOg("og:image", socialImage);
+    setOg("og:image:secure_url", socialImage);
+    setMeta("twitter:image", socialImage);
+    if (isDefaultImage) {
+      setOg("og:image:type", "image/png");
+      setOg("og:image:width", "1200");
+      setOg("og:image:height", "630");
+    } else {
+      for (const prop of ["og:image:type", "og:image:width", "og:image:height"]) {
+        document.querySelector(`meta[property="${prop}"]`)?.remove();
+      }
+    }
+
 
     // Self-referencing canonical + og:url on the production host.
     const rawPath = path ?? window.location.pathname;
@@ -74,7 +98,7 @@ const usePageMeta = ({ title, description, path, noindex = false }: PageMeta) =>
     } else if (robots) {
       robots.setAttribute("content", "index, follow");
     }
-  }, [title, description, path, noindex]);
+  }, [title, description, path, noindex, image]);
 };
 
 export default usePageMeta;

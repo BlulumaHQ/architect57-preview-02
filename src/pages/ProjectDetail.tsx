@@ -60,7 +60,7 @@ const ProjectDetail = () => {
     ? localizedSeoDescription(project, lang) || factualDesc
     : "";
 
-  usePageMeta({ title: metaTitle, description: metaDesc });
+  usePageMeta({ title: metaTitle, description: metaDesc, image: project?.featuredImageUrl ?? null });
 
   if (isLoading) {
     return (
