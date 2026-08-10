@@ -31,6 +31,24 @@ export interface ProjectsViewProps {
   /** Heading above the grid when filters are hidden. */
   gridHeading?: string;
 }
+/**
+ * Client-requested first-position projects per category filter.
+ * Frontend display only — no CMS/sort_order change. Matched on stable slugs.
+ */
+const CATEGORY_FIRST_PROJECT: Array<{ match: RegExp; slug: string }> = [
+  { match: /^commercial$|commercial/, slug: "bridgeport-office" },
+  { match: /^hospitality$|hospitality/, slug: "arabica-coffee" },
+  { match: /interior|tenant/, slug: "1ne-collective" },
+];
+
+const categoryFirstProjectSlug = (
+  categorySlug: string,
+  categoryName: string | null
+): string | null => {
+  const haystack = `${categorySlug} ${categoryName ?? ""}`.toLowerCase();
+  return CATEGORY_FIRST_PROJECT.find((r) => r.match.test(haystack))?.slug ?? null;
+};
+
 
 /**
  * The one and only Projects presentation component.
@@ -73,8 +91,21 @@ const ProjectsView = ({
 
   const categoryFiltered = useMemo(() => {
     if (activeCategory === "all") return projects;
-    return projects.filter((p) => p.category?.slug === activeCategory);
+    const inCategory = projects.filter((p) => p.category?.slug === activeCategory);
+    // Client-requested first-position priority, category-filter only.
+    // Frontend display order only — CMS sort_order is never modified.
+    const prioritySlug = categoryFirstProjectSlug(
+      activeCategory,
+      inCategory[0]?.category?.name ?? null
+    );
+    if (!prioritySlug) return inCategory;
+    const idx = inCategory.findIndex((p) => p.slug === prioritySlug);
+    if (idx <= 0) return inCategory;
+    const reordered = [...inCategory];
+    const [pinned] = reordered.splice(idx, 1);
+    return [pinned, ...reordered];
   }, [projects, activeCategory]);
+
 
   const tag1Options = useMemo(() => {
     if (activeCategory === "all") return [];

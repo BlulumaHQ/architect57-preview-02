@@ -236,16 +236,38 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Gallery + Project Information */}
+      {/* Gallery + Tags (left) — all project information (right) */}
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            {galleryImages.length > 0 && (
-              <div className="lg:col-span-8">
-                <h2 className="sr-only">{t("detail.gallery")}</h2>
-                <ProjectGallery images={galleryImages} title={title} />
+            {/* LEFT: gallery + tags only */}
+            {(galleryImages.length > 0 || tagNames.length > 0) && (
+              <div className={galleryImages.length > 0 ? "lg:col-span-8" : "lg:col-span-12"}>
+                {galleryImages.length > 0 && (
+                  <>
+                    <h2 className="sr-only">{t("detail.gallery")}</h2>
+                    <ProjectGallery images={galleryImages} title={title} />
+                  </>
+                )}
+                {tagNames.length > 0 && (
+                  <div className="mt-8">
+                    <h2 className="card-label card-label--purple mb-3">{t("detail.tags")}</h2>
+                    <div className="flex flex-wrap gap-2">
+                      {tagNames.map((name) => (
+                        <span
+                          key={name}
+                          className="px-3 py-1 rounded-full border border-foreground/15 text-[13px] font-light text-muted-foreground"
+                        >
+                          {name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
+
+            {/* RIGHT: every other piece of project information */}
             <aside className={galleryImages.length > 0 ? "lg:col-span-4" : "lg:col-span-12"}>
               <p className="section-eyebrow mb-5">{t("detail.information")}</p>
               <div className="space-y-5">
@@ -298,6 +320,53 @@ const ProjectDetail = () => {
                   </div>
                 )}
 
+                {hasNarrative && (
+                  <div className="pt-6 mt-1 border-t border-border">
+                    <p className="section-eyebrow mb-4">{t("detail.overview")}</p>
+                    {lead && (
+                      <p className="text-foreground font-light leading-[1.8] mb-4">{lead}</p>
+                    )}
+                    {bodyParagraphs.length > 0 && (
+                      <div className="space-y-3 text-muted-foreground font-light leading-[1.8]">
+                        {bodyParagraphs.map((para, i) => (
+                          <p key={i}>{para}</p>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {scopeParagraphs.length > 0 && (
+                  <div className="pt-6 mt-1 border-t border-border">
+                    <p className="card-label card-label--purple mb-3">{t("detail.scopeOfWork")}</p>
+                    <div className="space-y-3 text-muted-foreground font-light leading-[1.8]">
+                      {scopeParagraphs.map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {keyFeatureItems.length > 0 && (
+                  <div className="pt-6 mt-1 border-t border-border">
+                    <p className="card-label card-label--purple mb-3">{t("detail.keyFeatures")}</p>
+                    {keyFeatureItems.length > 1 ? (
+                      <ul className="space-y-2 text-muted-foreground font-light leading-[1.8]">
+                        {keyFeatureItems.map((item) => (
+                          <li key={item} className="flex gap-3">
+                            <span className="text-[#714C90] shrink-0">—</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-muted-foreground font-light leading-[1.8] whitespace-pre-line">
+                        {keyFeatureItems[0]}
+                      </p>
+                    )}
+                  </div>
+                )}
+
                 {creditRows.length > 0 && (
                   <div className="pt-6 mt-1 border-t border-border">
                     <p className="section-eyebrow mb-5">{t("detail.credits")}</p>
@@ -319,85 +388,6 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Narrative / Scope / Key Features / Tags */}
-      {(hasNarrative ||
-        scopeParagraphs.length > 0 ||
-        keyFeatureItems.length > 0 ||
-        tagNames.length > 0) && (
-        <section className="section-padding bg-[hsl(var(--surface-warm))]">
-          <div className="container-wide">
-            <div className="max-w-3xl space-y-10">
-              {hasNarrative && (
-                <ScrollReveal>
-                  <h2 className="font-heading text-2xl md:text-3xl font-light text-foreground mb-5 tracking-tight">
-                    {t("detail.overview")}
-                  </h2>
-                  {lead && (
-                    <p className="text-foreground font-light text-[18px] md:text-[20px] leading-[1.7] mb-5">
-                      {lead}
-                    </p>
-                  )}
-                  {bodyParagraphs.length > 0 && (
-                    <div className="space-y-4 text-muted-foreground font-light leading-[1.8]">
-                      {bodyParagraphs.map((para, i) => (
-                        <p key={i}>{para}</p>
-                      ))}
-                    </div>
-                  )}
-                </ScrollReveal>
-              )}
-
-              {scopeParagraphs.length > 0 && (
-                <ScrollReveal>
-                  <h2 className="card-label card-label--purple mb-3">{t("detail.scopeOfWork")}</h2>
-                  <div className="space-y-3 text-muted-foreground font-light leading-[1.8]">
-                    {scopeParagraphs.map((para, i) => (
-                      <p key={i}>{para}</p>
-                    ))}
-                  </div>
-                </ScrollReveal>
-              )}
-
-              {keyFeatureItems.length > 0 && (
-                <ScrollReveal>
-                  <h2 className="card-label card-label--purple mb-3">{t("detail.keyFeatures")}</h2>
-                  {keyFeatureItems.length > 1 ? (
-                    <ul className="space-y-2 text-muted-foreground font-light leading-[1.8]">
-                      {keyFeatureItems.map((item) => (
-                        <li key={item} className="flex gap-3">
-                          <span className="text-[#714C90] shrink-0">—</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-muted-foreground font-light leading-[1.8] whitespace-pre-line">
-                      {keyFeatureItems[0]}
-                    </p>
-                  )}
-                </ScrollReveal>
-              )}
-
-
-              {tagNames.length > 0 && (
-                <ScrollReveal>
-                  <h2 className="card-label card-label--purple mb-3">{t("detail.tags")}</h2>
-                  <div className="flex flex-wrap gap-2">
-                    {tagNames.map((name) => (
-                      <span
-                        key={name}
-                        className="px-3 py-1 rounded-full border border-foreground/15 text-[13px] font-light text-muted-foreground"
-                      >
-                        {name}
-                      </span>
-                    ))}
-                  </div>
-                </ScrollReveal>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
 
 
       {/* Prev / Next */}
