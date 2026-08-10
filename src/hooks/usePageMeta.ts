@@ -24,7 +24,7 @@ export const isNoindexHost = (hostname: string): boolean =>
   hostname.endsWith(".pages.dev");
 
 
-const usePageMeta = ({ title, description, path, noindex = false }: PageMeta) => {
+const usePageMeta = ({ title, description, path, noindex = false, image }: PageMeta) => {
   useEffect(() => {
     document.title = title;
 
