@@ -133,7 +133,7 @@ const translations: Record<string, Record<Lang, string>> = {
   },
   "aboutPage.p3": {
     en: 'Principal Ching-yeh (Cary) Tsai devotes his energy towards the formation of the U.S. Green Building Council — Las Vegas Regional Chapter as part of his way of giving back to the community and help to build a better, healthier, and sustainable living environment.',
-    zh: "主持建築師蔡慶曄 (Cary) 致力於美國綠色建築委員會拉斯維加斯分會的成立，作為回饋社會的方式，協助建造更美好、更健康、更永續的生活環境。",
+    zh: "主持建築師蔡敬業 (Cary Tsai) 致力於美國綠色建築委員會拉斯維加斯分會的成立，作為回饋社會的方式，協助建造更美好、更健康、更永續的生活環境。",
   },
   "aboutPage.servicesLabel": { en: "Expertise", zh: "專業領域" },
   "aboutPage.servicesTitle1": { en: "Our", zh: "我們的" },
