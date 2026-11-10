@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { isNoindexHost } from "../../hosting/noindex-policy";
+export { isNoindexHost } from "../../hosting/noindex-policy";
 
 interface PageMeta {
   title: string;
@@ -16,13 +18,6 @@ export const CANONICAL_HOST = "https://www.architect57.com";
 
 /** Site-wide default social sharing image. */
 export const DEFAULT_OG_IMAGE = `${CANONICAL_HOST}/architect57-og.png`;
-
-/** Preview / staging hosts must never compete with the production domain. */
-export const isNoindexHost = (hostname: string): boolean =>
-  hostname.endsWith(".netlify.app") ||
-  hostname.endsWith(".lovable.app") ||
-  hostname.endsWith(".pages.dev");
-
 
 const usePageMeta = ({ title, description, path, noindex = false, image }: PageMeta) => {
   useEffect(() => {

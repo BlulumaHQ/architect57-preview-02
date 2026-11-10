@@ -1,0 +1,4 @@
+# Deployment rules
+- Keep the SPA and its production canonical/robots/sitemap policies unchanged; serving adapters apply platform-only HTML noindex through the shared hostname policy so custom domains remain unaffected.
+- Cloudflare Workers must run the Worker before static assets on every path; this lets the HTML response header policy cover assets and SPA fallback routes alike.
+- Netlify uses an Edge Function and optional Pages deployments use middleware for hostname-aware headers; Lovable does not execute these adapters or process `_headers`, so never claim its HTML is protected from these files alone.

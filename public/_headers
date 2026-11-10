@@ -1,6 +1,14 @@
-# Preview / staging hosts must not compete with www.architect57.com in search.
-https://:project.netlify.app/*
-  X-Robots-Tag: noindex, nofollow
+# Cloudflare static-asset fallback only, scoped to platform hostnames.
+# Workers, Pages middleware and Netlify Edge apply the conditional HTML policy.
+# Lovable hosting does NOT process this file. Never add a global /* noindex.
+https://:worker.:account.workers.dev/*
+  X-Robots-Tag: noindex
 
-https://:project.lovable.app/*
-  X-Robots-Tag: noindex, nofollow
+https://:version.:worker.:account.workers.dev/*
+  X-Robots-Tag: noindex
+
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:branch.:project.pages.dev/*
+  X-Robots-Tag: noindex
