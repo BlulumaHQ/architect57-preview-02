@@ -1,4 +1,3 @@
-// @vitest-environment node
 import { describe, expect, it } from "vitest";
 import worker from "../../hosting/worker";
 import { onRequest } from "../../functions/_middleware";
