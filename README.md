@@ -49,6 +49,14 @@ Public HTTP checks before deployment:
   verify publicly accessible application HTML.
 
 Tests: `bunx vitest run src/test/noindex-host.test.ts src/test/noindex-response.test.ts`.
+Verified: 27 tests passed, 26 route-audit checks passed, and the automatic
+preview build reported `build OK`. No manual project build was run.
+The Workers adapter also passed 25 real local HTTP hostname/path checks using
+a source-HTML fixture (not a production bundle). The pinned local runtime
+cannot run the existing `2026-08-08` compatibility date (its maximum is
+`2026-07-29`); only a temporary test configuration used the older date.
+The project's deployment compatibility date and dependency versions were not changed.
+Netlify and Pages adapters passed unit tests, not deployed-platform checks.
 Route audit: `npm run audit:routes`. After redeployment, check raw GET/HEAD
 responses at `/`, `/about`, a real project URL and a missing nested path on
 each actual deployment host. Platform HTML must contain an unscoped noindex
