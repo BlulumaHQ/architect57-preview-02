@@ -14,8 +14,8 @@ export function applyNoindexPolicy(request: Request, response: Response): Respon
   }
   const headers = new Headers(response.headers);
   const existing = headers.get("X-Robots-Tag");
-  // Append an unscoped directive even when an existing directive targets one bot.
-  headers.set("X-Robots-Tag", existing ? `${existing}, noindex` : "noindex");
+  // Put the unscoped directive first, before any bot-specific prefix.
+  headers.set("X-Robots-Tag", existing ? `noindex, ${existing}` : "noindex");
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,

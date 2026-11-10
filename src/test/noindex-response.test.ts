@@ -44,7 +44,7 @@ describe("crawler-visible response policy", () => {
     const response = applyNoindexPolicy(new Request("https://site.netlify.app/"), new Response("html", {
       headers: { "Content-Type": "text/html", "X-Robots-Tag": "googlebot: nofollow" },
     }));
-    expect(response.headers.get("X-Robots-Tag")).toBe("googlebot: nofollow, noindex");
+    expect(response.headers.get("X-Robots-Tag")).toBe("noindex, googlebot: nofollow");
   });
   it("all three deployment adapters wrap the actual downstream HTML", async () => {
     const request = new Request("https://site.account.workers.dev/projects/bridgeport-office-building");
